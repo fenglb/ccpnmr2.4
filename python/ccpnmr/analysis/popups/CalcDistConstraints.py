@@ -1871,6 +1871,7 @@ class CalcDistConstraintsPopup(BasePopup):
         if constraintsPopup:
           constraintsPopup.turnOffNotifiers()
     
+      scale          = self.noeFrame.getScale()
       assignPeakList = self.peakListCheck.get()
       intensityType  = self.noeFrame.intensityType
       params         = self.noeFrame.getParams()
@@ -1880,7 +1881,7 @@ class CalcDistConstraintsPopup(BasePopup):
       threshold      = self.thresholdEntry.get() or 1.0
       constraintList = networkAnchorAssign(peakLists, intensityType=intensityType,
                                            strictness=strictness,progressBar=progressBar,
-                                           constraintSet=self.constraintSet, distParams=params,
+                                           constraintSet=self.constraintSet, distParams=params, scale=scale,
                                            labelling=self.labellingScheme,
                                            minLabelFraction=minLabelFrac, 
                                            threshold=threshold, isotopeTolerances=TOLERANCE_DICT, 

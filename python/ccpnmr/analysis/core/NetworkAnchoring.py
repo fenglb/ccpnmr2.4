@@ -62,7 +62,7 @@ TOLERANCE_DICT = {'1H':hTol,'15N':nTol,'13C':cTol,'13C,15N':cTol}
 
 def networkAnchorAssign(peakLists, intensityType='height', strictness=2, threshold=1.0,
                         isotopeTolerances=None, assignPeakList=True, constraintSet=None,
-                        labelling=None, minLabelFraction=0.1,
+                        labelling=None, minLabelFraction=0.1, scale=None,
                         distParams=None, structure=None, progressBar=None, nexus=None):
 
   if not peakLists:
@@ -106,6 +106,8 @@ def networkAnchorAssign(peakLists, intensityType='height', strictness=2, thresho
       continue
   
     meanIntensity = getMeanPeakIntensity(peakList.peaks, intensityType=intensityType)
+    if scale:
+        meanIntensity = scale
       
     spectrum = peakList.dataSource
     distDims = getThroughSpaceDataDims(spectrum)
@@ -148,7 +150,7 @@ def networkAnchorAssign(peakLists, intensityType='height', strictness=2, thresho
             intensity = peakIntensity.value
             intensity /= float(len(contribs1))
             intensity /= float(len(contribs2))
-            intensity /= meanIntensity
+            #intensity /= meanIntensity
             
             for contrib1 in contribs1:
               resonance1 = contrib1.resonance
@@ -353,7 +355,7 @@ def networkAnchorAssign(peakLists, intensityType='height', strictness=2, thresho
       hDims = [dd.dim-1 for dd in distDims]
       tolerances = getDimTolerances(spectrum)
       bondedDims = getBondedDimsDict(spectrum)
-      meanIntensity = getMeanPeakIntensity(peakList.peaks, intensityType=intensityType)
+      #meanIntensity = getMeanPeakIntensity(peakList.peaks, intensityType=intensityType)
 
       info = (spectrum.experiment.name, spectrum.name, peakList.serial, len(peakList.peaks))
       #print '  Using %s:%s:%d - %d peaks' % info
@@ -442,7 +444,7 @@ def networkAnchorAssign(peakLists, intensityType='height', strictness=2, thresho
           continue
        
         else:  
-          intensity = peakIntensity.value/meanIntensity
+          intensity = peakIntensity.value#/meanIntensity
           
         scores = {}
         numbers = {}
@@ -641,7 +643,7 @@ def networkAnchorAssign(peakLists, intensityType='height', strictness=2, thresho
         else:
           intensity += constraint.origData 
  
-        dist, minDist, maxDist = distanceFunction(intensity)
+        dist, minDist, maxDist = distanceFunction(intensity/meanIntensity)
         error = abs(maxDist - minDist)
         
         constraint.origData    = intensity 
