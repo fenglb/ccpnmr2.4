@@ -4505,6 +4505,11 @@ class WindowFrame(Frame, WindowDraw):
     
   def keypress(self, event):
 
+    # ubuntu 15.10 16.04 event mouse point by robin
+    if event.x < 0:
+        event.x += self.winfo_pointerx()
+        event.y += self.winfo_pointery()
+
     if self.keypressTime is not None:
       time  = event.time
       delta = time - self.keypressTime
