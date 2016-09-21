@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure : Restraints and Violations &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Structure : Structures" href="EditStructuresPopup.html" />
+    <link rel="prev" title="Structure" href="../menu/Structure.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditStructuresPopup.html" title="Structure : Structures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Structure.html" title="Structure"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure-restraints-and-violations">
+<h1>Structure : Restraints and Violations<a class="headerlink" href="#structure-restraints-and-violations" title="Permalink to this headline">¶</a></h1>
+<p><strong>Display Structure Restraint and Restraint Violation Data</strong></p>
+<p>This popup window is used to manage and display structural restraints. Mostly
+such restraints are derived from NMR data and are applied during a structure
+calculation to restrict molecular conformations to those which are consistent
+with the observed data. Many kinds of NMR data can be used to generate
+restraints and the restraints themselves are of different types. This
+system will display tables for any kind or restraint described in the CCPN
+data model, but the most common kind of restraints are for distances and
+dihedral (torsion) angles.</p>
+<p>This system is used for viewing and managing restraint information on a large
+scale, it is not used directly for the initial generation of the restraints
+themselves. Structural restraints may be imported into CCPN via the
+<a class="reference external" href="FormatConverter.html">FormatConverter</a> or they may be created with various various dedicated
+components available in CCPN software. For example distance restraints may be
+made via the <a class="reference external" href="CalcDistConstraintsPopup.html">Make Distance Restraints</a> (using through space experiments like
+NOESY) and <a class="reference external" href="MakeHbondRestraintsPopup.html">Make H Bond Restraints</a> options. Dihedral angle restraints can be
+made from chemical shift information using <a class="reference external" href="DangleGui.html">DANGLE</a> and from scalar couplings
+using the <a class="reference external" href="CalcHnHaCouplingPopup.html">3J H-Ha Coupling</a> option.</p>
+<p><strong>Restraint Sets</strong></p>
+<p>The first &#8220;Restraint Sets&#8221; tabs lists all of the sets into which the restraint
+lists of the project are grouped into. The table indicates how many restraint
+and violation lists are in the set as well as an indication of the number of
+&#8220;fixed&#8221; resonance assignments that have been frozen in the set. Restraint sets
+may be deleted here, but are created elsewhere; when restraint lists are
+created they can be put into a new or existing set.</p>
+<p>Within CCPN, restraints are stored in restraint lists which group together
+restraints of the same type (i.e. angle and distance restraints cannot be
+mixed in a list). Restraint lists are further grouped together into restraint
+sets. A restraint set often represents all of the restraint lists that will be
+used together at the same time during a structure calculation. However, this
+grouping is slightly more subtle because a restraint set has important
+consequences with regards to NMR resonance assignment. In essence, a restraint
+set takes a fixed snapshot of the resonance assignment status at the time the
+restraints were made. Consequently, if atomic assignments change after
+restraints are generated the restraints will remain linked to the original
+atoms. This is helpful to the user because it is always possible to know what
+was actually restrained in a structure calculation. The user should however be
+careful when putting new restraints into old restraint sets; if atom
+assignments have changed then even the new restraints (actually between NMR
+resonances) will still restrain the old atom assignments. Thus it is good
+practice to always make a new restraint set if assignments have changed.</p>
+<p><strong>Restraint Lists</strong></p>
+<p>The second &#8220;Restraint Lists&#8221; tab displays all of the restraint lists that are
+available in the selected restraint set. The restraint set may be selected in
+the pulldown menu above the tabs. Generally this table is used to give an
+overview of the restraint lists but several high-level functions are
+accessible via the buttons below the table. As described above, the actual
+restraint generation takes place elsewhere in dedicated systems.</p>
+<p>Restraint lists my be deleted and merged/combined together into a single list
+(if they are of the same type). It is notable that restraint lists may  also
+be split. Currently there are two means of doing this, the first is to [Split
+Ambig/Unambig] which separates a distance restraint list into two, where one
+list contains only restraints that are equivalent to a single assignment (only
+two linked atoms or prochiral sets) and the other list has restraints that
+represent multiple, ambiguous assignments. The [Split Violated] function is
+helpful during violation analyses, which aim to determine which restraints are
+incompatible (e.g. mistaken assignment, minor conformation or artifact) with a
+structural model. This will separate out a list of those restraints that are
+violated in a structure (beyond the restraint bounds) for further inspection.</p>
+<p><strong>Restraints</strong></p>
+<p>The third &#8220;Restraints&#8221; tab allows the user to view all of the individual
+restraints within a restraint list, selected via the left hand &#8220;Restraint
+List&#8221; pulldown. If any structure violation analyses have been performed on the
+list the user can select from the &#8220;Violation List&#8221; pulldown. Any restraints
+that  were violated in the structural analysis will be coloured; red, orange
+or yellow depending on severity. Also where violations are recorded the
+columns for &#8220;Mean Viol&#8221;; average violation amount over a structure ensemble,
+and &#8220;Viol Fraction&#8221;; the proportion of an ensemble&#8217;s models that were violated,
+are filled.</p>
+<p>Selecting from the &#8220;Structure&#8221; pulldown menu allows geometric information to
+be extracted from a structure ensemble, so that it may be compared with the
+values that are being restrained. Accordingly, if a structure violation
+analysis is performed using [Calculate Violations] then it is the selected
+structure that is compared with the restraints to find inconsistencies. Also,
+selecting as structure allows the &#8220;Struc Value&#8221; column to be filled with the
+value calculated from the resonance locations in the structure. Here   the kind
+of value naturally differs according to which type of restraint  list is
+displayed.</p>
+<p>The &#8220;Value Method&#8221; pulldown menu is notable for distance restraints because it
+allows the user to switch between &#8220;NOE sum&#8221; and &#8220;Minimum&#8221; options. These are
+relevant because a restraint, which restrains pairs of resonances, may link
+groups that contain multiple atoms (e.g. a methyl group). With multiple atoms
+at the end of a distance restraint there is flexibility about how the distance
+is defined. The &#8220;Minimum&#8221; method to measuring distances simply records the
+shortest distance between any pair of atoms from either side of the restraint
+(e.g. the closes atoms in two methyls). The &#8220;NOE sum&#8221; method uses r^-6
+distance summation to give a value that represents what the equivalent NOE
+estimated distance would be if a signal were recorded between the two atom
+groups. For example, if a restraint is to a methyl group all three methyl
+atoms will contribute to increase the intensity of an NOE signal, so the
+distance will appear to <em>shorter</em> than the single atom equivalent. Hence it is
+this shorter distance that will come from the NMR data and appear in the
+restraint, and thus the shorter distance that should be used in violation
+analyses. The get the &#8220;NOE sum&#8221; distance the pairs of atom distances
+are first converted into a kind of &#8216;NOE intensity&#8217; (r^-6), these are added
+together to give the total &#8216;NOE intensity&#8217;, which is then converted back
+into a distance.</p>
+<p>In the main restraints table the restrains are listed as coloured rows, but
+there will often be grey rows present. A grey row represents an alternative
+set of restrained resonances (e.g. a different pair of atoms) but relates to
+the same restrained value. The main coloured row for a restraint and the grey
+alternatives are both referred to as the &#8220;items&#8221; for the restraint. Hence at
+the bottom there is the [Delete Items] button to remove specific restraint
+alternatives. In this regard there is no difference between the first green
+item and the other possibilities; it is fairly arbitrary which item comes
+first. Naturally deleting all of the items (possibilities) in a restraint
+removes the whole restraint. Although the first item is often coloured green
+it may have other colours indicating a structural violation. A restraint with
+more than one item may reflect either a genuine signal overlap, e.g. an NOE
+peak is caused by two or more close atom pairs that have similar chemical
+shifts and cannot be separated, or ambiguous trial assignments that come from
+speculatively matching chemical shifts to spectrum peaks.</p>
+<p>The various functions below the table allow restraints to be managed but the
+restrained resonances, and the parameter values they relate, to come from
+specialised restraint generation systems. In general the restraint information
+is derived from NMR experimentation and not adjusted by hand, Several functions
+allow the user to link between the restraints and any spectrum peaks that they
+are derived from. This can be done after selecting restraints with [Show
+Peaks] or after selecting peaks with [Show Restraints For Selected Peaks].
+There are also functions to coordinate assignments between the restraints and
+peaks. How this is done in practice tends to vary with personal preference,
+but it is possible to both refresh a restraint according to the latest peak
+assignment with [Update Assignment From Peak] or refresh the peaks according
+to the restraints (e.g. after an ARIA or CYANA run that removes restraint
+ambiguity) with [Update Peak Assignments].</p>
+<p><strong>Violation Lists</strong></p>
+<p>The forth &#8220;Violation Lists&#8221; tab gives details of all of the violation analyses
+that have been recorded in the project. Strictly speaking, each violation list
+can contain results from several analyses but this is usually not the case in
+normal Analysis operation. The individual violation records are presented in
+the last &#8220;Violations&#8221; tab, and also  affect the violation data presented in
+the &#8220;Restraints&#8221; table. Violation lists may be calculated, given a structure
+and a restraint list, inside Analysis using [Calculate Violations] in the
+&#8220;Restraints&#8221; tab, or they may be imported from external programs like ARIA.</p>
+<p>A violation list is a grouping of violation entities, and these record an
+inconsistency between the restrained values of a restraint and what is
+actually observed in a structure (or ensemble). Essentially this means a
+structural value is outside the bonds of the restraint. Clicking on a
+violation list in the upper table will fill the lower table with an overview
+of the structure models that were used in the restraint violation analysis
+(usually just a single ensemble).</p>
+<p><strong>Violations</strong></p>
+<p>The last tab lists all of the violation items that were recorded in a
+selected violation list. This table will present some of the same information
+as the &#8220;Restraints&#8221; tab, if a violation list is selected there. The data is
+merely presented in a different way. Selecting a specific row in the table
+allows the user to [Show Restraint], to view the restraint that was violated
+in the &#8220;Restraints&#8221; tab. Other functions allow the user to jump to the peak,
+that gave rise to the restraint, which may be the underlying source of the
+problem.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Having large restraint sets in a CCPN project can make loading the CCPN data
+into Analysis slow, and takes up more memory. Thus it is advisable to delete
+any restraint sets that are no longer in use,</p>
+<p>If the restraint table is slow to update, consider switching off any structure
+selection. Extracting values from large structure ensembles can take a
+noticeable amount of time.</p>
+<p>The [Calculate Violations] function will not work until a Structure is
+selected.</p>
+<p>Although the CCPN violation analysis tries to do a good job it can never be
+exactly the same as analyses performed during a structure calculation. Most of
+the reason for this is due to the stereo-specific resolution of prochiral
+atoms. For example, Analysis can only determine which of HBa or HBb atoms
+actually goes with the HB2 or HB3 sites by taking a poll (based on minimising
+violation) after the structure calculation is complete, and this prochiral
+resolution may differ from what actually occurred in the calculation
+(minimising energy).</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Restraint Set</strong>: Which set of restraints is currently active in the popup;
+a grouping for restraint and violation lists</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="restraint-sets">
+<h2>Restraint Sets<a class="headerlink" href="#restraint-sets" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of restraint set</td>
+</tr>
+<tr><td><em>Restraint Lists</em></td>
+<td>Number of restraint lists, of all types, in the set</td>
+</tr>
+<tr><td><em>Violation Lists</em></td>
+<td>Number of violation lists in the set</td>
+</tr>
+<tr><td><em>Fixed Resonances</em></td>
+<td>Number of resonances (fixed in assignment) used to describe restraints in the set</td>
+</tr>
+<tr><td><em>Fixed Atom Sets</em></td>
+<td>Number of atom groups (fix in assignment) used in the set&#8217;s restraints</td>
+</tr>
+<tr><td><em>Fixed Resonance Sets</em></td>
+<td>Number of fixed resonance to atom set assignments</td>
+</tr>
+<tr><td><em>Chain States</em></td>
+<td>Number of alternate chain conformations explicitly covered</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Import</strong>: <strong>Disabled option</strong>, import restraints from file. Use FormatConverter</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected restraint set with all its restraints and violations</p>
+</div>
+<div class="section" id="restraint-lists">
+<h2>Restraint Lists<a class="headerlink" href="#restraint-lists" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The restraint list serial number, within its containing restraint set</td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>The restraint list type; distance, dihedral, h-bond etc.</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The human name to identify the restraint list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Restraints</em></td>
+<td>The number of individual restraints in the list</td>
+</tr>
+<tr><td><em>Experiments</em></td>
+<td>The NMR experiments used to derive the restraints</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User editable textual comment for the list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>The units of the restrained quantity</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Restraints</strong>: Show a table of individual restraints for the selected restraint list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export ARIA list</strong>: Export the selected restraint list (if distance type) as a CNS .tbl file for ARIA v1</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create Equiv. Peaks</strong>: Make peaks equivalent to restraints. Requires that the restraints were initially made in CCPN</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Selected Lists</strong>: Delete the selected restraint lists</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge Lists</strong>: Merge the selected restraint lists into a single list (if the same type)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Split Ambig/Unambig</strong>: Split the last selected restraint list into two new lists; one which has ambiguous (excluding prochiral ambiguity) atom restraints and one which does not</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Split Violated</strong>: Split the last selected restraint list into two new lists; one with violated restraints, one with non-violated</p>
+</div>
+<div class="section" id="restraints">
+<h2>Restraints<a class="headerlink" href="#restraints" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Restraint List</strong>: Select the specific list to display restraints for; number:type:name</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Violation List</strong>: Select which violation list, if any, to display restraint violations from</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Structure</strong>: Select which loaded structure to use for restraint value comparison</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Value Method</strong>: Select how values are generated from a structure: &#8220;NOE sum&#8221; is used where
+ambiguous distance restraint options all contribute NOE peak intensity</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of restraint &amp; any ambiguous item (restraint:item)</td>
+</tr>
+<tr><td><em>Resonances</em></td>
+<td>The name of the resonances restrained (fixed within the restraint set)</td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>The target or best value for the restraint, e.g. optimum distance</td>
+</tr>
+<tr><td><em>Upper Limit</em></td>
+<td>The lower bound value for the restraint</td>
+</tr>
+<tr><td><em>Lower Limit</em></td>
+<td>The upper bound value for the restraint</td>
+</tr>
+<tr><td><em>Error</em></td>
+<td>An error value for the restraint, often just the with between bounds</td>
+</tr>
+<tr><td><em>Peaks</em></td>
+<td>The number of CCPN peaks used to derive the restraint information</td>
+</tr>
+<tr><td><em>Mean Viol</em></td>
+<td>The average value of a violation over a structure ensemble</td>
+</tr>
+<tr><td><em>Viol Fraction</em></td>
+<td>The fraction of a structure ensemble&#8217;s conformations (models) violated by the restraint</td>
+</tr>
+<tr><td><em>Struc Value</em></td>
+<td>The value of the data being restrained in the selected structure ensemble</td>
+</tr>
+<tr><td><em>Orig. Data</em></td>
+<td>The data value used to derive the restraint e.g. relative peak intensity</td>
+</tr>
+<tr><td><em>Weight</em></td>
+<td>The relative strength weighing of the restraint (not used by all structure calculation protocols)</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User-editable textual comment for the restraint  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Items</em></td>
+<td>The number of ambiguous or alternative possibilities on the restraint</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Items</strong>: Delete the selected restraint items; assignment possibility not necessarily whole restraint</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Restraints</strong>: Delete all (whole) restraints for selected items, even where only one item of an ambiguous restraint is selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Restraints for Selected Peaks</strong>: If present in the table, highlight the rows of the restraints derived from peaks selected in spectrum windows</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update Assignment From Peak</strong>: Update the items (assignment possibilities) for a restraint from any linked CCPN peak</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of peaks from which the selected restraints were derived</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Selected On Structure</strong>: Show the connections of the selected restraints on a graphical structure display</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Peak</strong>: Assign the peak from which a restraint is derived</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Violations</strong>: Show a table of individual violation records for selected list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Calculate Violations</strong>: Calculate restraint violation records for restraints using selected structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export ARIA List</strong>: Export the restraints as a CNS .tbl file for ARIA v1</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete List</strong>: Delete the entire restraint list currently on display</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Setup Resonances</strong>: For imported restraints add any possible CCPN resonance links</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge Duplicates</strong>: Merge any restraints that represent the same atoms pairings together, e.g. from reciprocating return NOE peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update Peak Assignments</strong>: Update the assignments of any linked CCPN peaks according to the current restraint items</p>
+</div>
+<div class="section" id="violations-lists">
+<h2>Violations Lists<a class="headerlink" href="#violations-lists" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the violation list</td>
+</tr>
+<tr><td><em>Violations</em></td>
+<td>The number of violation records in the list</td>
+</tr>
+<tr><td><em>Structures</em></td>
+<td>The number of structural models used in violation calculation</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User-editable textual comment for violation list</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Violations</strong>: Show a table of individual violation entries for the selected list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Lists</strong>: Delete the selected violation lists</p>
+<div class="section" id="structures-analysed">
+<h3>Structures Analysed<a class="headerlink" href="#structures-analysed" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Number of structure ensemble used in violation analysis</td>
+</tr>
+<tr><td><em>Models</em></td>
+<td>The number of the conformational models used in the violation analysis</td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>The molecular chains present in the structure</td>
+</tr>
+<tr><td><em>Generation</em></td>
+<td>Any structure generation group to which the structure belongs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="violations">
+<h2>Violations<a class="headerlink" href="#violations" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Violation List</strong>: Select which violation list to show violation items for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>Restraints List</em></td>
+<td>The restraint list that the violations were calculated for</td>
+</tr>
+<tr><td><em>Restraint</em></td>
+<td>The restraint that was analysed in terms of value &amp; bounds</td>
+</tr>
+<tr><td><em>Amount</em></td>
+<td>The amount violated; difference from the nearest restraint bound</td>
+</tr>
+<tr><td><em>% Violated</em></td>
+<td>The % of conformational models violated in structure</td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>The type of the restraint analysed; distance, dihedral etc.</td>
+</tr>
+<tr><td><em>Peaks</em></td>
+<td>The number of peaks used to derive the constraint</td>
+</tr>
+<tr><td><em>Calc Value</em></td>
+<td>The structure-derived value use to calculate the violation</td>
+</tr>
+<tr><td><em>Value Error</em></td>
+<td>The error in the violation amount</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Peak</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Restraint</strong>: <em>Documentation missing</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure : Restraints and Violations</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#restraint-sets">Restraint Sets</a></li>
+<li><a class="reference internal" href="#restraint-lists">Restraint Lists</a></li>
+<li><a class="reference internal" href="#restraints">Restraints</a></li>
+<li><a class="reference internal" href="#violations-lists">Violations Lists</a><ul>
+<li><a class="reference internal" href="#structures-analysed">Structures Analysed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#violations">Violations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Structure.html"
+                        title="previous chapter">Structure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditStructuresPopup.html"
+                        title="next chapter">Structure : Structures</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/BrowseConstraintsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditStructuresPopup.html" title="Structure : Structures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Structure.html" title="Structure"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

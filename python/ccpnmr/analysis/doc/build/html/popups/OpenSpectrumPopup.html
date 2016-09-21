@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experiment : Open Spectra &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Experiment" href="../menu/Experiment.html" />
+    <link rel="next" title="Experiment : Spectra" href="EditSpectrumPopup.html" />
+    <link rel="prev" title="Experiment" href="../menu/Experiment.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditSpectrumPopup.html" title="Experiment : Spectra"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Experiment.html" title="Experiment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" accesskey="U">Experiment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="experiment-open-spectra">
+<h1>Experiment : Open Spectra<a class="headerlink" href="#experiment-open-spectra" title="Permalink to this headline">¶</a></h1>
+<p><strong>Locate Spectrum Data for Use in CCPN Project</strong></p>
+<p>This popup window enables the user to locate spectrum data within a file
+system and associate the files (typically binary) with an experiment and
+spectrum name so that it may be visualised and accessed within the current
+CCPN project. Spectra of many different origins and file formats may be
+loaded, which currently includes Bruker, Varian, Felix, NMRPipe, NmrView,
+SPARKY/UCSF, Azara and the factorised shape format &#8220;USF3&#8221;. Depending upon the
+file format of the spectrum, data loaded the user may be required to either
+select a parameter file which then refers to the actual spectrum intensity
+data; this is true for Bruker &#8220;procs&#8221; and AZARA &#8221;.par&#8221; files, or alternatively
+a spectrum data file itself that contains referencing information; this is
+the case for SPARKY/UCSF, NmrView and NMRPipe spectra.</p>
+<p>The layout of the popup involved two sections; the upper of which is for
+navigating to and selecting the spectrum or parameter files within the
+file-system, and the lower is for specifying how each spectrum is loaded into
+the CCPN project. It should be noted that when spectrum parameters are read
+the first time, the relevant information is copied into the CCPN project,
+where it may be adjusted independently of the original file information. No
+copies of the spectrum intensity data are made, the CCPN project merely refers
+to the spectrum data on disk, although the data file for a loaded spectrum may
+subsequently be moved or replaced.</p>
+<p>In normal operation the user first selects the kind of spectrum file format
+that will be loaded via the upper &#8220;File format&#8221; pulldown menu and then checks
+that the &#8220;File type&#8221; pulldown (toward the bottom of the file browser) is set
+to detect the appropriate kinds of filename; if a helpful file name filter is
+not available the user can add one via the &#8220;Manual Select&#8221; field, taking care
+to add any wild-card symbols, like the asterisk in &#8220;*.ft3&#8221;. Next the spectrum
+data or parameter files, appropriate to the selected format, are located by
+navigating within the file-system browser. When the required spectrum files are
+visible the user selects one <em>or more</em> to load. Multiple file selections may
+be made using left-click with &lt;Ctrl&gt; (toggle selection) or &lt;Shift&gt; (select
+range). It should be noted that when selecting Bruker files, when using the
+standard Bruker directory structure, the user only needs to navigate to the
+numbered spectrum directory; by default the &#8220;procs&#8221; file two levels down is
+searched for, e.g. &#8220;123/pdata/1/procs&#8221; is shown in the directory containing
+the &#8220;123&#8221; directory.</p>
+<p>When spectrum or parameter files are selected in the file table, the lower
+&#8220;Spectra To Open&#8221; table is filled to reflect the selection. The user should
+then be mindful of the settings within this table and may choose to edit
+various things by double-clicking on the appropriate cell. Typically the user
+just adjusts the name of the independent &#8220;Experiment&#8221; and &#8220;Spectrum&#8221; records.
+These names are usually concatenated like &#8220;expName:specName&#8221; in CCPN graphical
+displays so there is no need to repeat a name in both fields; this only takes
+up more space. The Experiment, which is a record of <em>what was done
+experimentally</em>, commonly has a short name like &#8220;HNCA&#8221; or &#8220;HSQC_298K&#8221; so the
+user readily knows how to interpret the experimental data. The Spectrum, which
+is a record of <em>the data that was collected</em>, commonly has a short name to
+identify the spectrum number or file name. An Experiment record may contain
+several Spectrum records, so the spectrum&#8217;s name need minimally only identify
+it amongst others from the same experiment. The Shift List value may be
+changed if the user knows that the experiment represents a distinct set of
+conditions, with different spectrum peak/resonance positions, to existing or
+other experiments being entered. Each shift list will be curated separately,
+to give separate chemical shift values for assignments made under different
+conditions (even when relating to the same atoms). The shift list that an
+experiment uses may also be changed at any time after loading.</p>
+<p>When all spectra and options are specified the [Open Spectrum] button will
+load the relevant data into the CCPN project. If the &#8220;Skip verification
+dialogs&#8221; option is set it is assumed that all of the spectrum point to
+frequency referencing information, and any data file references, are correct.
+Otherwise, the user will be prompted to confirm the file details and
+referencing information for each spectrum in turn. Finally, after loading the
+user is asked to set the type of NMR experiment, in terms of general
+magnetisation transfer pathway, that was performed.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>If the name of an Experiment that is <em>already within the CCPN project</em> is
+used, then the loaded spectrum will (assuming it is compatible) be entered
+under that existing experiment record; no new experiment entity will be
+defined. The user may legitimately use this feature to load several spectra
+that relate to the same experiment; typically where spectra are different
+projections. To facilitate this the &#8220;Use shared experiment&#8221; option can be
+selected.</p>
+<p>Although experiments and spectra may be renamed after loading, a spectrum
+record may not be placed under a different experiment once created; deletion
+and re-loading is the only mans of achieving this, and care must be taken in
+transferring any assignments.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="file-selection">
+<h3>File Selection<a class="headerlink" href="#file-selection" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>File format</strong>: Selects which kind of spectrum file is being loaded; what its data matrix format is</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of file, directory or link</td>
+</tr>
+<tr><td><em>Size</em></td>
+<td>Size of file in bytes</td>
+</tr>
+<tr><td><em>Date</em></td>
+<td>Date of last modification</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Back</strong>: Go to previous location in history</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Forward</strong>: Go forward in location history</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Up</strong>: Go up one directory level</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Top</strong>: Go to root directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Home</strong>: Go to home directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New</strong>: Make a new directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh</strong>: Refresh directory listing</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>File type</strong>: Restrict listed files to selected suffix</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show hidden</strong>: Show hidden files beginning with &#8221;.&#8221; etc.</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Dir path</strong>: Directory navigation to current location</p>
+</div>
+<div class="section" id="spectra-to-open">
+<h3>Spectra To Open<a class="headerlink" href="#spectra-to-open" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Skip verification dialogs</strong>: Whether to allow the user to check file interpretation and referencing information before the spectrum is loaded</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use shared experiment</strong>: When selecting multiple spectrum files, whether the loaded spectra will all belong to (derive from) the same experiment; useful for projection spectra etc.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>A short textual name for the experiment record that the loaded spectrum will belong to; may be a new experiment or the name of an existing one  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>A short textual name to identify the spectrum within its experiment; typically a few characters or spectrum number, rather than a repeat of the experiment name  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>File</em></td>
+<td>The location of the file, relative to the current directory, that the spectrum data will be loaded from</td>
+</tr>
+<tr><td><em>Windows</em></td>
+<td>Sets which window or windows the spectrum will initially appear within once loaded  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Shift List</em></td>
+<td>Sets which shift list the experiment (and hence loaded spectrum) will use to curate chemical shift information; can be changed after load time  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Open Spectrum</strong>: Load spectrum or spectra into the CCPN project using the selected file(s)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment : Open Spectra</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#file-selection">File Selection</a></li>
+<li><a class="reference internal" href="#spectra-to-open">Spectra To Open</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Experiment.html"
+                        title="previous chapter">Experiment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditSpectrumPopup.html"
+                        title="next chapter">Experiment : Spectra</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/OpenSpectrumPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditSpectrumPopup.html" title="Experiment : Spectra"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Experiment.html" title="Experiment"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" >Experiment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

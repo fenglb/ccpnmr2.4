@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ConstraintBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="CouplingBasic" href="CouplingBasic.html" />
+    <link rel="prev" title="ChemicalShiftBasic" href="ChemicalShiftBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CouplingBasic.html" title="CouplingBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ChemicalShiftBasic.html" title="ChemicalShiftBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.ConstraintBasic">
+<span id="constraintbasic"></span><h1>ConstraintBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.ConstraintBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.copyFixedResonance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">copyFixedResonance</tt><big>(</big><em>fixedResonance</em>, <em>nmrConstraintStore</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.copyFixedResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an equivalent fixed resonance in the input constraint store</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.FixedResonance, Nmr.NmrConstraintStore</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.FixedResonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.exportAriaTbl">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">exportAriaTbl</tt><big>(</big><em>constraints</em>, <em>fileName</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.exportAriaTbl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports a constraint list to a file as an ARIA 1.x readable .tbl file (similar
+to CNS format). For proper CNS format use CcpNmr FormmatConverter.
+NBNB will expand restraisnt (A&lt;-&gt;C) or B&lt;-&gt;D) to (A or B)&lt;-&gt;(C or D)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrConstraint.DistanceConstraints, String (export file name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getConstraintAtoms">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getConstraintAtoms</tt><big>(</big><em>constraint</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getConstraintAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the atoms that may be assigned to the constrained resonances
+The outer most list is due to restraint ambiguity, the middle list
+is the list for different resonances and the inner list
+is for equivalent atoms.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.AbstractConstraint</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of List of MolSystem.Atoms</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getConstraintStoreResonances">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getConstraintStoreResonances</tt><big>(</big><em>nmrConstraintStore</em>, <em>makeUnassignedResonances=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getConstraintStoreResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes any missing resonances for assigned fixedResonances in an
+NmrConstraintStore with the option to also make new resonances for unassigned
+fixedResonances. Returns all the resonances linkable from the constraints in
+an NmrConstraintStore object.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrConstraintStore, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Resonances</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getDistancesFromIntensity">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getDistancesFromIntensity</tt><big>(</big><em>noeClasses</em>, <em>value</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getDistancesFromIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get constraining distances appropriate to a given NOE intensity value using a
+distance relation table.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Tuples of Floats (relative NOE intensity, target dist, min dist, max dist), Float (NOE intensity/average for peak list)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float, Float, Float (targetValue, upperLimit, lowerLimit)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getFixedAtomSet">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getFixedAtomSet</tt><big>(</big><em>nmrConstraintStore</em>, <em>atoms</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getFixedAtomSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds or creates a fixed set of atoms that is used in an NMR
+constraint head object (equivalent to one NmrConstraint file).
+Creating fixed atom sets allows assignments to change but
+old constraints to be preserved.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrConstraintStore, List of MolSystem.Atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.FixedAtomSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getFixedResonance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getFixedResonance</tt><big>(</big><em>nmrConstraintStore</em>, <em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getFixedResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find or create a fixed resonance for an NMR constraint top  object equivalent
+to the input normal resonance. The fixed resonance will preserve assignment
+information at the time of constraint generation.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrConstraintStore, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConsraints.FixedResonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getIntensityDistanceTable">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getIntensityDistanceTable</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getIntensityDistanceTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given spectrum ind or get a default table of NOE intensity to constraint
+distance relations.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Tuples of Floats (relative NOE intensity, target dist, min dist, max dist)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getJCouplingsFromConstraint">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getJCouplingsFromConstraint</tt><big>(</big><em>jCouplingConstraint</em>, <em>jCouplingList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getJCouplingsFromConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>The the J couplings associated with a J coupling constraint</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.JCouplingConstraint, Nmr.JCouplingList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.JCouplings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getMeanPeakIntensity">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getMeanPeakIntensity</tt><big>(</big><em>peaks</em>, <em>intensityType='volume'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getMeanPeakIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the mean of the unsigned intensities of input peaks. Also sets
+peak.intensityValue on-the-fly attribute for quick access by Analysis.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, String (Nmr.PeakIntensity.intensityType)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getNoeDistance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getNoeDistance</tt><big>(</big><em>intensity</em>, <em>params</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getNoeDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get target, minimum and maximum distance for an NOE intensity Given ISPA
+parameters, erros and limits</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Float, 6 List of Floats</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float, Float, Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getPeakDimTolerance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getPeakDimTolerance</tt><big>(</big><em>peakDim</em>, <em>minTol</em>, <em>maxTol</em>, <em>multiplier</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getPeakDimTolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the shift matching tolerance for a peak dim based on its line width.
+Defaults to the minimum tolerance if no line width is present.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Float, Float, Float (Nmr,PeakDim.lineWidth to tolerance factor)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (PPM tolerance)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.getStructureViolations">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">getStructureViolations</tt><big>(</big><em>constraintList</em>, <em>structure</em>, <em>violationList=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.getStructureViolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the violated restraints in a restraint list given in input
+structure. Currently limited to distance and dihedral restraints. Option to
+add violations to a speficied violation list (otherwise a new one will be
+made)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList, MolStructure.StructureEnsemble</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ViolationList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.isResidueInRange">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">isResidueInRange</tt><big>(</big><em>residue</em>, <em>residueRanges</em>, <em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.isResidueInRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a residue is in a residue range table for a given data dim. The
+range table lists residue bounds (first and last residue objects) for a chain
+appropriate to a list of data dims (often bonded).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, List of (List of Nmr.DataDims, MolSystem.Chain,
+MolSystem.Residue, MolSystem.Residue), Nmr.DataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makeAmbigDistConstraints">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makeAmbigDistConstraints</tt><big>(</big><em>peakList</em>, <em>tolerances</em>, <em>chemShiftRanges</em>, <em>constraintSet=None</em>, <em>testOnly=False</em>, <em>labelling=None</em>, <em>minLabelFraction=0.10000000000000001</em>, <em>distanceFunction=None</em>, <em>residueRanges=None</em>, <em>minMerit=0.0</em>, <em>progressBar=None</em>, <em>intensityType='volume'</em>, <em>ignoreDiagonals=True</em>, <em>doAliasing=True</em>, <em>structure=None</em>, <em>maxDist=None</em>, <em>scale=None</em>, <em>params=None</em>, <em>peakCategories=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makeAmbigDistConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a constraint list with constraints by matching known shifts
+in given range and within specified tolerances to a NOESY peak
+list. Optional labelling scheme/mixture and labelling threshold to filter
+according to a given set of residue isotopomers.
+Constraints will be put in a new NMR constraint store object
+if none is specified. Peaks are catergorised into various lists. 
+A structure and max distance can be used to filter contributions.
+The scale option is the value by which peak intensities are scaled
+for NOE table/function lookup. Params relate to the generic NOE
+distance function if neither these nor a distance function is
+specified a lookuptable is used</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>.PeakList (NOESY), List of (Nmr.DataDim, Float, Float, Float) (shift tolerances),
+List of (Nmr.DataDim, String (isotope code), Float, Float) (chem shift ranges)
+Nmr.NmrConstraintStore, Boolean (test only),
+ChemCompLabel.LabelingScheme or True (automatic from experiment MolLabel), Float,
+Function (to get distances from NOEs),  Nmr.PeakIntensity.intensityType,
+List of (List of Nmr.DataDims, Nmr.Chain, Integer, Integer) (residue ranges),
+Float (min Peak.figOfMerit), ProgressBar (Analysis popup),
+Boolean, Boolean, MolStructure.StructureEnsemble, Float
+Float, List of Floats (distance function parameters)
+Dict (for Category Name:Lists of Nmr.Peaks)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.DistanceConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makeDistConstraints">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makeDistConstraints</tt><big>(</big><em>peakList</em>, <em>constraintSet=None</em>, <em>intensityType='volume'</em>, <em>distanceFunction=None</em>, <em>normalise=True</em>, <em>labelling=None</em>, <em>params=None</em>, <em>residueRanges=None</em>, <em>minMerit=0.0</em>, <em>scale=None</em>, <em>normalisationType=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makeDistConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a constraint list with constraints based upon the assigned peaks within
+a NOESY peak list. Constraints will be put in a new NMR constraint head object
+if none is specified. An NOE intensity-to-distance function, minimum peak
+merit and allowed residue ranges may be input for the calculation. A
+normalising peak list can be specified to help calibrate the peak intensities
+according to the sensitivity of a corresponding root resonances. The scale
+option is the value by which peak intensities are scaled for NOE
+table/function lookup. Params relate to the generic NOE distance function if
+neither these nor a distance function is specified a lookuptable is used.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList (NOESY), Nmr.NmrConstraintStore,
+String (Nmr.PeakIntensity.intensityType)
+Function (to get constraining distances), Boolean
+ChemComLabel.LabelingScheme or True (automatic from experiment MolLabel),
+List of Floats (distance function parameters),
+List of (List of Nmr.DataDims, Nmr.Chain, Integer, Integer),
+Float (Nmr.Peak.figOfMerit), Float (baseline intensity)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.DistanceConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makeFixedResonance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makeFixedResonance</tt><big>(</big><em>nmrConstraintStore</em>, <em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makeFixedResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new fixed resonance for an NMR constraint top object based on a normal
+resonance. The fixed resonance will preserve assignment information at the
+time of constraint generation.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrConstraintStore, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConsraints.FixedResonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makeNmrConstraintStore">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makeNmrConstraintStore</tt><big>(</big><em>nmrProject</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makeNmrConstraintStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new NMR constraint top object for a project which will contain
+constraints and violations.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrProject</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrConstraintStore</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makePeaksFromConstraints">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makePeaksFromConstraints</tt><big>(</big><em>constraints</em>, <em>spectrum=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makePeaksFromConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the occurence of a set of NOESY peaks from a list of constraints. This
+function attempts to use sister lists to the input restraints linked peaks
+unless an overring target spectrum is passed in. This function is ideal for
+visualising the NOE disambiguation of procedures like ARIA and CYANA.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrConstraint.DistanceConstraints, Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.makeStructureGeneration">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">makeStructureGeneration</tt><big>(</big><em>structure</em>, <em>constraintSet=None</em>, <em>generationType='denovo'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.makeStructureGeneration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a structure generation object to group structures together</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.StructureEnsemble, Nmr.NmrConstraintStore</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.StructureGeneration</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.mergeConstraintLists">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">mergeConstraintLists</tt><big>(</big><em>constraintListA</em>, <em>constraintListB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.mergeConstraintLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge two constraint lists from a constraint set into one.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList, NmrConstraint.ConstraintList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.mergeDuplicateConstraints">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">mergeDuplicateConstraints</tt><big>(</big><em>constraintList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.mergeDuplicateConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge redundant constraints in a constraint list (constraining the same
+resonances)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.moveConstraintToList">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">moveConstraintToList</tt><big>(</big><em>constraint</em>, <em>constraintList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.moveConstraintToList" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+Move a constraint to a different constraint list and take care of any</blockquote>
+<p>violations.</p>
+<blockquote>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.Constraint,  NmrConstraint.ConstraintList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.Constraint</p>
+</blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.splitConstraintListAmbigUnambig">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">splitConstraintListAmbigUnambig</tt><big>(</big><em>constraintList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.splitConstraintListAmbigUnambig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spit a constraint list into two lists according to whether
+constraints are ambigous or unambiguous.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList, NmrConstraint.ConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.splitConstraintListViol">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">splitConstraintListViol</tt><big>(</big><em>constraintList</em>, <em>violationList=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.splitConstraintListViol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spit a constraint list into two lists according to whether
+constraints show a violation (in th einput violation list).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList, NmrConstraint.ViolationList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.ConstraintList, NmrConstraint.ConstraintList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.updateDistConstraintFromPeakAssign">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">updateDistConstraintFromPeakAssign</tt><big>(</big><em>constraint</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.updateDistConstraintFromPeakAssign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the items/contributions of a distance constraint given
+any new assignments to the peak from which it was originally derived.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrConstraint.DistanceConstraint</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.updateFixedResonance">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">updateFixedResonance</tt><big>(</big><em>fResonance</em>, <em>resonance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.updateFixedResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the atom assignments of a fixed resonance to reflect a connected
+Nmr.Resonance. Will not remove asslignments if Nmr.Resonance is missing of
+unassigned. A new Nmr.Resonance may optinally be specified.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>NmrConstraint.FixedResonance, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ConstraintBasic.updatePeaksFromConstraints">
+<tt class="descclassname">ccpnmr.analysis.core.ConstraintBasic.</tt><tt class="descname">updatePeaksFromConstraints</tt><big>(</big><em>constraints</em>, <em>replace=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ConstraintBasic.updatePeaksFromConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the assignments of the peaks that are linked to distance constraints of
+a constraint set, given changes to the constraint items. This function is
+ideal for visualising the NOE disambiguation of procedures like ARIA and
+CYANA. Option to replace any existing assignments; otherwise assignments will
+be added to.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrConstraint.DistanceConstraints, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ChemicalShiftBasic.html"
+                        title="previous chapter">ChemicalShiftBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CouplingBasic.html"
+                        title="next chapter">CouplingBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/ConstraintBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CouplingBasic.html" title="CouplingBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ChemicalShiftBasic.html" title="ChemicalShiftBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

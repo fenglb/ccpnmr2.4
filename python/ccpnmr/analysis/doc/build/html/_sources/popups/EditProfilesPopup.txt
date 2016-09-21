@@ -1,0 +1,302 @@
+====================================
+Project : Preferences : User Options
+====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Edit User-Specific Profiles and Macros**
+
+This popup window is used to control various settings that are stored as a
+user-specific profile. Typically this data is stored in the .ccpn/
+sub-directory of the users home directory and not in any particular CCPN
+project, although the information is saved whenever a project is. The same
+profile data will be used when any CCPN project is opened by the user
+as long as they have the same home directory.
+
+Several kinds of information are stored in the user profile and currently these
+can be grouped into four categories: general options for control and graphical
+display in Analysis; "Macros", which represent Python scripts to add extra
+functionality; customisable residue codes and customisable colour schemes.
+
+**Main Options**
+
+This tab controls the selection of the current user-specific profile for
+Analysis; one will always be present, but the user can make as many as
+required and swap between them using the pulldown menu. It should be noted that
+if the selected profile is changed the effect will not be apparent unless the
+CCPN project is saved and Analysis is restarted.
+
+Various profile parameters are listed in the main table and the user can
+adjust these to suit personal preference by double clicking in the "value"
+column. The details of the settings are described in the last column. Perhaps
+the most notable setting in this panel is the "Graphics Handler", which
+controls what technology is used for the drawing of contours in  spectrum
+windows. Although the "Tk" setting  is perhaps more reliable overall the
+"OpenGL" option can be much faster for drawing spectra, especially if the
+computer has a good graphics card and hardware linked OpenGL driver software
+(typically from NVidia or ATI).
+
+**Macros**
+
+The Macros tab lists all of the Python scripts that are available to run as
+in-program commands. These will include number of pre-defined, inbuilt
+commands and any user-specific scripts that extend the functionality of
+Analysis. All of the inbuilt macro scripts are associated with a keyboard
+shortcut (editable via the "Shortcut" column). Indeed, listing these commonly
+used commands as macros provides the mechanism by which the editable Analysis
+keyboard shortcuts are handled in general.
+
+Analysis macro scripts are functions written the the Python programming
+language. They are normal Python functions, but they must be able to operate
+with one mandatory input argument "argServer". This input is a Python object
+of the ccpnmr.analysis.macros.ArgumentServer class and serves to link the
+Python function with the Analysis program, to give access to the CCPN
+project data and the Analysis graphical interface.
+
+All macros are available for execution (being run) via the main "Macros" table
+but they may also be entered in to the "Macro" sections of the main Analysis
+menu and the right-mouse spectrum window menu. To place a macro script in the
+menus the user needs to toggle the "In ... menu?" columns to "Yes". Any script
+that requires access to a particular position in a spectrum, recorded when the
+right-mouse menu opens, will only be able to use that point if the macro is in
+the spectrum window menu; the main menu and macro table have no concept of
+current position."
+
+New macros can be added to the current profile (and hence project) via the
+[Add Macro] function. This will open a file browser that the user can use to
+find a Python file, and then the Python function within that file to load as a
+macro script. See the `Open Macro`_ documentation for more information. Note
+that the script itself is not stored inside the CCPN project or profile. By
+adding a macro the user is merely locating the required Python function on
+disk; the actual code remains at its original file location. If a macro's
+Python code is moved to a different location on disk the script will no longer
+be executable by CCPN. Under such circumstances however, the old macro (and
+hence recorded location) can be removed and a fresh one put in its place. If
+the contents of a macros code have changed on disk since it was last executed
+(in the current Analysis session) then the user may reload the macro so that
+it is using the newest version. This mechanism provides a convenient way of
+developing and debugging CCPN Python scripts without having to restart
+Analysis each time.
+
+Note that macros with names that are identical to existing, inbuilt Python
+functions should be avoided, e.g. "math", "test", "copy" etc. In any case using
+more verbose but descriptive function names is recommended. In in doubt about
+whether a function name is in use the user can issue an "import" command at the
+Python prompt to check.
+
+**Residue Codes**
+
+This section allows the user to customise how residue (chemical compound) "Ccp"
+codes are displayed in a Analysis. For example if a residue code like
+"dglc-hex-1-5" (glucose) is too long a shorter alternative can be provided
+e.g. "Gluc". By default all profiles map the DNA and RNA codes to three-letter
+forms like "Ade", "Cyt", even though the actual underlying Ccp codes are
+single letters ("A", "C").
+
+To change how a particular kind of residue is represented the use selects the
+appropriate biopolymer type in the upper pulldown menu, then double clicks to
+edit the "User GUI Code" column of the table. Note that the existing textual
+peak annotations in the spectrum displays will not change until the [Update
+Peak Annotation] button is pressed; this can be slow if there are many peaks
+in the project.
+
+**Colour Schemes**
+
+This section allows the user to define new named colours and colour schemes.
+In this system a single colour like "red" is still stored as a colour scheme
+although it only has a single colour specification. The existing colour
+schemes  are listed in the upper table and they may be copied and deleted.
+Clicking on a scheme in the upper table lists its component colours in the
+lower table. It should be noted that deleting a colour scheme that is still in
+use will not effect anything that uses those colours in Analysis, but that
+colour scheme name will not appear when setting any colours in the future.
+
+New colour schemes may be created via duplication or [Create]: to start this
+makes a simple scheme with three colours. Colours may be added to a scheme by
+clicking [Add] and then double clicking to set the "Colour" column. Colours
+may be changed and removed at any time, but such changes will not effect
+anything existing in Analysis; a scheme is merely used to set colours, and no
+active link is maintained.
+
+To assist with arranging multi-colour schemes, there are several functions
+below the lower table. These allow the user to move the selected colour
+within  its scheme, i.e to the top, bottom, up one place and down one place.
+To create schemes with a gradient of colours the [Smooth] function so that
+there is a smooth transition between the first and last colours of a selection.
+Selection multiple colours in a scheme can be done using left mouse-click with
+the <Shift> key.
+
+.. _`Open Macro`: OpenMacroPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Main Options
+============
+
+A table of the main program-wide user options affecting behaviour and appearance
+
+|pulldown| **Current Analysis Profile**: Selects which set of profile settings to use
+
+|button| **Copy**: Copy the currently displayed profile settings into a differently named set
+
+|button| **New**: Make an entirely new group of profile settings, with default values
+
+|button| **Delete**: Delete the currently viewed set of profiles, if there is more than one available
+
+=============  ==================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------
+  *Parameter*  The short name of the parameter that the user may set a value for 
+      *Value*  The current value associated with a parameter in the selected profile  *(Editable)*
+*Description*  A description of what the setting is for 
+=============  ==================================================================================
+
+
+
+Macros
+======
+
+A table of all of the Python macro scripts known to the project
+
+================  ===============================================================================================================================================================
+**Table 2**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             *#*  The serial number of the macro, within the current profile 
+          *Name*  A short textual name for the macro script which will appear in menus  *(Editable)*
+      *Shortcut*  The keyboard shortcut used to invoke this macro function  *(Editable)*
+ *In main menu?*  Whether the macro is visible and callable from the "Macro" section of the main menu  *(Editable)*
+*In mouse menu?*  Whether the macro is visible and callable from the right-mouse-button spectrum window menu; required for macros that use spectru, coordinates etc.  *(Editable)*
+      *Priority*  A priority based raking of macros to enable use-configurable sorting and grouping  *(Editable)*
+        *Module*  The name of the Python module in which the macro (a Python function) resides 
+      *Function*  The name of the Python function, as found in its module, which the macro specification loads and calls 
+          *Path*  The location on disk of the Python module that contains the macro function 
+================  ===============================================================================================================================================================
+
+
+
+|button| **Reload**: Reload the selected macro function; attempts to re-import the Python module
+
+|button| **Run**: Execute the selected macro
+
+|button| **Remove Macro**: Removes the record of the macro function from the current profile; any Python code on disk is preserved
+
+|button| **Add Macro**: Add a new macro function to the current profile by finding a Python module and file on disk
+
+Residue Codes
+=============
+
+A table of user-specific mappings of residue codes, e.g. DNA "A" -> "Ade"
+
+|pulldown| **Molecule Type**: Selects which kind of bio-polymer residues to display codes for
+
+===================  ======================================================================
+**Table 3**
+-------------------------------------------------------------------------------------------
+*Internal Ccp Code*  The official CCPN code for the residue  
+    *User GUI Code*  A user-configurable alternative residue code, if required  *(Editable)*
+===================  ======================================================================
+
+
+
+|button| **Update Peak Annotations**: Manually trigger a complete update of all on-spectrum peak annotations in light of any residue code changes
+
+Colour Schemes
+==============
+
+A system to edit and create the colour schemes used at various points in Analysis
+
+===================  ================================================================================
+**Table 4**
+-----------------------------------------------------------------------------------------------------
+                *#*  Row number 
+      *Scheme Name*  Name of the colour scheme, for selection within menus etc. 
+*Number of Colours*  Number of colours in the scheme; single colours are a scheme of one 
+===================  ================================================================================
+
+
+
+|button| **Create**: Create a new color scheme; the user is prompted for a name
+
+|button| **Copy**: Create a new color scheme by copying the selected scheme; the user is prompted for a name for the copy
+
+|button| **Delete**: Delete the currently selected colour scheme; does not effect anything that used the scheme, but the scheme will not appear as an option
+
+Scheme Colours
+~~~~~~~~~~~~~~
+
+
+===========  =================================================================================================================================
+**Table 5**
+----------------------------------------------------------------------------------------------------------------------------------------------
+        *#*  The number of the colour within the scheme 
+   *Colour*  The hexadecimal red-green-blue color name of the form "#RRGGBB", selectable using pre-defined colour names  *(Editable)*
+        *R*  The fractional red component of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+        *G*  The fractional green component of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+        *B*  The fractional blue component of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+        *H*  The hue value of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+        *S*  The saturation level of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+        *V*  The brightness value of the colour, rounded to give the nearest whole number in hexadecimal representation  *(Editable)*
+===========  =================================================================================================================================
+
+
+
+|button| **Add**: Add a new colour element to the current scheme, defaults to black but can be changed
+
+|button| **Delete**: Delete the selected colour element from the current scheme
+
+|button| **Smooth**: Make a smooth colour transition between the first and last colour elements selected by the user in the table
+
+|button| **Reverse**: Reverse the order of the colour elements in the scheme
+
+|button| **Top**: Move the selects colour element to be first in the scheme
+
+|button| **Bottom**: Move the selects colour element to be last in the scheme
+
+|button| **Up**: Move the selects colour element one place earlier in the scheme
+
+|button| **Down**: Move the selects colour element one place later in the scheme
+

@@ -1,0 +1,7 @@
+=========
+MarkBasic
+=========
+
+.. automodule:: ccpnmr.analysis.core.MarkBasic
+   :members:
+

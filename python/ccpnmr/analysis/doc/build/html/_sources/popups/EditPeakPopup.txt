@@ -1,0 +1,65 @@
+========
+Add Peak
+========
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Edit Position, Intensity & Details for a Peak**
+
+This popup window provides an means of editing peak information as an
+alternative to editing values in the main peak tables. This popup is also used
+to specify parameters for when a new peak is explicitly added to a peak list
+using a tabular display.
+
+The user can specify the position of the peak's dimensions in ppm, Hz or data
+point units. Also, the user can adjust the height and volume peak intensity
+values and a textual "Details" field, ,which can carry the user's comments
+about the peak.
+
+When editing an existing peak, no changes are made to the peak until the
+[Update] button is pressed. Likewise for a new peak the [Add Peak] button
+commits the changes. If the popup window is closed before the changes are
+committed then the entire editing or peak addition operation is cancelled.
+
+
+
+Main Panel
+==========
+
+|pulldown| **Current units**: Selects which unit of measurement to display peak dimension positions with
+

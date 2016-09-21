@@ -1,0 +1,106 @@
+=========================
+Window : Marks and Rulers
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Setup Spectrum Marker and Ruler Line Options**
+
+This popup window is used to specify how many marker and ruler lines may
+be added by the user to spectrum windows, and what colours these will be.
+
+A marker line is a multi-dimensional cross mark that is typically added to
+the spectrum display with the "m" key, using the mouse cursor location as
+the center point. A mark of this kind gives a cross that is displayed on a
+spectrum window (in the plane of the screen), although the same lines will
+be visible in other spectra that show the relevant frequency/ppm range. A
+mark will also place lines in any orthogonal (z) positions of the spectrum
+view; these will not be visible in the window to which the mark was first
+added but will be seen in any windows that show orthogonal view views of
+the marked point.
+
+A ruler is a single line that is added to the spectrum window displays,
+typically using the "h" key for a horizontal line and the "v" key for a
+vertical line. A ruler only places a single line in the plane of the
+screen at the mouse cursor location. A ruler may be visible in more than
+one spectrum window, but only if the view is in the right range and for
+axes that share the same "Panel Type"; a sub-division of axis types that
+are otherwise specified in terms of isotope. The panel type for a window
+axis is set via the main Windows_ table.
+
+This system allows the user to specify the maximum number of marks and
+rulers that may be displayed on the screen at any one time. It should be
+noted that this setting only applies to marks and rulers that are directly
+added by the user, others may be added by various tools throughout
+Analysis. When adding marks or rulers to a spectrum window, if the limit
+is reached then adding another will remove the oldest mark/ruler.
+Naturally, if the limit is set to one, then the mark or ruler is always
+replaced. By decreasing the maximum limit the oldest will be removed,
+although the usual way of removing (all) marks and rulers is via the "n"
+key after clicking in a spectrum window.
+
+Marks and rulers that are added by the user may use a colour scheme, such
+that each subsequent addition uses the next colour from the scheme.
+
+.. _Windows: EditWindowPopup.html
+
+
+
+Main Panel
+==========
+
+Multi-dimensional Marks
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+|pulldown| **Maximum marks**: Sets the maximum number of multi-dimensional cross-marks that the user can add to spectrum window displays
+
+|pulldown| **Mark colour**: Sets the line colour of the multi-dimensional cross-marks, excepting those that go through peak centers
+
+1-dimensional Rulers
+~~~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Maximum rulers**: Sets the maximum number of 1-dimensional ruler lines that the user can add to spectrum window displays
+
+|pulldown| **Ruler colour**: Sets the line colour of the 1-dimensional ruler lines
+

@@ -1,0 +1,227 @@
+======================
+Resonance : Resonances
+======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**A Table of Resonances Organised by Chemical Shift List**
+
+This popup window is basically a table of all the resonances that have
+chemical shifts contained within a selected shift list. This data, in-keeping
+with the CCPN Resonance entities it represents, serves as the central record
+that ties atom assignments to peak assignments. An individual resonance many
+be anonymous and not (yet) carry an atomic assignment but still exists as an
+entity that carries a chemical shift record and connections to peaks in
+spectra. Each resonance row in the table may be considered as a "phenomenon
+number" that may be used to connect various things together when assignments
+are made. Within a given shift list each resonance will one have only one
+chemical shift value, but a resonance may have different chemical shift values
+in separate shift lists, for example corresponding to different conditions;
+where the resonance phenomenon is the same (from the same atom) but its
+position in spectra changes.
+
+The resonance table serves both as a source of information in its own right
+and a means of finding information related to a given set of assignments. For
+example the user may wish to sort the resonances according to residue sequence
+(click on the "Residue" heading), scroll to and select the desired residue and
+then [Show All Peaks] that are associated with the residue assignment. In
+normal operation the user selects the appropriate shift list (e.g. for the set
+of conditions) and any isotope, status or molecular subset to fill the table
+with a series of resonance records. Each resonance is shown with its chemical
+shift value, any atomic or residue assignment, isotope type and various other
+useful information. From the table, operations may be performed on a selected
+subset of resonances by selecting the relevant row; left click +/-
+<Ctrl>/<Shift>, and then clicking on the buttons.
+
+**Navigation**
+
+The upper "Navigation & Marks" section allows the user to display resonance
+positions in the spectrum windows. The user can build strips (sub-divisions)
+with the selected resonance positions (e.g. selecting H & N amide resonances),
+center the contour display and create marker lines at the locations. Although
+similar functionality is also available from the peak table, the user cam get
+more flexible control by selecting resonances, for example to navigate to a
+location in a spectrum where a peak is *expected*, but has not been picked. It
+should be noted that the [Strip Selected] and [Go To position] functions
+operate on the spectrum window selected in the "Window" pulldown menu.
+
+**Atom Assignment**
+
+The penultimate row of buttons represent functions that change the atomic
+assignment if the selected resonance (or resonances, depending on the
+operation). Accordingly, a resonance may be disconnected from atoms, linked to
+atoms, given an atom type (e.g. a general "HA") and added to or removed from a
+spin system; a group of resonances belonging to a residue. The last two options
+relate only to resonances that are deemed to be prochiral, for example like
+Ser HB2/HB3, which often cannot be distinguished until the latter stages of 3D
+structure calculation.
+
+**General & Information**
+
+The lower row of buttons relate to functions that do not involve atom
+assignment. For example resonances may be deleted; either those that are
+selected or those that are considered to be "orphans" - without any current
+assignments to spectrum peaks. The two "Show Peaks" buttons display tables  of
+the spectrum peaks that are currently linked to the selected resonances,
+optionally considering only spectra that use the selected shift list. The last
+[Info] button opens the `Resonance Info`_ table for the last selected
+resonance to display the positions of all the peak dimensions to which it is
+assigned and all its chemical shift values, from multiple shift lists.
+
+**Caveats & Tips**
+
+The [Delete Orphans] function is commonly used to tidy up projects where there
+are large numbers of resonances that are no longer assigned to any peaks. This
+may occur for example resonances have been automatically added to newly picked
+peaks but once assignment is complete many of the resonances turned out to  be
+duplicate, e.g. separate resonances were initially added to HNCA and HNcoCA
+peaks even though the resonances should be shared.
+
+If a resonance has a large standard deviation in its chemical shift use the
+[Info] button to show the peak dimension positions that formed the chemical
+shift average.
+
+If the list of resonances in the table is too large to easily find a
+particular resonance, consider using the filtering selections at the top or
+click the "?" in the table headings to filter directly on table content.
+
+.. _`Resonance Info`: ResonanceInfoPopup.html
+
+
+
+Main Panel
+==========
+
+Selection
+~~~~~~~~~
+
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+|pulldown| **Shift List**: Selects which chemical shift list to display resonances for, and hence which
+shift value to use for a resonance. Includes an option to show resonances without any shifts
+
+|pulldown| **Isotope**: Selects subsets of resonances to list, according to their isotope type
+
+|pulldown| **Status**: Selects subsets of resonances to list, according to their assignment status
+
+|pulldown| **Chain**: Allows restriction of the resonance list to only those assigned to a given molecular chain
+
+|pulldown| **Residue Code**: Allows restriction of the resonance list to only those assigned toa particular kind of residue
+
+Navigation & Marks
+~~~~~~~~~~~~~~~~~~
+
+Options to locate resonance positions in spectrum windows
+
+
+|button| **Strip Selected**: Make strips in the specified window using the positions of the selected resonances
+
+|button| **Go To Position**: Navigate to the selected resonance positions in the specified window
+
+|pulldown| **Window**: Selects the spectrum window to use for resonance based navigation
+
+|button| **Mark Selected**: Put multi-dimensional cross marks at the selected resonance positions
+
+|button| **Clear Marks**: Remove the resonance-located cross marks
+
+Resonance Table
+~~~~~~~~~~~~~~~
+
+The main table displaying the resonance records in the selected shift list, and considering filtering options
+
+
+==================  ===================================================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------------------------------
+               *#*  The serial number of the resonance in the NMR project 
+           *Shift*  The chemical shift value of the resonance in the selected shift list  *(Editable)*
+              *SD*  The standard deviation in the chemical shift value for the resonance 
+     *Assign Name*  The name bestowed upon the resonance by virtue of its atomic assignments 
+         *Residue*  The residue to which the resonance may be assigned 
+         *Isotope*  The type of isotope responsible for the resonance 
+      *Other Name*  A user-editable name for the resonance, often displayed if atom assignments are absent  *(Editable)*
+       *All Peaks*  The total number of peaks assigned (via their dimensions) to a resonance  *(Editable)*
+*Shift List Peaks*  The number of peaks assigned to a resonance, considering only the selected shift list  *(Editable)*
+   *Spin System #*  The serial number of the spin system in which the resonance resides 
+==================  ===================================================================================================
+
+
+
+Atom Assignment
+~~~~~~~~~~~~~~~
+
+Functions to change how the selected resonances are assigned to atoms
+
+
+|button| **Deassign**: Remove any atomic assignments from the selected resonances
+
+|button| **Assign**: Assign or re-assign the last selected resonance to atoms (opens the atom browser)
+
+|button| **Set Atom Type**: Set the assignment type of a resonance by selecting a representative atom
+
+|button| **Add to Spin System**: Add the last selected resonance to a spin system grouping, if not already in one
+
+|button| **Remove from Spin System**: Remove the selected resonances form any spin system grouping
+
+|button| **Swap Prochirals**: If the last selected resonance is a prochiral, swap its atom assignment for the other stereochemical option
+
+|button| **Ambiguate Prochirals**: For the last selected resonance, make any unambiguous prochiral assignment ambiguous, i.e HB2 -> HBa/HBb
+
+General & Information
+~~~~~~~~~~~~~~~~~~~~~
+
+General functions to administer resonances and get connected peak information
+
+
+|button| **Delete**: Delete the selected resonances form the CCPN project
+
+|button| **Delete Orphans**: Delete all resonances that have no assignments to peaks
+
+|button| **Merge or Split**: Merge multiple resonances & any peak assignments into one. For a single resonance split into two duplicate resonances
+
+|button| **Show All Peaks**: Show a table of all the peaks to which the selected resonances are assigned
+
+|button| **Show Shift List Peaks**: Considering only the selected shift list, show a table of peaks to which selected resonances are assigned
+
+|button| **Info**: Show a table of information for the last selected resonance, including a list of all peak dimension positions
+

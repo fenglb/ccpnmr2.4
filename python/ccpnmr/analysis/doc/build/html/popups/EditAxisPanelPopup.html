@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Window : Axes &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="../menu/Window.html" />
+    <link rel="next" title="Window : New Window" href="NewWindowPopup.html" />
+    <link rel="prev" title="Window : Windows" href="EditWindowPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="NewWindowPopup.html" title="Window : New Window"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditWindowPopup.html" title="Window : Windows"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="window-axes">
+<h1>Window : Axes<a class="headerlink" href="#window-axes" title="Permalink to this headline">¶</a></h1>
+<p><strong>Make And Edit Spectrum Window Axis Types</strong></p>
+<p>The purpose of this popup window is to allow the user to create new types of
+axis for the display of spectra within windows. This requirement is relatively
+rare and under most circumstances the standard, default axis descriptions
+will not need to be changed. The popup is divided into three tabs which display different aspects of the
+spectrum display axis definitions.</p>
+<p>The first &#8220;Axis Units&#8221; tab lists the different units of measurement that may
+be used in an axis. Although new kinds of axis may be created, only the ppm,
+Hz and &#8220;arbitrary&#8221; units are currently used by Analysis, i.e. spectrum windows
+only display standard NMR isotope axes and intensity for a &#8220;value&#8221; Y axis.</p>
+<p>The &#8220;Axis Types&#8221; tab allows the user to specify new kinds of NMR data axis,
+for example to be able to work with spectra that have an isotope type that is
+not part of the normal Analysis setup. Clicking [Create] will prompt the user
+to specify the characteristics of the axis, and some of these can be adjusted
+after the initial definition. Under normal circumstances the only features
+that the user is likely to edit are the &#8220;Region&#8221;, &#8220;Decimal places&#8221; and &#8220;Peak
+Size&#8221; columns. The region describes the upper and lower bounds of the axis
+vales, and dictates the maximum extent of a spectrum window display when fully
+zoomed out; a spectrum window cannot display outside the bounds of its axes,
+however these bounds may be changed.</p>
+<p>The &#8220;Panel Types&#8221; tab allows the user to create sub-categories within a given
+kind of axis. These are not used for very much, but are used with the 1D ruler
+lines, so that a line is only drawn on axes that share the same panel type.
+Accordingly, a ruler line drawn on an amide 1H axis (panel type &#8220;H1&#8221;) will not
+show on the indirect 1H axis (panel type &#8220;H2&#8221;). The user can create extra
+panel types if this kind of distinction is required, although &#8220;H1&#8221; and &#8220;H2&#8221;
+types are present by default. The panel type of a spectrum window axis is set
+via the &#8220;Windows &amp; Axes&#8221; section of the main <a class="reference external" href="EditWindowPopup.html">Windows</a> popup.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="axis-units">
+<h2>Axis Units<a class="headerlink" href="#axis-units" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Short text name for the unit of measurement, for graphical display</td>
+</tr>
+<tr><td><em>Is backwards?</em></td>
+<td>Whether the axis values decrease left to right &amp; bottom to top. For example &#8220;ppm&#8221; does, but most other units do not</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create</strong>: Create a new specification of a unit of measurement</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected measurement unit</p>
+</div>
+<div class="section" id="axis-types">
+<h2>Axis Types<a class="headerlink" href="#axis-types" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of window axis type, for graphical interface etc.</td>
+</tr>
+<tr><td><em>Isotope codes</em></td>
+<td>Which isotopes the axis definition covers</td>
+</tr>
+<tr><td><em>Measurement Type</em></td>
+<td>What kind of physical property is measured along the window axis</td>
+</tr>
+<tr><td><em>Dim Sampled?</em></td>
+<td>Whether the axis represents discretely sampled values or a continuum of values (albeit fixed to a data grid)</td>
+</tr>
+<tr><td><em>Region</em></td>
+<td>The upper and lower bounds for numerical values allowed on the axis  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Decimal places</em></td>
+<td>The number of decimal places used to round axis values in graphical displays  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak Size</em></td>
+<td>The relative scale for the peak symbol (i.e the &#8220;X&#8221; shape) size compared to other axes  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Allowed Units</em></td>
+<td>Units of measurement allowed for this kind of axis  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create</strong>: Create a new kind of axis to use in spectrum windows</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected window axis type specification</p>
+</div>
+<div class="section" id="panel-types">
+<h2>Panel Types<a class="headerlink" href="#panel-types" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of panel type specification</td>
+</tr>
+<tr><td><em>AxisType</em></td>
+<td>Which kind of axis the panel is a subtype of</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create</strong>: Add a new panel type specification (a subtype of a given kind of axis)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected panel type specification</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Window : Axes</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#axis-units">Axis Units</a></li>
+<li><a class="reference internal" href="#axis-types">Axis Types</a></li>
+<li><a class="reference internal" href="#panel-types">Panel Types</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditWindowPopup.html"
+                        title="previous chapter">Window : Windows</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="NewWindowPopup.html"
+                        title="next chapter">Window : New Window</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditAxisPanelPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="NewWindowPopup.html" title="Window : New Window"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditWindowPopup.html" title="Window : Windows"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

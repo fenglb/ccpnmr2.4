@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure : Predict Secondary Structure &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure-predict-secondary-structure">
+<h1>Structure : Predict Secondary Structure<a class="headerlink" href="#structure-predict-secondary-structure" title="Permalink to this headline">¶</a></h1>
+<p><strong>Predict Protein Secondary Structure</strong></p>
+<p>This popup window is designed to allow the prediction of secondary structure
+for a protein chain given chemical shifts, using the (external) program D2D.</p>
+<p>The Options to select are the Chain and the Shift List, for which the
+prediction is then made.</p>
+<p>The Secondary Structure Predictions table lists the residues in the chain.
+For each residue the residue number, residue type and current secondary
+structure set for that residue is given.  The remaining columns are for
+the predictions made by D2D, and of course are only filled in once D2D
+is run.  The predicted secondary structure is listed first, followed by
+the probability of that residue being Helix, Beta, Coil or PPII (the
+predicted secondary structure will be specified by the maximum of these).</p>
+<p>To run the prediction click on the &#8220;Run D2D Prediction!&#8221; button.  This
+does not store this information in the project.  To do that you have to
+click on the &#8220;Commit Predicted Secondary Structure&#8221; button.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>The predicted secondary structure cell is coloured red if the prediction
+is unreliable.  Unreliable predictions are not stored with the &#8220;Commit&#8221;
+button but all reliable ones are.  If you need to edit the secondary
+structure for a residue then use the Secondary Structure Chart:</p>
+<p><strong>References</strong></p>
+<p>The D2D programme:</p>
+<p><a class="reference external" href="http://www-vendruscolo.ch.cam.ac.uk/d2D/index.php">http://www-vendruscolo.ch.cam.ac.uk/d2D/index.php</a></p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>C. Camilloni, A. De Simone, W. Vranken and M. Vendruscolo.
+Determination of Secondary Structure Populations in Disordered States of Proteins using NMR Chemical Shifts.
+Biochemistry 2012, 51: 2224-2231</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Choose the molecular system chain to make predictions for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Select the shift list to take input chemical shifts from</p>
+</div>
+<div class="section" id="secondary-structure-predictions">
+<h3>Secondary Structure Predictions<a class="headerlink" href="#secondary-structure-predictions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Res Num</em></td>
+<td>Residue number in chain</td>
+</tr>
+<tr><td><em>Res Type</em></td>
+<td>Residue type code</td>
+</tr>
+<tr><td><em>Current SS</em></td>
+<td>Current stored secondary structure code</td>
+</tr>
+<tr><td><em>Predicted SS</em></td>
+<td>Predicted secondary structure code</td>
+</tr>
+<tr><td><em>Helix</em></td>
+<td>Probability residue is Helix</td>
+</tr>
+<tr><td><em>Beta</em></td>
+<td>Probability residue is Beta</td>
+</tr>
+<tr><td><em>Coil</em></td>
+<td>Probability residue is Coil</td>
+</tr>
+<tr><td><em>PPII</em></td>
+<td>Probability residue is PPII</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Run D2D Prediction!</strong>: Run the D2D method to predict secondary structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Commit Predicted Secondary Structure</strong>: Store the secondary structure predictions in the CCPN project</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure : Predict Secondary Structure</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#secondary-structure-predictions">Secondary Structure Predictions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/SecStructurePredictPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

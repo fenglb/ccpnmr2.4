@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Peak : Peak Finding &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Peak : Draw Parameters" href="EditPeakDrawParamsPopup.html" />
+    <link rel="prev" title="Peak : Selected Peaks" href="SelectedPeaksPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakDrawParamsPopup.html" title="Peak : Draw Parameters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SelectedPeaksPopup.html" title="Peak : Selected Peaks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="peak-peak-finding">
+<h1>Peak : Peak Finding<a class="headerlink" href="#peak-peak-finding" title="Permalink to this headline">¶</a></h1>
+<p>** Peak Settings and Non-Interactive Peak Finding **</p>
+<p>The purpose of this dialog is to allow the user to select settings for
+finding and integrating peaks, and also to be able to find peaks in an
+arbitrary region that is specified in a table rather than via a spectrum
+window.</p>
+<p>** Find Parameters tab **</p>
+<p>This can be used to specify how peak finding works.</p>
+<p>First of all, you can search for just positive peaks, just negative
+peaks or both, and the default is that it is just positive peaks.
+However, this is further filtered by what the contour levels are.
+If there are no positive contour levels for a given spectrum then
+positive peaks are not found even if this dialog says they can be,
+and similarly if there are no negative contour levels for a given
+spectrum then negative peaks are not found even if this dialog says
+they can be.</p>
+<p>The peak finding algorithm looks for local extrema (maximum for
+positive peaks and minima for negative peaks).  But on a grid there
+are various ways to define what you mean by an extremum.  Suppose
+you are trying to determine if point p is a maximum (similar
+considerations apply for minimum).  You would want the intensity
+at all nearby points to be less than or equal to the intensity at p.
+You can just check points that are just +- one point from p in each
+dimension, or you can also check &#8220;diagonal&#8221; points.  For
+example, if you are looking at point p = (x, y) in 2D, then the
+former would mean checking the four points (x-1, y), (x+1, y)
+(x, y-1) and (x, y+1), whereas for the latter you would also have
+to check (x-1, y-1), (x-1, y+1), (x+1, y-1) and (x+1, y+1).  In
+N dimensions the &#8220;diagonal&#8221; method involves checking 3^N-1 points
+whereas the &#8220;non-diagonal&#8221; method involves checking only 2N points.
+In general the &#8220;non-diagonal&#8221; method is probably the one to use,
+and it is the default.</p>
+<p>Peaks are only found above (for positive peaks) or below (for negative
+peaks) some threshold.  By default this is determined by the contour level
+for the spectrum.  For positive peaks the threshold is the minimum
+positive contour level, and for negative peaks the threshold is the
+maximum negative contour level.  However these levels can be scaled up
+(or down) using the &#8220;Scale relative to contour levels&#8221; option (default
+value 1).  For example, if you have drawn the contour levels low to
+show a bit of noise, but do not want the noise picked as peaks, then
+you could select a scale of 2 (or whatever) to increase the threshold.</p>
+<p>The &#8220;Exclusion buffer around peaks&#8221; is so that in crowded regions you
+do not get too many peaks near one location.  By default the exclusion
+buffer is 1 point in each dimension, but this can be increased to make
+the algorithm find fewer peaks.</p>
+<p>By default the peak finding only looks at the orthogonal region that
+is displayed in the given window where peak finding is taking place.
+Sometimes it looks like a peak should be found because in x, y you
+can see an extremum, but unless it is also an extremum in the orthogonal
+dimensions it is not picked.  You can widen out the points being
+examined in the orthogonal dimensions by using the &#8220;Extra thickness in
+orthogonal dims&#8221; option, which is specified in points.</p>
+<p>The &#8220;Minimum drop factor&#8221; is by what factor the intensity needs to drop
+from its extreme value for there to be considered to be a peak.  This
+could help remove sinc wiggle peaks, for example.  The default is that
+the drop factor is 0, which in effect means that there is no condition.</p>
+<p>The &#8220;Volume method&#8221; is what is used to estimate the volume of peaks that
+are found.  The default is &#8220;box sum&#8221;, which just looks at a fixed size
+box around the peak centre and sums the intensities in that.  The size
+of the box is set in the table in the Spectrum Widths tab.  The
+&#8220;truncated box sum&#8221; is the same as &#8220;box sum&#8221; except that the summing
+stops in a given direction when (if) the intensities start increasing.
+The &#8220;parabolic&#8221; fit fits a quadratic equation in each dimension to the
+intensity at the peak centre and ad +- 1 points and then uses the
+equivalent Gaussian fit to estimate the volume.</p>
+<p>** Spectrum Widths **</p>
+<p>This can be used to specify minimum linewidths (in Hz) for there to be
+considered a peak to exist in the peak finding algorithm.  It is also
+where the Boxwidth for each dimension in each spectrum is specified.</p>
+<p>** Diagonal Exclusions **</p>
+<p>This can be used to exclude peaks from being found in regions near
+the diagonal (so in homonuclear experiments).  The exclusion region
+is specified in ppm and is independent of spectrum.</p>
+<p>** Region Peak Find **</p>
+<p>This can be used to find peaks non-interactively (so not having to
+control shift drag inside a spectrum window).  The region being
+analysed is specified in the table.  There are two types of conditions
+that can be specified, &#8220;include&#8221; for regions that should be included
+and &#8220;exclude&#8221; for regions that should be excluded.  The regions are
+specified in ppm.</p>
+<p>The &#8220;Whole Region&#8221; button will set the selected row in the table to be
+the entire fundamental region of the spectrum.</p>
+<p>The &#8220;Add Region&#8221; button adds an extra row to the table, and the &#8220;Delete
+Region&#8221; button removes the selected row.</p>
+<p>The &#8220;Adjust Params&#8221; button goes to the Find Parameters tab.</p>
+<p>The &#8220;Find Peaks!&#8221; button does the peak finding.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="find-parameters">
+<h2>Find Parameters<a class="headerlink" href="#find-parameters" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="extrema-to-search-for">
+<h3>Extrema to search for<a class="headerlink" href="#extrema-to-search-for" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>*None*</strong>: Sets whether peak picking within spectra find intensity maxima, minima or both maxima and minima</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>positive and negative</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>positive only</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>negative only</strong>: <em>Documentation missing</em></p>
+</div>
+<div class="section" id="nearby-points-to-check">
+<h3>Nearby points to check<a class="headerlink" href="#nearby-points-to-check" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>*None*</strong>: Sets how permissive the peak picking in when searching for intensity extrema; by adding extra points to the selected search region</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>+-1 in at most one dim</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>+-1 allowed in any dim</strong>: <em>Documentation missing</em></p>
+</div>
+<div class="section" id="other-parameters">
+<h3>Other parameters<a class="headerlink" href="#other-parameters" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Scale relative to contour levels</strong>: Threshold above which peaks are picked, relative to the lowest displayed contour; 1.0 means picking exactly what is visible</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>Exclusion buffer around peaks (in points)</strong>: The size of the no-pick region, in data points, around existing picked peaks; eliminates duplicate picking</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>Extra thickness in orthogonal dims (in points)</strong>: Sets whether to consider any additional planes (Z dimension) when calculating peak volume integrals</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Minimum drop factor (0.0-1.0)</strong>: <em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Volume method</strong>: Selects which method to use to calculate peak volume integrals when peaks are picked; box sizes are specified in &#8220;Spectrum Widths&#8221;</p>
+</div>
+</div>
+<div class="section" id="spectrum-widths">
+<h2>Spectrum Widths<a class="headerlink" href="#spectrum-widths" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum</strong>: The spectrum which determines the widths being shown</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Dimension</em></td>
+<td>The number of the spectrum dimension to which the settings apply</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The nuclear isotope measures in the spectrum dimension</td>
+</tr>
+<tr><td><em>Minimum Linewidth (Hz)</em></td>
+<td>The smallest value for the linewidth of a peak for it to be picked  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Boxwidth</em></td>
+<td>The size of the spectrum region to perform the volume integral over  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="diagonal-exclusions">
+<h2>Diagonal Exclusions<a class="headerlink" href="#diagonal-exclusions" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The isotope as measures on the axis of a spectrum window</td>
+</tr>
+<tr><td><em>Diagonal Exclusion (ppm)</em></td>
+<td>The distance from the homonuclear diagonal line within which no peak picking can occur  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="region-peak-find">
+<h2>Region Peak Find<a class="headerlink" href="#region-peak-find" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: Selects which peak list to perform region-wide peak picking for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Condition</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Whole Region</strong>: Sets the currently selected region row to cover the whole spectrum</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Region</strong>: Add a new region row, which may them be set for exclusion or inclusion when peak picking large areas</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Region</strong>: Remove the selected region specification</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Adjust Params</strong>: Go to the panel for setting the parameters that control how peaks extrema are picked</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Find Peaks!</strong>: Using the stated regions and parameters, perform region-wide peak picking</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Peak : Peak Finding</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#find-parameters">Find Parameters</a><ul>
+<li><a class="reference internal" href="#extrema-to-search-for">Extrema to search for</a></li>
+<li><a class="reference internal" href="#nearby-points-to-check">Nearby points to check</a></li>
+<li><a class="reference internal" href="#other-parameters">Other parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spectrum-widths">Spectrum Widths</a></li>
+<li><a class="reference internal" href="#diagonal-exclusions">Diagonal Exclusions</a></li>
+<li><a class="reference internal" href="#region-peak-find">Region Peak Find</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SelectedPeaksPopup.html"
+                        title="previous chapter">Peak : Selected Peaks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditPeakDrawParamsPopup.html"
+                        title="next chapter">Peak : Draw Parameters</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditPeakFindParamsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakDrawParamsPopup.html" title="Peak : Draw Parameters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SelectedPeaksPopup.html" title="Peak : Selected Peaks"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

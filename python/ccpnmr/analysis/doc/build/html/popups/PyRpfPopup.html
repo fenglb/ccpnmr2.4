@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PyRPF &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pyrpf">
+<h1>PyRPF<a class="headerlink" href="#pyrpf" title="Permalink to this headline">¶</a></h1>
+<p><strong>Recall, Precision &amp; F-Score; validating structures with peak lists</strong></p>
+<p>The purpose of this popup is to asses the quality of structures and structure
+generating peak lists by calculating recall, precision, and F-measure (RPF)
+scores, according to the method of Huang, Powers and Montelione (see reference
+below). Put simply, the calculation uses short distances from a structure to
+find peak locations which would be expected but which don&#8217;t appear in the
+peak list; &#8220;missing peaks&#8221; and also to find peaks which do not correspond to a
+short distance in the  structure; &#8220;unexplained peaks&#8221;. These results are then
+combined to form the overall RPF metrics, which gives a convenient and
+informative quality measure to say how well peak list and structure match. If
+there are good, real peaks that don&#8217;t match the structure then something may
+be wrong with the structure calculation/restraints. If there are short
+distances with with no corresponding peak then the spectra should be
+investigated to find out why, which often is actually legitimate, but worth
+checking all the same. For full details read the paper!</p>
+<p>To perform the analysis the user simply selects the required peak lists in the
+project, the required structure and clicks <em>[Run RPF]</em>.</p>
+<p><strong>Peak Lists</strong></p>
+<p>The main peak lists table is where the user selects which peak lists in the
+current project to consider, by setting the &#8220;Use?&#8221; column to &#8220;Yes&#8221; or &#8220;No&#8221;.
+Naturally these will be those peak lists that represent through-space (NOESY)
+connectivities which actually relate to the structure being analysed. Also,
+there are a some options that control how peak lists are investigated.
+Specifically, the user can exclude diagonal peaks and redundant prochrials
+(e.g. methylene protons that are too close in chemical shift to give separate
+peaks are not really missing) by setting PPM thresholds.</p>
+<p><strong>Ensembles</strong></p>
+<p>In the Ensembles table the user selects which structures (albeit ensembles of
+structure models) to consider, setting the &#8220;Use?&#8221; column to &#8220;Yes&#8221; or &#8220;No&#8221;.
+Above the table there is an entry where the user can set the maximum distance
+threshold. Within this limit atom pairs are deemed to be potentially
+observable (but also considering the type of experiment etc.)</p>
+<p><strong>Results</strong></p>
+<p>This table shows the outcome of the calculation (after pressing [Run RPF]), in
+terms of the overall recall, precision and F-score when comparing each of the
+selected peak lists with each of the structure ensembles. Also listed for each
+combination are the total numbers of missing and unexplained peaks. These can
+be investigated further by selecting a table row and clicking on the buttons
+to the bottom right to get to lists of missing peak locations and bogus peaks;
+so that the spectra at the relevant points can be investigated.</p>
+<p><strong>Unexplained Peaks</strong></p>
+<p>The table of unexplained peaks is a regular Analysis table giving details of
+all the peaks and allowing the user to find and edit the peaks. This kind
+of table is documented for the <a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a> section.</p>
+<p><strong>Missing Peaks</strong></p>
+<p>This is a table of synthetic peaks (in a separate list to the input one) that
+represent the locations of potentially missing short-distance peaks. It is a
+regular Analysis table giving details of all the locations and allowing the
+user to find the peaks. This kind of table is documented for the <a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a>
+section.</p>
+<p><strong>Graph</strong></p>
+<p>This graph shows the recall, precision and F-score metrics on a per-residue
+basis for the structure analysed in the selected result set. Note that this
+kind of measure is subject to more noise than the overall, published RPF
+metric, but should nonetheless be useful to find where in a sequence the most
+significant problems occur.</p>
+<p><strong>Reference</strong></p>
+<p><em>Huang, Y. J.; Powers, R. &amp; Montelione, G. T. Protein NMR recall, precision,
+and F-measure scores (RPF scores): structure quality assessment measures based
+on information retrieval statistics. J Am Chem Soc 127, 1665-74 (2005)</em></p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Run RPF</strong>: Actually run the RPF calculation using the selected peak lists and structure ensembles</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="id1">
+<h2>Peak Lists<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>A table to select which through-space peak lists are compared with structures.</p>
+<p><img alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.3</strong>: How far from the homonuclear diagonal to exclude peaks and positions in the analysis</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Consider Aliased Positions?</strong>: Whether the peak locations could be aliased, when considering which resonances they might be assigned to</p>
+<p><img alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.04</strong>: The threshold within which prochiral atom pairs are considered too close to give separate peaks</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The experiment:spectrum record that the peak list corresponds to</td>
+</tr>
+<tr><td><em>Peak List</em></td>
+<td>The number of the through-space peak list for its spectrum</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether to use the peak list in the RPF calculation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Num Peaks</em></td>
+<td>The number of peaks the peak list contains</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ensembles">
+<h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this headline">¶</a></h2>
+<p>A table to select which structure ensembles should be analysed, and to set the distance threshold.</p>
+<p><img alt="float" class="align-bottom" src="../_images/float.png" /> <strong>4.8</strong>: The distance threshold in the structure, below which resonance pairs are expected to result in a peak</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Mol System</em></td>
+<td>The molecular system that the structure describes</td>
+</tr>
+<tr><td><em>Ensemble</em></td>
+<td>The id number of the structure ensemble, for its molecular system</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether to consider the sructure in the RPF calculation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Num Models</em></td>
+<td>The number of models in the structure ensemble</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Enable Selected</strong>: Acticate the structures selected in the table, so that they will be considered.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Disable Selected</strong>: Inactivate the structures selected in the table, so that they will not be considered.</p>
+</div>
+<div class="section" id="results-table">
+<h2>Results Table<a class="headerlink" href="#results-table" title="Permalink to this headline">¶</a></h2>
+<p>A table listing the overall PRF results for each peak list and structure</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Ensemble</em></td>
+<td>The identity of the structure ensemble analysed</td>
+</tr>
+<tr><td><em>PeakList(s)</em></td>
+<td>The identity of the peak list analysed</td>
+</tr>
+<tr><td><em>Recall</em></td>
+<td>The fraction of peaks that are consistent with the structure; measure of unexplained peaks</td>
+</tr>
+<tr><td><em>Precision</em></td>
+<td>The fraction of short distances that are represented; measure of missing peaks</td>
+</tr>
+<tr><td><em>F-measure</em></td>
+<td>F-measure score: a combination of recall and precision</td>
+</tr>
+<tr><td><em>DP Score</em></td>
+<td>The discrimination potential; the amount of information imparted by peaks that surpasses random coil expectation</td>
+</tr>
+<tr><td><em>Unexplained Peaks</em></td>
+<td>The number of peaks which do not correspond to short distances</td>
+</tr>
+<tr><td><em>Missing Peaks</em></td>
+<td>The number of short distance pairs that would be expected to result in peaks, but do not</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Unexplained Peaks</strong>: Open the table listing all the unexplained peaks, for the selected result row.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Missing Peaks</strong>: Open the table listing all the missing peak locations, for the selected result row.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Residue Graph</strong>: Open the graph of per-residue RPF quality scores</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Results</strong>: Delete the selected RPF results (does not affect the original peaks or structure)</p>
+</div>
+<div class="section" id="unexplained-peaks">
+<h2>Unexplained Peaks<a class="headerlink" href="#unexplained-peaks" title="Permalink to this headline">¶</a></h2>
+<p>A table of unexplained peaks; which do not match a short distance</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Result Set</strong>: Sets which high-level grouping of stored calulation results to show peaks for.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Location</strong>: Select the next unexplained peak in the table</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Prev Location</strong>: Select the previous unexplained peak in the table</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Selected</strong>: Use the positions of the selected peaks to specify strip locations in the selected window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Find Peak</strong>: Locate the currently selected peak in the specified window</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Choose the spectrum window for locating peaks or strips</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Found</strong>: Whether to put a cross-mark though peaks found in a given window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Mark Selected</strong>: Put multidimensional cross-marks through selected peaks</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Experiment:spectrum of peak</td>
+</tr>
+<tr><td><em>List</em></td>
+<td>Peak list number</td>
+</tr>
+<tr><td><em>Peak</em></td>
+<td>Peak serial number</td>
+</tr>
+<tr><td><em>Dist.</em></td>
+<td>Structure distance between hydrogens</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>Magnitude of spectrum intensity at peak center (interpolated), unless user edited  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>Integral of spectrum intensity around peak location, according to chosen volume method  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Merit</em></td>
+<td>Figure of merit value for peak; zero: &#8220;bad&#8221; one: &#8220;good&#8221;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User editable textual comment for peak  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add</strong>: Add a new peak, specifying its position</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit</strong>: Edit the position of the currently selected peak</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unalias</strong>: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign</strong>: Assign the dimensions of the currently selected peak</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign</strong>: Remove all assignments from the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Details</strong>: Set the details field of the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Resonances</strong>: Show a table of resonances assigned to the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Dim</strong>: Deassign a specified dimension of the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Intensities</strong>: Recalculate the height and volume of the selected peaks given the spectrum data</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Line width</strong>: Recalculate the linewidth measurements of the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show On Structure</strong>: Show the assignment connections of the selected peaks on the selected structure</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Assign</strong>: Spread the resonance assignments of the peak last selected to all selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Merit</strong>: Copy the merit value of the last selected peak to all selected peaks</p>
+</div>
+<div class="section" id="missing-peaks">
+<h2>Missing Peaks<a class="headerlink" href="#missing-peaks" title="Permalink to this headline">¶</a></h2>
+<p>A table of synthetic missing peaks; which correspond to a short distance</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Result Set</strong>: Sets which high-level grouping of stored results to show peak locations for.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Location</strong>: Select the next synthetic, missing peak in the table</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Prev Location</strong>: Select the previous synthetic, missing peak in the table</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Selected</strong>: Use the positions of the selected peaks to specify strip locations in the selected window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Find Peak</strong>: Locate the currently selected peak in the specified window</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Choose the spectrum window for locating peaks or strips</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Found</strong>: Whether to put a cross-mark though peaks found in a given window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Mark Selected</strong>: Put multidimensional cross-marks through selected peaks</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Experiment:spectrum of peak</td>
+</tr>
+<tr><td><em>List</em></td>
+<td>Peak list number</td>
+</tr>
+<tr><td><em>Peak</em></td>
+<td>Peak serial number</td>
+</tr>
+<tr><td><em>Dist.</em></td>
+<td>Structure distance between hydrogens</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>Magnitude of spectrum intensity at peak center (interpolated), unless user edited  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>Integral of spectrum intensity around peak location, according to chosen volume method  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Merit</em></td>
+<td>Figure of merit value for peak; zero: &#8220;bad&#8221; one: &#8220;good&#8221;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User editable textual comment for peak  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add</strong>: Add a new peak, specifying its position</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit</strong>: Edit the position of the currently selected peak</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unalias</strong>: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign</strong>: Assign the dimensions of the currently selected peak</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign</strong>: Remove all assignments from the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Details</strong>: Set the details field of the currently selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Resonances</strong>: Show a table of resonances assigned to the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Dim</strong>: Deassign a specified dimension of the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Intensities</strong>: Recalculate the height and volume of the selected peaks given the spectrum data</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Line width</strong>: Recalculate the linewidth measurements of the selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show On Structure</strong>: Show the assignment connections of the selected peaks on the selected structure</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Assign</strong>: Spread the resonance assignments of the peak last selected to all selected peaks</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Merit</strong>: Copy the merit value of the last selected peak to all selected peaks</p>
+</div>
+<div class="section" id="graph">
+<h2>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h2>
+<p>A graph of the per-residue recall, precision, F-measure and DP scores</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Result Set</strong>: Sets which high-level grouping of stored results to show scores for.</p>
+<p>Scrollbar: :</p>
+<p>Scrollbar: :</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PyRPF</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#id1">Peak Lists</a></li>
+<li><a class="reference internal" href="#ensembles">Ensembles</a></li>
+<li><a class="reference internal" href="#results-table">Results Table</a></li>
+<li><a class="reference internal" href="#unexplained-peaks">Unexplained Peaks</a></li>
+<li><a class="reference internal" href="#missing-peaks">Missing Peaks</a></li>
+<li><a class="reference internal" href="#graph">Graph</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/PyRpfPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

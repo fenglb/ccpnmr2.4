@@ -1,0 +1,7 @@
+============
+MergeObjects
+============
+
+.. automodule:: ccpnmr.analysis.core.MergeObjects
+   :members:
+

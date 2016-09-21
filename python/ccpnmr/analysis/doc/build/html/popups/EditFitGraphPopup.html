@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fit Graph &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Structure" href="../menu/Structure.html" />
+    <link rel="prev" title="Data Analysis : Follow Shift Changes" href="FollowShiftChangesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Structure.html" title="Structure"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="fit-graph">
+<h1>Fit Graph<a class="headerlink" href="#fit-graph" title="Permalink to this headline">¶</a></h1>
+<p><strong>Analyse Function Curve Fitting to Peak Series Data</strong></p>
+<p>This popup is used to display the fit of a curve, of the displayed equation
+type, to data that has been extracted for a group of spectrum peaks from an
+NMR series. Precisely which kind of data is being fitted depends on the parent
+tool that this popup window was launched from. For example, for the <a class="reference external" href="CalcRatesPopup.html">Follow
+Intensity Changes</a> tool the displayed graph is of a time or frequency value
+on the &#8220;X&#8221; axis (e.g. T1) verses peak intensity. For the <a class="reference external" href="FollowShiftChangesPopup.html">Follow Shift
+Changes</a> system the plot is for the parameters of the experiment titration on
+the &#8220;X&#8221; axis (e.g concentration) verses chemical shift distance.</p>
+<p>The upper graph shows the peak data that was used; the blue points, and the
+points of the fitted theoretical curve; red points. The lower table lists the
+data points for all of the peaks in the group, to which the data relates.
+There will be one peak for each row of the table, and hence point on the &#8220;X&#8221;
+axis. For each data point in the table the corresponding peak from which the
+data was extracted may be located with the &#8220;Follow in window&#8221; option, using
+the stated spectrum window and making marker lines as desired. Alternatively,
+the peak may be viewed in a table with [Show Peak]</p>
+<p>In general operation this system is used to check how well the selected
+function curve fits the peak data. The data that is displayed comes from the
+analysis tool that launched this popup. Any outliers may be removed using
+[Remove Point] (only with good reason) or the peaks themselves may be
+corrected if something has gone awry. Given that the display is launched from
+the selection of a specific group of peaks from a popup like <a class="reference external" href="FollowShiftChangesPopup.html">Follow Shift
+Changes</a>  or <a class="reference external" href="CalcRatesPopup.html">Follow Intensity Changes</a> and there are usually several peak
+groups that need to be analysed, the [Previous Set] and [Next Set] buttons can
+be used to quickly jump to the next peak group and see the next curve in the
+analysis results.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p>Scrollbar: :</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Fitting Function</strong>: Selects which form of function to fit to the experimental data</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Navigation Window</strong>: Selects which spectrum window will be used for navigating to peak positions</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Follow in window?</strong>: Whether to navigate to the position of the reference peak (for the group), in the selected window</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Ref Peak?</strong>: Whether to put a multi-dimensional cross-mark through the reference peak position, so it can be identified in spectra</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Point</em></td>
+<td>The number of the data point, in order of increasing X-axis value</td>
+</tr>
+<tr><td><em>x</em></td>
+<td>For each point, the value of the parameter which is varied in the NMR series, e.g. T1, temperature, concentration etc.</td>
+</tr>
+<tr><td><em>y</em></td>
+<td>For each point, the experimental value being fitted, e.g. peak intensity of chemical shift distance</td>
+</tr>
+<tr><td><em>Fitted y</em></td>
+<td>The value of the best-fit function at the X-axis location</td>
+</tr>
+<tr><td><em>Δ</em></td>
+<td>The difference between the experimental (Y-axis) value and the fitted value</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Point</strong>: Remove the selected data point, optionally removing the underlying peak</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peak</strong>: Show a table of spectrum peaks that correspond to the selected data point</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous Set</strong>: Move to the previous set of fitted values; the next group of peaks, often corresponding to a different residue or resonance</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Set</strong>: Move to the next set of fitted values; the next group of peaks, often corresponding to a different residue or resonance</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Fit Graph</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FollowShiftChangesPopup.html"
+                        title="previous chapter">Data Analysis : Follow Shift Changes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/Structure.html"
+                        title="next chapter">Structure</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditFitGraphPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Structure.html" title="Structure"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

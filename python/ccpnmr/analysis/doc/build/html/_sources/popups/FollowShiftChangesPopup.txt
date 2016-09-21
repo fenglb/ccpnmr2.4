@@ -1,0 +1,305 @@
+====================================
+Data Analysis : Follow Shift Changes
+====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Follow Chemical Shift Changes During Titrations**
+
+This system is desined to efficently extract changing peak position data,
+which for example may occur during a titration experiment, and then fit the
+chemical shift changes to an equation curve for the extraction of parameters
+that relate to the peak movements. This analysis may be used to measure such
+things as dissociation constants (e.g. Kd) and temperature coeffients; where
+the position of or more peaks in a group  of related spectra changes according
+to some experimental condition. Many kinds of experimental condition may be
+varied, but series with changing in concentration (e.g. ligand), temperature
+or pH are commonplace. This system is closely related to the `Follow Intensity
+Changes`_ tool, but here the peak grouping and function fitting is for peak
+locations that do move, rather than stay in the same place and change
+intensity.
+
+The general idea is that the user sets up an "NMR series" that contains an
+array of experiments where each experiment is point in the series and
+represents a different value for a parameter (like concentration) being
+investigated. Based initially on the reference peak positions, trajectories
+where picked peak positions move in the different experiments are tracked by
+finding the peak groups that best fits the stated function which relates
+chemical shift to series parameter. It should be noted that NMR series that
+are comprised of experiment planes stacked into a higher-dimensionality
+"pseudo-nD" experiment cannot be used in this analysis. The reason for this
+relates to the way that experiments link to chemical shift lists in the CCPN
+data model; there is no meachanism to record a changing chemical shift within
+a single experiment.
+
+The layout of the popup window is split into two tabs to reduce clutter. The
+first tab allows the user to setup and adjust all of the options used to
+follow the peak positions as they form "trajectories" and do the function
+fitting. The second tab is used to display the results on a table of peak
+groups, where each group corresponds to a series of peaks which have common
+assignemnts, with one peak for each experiment.
+
+The general idea is that the user selects a reference peak list, which will
+give assignment identities to the peak groups being analysed. Typically the
+reference peak list will be from an experiment *in the NMR series*, so that
+the the positions of the peaks, as they move in the different experiments,
+cross or end at the reference position. For proteins this reference will often
+be a 15N HSQC peak list, in which case the analysis operates on peak groups
+that correspond to amides of individual residues.
+
+The user chooses an NMR series that has been setup in the `NMR Series`_ popup,
+accessible using the [Edit NMR Series] button. For the anlysis to proceed
+properly the selected NMR series will need to contain all of the experiments
+that form part of the titration/analysis and the vaues of the condition being
+studied (e.g. concentration) must be correctly set. The "Data List Type" and
+corresponding unit indicate what kind of experimental condition/parameter, as
+dictated by the NMR series, will be fitted to chemical shift distance. The
+"Fitting Function" option is adjusted to say what kind of curve should be
+fitted to the peak intensity data; the linear "Ax + B" is common for
+temperature coefficents while the elaborate "A((B+4x-sqrt((B+4x)^2-(4x)^2))/4x
+- C)" is often used to measure dissociation constants. The Error Method
+determines how the errors in the parameters of the fitted function (e.g. error
+in Kd rate) will be calculated.
+
+The "covariance" error method can be used if the measurement errors are
+normally distributed (which is often a reasonable assumption).  For each
+parameter the error (standard deviation) estimate is the square root of
+(the chi squared value times the covariance matrix diagonal term for that
+parameter).
+Reference: section 15.6, "Confidence Limits on Estimated Model Parameters"
+in Numerical Recipes, second edition.
+
+The "bootstrap" error method uses repeated sampling to provide an estimate
+of the error.  If there are N (x, y) points to be fit then each sampling
+takes N of those (x, y), but with replacement allowed, so some of the (x, y)
+might be repeated and some might be left out.  For each sampling the best
+fit is calculated and that determines the parameters for this specific
+sampling, which in turn allows an estimate of the error (standard deviation)
+over all samplings.  Analysis uses 1000 samples.
+Reference: "Bootstrap Methods for Standard Errors, Confidence Intervals and
+Other Measures of Statistical Accuracy", B. Efron and R. Tibshirani,
+Statistical Science, 1986, Vol. 1, No. 1, 54-77.
+
+The "jiggling" error method uses repeated sampling but here the (x, y) are
+both sampled from a normal distribution with mean the actual value and
+standard deviation the estimated data errors.  There is no real scientific
+basis for this estimate, so probably best avoided.
+
+The peak groups that are analysed for the fit of experimental parameter to
+chemical shift distance may be manually specified by giving a common
+assignment to peaks that derive from the same resonances. Alternatively, an
+automatic method is used to find peaks which are not assigned. This automation
+follows the positions of peaks in their trajectories, choosing the best
+combination of peaks that a) roughly follows a straight line and b) fits the
+selected fuction equation, in terms of the expected chemical shift distance
+for the experiment. Having the "Assign groups?" option set means that after
+the first peak grouping, peaks will be linked via assignment and subsequent
+peak searches are not generally required. Peak positions may be tracked in one
+or more spectrum dimensions, according to the "Followed Dimensions" selection.
+When multiple dimensions are used, chemical shift difference for dissimilar
+istopes are combined using the "Shift Weighting" values. The "Max Step Size"
+value are important for the automated peak grouping, given that they limit
+which peaks are considered when going from one experiment to the next. When
+step sizes are too large the grouping calculation can take a long time. When
+step sizes are too small peaks will be missed and grouping may fail.
+
+The peak grouping and function fitting is performed using the [Group & Fit
+Peaks] function. After the initial grouping the curve fitting may be
+redone with via one of the "Re-fit" buttons; this useful if the fitting
+function is changed. When the curve fitting is done the parameter results from
+the fit, e.g. the "A" and "B" from an "Ax + B" equation, are immediately
+made available from the results table. Also, where relevant, any Kd values are also presented; this requires that the
+binding site concentration was specified. In the "Peak Groups & Analysis"
+table the user can see the fit results and analyse or adjust the peak groups.
+It is commonplace to look through all the intensity curves for each of the
+peak groups by using [Show Fit Graph]; here the user can check how well the
+curve-fit worked and whether any adjustments (e.g. in peak picking) need to be
+made or groups removed. See the `Fit Graph`_ documentation for details about
+how the resultant popup window operates. The "Y" value of the curves come
+from the (isotope weigted) chemical shift distance for each peak of the group
+*along the trajectory from its start point* and the "X" values come from those
+that were entered for the experimental points/planes in the NMR series. When
+the results have been checked, they may be used by directly  exporting the
+fitted parameters from the table.
+
+**Caveats & Tips**
+
+Each peak group need not contain the same number of peaks if data is missing.
+
+Peaks must be picked in all of the analysed experiments beforehand for this
+system to function.
+
+Choosing an assigned reference peak list that is postioned in the centre of the
+moving peak trajectories will give the quickest and most reliable peak
+groupings; the trajectory search radius is minimised.
+
+If there are problems with grouping peaks together the user may assign all
+peaks that ought to go in the same group to the same resonances, for example
+using the "propagate" assignment option, thus connecting peaks together.
+
+It is expected that each experiment of the analysed series, because peaks move
+position significantly, will be linked to a separate chemical shift record; so
+that there is a shift value for each condition point. If the experiments of a
+series do no not use separate shift list the user will be propted to set this
+up.
+
+For groups where the peaks do not move significantly, between experiments in
+the series, a curve will still be fitted to the trajectory. This is because
+the value fitted is a weighted chemical shift distance, from one position to
+the next in the trajectory, and distances will always be positive, including
+when points double-black (within the "Shift Error" tolerance).
+
+If the peak grouping is taking a significant amount of time, consider reducing
+the "Max Step Size" values; but still leave vales large enough to jump from
+one experiment to the next.
+
+The fit of the equation curve to the chemical shift changes is naturally
+limited to how many experimental points there are in the series and how well
+spread they are. For example when measuring ligand Kd values, where possible,
+if is best to have some experiments at low concentration and some at high
+concentration, near saturation.
+
+A subset of peaks in a series may be analysed by reducing the number of peaks
+in the reference peak list. For example the user could make a copy of an HSQC
+peak list and then remove and peak locations that are not required in the
+analysis, e.g. for side chain NH2 peaks or for resonance which don't move
+significantly enough for analysis.
+
+.. _`Follow Intensity Changes`: CalcRatesPopup.html
+.. _`NMR Series`: EditExperimentSeriesPopup.html
+.. _`Fit Graph`: EditFitGraphPopup.html
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Settings
+========
+
+Allows the user to setup how resonance trajectories are followed and which experiments to analyse
+
+Experiment Setup
+~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Reference Peak List**: Selects which peak list is the source of assignments and representative positions for peak group trajectories (need not be at the end of the trajectory)
+
+|pulldown| **NMR Experiment Series**: Selects which series of NMR experiments to perform the peak-following and equation fitting analysis for
+
+Function Fitting
+~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Fitting Function**: Selects which kind of parameterised equation to use in the fitting of chemical shift distance to NMR series value
+
+|pulldown| **Followed Dimensions**: Selects which dimensions of the spectra to follow chemical shifts for; can use different isotope types given the stated weightings
+
+|pulldown| **Error method**: Selects how errors in the fit of the selected equation to the chemical shift data are estimated
+
+|float| **4.0**: The amount of grace, in data points, for grouping resonance locations that do not move significantly; allows trajectories to backtrack a little
+
+|check| **Assign groups?**: Whether to assign all peaks in the same group to the same resonances; where possible inherited from the reference peak list
+
+|float| **Min F2/F1 Grad**: The lower limit of the chemical shift trajectory gradient; difference in second dimension over difference in first dimension
+
+|check| **Ignore Zero Merit Peaks?**: When grouping peaks along resonance trajectories, whether to ignore peaks with zero figure-of-merit value
+
+|float| **Max F2/F1 Grad**: The upper limit of the chemical shift trajectory gradient; difference in second dimension over difference in first dimension
+
+Isotope Parameters
+~~~~~~~~~~~~~~~~~~
+
+
+|float| **1.0**: The scaling factor for 1H dimensions, used to give equivalency to ppm distances for different kinds of isotope
+
+|float| **0.15**: The scaling factor for 15N dimensions, used to give equivalency to ppm distances for different kinds of isotope; default is relative to a 1H weight of 1.0
+
+|float| **0.1**: The scaling factor for 13C dimensions, used to give equivalency to ppm distances for different kinds of isotope; default is relative to a 1H weight of 1.0
+
+|float| **0.05**: The 1H ppm difference limit, within which each subsequent point along a resonance trajectory may be found; to make peak groups
+
+|float| **0.5**: The 15N ppm difference limit, within which each subsequent point along a resonance trajectory may be found; to make peak groups
+
+|float| **0.5**: The 13C ppm difference limit, within which each subsequent point along a resonance trajectory may be found; to make peak groups
+
+Peak Groups & Analysis
+======================
+
+The peaks that have been grouped into resonance trajectories, and the various equation parameters estimated for each
+
+=================  ===============================================================================================================================
+**Table 1**
+--------------------------------------------------------------------------------------------------------------------------------------------------
+              *#*  Number of the peak group 
+      *Assign F1*  The assignment of the reference peak for the group in the F1 dimension 
+      *Assign F2*  The assignment of the reference peak for the group in the F2 dimension 
+      *Traj Dist*  The isotope-weighted chemical shift path length; following each pair of points in the trajectory of the peak group 
+     *Shift Dist*  The isotope-weighted chemical shift distance between the first and last point in the peak group 
+      *Fit Error*  The error in the goodness fo fit of the selected graph to the observed chemical shift data 
+      *Num Peaks*  The number of peaks contained in the analysis group 
+*Fitted Function*  The kind of function used in the graph fitting, to extract parameters, for this group 
+    *Fit Param A*  The estimated value of parameter "A", obtained by fitting the selected equation to the chemical shift data 
+    *Fit Param B*  The estimated value of parameter "B", obtained by fitting the selected equation to the chemical shift data 
+  *Param Error A*  The estimated error, using the selected method, in fit parameter "A" 
+  *Param Error B*  The estimated error, using the selected method, in fit parameter "B" 
+=================  ===============================================================================================================================
+
+
+
+|button| **Remove Selected Groups**: *Documentation missing*
+
+|button| **Re-fit Selected**: *Documentation missing*
+
+|button| **Show Fit Graph**: *Documentation missing*
+
+|button| **Show Peaks**: *Documentation missing*
+
+|button| **Group & Fit Peaks**: *Documentation missing*
+
+|button| **Re-fit All Groups**: *Documentation missing*
+
+|button| **Edit NMR Series**: *Documentation missing*
+
+|button| **Export Shifts**: *Documentation missing*
+

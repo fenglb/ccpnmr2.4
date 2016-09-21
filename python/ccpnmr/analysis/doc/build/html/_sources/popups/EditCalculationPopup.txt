@@ -1,0 +1,278 @@
+========================
+Other : NMR Calculations
+========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**View and Edit External NMR Calculations**
+
+This popup window is used to view the various calculations, performed by
+programs external to CCPN (like CING or ARIA), that have nonetheless been
+setup inside CCPN software to use CCPN data.
+
+*This popup is somewhat of a prototype, so its functionality is neither
+complete nor throughly tested, but it is the only way to get an overview of
+certain types of data.*
+
+The popup window is divided into two tabs. The first "Calculation Groups" tabs
+shows the various types of software that calculations have been setup for. It
+should be noted that this system is general and where possible the user should
+consider using the dedicated graphical interfaces to run particular pieces of
+software (like those in the main Structure menu).
+
+The "Calculation Runs" tab shows the various jobs that have been setup, and
+possibly run, for the different kinds of software. The user can change the
+software calculation group via the top most pulldown menu, then change the
+"Run Number" to look though the jobs ("runs") that have been setup. New, blank
+or duplicated, "run" specifications can be made at any time. A specification
+may also be deleted, but a run may only be edited if it has not been used by
+the calculation; a run is a record or what was done. A completed run may
+effectively be edited by making a copy first.
+
+The data that relates to a job/run is divided into three sub-tabs to indicate
+what the input data from the CCPN project is, what settings are used during
+the calculation, and what the output CCPN data is. The input data is further
+sub-divided into various categories of data, and the user can (if the job is
+editable) use the [Add ...] and [Remove ...] buttons to dictate which CCPN
+entities will be selected for the calculation. Not all types of data will be
+appropriate for all calculations; further incentive to use the specialised
+program interfaces when they are available, rather than this general one.
+
+The "Run Settings" tab is filled with a table of all of the parameters that
+have been associated with the currently selected run. A parameter will
+have an identifying code and perhaps a group to collect certain parameters
+together. Some parameters may just represent a simple value, but others
+may associate a value with a "Data Object"; a CCPN data model entity
+containing NMR information or a reference to external data held on disk.
+
+The "Output Data" table lists all of the CCPN entities that were generated or
+modified by the selected calculation job (if it were run).
+
+It is notable that a "run" specification will persist even if some or all of
+the CCPN data entities (e.g. restraint lists) it was originally linked to have
+been deleted. In this way the user still has a record that something was run,
+and there is no restriction on the normal manipulation of CCPN data. If a CCPN
+data item has disappeared then the run will list it as "*DATA MISSING*".
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Calculation Groups
+==================
+
+*Documentation missing*
+
+===========  ==============================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------
+        *#*  Row number 
+     *Name*  name of calculation group (often a program name) 
+*Num. Runs*  The number of calculation run specifications stored for the group  *(Editable)*
+===========  ==============================================================================
+
+
+
+|button| **Add New Calculation Group**: Add a new grouping (e.g. by program name) to contain calculation specifications
+
+|button| **Delete Calculation Group**: Delete the selected calculation group (program settings) and all calculation run settings it contains
+
+Calculation Runs
+================
+
+*Documentation missing*
+
+|pulldown| **Calculation Group**: Selects which program (or other calculation grouping) a set of calculations relate to
+
+
+|pulldown| **Run Number**: Selects which calculation job or "run" is currently being viewed or edited
+
+|button| **New Run**: Make a setup for a new calculation run
+
+|button| **Copy Run**: Make a new calculation run by copying the current one
+
+|button| **Delete Run**: Delete the current calculation run settings
+
+Input Data
+==========
+
+*Documentation missing*
+
+|pulldown| **Molecular System**: Selects which molecular system the calculation will be run on
+
+|entry| **Run Details**: User-editable textual comment for the current calculation
+
+Structures
+==========
+
+*Documentation missing*
+
+============  ================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------
+         *#*  Row number 
+*Mol System*  Code for the molecular system to which the structure relates 
+  *Ensemble*  The id number of the structure ensemble within its molecular system 
+    *Models*  The numbers of the conformational models considered 
+============  ================================================================================
+
+
+
+|button| **Remove Selected Models**: Remove the selected structural models from consideration (does not delete the coordinates)
+
+|button| **Add Ensemble**: Add the selected structure ensemble as calculation input
+
+|pulldown| ***None***: Selects a structure ensemble which may be added as calculation input
+
+|button| **Add Model**: Add the selected conformational model to the calculation input
+
+|pulldown| ***None***: Selects a conformational model which may be added as calculation input
+
+Shifts & Measurements
+=====================
+
+*Documentation missing*
+
+===========  =============================================================================
+**Table 3**
+------------------------------------------------------------------------------------------
+        *#*  Row number 
+*Data Type*  The kind of measurement data used and calculation input 
+   *Serial*  The serial number used to uniquely identify the measurement list 
+*List Name*  The textual name of the measurement list 
+     *Size*  The number of individual measurements in the list 
+  *Details*  User-specified textual comment 
+===========  =============================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected measurement list from consideration (does not delete the data)
+
+|button| **Add Measurement List**: Add the selected measurement list as calculation input
+
+|pulldown| ***None***: Selects a measurement list which may be added as calculation input
+
+Peak Lists
+==========
+
+*Documentation missing*
+
+============  =========================================================================
+**Table 4**
+---------------------------------------------------------------------------------------
+         *#*  Row number 
+*Experiment*  The name of the experiment that contains the input peak list 
+  *Spectrum*  The name of the spectrum that contains the input peak list 
+    *Serial*  The serial number of the input peak list within its spectrum 
+     *Peaks*  The number of peaks in the peak list 
+============  =========================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected peak list from consideration (does not delete the data)
+
+|button| **Add Peak List**: Add the selected peak list as calculation input
+
+|pulldown| ***None***: Selects a peak list which may be added as calculation input
+
+Restraint Lists
+===============
+
+*Documentation missing*
+
+================  ==================================================================================
+**Table 5**
+----------------------------------------------------------------------------------------------------
+             *#*  Row number 
+*Restraint Type*  The type of restraints in the input restraint list 
+ *Restraint Set*  The restraint set that contains the input restraint list 
+        *Serial*  The serial number of the input restraintlist within its restraint set 
+     *List Name*  The textual name of the input restraint list 
+    *Restraints*  The number of restraints in the input restraint list 
+================  ==================================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected restraint list from consideration (does not delete the data)
+
+|button| **Add Restraint List**: Add the selected restraint list as calculation input
+
+|pulldown| ***None***: Selects a restraint list which may be added as calculation input
+
+Run Settings
+============
+
+*Documentation missing*
+
+=============  ===========================================================================
+**Table 6**
+------------------------------------------------------------------------------------------
+          *#*  The serial number of the parameter; an internal CCPN numbering 
+       *Code*  The identifying code (one word name) of the parameter 
+      *Group*  The group to which the parameter belongs 
+       *Name*  Human reasable name or decription of the parameter 
+   *Value(s)*  The current value associated with the parameter 
+*Data Object*  *Documentation missing* 
+=============  ===========================================================================
+
+
+
+Output Data
+===========
+
+*Documentation missing*
+
+============  =============================================================================
+**Table 7**
+-------------------------------------------------------------------------------------------
+ *Data Type*  The kind of data output by the calculation 
+         *#*  the serial number of the output data, within the calculation run 
+      *Name*  The name of the output data 
+ *CCPN Data*  The identity of any CPN objects that are lined to/as output data 
+*Parameters*  Any parameters which relate to the output data 
+    *Weight*  Any fractional weighting that was applied to the output data 
+============  =============================================================================
+
+
+

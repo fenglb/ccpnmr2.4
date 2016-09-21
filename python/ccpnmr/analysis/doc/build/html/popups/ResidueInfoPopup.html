@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecule : Residue Information &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="next" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="prev" title="Molecule : Molecules" href="EditMoleculesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Assignment.html" title="Assignment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" accesskey="U">Molecule</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecule-residue-information">
+<h1>Molecule : Residue Information<a class="headerlink" href="#molecule-residue-information" title="Permalink to this headline">¶</a></h1>
+<p><strong>Residue Assignment Information</strong></p>
+<p>This popup is designed to give an alternative view of residue assignment
+status to the <a class="reference internal" href="#atom-browser">Atom Browser</a>. The idea is that the user selects a particular
+molecular chain from the upper-left pulldown menu and then a <em>type</em> of residue
+from that chain in the adjacent pulldown. The left hand table then shows all
+the residues of that type within the selected chain&#8217;s sequence.</p>
+<p>The left hand table lists residues of the selected type in the middle column.
+The first and last columns show the previous and next residue in the sequence
+for each central residue, thus showing a little of the sequence context for
+the selected kind of residue. If a row of this table is clicked, the central
+&#8220;i&#8221; residue is selected and the assignments are displayed in a 3D structural
+view in the right hand panel.</p>
+<p>The right hand panel contains a structural display for the kind of residue
+selected, using <em>idealised</em> coordinates; not coordinates from a particular
+structure. With the &#8220;Show Assignment&#8221; option selected, this 3D view has the
+chemical shifts of the assigned atoms within the selected residue superimposed
+in the view. The chemical shifts are listed after the name of each atom, but
+naturally only if it has a resonance assignment in the selected shift list.</p>
+<p>It should be noted that where atoms are deemed to be equivalent, like the
+three hydrogens in a fast rotating methyl atom set, the same chemical shift
+values will be used for all of the atoms within the set, although strictly
+speaking the value only really applies to the set as a whole. Also, for
+assignments that are non-stereospecific, e.g. there may be an assignment to
+Ser HBa which doesn&#8217;t commit to either HB2 or HB3 specifically, the display
+will show both possible chemical shift values (should they exist) for a given
+atom. For example, a Ser HB2 atom may be labeled as &#8220;HB&#8221; 3.72/3.85&#8221; because it
+potentially relates to either the &#8220;HBa&#8221; resonance at 3.72 ppm or the &#8220;HBb&#8221;
+resonance at 3.85 ppm.</p>
+<p><strong>3D View Controls</strong></p>
+<p>To move and rotate the three-dimensional residue display the following
+keyboard controls may be used:</p>
+<ul class="simple">
+<li>Rotate: Arrow keys</li>
+<li>Zoom: Page Up &amp; Page Down keys</li>
+<li>Translate: Arrow keys + Control key</li>
+</ul>
+<p>Or altenatively the following mouse controls:</p>
+<ul class="simple">
+<li>Rotate: Middle button click &amp; drag</li>
+<li>Zoom: Mouse wheel or middle button click + Shift key &amp; drag up/down</li>
+<li>Translate: Middle button click &amp; drag + Control key</li>
+</ul>
+<p><span class="target" id="atom-browser">Atom Browser</span>: BrowseAtomsPopup.html</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule Chain</strong>: Selects which molecular chain to select and show residues from</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ccp Residue Code</strong>: Selects which kind of residue to display sequence and assignment information for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shiftlist to get chemical shift values from</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Print</strong>: Print the three-dimensional coordinate display to a PostScript, EPS or PDF file</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<div class="section" id="none-information">
+<h3>None Information<a class="headerlink" href="#none-information" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>i-1</em></td>
+<td>Identity of the previous residue in the sequence</td>
+</tr>
+<tr><td><em>i</em></td>
+<td>Locations of the selected kind of residue, considering the selected molecular chain</td>
+</tr>
+<tr><td><em>i+1</em></td>
+<td>Identity of the next residue in the sequence</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="atom-information-idealised-structure">
+<h3>Atom Information &amp; Idealised Structure<a class="headerlink" href="#atom-information-idealised-structure" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>CheckButton</strong>: Whether to show chemical shifts of assigned atoms</p>
+<p><strong>*None*</strong>: How many residues of the selected kind are assigned out of the total number available</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecule : Residue Information</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#none-information">None Information</a></li>
+<li><a class="reference internal" href="#atom-information-idealised-structure">Atom Information &amp; Idealised Structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMoleculesPopup.html"
+                        title="previous chapter">Molecule : Molecules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/Assignment.html"
+                        title="next chapter">Assignment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ResidueInfoPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Assignment.html" title="Assignment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" >Molecule</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

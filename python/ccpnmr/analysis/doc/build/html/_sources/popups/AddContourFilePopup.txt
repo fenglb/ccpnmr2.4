@@ -1,0 +1,69 @@
+=========================
+Add existing contour file
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Add Existing Contour Files to Project**
+
+The purpose of this dialog is to allow the user to add pre-existing
+contour files to the project.  Contour files only depend on the spectrum
+data so the same contour files can be used across multiple projects,
+and that is the reason this dialog might be used.
+
+See also: `Spectrum Contour Files`_, `Creating Contour Files`_.
+
+.. _`Spectrum Contour Files`: EditContourFilesPopup.html
+.. _`Creating Contour Files`: CreateContourFilePopup.html
+
+
+Main Panel
+==========
+
+|pulldown| **Spectrum**: The spectrum for which the contour file is being added
+
+|button| **File name**: Browse for a file store contour data
+
+|entry| **File name entry**: Enter the name of the file to store contour data
+
+|button| **Add File**: Use the selected contour file in the current project, copying it to the contour directory if required
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Util &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="ValidationBasic" href="ValidationBasic.html" />
+    <link rel="prev" title="StructureBasic" href="StructureBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ValidationBasic.html" title="ValidationBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="StructureBasic.html" title="StructureBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.Util">
+<span id="util"></span><h1>Util<a class="headerlink" href="#module-ccpnmr.analysis.core.Util" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.changeSpectrumContourLevels">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">changeSpectrumContourLevels</tt><big>(</big><em>analysisSpectrum</em>, <em>levelChanger</em>, <em>changeMode='multiply'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.changeSpectrumContourLevels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Descrn: Change the contour levels of a spectrum by a given factor
+Inputs: Analysis.AnalysisSpectrum, Float, Word (multiply or add)
+Output: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getAnalysisDataDim">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getAnalysisDataDim</tt><big>(</big><em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getAnalysisDataDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve or create an AnalysisDataDim for an Nmr.DataDim</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getAnalysisProfile">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getAnalysisProfile</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getAnalysisProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve or create an AnalysisProfile for a memops root</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getAnalysisProject">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getAnalysisProject</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getAnalysisProject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve or create an AnalysisProject for a memops root</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getAnalysisSpectrum">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getAnalysisSpectrum</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getAnalysisSpectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve or create an AnalysisSpectrum for an Nmr.DataSource</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getAverageHue">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getAverageHue</tt><big>(</big><em>colorScheme</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getAverageHue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the average colour hue for a color scheme</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.Util.getHueSortedColorSchemes">
+<tt class="descclassname">ccpnmr.analysis.core.Util.</tt><tt class="descname">getHueSortedColorSchemes</tt><big>(</big><em>analysisProfile</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.Util.getHueSortedColorSchemes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the colour shemes of an AnalysisProfile in average hue order</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="StructureBasic.html"
+                        title="previous chapter">StructureBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ValidationBasic.html"
+                        title="next chapter">ValidationBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/Util.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ValidationBasic.html" title="ValidationBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="StructureBasic.html" title="StructureBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

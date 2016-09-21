@@ -1,0 +1,98 @@
+=================
+Project : Archive
+=================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Archive the Project**
+
+This popup window enables the user to archive the CCPN Project into a gzipped
+tar file.  By default it only includes the *.xml files which reside in the
+project directory.  If the "Include *.xml.bak files" check button is checked
+then it will also include the *.xml.bak files which reside in the project
+directory.  If the "Include data files which are in the project directory"
+check button is checked then it will also include the binary data files
+which reside in the project directory.
+
+**Caveats & Tips**
+
+The archive excludes the reference data *.xml files (quite sensibly).
+
+
+Main Panel
+==========
+
+|entry| **RatesGI_101001**: File name (excluding .tgz ending) for archive
+
+|check| **Include *.xml.bak files**: If checked include *.xml.bak files
+
+|check| **Include data files which are in project directory**: If checked include data files if they are located in project directory
+
+Archive Location
+~~~~~~~~~~~~~~~~
+
+
+===========  ==============================
+**Table 1**
+-------------------------------------------
+*Directory*  Name of directory 
+===========  ==============================
+
+
+
+|button| **Back**: Go to previous location in history
+
+|button| **Forward**: Go forward in location history
+
+|button| **Up**: Go up one directory level
+
+|button| **Top**: Go to root directory
+
+|button| **Home**: Go to home directory
+
+|button| **New**: Make a new directory
+
+|button| **Refresh**: Refresh directory listing
+
+
+|check| **Show hidden**: Show hidden files beginning with "." etc.
+
+|pulldown| **Dir path**: Directory navigation to current location
+
+|button| **Save**: Create archive file
+

@@ -1,0 +1,182 @@
+==============
+Peak Separator
+==============
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Separate Merged Peaks Using Peak Models**
+
+The Peak Separator code uses a Markov Chain Monte Carlo search which, using
+idealised peak shapes, attempts to deconvolve overlapped peak regions into
+their separate constituent peaks.
+
+This routine is also suitable for accurately fitting model shapes to single
+peaks in order to calculate precise intensities.
+
+**Options Peak Separator Parameters**
+*Min. Number of peaks* is by default set to one, it is not possible to set
+this to a value less than one.
+*Max. Number of peaks* is by default set to one, increasing this value allows
+the search routine to fit more models. The best fit may be found with fewer than
+the maximum number models. Higher numbers slow the routine, and setting this
+value to 0 allows the routine to (effectively) fit unlimited peaks.
+*Only pick positive peaks*. If you are not interested in negative peaks, removing
+the possibility of fitting negative peaks can reduce search time.
+*Peak Model* fits the spectra with either a Gaussian peak model or a Lorentzian
+peak model.
+
+**Options Region**
+*Peak List* choose which peak list newly picked peaks should be added to. Peaks
+picked using this method will have their details appended with 'PeakSepartor'
+so you know where they came from.
+*Region Table* shows which area of the current spectrum is about to be searched.
+*Add Region*. Once an area of spectra has been highlighted clicking this button
+will pass it's details on to the Peak Separator.
+*Reset All* will reset all search parameters.
+*Separate Peaks* will run the Peak Separator code with your current settings. This
+may take a few minutes to run, depending on the size of the spectral region being
+searched, the number of peaks being fitted and the speed of your machine. Please
+wait while this completes.
+
+After a successful Peak Separation run, the found peaks will be added to the
+selected peak list. These peaks intensties (volume) have been found using the
+peak model selected.
+
+**Advanced Settings Tab**
+*Rate* affects the speed of the Markov Chain Monte Carlo routine. A smaller value
+results in longer execution, but possibly higher quality results. The default
+setting is deemed sensible for the majority of runs.
+*Line Width* offers a finer degree of control over maximum and minimum peak widths
+for each dimension. The default values are *very* stupid and could do with
+re-checking for each experiment.
+*Re-Pick Entire Peak List* if you would like to use the Peak Separator to repick
+*every* peak in your peak list, try this option - but note that this may take
+a very long time!
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak Separator
+==============
+
+*Documentation missing*
+
+Peak Separator Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|int| **Min. number of peaks**: Minimum number of peaks to find (must be > 0)
+
+|int| **Max. number of peaks**: Maximum number of peaks to find (0 is unlimited - not recommended)
+
+
+|radio| **False**: Search for both positive and negative intensity peaks
+
+|radio| **True**: Limit search to only positive peaks
+
+
+|radio| **Gaussian**: Choose a Gaussian model peak shape to fit to peaks
+
+|radio| **Lorentzian**: Choose a Lorentzian model peak shape to fit to peaks
+
+Region
+~~~~~~
+
+Region that search will limit itself to
+
+
+|pulldown| **Peak List**: Select which peak list new peaks are to be added to
+
+=============  =======================
+**Table 1**
+--------------------------------------
+       *dim.*  *Documentation missing* 
+*start (ppm)*  *Documentation missing* 
+  *end (ppm)*  *Documentation missing* 
+*actual size*  *Documentation missing* 
+=============  =======================
+
+
+
+|button| **Add Region**: Add selected specrtral region
+
+|button| **Separate Peaks**: Run peak search now
+
+Advanced Settings
+=================
+
+*Documentation missing*
+
+Rate:
+~~~~~
+
+
+|float| **Rate of MCMC step size change**: Rate effects speed of run, smaller values take longer but may produce better results
+
+Line Width (Hz):
+~~~~~~~~~~~~~~~~
+
+
+==============  =======================
+**Table 2**
+---------------------------------------
+        *dim.*  *Documentation missing* 
+*min. σ (Hz)*  *Documentation missing*  *(Editable)*
+*max. σ (Hz)*  *Documentation missing*  *(Editable)*
+==============  =======================
+
+
+
+(optional - repick entire peak list)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| ***None***: Select which peak list to repick (new peaks will be put into a new peak list)
+
+|button| **Repick Peak List**: Repick selected peak list into a new peak list.
+
+|button| **Separate Peaks**: Run peak search now
+

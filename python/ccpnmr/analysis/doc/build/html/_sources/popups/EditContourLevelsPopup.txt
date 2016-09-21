@@ -1,0 +1,202 @@
+=======================
+Spectrum Contour Levels
+=======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Change Levels in Spectrum Contour Displays**
+
+This popup window is used to specify which contour levels (lines of constant
+intensity) are drawn for spectra within the spectrum windows of Analysis. A
+spectrum can have both positive and negative levels, and the user can set
+these on an individual basis or as a regular incremental (usually geometric)
+series. It should be noted that spectrum contour colours, which may be
+different for positive and negative levels, is set elsewhere, in the main
+Spectra_ table.
+
+In normal operation the user first selects the spectrum to change the contours
+for in the upper left pulldown menu. Although contour levels are specified
+for individual spectra, if there are several spectra that share the same
+levels (for example if they form a series of some kind) then the user may
+spread the contour level information from one to many via the [Propagate
+Contours] function within the "Display Options" of the main Spectra_ table.
+The user may also affect the contour levels of multiple spectra by changing
+the "Global scale" settings. This global scale will affect *all spectra* in
+the project; the scale value multiplies all of the contour levels for all
+spectra, although in practice it is rarely changed. Using a global scale gives
+the advantage of being able to specify smaller numbers for the levels.
+
+The individual contour levels for a spectrum are listed in the "positive
+levels" and "Negative levels" fields. They are multiplied by the global scale
+factor when they are used for spectrum display. The user may type in values
+for the levels directly into these field, or they can be filled using the
+"Auto contour levels" mechanism. If manual levels are specified the user
+should press [Apply manual Levels] when done to commit the changes and see the
+results. The [Apply Auto Levels] function differs in that it always applies a
+regular series of levels, according to the settings, and these will overwrite
+any manual specifications when committed; the actual levels applied are always
+displayed in the levels field.
+
+The setting of "Auto" levels using a series involves choosing a base level,
+which represents the first contour (closest to zero). This base level is
+usually set according to the level of noise in the spectrum. Typically it is a
+value just above most of the noise, so the noise is not seen, but it may be
+set lower in some instances to show weak signals. The base level applies to
+both positive and negative contour series, although for the negative side it
+is naturally used with negative sign. The user sets how many levels there should be in total; the subsequent levels
+start from the base level and move away from zero. Normally this involves a
+geometric series, with a constant multiplication factor applied to a value to
+generate the next in the series. This factor is set in the "Level multiplier",
+although some of the commonly used values are quickly set via the adjacent
+buttons. Under a few special circumstances it is helpful to  have a constant
+difference  between levels, in which case "Add levels" may be used instead of
+"Multiply levels".
+
+**Caveats & Tips**
+
+Often it is useful to initially setup contours using an "Auto" series, but
+then manually remove some of the levels. For example having all the positive
+levels but only the first negative level may be helpful to show where peaks
+are truncated.
+
+Note this system sets the levels that would be used to make any contour files
+(an optional way of working, especially for 4D spectra etc.). However,
+once contour files are made then this system will not affect the levels
+within the files.
+
+.. _Spectra: EditSpectrumPopup.html
+
+
+
+Main Panel
+==========
+
+Spectrum
+~~~~~~~~
+
+
+|pulldown| ***None***: The spectrum for which you are setting the contour levels
+
+|button| **Spectrum Properties**: Open the edit spectrum table to view and change other properties associated with the selected spectrum
+
+Global scale
+~~~~~~~~~~~~
+
+
+|float| **10000.0**: The value by which all contour levels in all spectra are multiplied; to give the actual contour level in terms of the stored spectrum data
+
+|button| **/2**: Divide the global scaling factor by two; moving all contour for all spectra levels closer to zero
+
+|button| ***2**: Multiple the global scaling factor by two; moving all contour for all spectra levels away from zero
+
+|button| **10^5**: Set the global contour scale for all spectra to the default of 100,000
+
+|ramp| Click to decrease "-" or increase "+" the global contour scale by small amounts
+
+Auto contour levels
+~~~~~~~~~~~~~~~~~~~
+
+
+|float| **Base level**: The first contour level (closest to zero) for an automated series of levels: the start of a geometric or arithmetic series defining levels
+
+|button| **/2**: Lower the base contour level so that it is half of the previous value; moving the series of contour levels closer to zero
+
+|button| ***2**: Raise the base contour level so that it is double the previous value; moving the series of contour levels further from zero
+
+|ramp| Click to decrease "-" or increase "+" the base contour level by small amounts
+
+|int| **Number of levels**: The number of contour levels to make in the automated series
+
+|button| **-1**: Decrease the number of contour levels in the series by one
+
+|button| **+1**: Increase the number of contour levels in the series by one
+
+|button| **5**: Set the number of contour levels in the series to 5
+
+|button| **10**: Set the number of contour levels in the series to 10
+
+|button| **15**: Set the number of contour levels in the series to 15
+
+|button| **20**: Set the number of contour levels in the series to 20
+
+|float| **Level multiplier**: The multiplication factor (or increment if adding levels) to repetitively apply to the base level to generate the series of levels
+
+|button| **1.2**: Set the automated series multiplication factor or increment to 1.200000
+
+|button| **1.3**: Set the automated series multiplication factor or increment to 1.300000
+
+|button| **1.4**: Set the automated series multiplication factor or increment to 1.400000
+
+|button| **1.5**: Set the automated series multiplication factor or increment to 1.500000
+
+|button| **1.6**: Set the automated series multiplication factor or increment to 1.600000
+
+|button| **1.7**: Set the automated series multiplication factor or increment to 1.700000
+
+
+|check| **Positive**: Toggles whether positive contour levels from the automated series will be used. Overrides any manual settings
+
+|check| **Negative**: Toggles whether negative contour levels from the automated series will be used. Overrides any manual settings
+
+
+|radio| **Multiply levels**: Set the contour level generation to use a geometric series, starting from the base level and using the specified factor
+
+|radio| **Add levels**: Set the contour level generation to use an arithmetic series, starting from the base level and using the specified increment
+
+Positive levels
+~~~~~~~~~~~~~~~
+
+
+|float| **FloatEntry**: The positive contour levels that will be used for the spectrum; filled in by the automation or set/modified manually
+
+Negative levels
+~~~~~~~~~~~~~~~
+
+
+|float| **FloatEntry**: The negative contour levels that will be used for the spectrum; filled in by the automation or set/modified manually
+
+|button| **Apply Auto Levels**: Set the spectrum contour levels, updating the display, to the automated series, ignoring any manual edits.
+
+|button| **Apply Manual Edits**: Set the spectrum contour levels, updating the display, to the values displayed in the level entry fields
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

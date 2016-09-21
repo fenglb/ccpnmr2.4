@@ -1,0 +1,470 @@
+=========================
+Experiments : Experiments
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Curate Experiment Parameters**
+
+This popup window is used to control parameters that relate to the NMR
+experiment entities within a CCPN project. It should be noted that an
+experiment is specifically a record of *what was done*, not a reference to the
+data that was obtained; this is what Analysis refers to as a spectrum. Also,
+an experiment doesn't just refer to what kind of NMR experiment was performed,
+but rather to something that was done on a particular occasion to a particular
+sample. The kinds of information that are stored at the experiment level
+describe how the experiment was performed and how certain data that derives
+from the experiment should be interpreted. Several tabs are used to sub-divide
+the popup window into  several sections to control different aspects of the
+experiments.
+
+**Main "Experiments" Tab**
+
+This table is the main display of all if the NMR experiments described within
+the CCPN project. Each experiment may refer to one or more spectra (and even
+an FID) that resulted from the experimental operation; the names of these are
+listed in the "Data Sources" column. Several experimental parameters may be
+adjusted in this table and, as far as resonance assignment is concerned, the
+most important of these are the "Shift List" and "Mol Systems". It should
+be noted that the "Shift Ref" column can only be configured if chemical
+shift reference details have been entered at the "Shift References" tab.
+
+The shift list of an experiment states how chemical shift measurements should
+be grouped. An experiment's assignments, on the peak of its spectra, only
+contribute to the chemical shift measurenemts in one shift list. In normal
+operation each shift list corresponds to a given set of conditions, where
+resonance positions in spectra a fairly static. Different experiments may use
+different shift lists if their sample conditions are different enough to cause
+peaks to move. Accordingly, a resonance derived from a given atom may have
+several different recorded chemical shift values, each of which resides in a
+different chemical shift list. Because each experiment is associated with a
+single shift list it is thus known which chemical shift average the
+assignments in its spectra contribute to and which chemical shift values to
+look at when suggesting assignments for peaks. The shift list that an
+experiment is linked to may be changed at any time, and when an experiment is
+moved from one shift list to another (which may be new and empty) the
+contributions that its spectrum peaks make to the calculation of average
+chemical shift values will automatically be adjusted; the experiments that are
+linked to a given shift list dictate which peaks to average chemical shift
+values over.
+
+The "Mol Systems" for an experiment specify which molecular systems were
+present in the sample. In essence this means which group of molecular chains
+the spectrum peaks, that come from the experiment, could be assigned to (caused
+by). In normal operation the molecular information need not specifically be
+set in this table, because the connection is made automatically when a peak is
+assigned to a resonance that is known to be from a specific atom in a specific
+residue. Once an experiment is associated with a particular molecular system,
+subsequent attempts to assign its peaks to atoms in a different molecular system will
+trigger a warning. The molecular system for an experiment may nonetheless be
+set via this table. Sometimes this is to preemptively associate particular
+experiments, and hence spectra, with specific molecular systems so that there
+is less chance of accidentally assigning a peak to the wrong thing. The
+molecular system, and hence residues, that an experiment is linked to is used
+to facilitate several operations in Analysis. For example, when operating on a
+peak to associate one of its assigned resonances with an atom, the molecular
+system link allows the correct group of chains to be displayed
+automatically.
+
+**Experiment Types**
+
+This table is used to specify what kind of NMR experiment was done for each of
+the experiment records within the project. The general idea is that the basic
+magnetisation transfer pathway is given and how this relates to the
+experimental dimensions. Setting such information helps facilitate several
+operations in Analysis. For example when making NMR derived distance
+restraints only peaks from "through-space" experiments like NOESY are listed.
+Also, and perhaps most importantly, the linking of experimental dimensions to
+references, which correspond to particular points of the magnetisation transfer
+pathway, enables the assignment system to have knowledge of experimental
+dimensions that are linked together via covalent "one-bond" connectivity.
+Thus, if an experiment is set to be of 15N HSQC type, then it is known that
+any spectrum peaks represent one-bond correlations between hydrogen and
+nitrogen. This dictates what the isotope type of any assignments must be, and
+if a peak dimension is assigned to a specific atom then the assignment on the
+other peak dimension must be to the covalently bound atom.
+
+Setting the experiment type means setting the 'Full Type' column. The many
+possibilities and difficult names makes this hard to do directly, and we have
+tried to help with the process. The 'Type Synonym' column also sets the 'Full
+Type' column but gives alternative and more human-readable names like 'HNCA'
+instead of 'H[N[CA]]' or '15N HSQC-NOESY' instead of 'H[N]_H.NOESY'. Some
+'Type Synonyms' correspond to more than one Full Type; anything in the 'Alt
+Types' is an alternative Full Type. The possibilities given for these columns
+are filtered, so that experiments that do not fit the nuclei on the axes are
+not shown. The most common experiments are shown at the top of the selection
+menu, the rest can be found in one or more of the categories lower down. The
+'Categories' column divides experiments into a few rough groups and are used
+to filter the possibilities in the other columns. Experiments that could
+belong to more than one group are listed only in the most 'interesting' one.
+The 'use external' category is a special case; it means that the program
+should use the information in the 'External Source' and 'External Name'
+columns to set the Full Type. This option is selected automatically when you
+are loading a spectrum that contains information about the Full Type. At the
+moment the program understands only Bruker pulse program names, and only if
+they follow the standard naming conventions used by the Bruker Applications
+department.
+
+In normal operation the user specifies the type of NMR experiment that was run
+by selecting options in the "Category", "Type Synonym" and "Full Type" columns.
+If the full CCPN name of the experiment type is known then the user can go
+straight for the "Full Type", but selecting the category and/or synonym first
+allows the number available options to be reduced dramatically; without this
+all possible experiment types that have matching isotopes are shown.
+Setting the category for the NMR experiment gives a rough sub division between
+through-bond, through-space, quantification and other types. Strictly speaking
+an experiment may belong to more than one category, but in this system it is
+only listed in the least populous. For example a 15N HSQC-NOESY has both
+through-bond and though-space transfers but is categorised as through-space.
+If the category for an experiment is unknown, or not particularly helpful, the
+user may set the synonym in the first instance. The "synonym" of an
+experimental type in Analysis is a common human-readable name, for example
+"HNCA" or "15N HSQC NOESY", but this may still not be sufficient to fully
+specify the exact NMR experiment that was run. To do this the full CCPN type
+should  be considered.  The External Source and corresponding name columns are
+only used in situations where the loading of a spectrum specifies what kind of
+experiment was run. At present this only occurs for data loaded from Bruker
+files, and then only if the pulse sequence name in the parameters is known to
+the system. Nevertheless, if this data is present the experiment type
+information can be automatically be filled in.
+
+The full CCPN type for an experiment uses a special nomenclature that is
+described in the CCPN `experiment nomenclature paper`_ (slightly out of date
+now). In essence the user can distinguish between different magnetisation
+transfer pathways, some of which may have the same common name (synonym). For
+example a 15N HSQC-TOCSY could have either the HSQC step or the TOCSY step
+first. In this instance the system offers a choice between H[N]_H.TOCSY (HSQC
+first) and H_H[N].TOCSY (TOCSY first). The experiment naming system for the
+full CCPN type is fairly complex, and is designed to give a precise
+specification of the magnetisation steps, which atom sites they visit and what
+measurements are made; giving rise to an experimental dimension. It should be
+noted however, that this system does not describe the precise NMR pulse
+sequence that was used. For example no distinction is made between HSQC and
+HMQC. The essential features of the nomenclature are as follows: capital
+letters indicate atom sites that were recorded and result in an experimental
+dimension; lower case letters are atom sites that are part of the pathway but
+not recorded, e.g. carbonyl in H[N[co[CA]]]; square brackets represent
+out-and-back transfers; curly brackets with "|" sub-divisions represent
+alternative pathways; underscores represent transfers that are not one-bond or
+J-coupling (the transfer type is listed after at the end after a dot).
+
+The lower tables are used to show how the dimensions of the actual experiment
+relate to the reference dimensions that described in the experiment type. Even
+when an experiment type is set it will not always be possible to
+automatically determine which of the experimental dimensions relates to which
+part of the magnetisation transfer pathway. For example a 3D HCCH TOCSY
+experiment (full type HC_cH.TOCSY) has two hydrogen dimensions; one dimension
+is the hydrogen bound to the measured carbon, and one dimension is the
+hydrogen in the acquisition dimension. Deciding which is which is crucial for
+the correct assignment and interpretation of spectra. The problem only arises
+when there are two or more dimensions with the same nucleus. Sometimes
+Analysis guesses wrong and the user has to check. Changing the dimension
+mapping is a matter of looking in the lower left table and seeing how one
+dimension relates to another. Each dimension that has a direct transfer to
+another recorded dimension is listed. For example, in an HCCH TOCSY dimension
+1 (hydrogen) might be 'onebond' to dimension 3 (carbon), but the user may know
+that it is actually dimension 2 that is really 'onebond' to the carbon. This
+problem may be fixed by double-clicking either the "First Dim" or the "Second
+Dim to to change the transfer pathways so that dimension 3 (carbon) is listed
+as 'onebond' to dimension 2 (hydrogen) (the other rows in the table will
+adjust automatically). The Numbering of dimensions in this table is the same
+as that presented when assigning a peak, i.e. in the `Assignment Panel`_. It
+helps to know that dimension '1' is usually (but not always) the acquisition
+dimension.
+
+The lower right "Reference Dimension Mapping" is an alternative way of looking
+at the same information and shows how the experimental dimensions have been
+mapped to their reference counterpart in the experiment type database. Here,
+the "Ref Measurement" column can be used to follow the steps in the
+magnetisation transfer pathway by following increasing measurement numbers.
+Changing the "Ref Exp Dim" column in this table is equivalent to making
+changes in the lower left table, but is perhaps more difficult to understand.
+
+**Experimental Details, Instruments and Shift References**
+
+The "Experimental Details" table is used to list and edit details about the
+recorded experiments in terms of its physical setup. The user may specify
+which instruments  were used and information about the sample and NMR tube. It
+should be noted that in order to specify a spectrometer or probe the
+specification for the instrument must first be entered in the "NMR
+Instruments" tab. Currently, none of the NMR details given in this table have
+any influence on resonance assignment or NMR data analysis, although spinning
+information may be used for solid-state spectra at some point. However, any
+experimental details entered into the CCPN project will be present when
+submissions to the BioMagResBank database are made; initially using the
+`CcpNmr ECI`_.
+
+The "Shift References" table is use to enter chemical shift reference
+information into the CCPN project. This may them be linked to experiments via
+the first "Experiments" tab, and such information is required for database
+deposition. To add a chemical shift reference specification the user first
+clicks on either "Add Internal Reference" (internal to the sample) or "Add
+External Reference" as appropriate. Then for the rows that appear in the table
+the user double-clicks to edit the columns to specify: which atom in which
+kind of molecule was used, what the reference value and unit is, and whether
+the reference is direct or indirect. A reference atom allows the direct
+referencing of resonances that have the same kind of isotope, but other
+isotopes may be referenced indirectly by using a shift ratio to relate to a
+direct reference.
+
+The "NMR Instruments" section contains two table that allows the user to add
+descriptions of the NMR probe and spectrometer that were used during the
+experiments. To achieve this the user adds a new specification for the
+appropriate kind of instrument then double-clicks to fill in the details for
+each of the rows that appears in the table.
+
+**Caveats & Tips**
+
+An experiment may be linked temporarily with a new shift list; selecting
+"<New>" in the Shift List column of the first tab then reseting the shift list
+back to the original one, in order to make a shift list that contains only
+chemical shift value for that experiment at that time. Without any experiment
+links these chemical shift values will not alter as peaks and assignments
+change.
+
+**References**
+
+*A nomenclature and data model to describe NMR experiments.
+Fogh RH, Vranken WF, Boucher W, Stevens TJ, Laue ED.
+J Biomol NMR. 2006 Nov;36(3):147-55* (link_)
+
+.. _`experiment nomenclature paper`:  http://www.ncbi.nlm.nih.gov/pubmed/17031528
+.. _`link`:  http://www.ncbi.nlm.nih.gov/pubmed/17031528
+.. _`Assignment Panel`: EditAssignmentPopup.html
+.. _`CcpNmr ECI`: EntryCompletionPopup.html
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Experiments
+===========
+
+A table listing the NMR experiments available within the current project including details of which shift lists they use
+
+=================  ===========================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------------------
+              *#*  The serial number of the experiment 
+           *Name*  A short identifying name for the experiment, for graphical display  *(Editable)*
+       *Num. Dim*  The number or independent dimensions recorded in the experiment 
+      *Exp. Type*  The name of the reference type for the experiment; to indicate what kind of experiment was run 
+*Acquisition Dim*  Which of the recorded experimental dimensions was the final acquisition dimension  *(Editable)*
+     *Shift List*  Which shift list the experiment uses to record the chemical shifts for it's assigned peaks  *(Editable)*
+   *Data Sources*  The names of the spectra (or other data sources) that are derived form the experiment 
+    *Mol Systems*  The molecular systems (groups of chains) that assignments in the experiment are made to  *(Editable)*
+      *Shift Ref*  The chemical shift reference records used by the experiment  *(Editable)*
+   *Num. Spectra*  The number of fully processed spectra resulting from the experiment 
+       *Raw Data*  Whether there is an unprocessed data source (spectrum) associated with the experiment 
+        *Details*  A user-editable textual comment for the experiment  *(Editable)*
+=================  ===========================================================================================================
+
+
+
+|button| **Measurement Lists**: Show a table of NMR measurement lists (chemical shifts, T1, J-coupling etc) that relate to the selected experiment
+
+|button| **New Experiment**: Make a new blank experiment record; you will be prompted for the number of dimensions
+
+|button| **Delete**: Delete the selected experiments from the project; any spectrum data on disk is preserved
+
+Experiment Types
+================
+
+The experiment type definitions that are associated with the current NMR experiments
+
+=================  ================================================================================================================================
+**Table 2**
+---------------------------------------------------------------------------------------------------------------------------------------------------
+              *#*  The serial number of the experiment 
+*Experiment Name*  The name of the experiment used in graphical displays 
+*External Source*  Whether the experiment type information comes from an external source, e.g. Bruker pulse programs  *(Editable)*
+  *External Name*  The name of the experiment type as specified fom an external source, e.g. from the Bruker pulse program   *(Editable)*
+       *Category*  A loose, mutually exclusive classification of the experiment to help simplify subsequent setting of experiment type  *(Editable)*
+   *Type Synonym*  A common human readable name for the type of experiment  *(Editable)*
+      *Full Type*  The precise CCPN name for the reference experiment type; indicating what experiment was performed  *(Editable)*
+      *Alt Types*  Alternative reference experiment names which share the same human readable synonym 
+=================  ================================================================================================================================
+
+
+
+|button| **Propagate Experiment Type**: Spread the experiment type specification, where possible, from the last selected experiment to all highlighted experiments
+
+|button| **Edit Experiment Prototypes**: Open a popup to view and administer the reference experiment type specifications; can be use to describe new experiment types
+
+Experiment Dim-Dim Transfers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+============================  ===========================================================================================================================
+**Table 3**
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+                 *First Dim*  The first recorded experimental dimension involved in a magnetisation transfer  *(Editable)*
+*Transfer Type Between Dims*  The type of magnetisation transfer (e.g. NOSY, TOCY, J-coupling, one-bond) between the experimental dimensions 
+                *Second Dim*  The second recorded experimental dimension involved in a magnetisation transfer  *(Editable)*
+============================  ===========================================================================================================================
+
+
+
+Reference Dimension Mapping
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===================  =================================================================================================================================
+**Table 4**
+------------------------------------------------------------------------------------------------------------------------------------------------------
+          *Exp Dim*  The number of the experimental dimension 
+*Ref Exp Dim(.Ref)*  Which dimension in the reference experiment (prototype) specification the real experimental dimension corresponds to  *(Editable)*
+          *Isotope*  The isotope involved with the reference experimental dimension 
+  *Ref Measurement*  What is recorded on the experimental dimension, and which steps of the magnetisation transfer pathway it applies to 
+===================  =================================================================================================================================
+
+
+
+Experimental Details
+====================
+
+A table of ancillary  experimental details, relating to samples and instrumentation
+
+====================  ==========================================================================================================================================
+**Table 5**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 *#*  The serial number of the experiment 
+              *Name*  The textual name for the experiment, for graphical displays 
+      *Spectrometer*  The specification of the spectrometer used to record the NMR experiment  *(Editable)*
+             *Probe*  The specification of the NMR probe which was used in the experiment  *(Editable)*
+        *Num. Scans*  The number of repeated scans made during the experiment  *(Editable)*
+      *Sample State*  The state that best describes the sample and any molecular ordering; liquid (solution), solid, powder, ordered or crystalline  *(Editable)*
+     *Sample Volume*  The total volume of sample used the experiment  *(Editable)*
+       *Volume Unit*  The physical units used to describe the sample volume  *(Editable)*
+     *NMR Tube Type*  A description of the type of NMR tube used in the experiment  *(Editable)*
+    *Spinning Angle*  If the experiment involved a spinning sample, what the angle of spin was  *(Editable)*
+*Spinning Rate (Hz)*  If the experiment involved a spinning sample, what the rate of spin was, in Hz  *(Editable)*
+====================  ==========================================================================================================================================
+
+
+
+|button| **Edit NMR Instruments**: Display a table to view and administer NMR spectrometer and probe specifications
+
+|button| **Propagate Experimental Details**: Spread the experimental details in the table from the last selected experiment to all highlighted experiments
+
+Shift References
+================
+
+A table of chemical shift reference information that is used by th experiments of the project
+
+======================  ==========================================================================================================================================================
+**Table 6**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                   *#*  The serial number of the chemical shift reference specification 
+               *Class*  Whether the chemical shift reference is internal or external to the sample 
+             *Isotope*  The kind of nuclear isotope to which the reference applies  *(Editable)*
+         *Experiments*  The number of experiments in the project which use the shift reference specification  *(Editable)*
+           *Mol. Name*  The name of the molecule used to give a reference value to chemical shifts  *(Editable)*
+                *Atom*  Which atom of the reference molecule provides the reference chemical shift value  *(Editable)*
+               *Value*  The reference value of the chemical shift for the specified atom  *(Editable)*
+                *Unit*  Which measurement unit the chemical shift reference value is in; ppm, ppb or ppt  *(Editable)*
+            *Ref Type*  Whether the chemical shift referencing is direct or indirect (and thus uses a shift ratio)  *(Editable)*
+*Indirect Shift Ratio*  The precise numeric ratio used to indirectly get the reference shift value of an isotope, given the direct measurement of a different isotope  *(Editable)*
+     *Sample Geometry*  For external references, a description of the geometry of the container used to hold the reference compound, e.g. cylindrical or spherical  *(Editable)*
+            *Location*  For external references, a description of the location of the reference  *(Editable)*
+                *Axis*  For external references, orientation of the reference container with respect to external magnetic field, e.g. parallel or perpendicular  *(Editable)*
+======================  ==========================================================================================================================================================
+
+
+
+|button| **Add Internal Reference**: Add a new record for a chemical shift reference that is internal to the sample
+
+|button| **Add External Reference**: Add a new record for a chemical shift reference that is external to the sample
+
+|button| **Delete Selected**: Delete the selected chemical shift reference records
+
+NMR Instruments
+===============
+
+Descriptions of NMR spectrometers and probes used in the experiments
+
+NMR Probe
+~~~~~~~~~
+
+
+===============  ===============================================================================================
+**Table 7**
+----------------------------------------------------------------------------------------------------------------
+            *#*  Serial number of NMR probe specification 
+         *Name*  The name of the probe for graphical representation  *(Editable)*
+         *Type*  A classification for the kind of probe used, e.g. liquid, solid, nano, flow or MAS  *(Editable)*
+        *Model*  The manufacturer's definition of the probe model  *(Editable)*
+     *Serial #*  The manufacturer's serial number for the specific NMR probe  *(Editable)*
+*Diameter (cm)*  The probe diameter in cm  *(Editable)*
+      *Details*  A user-specified textual comment about the probe  *(Editable)*
+===============  ===============================================================================================
+
+
+
+|button| **New Probe Specification**: Add a new NMR probe specification to the CCPN project
+
+|button| **Delete Probe Specification**: Delete the selected NMR probe specification
+
+Spectrometer
+~~~~~~~~~~~~
+
+
+====================  =======================================================================================================================================
+**Table 8**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 *#*  Serial number of the NMR spectrometer specification 
+              *Name*  A name for the spectrometer, for graphical displays  *(Editable)*
+     *Nominal Freq.*  The rounded spectrometer frequency, from the 1H resonance frequency in MHz, used in textual description, e.g. "500", "900" 
+*Proton Freq. (MHz)*  The actual numeric magnetic field strength expressed as a 1H resonance frequency in MHz, e.g. "500.013"  *(Editable)*
+             *Model*  The manufacturer's definition of the spectrometer model  *(Editable)*
+          *Serial #*  The manufacturer's serial number for the specific NMR spectrometer  *(Editable)*
+           *Details*  A user-specified textual comment about the NMR spectrometer  *(Editable)*
+====================  =======================================================================================================================================
+
+
+
+|button| **New Spectrometer Specification**: Add a new NMR spectrometer specification to the CCPN project
+
+|button| **Delete Spectrometer Specification**: Delete the selected NMR spectrometer specification
+

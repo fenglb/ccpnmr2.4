@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experiment : NMR Series &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Data Analysis : Shift Differences" href="CalcShiftDifferencePopup.html" />
+    <link rel="prev" title="Resonance : Measurement Lists" href="EditMeasurementListsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcShiftDifferencePopup.html" title="Data Analysis : Shift Differences"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="experiment-nmr-series">
+<h1>Experiment : NMR Series<a class="headerlink" href="#experiment-nmr-series" title="Permalink to this headline">¶</a></h1>
+<p><strong>Setup Experiment Series for Chemical Shift and Intensity Changes</strong></p>
+<p>The purpose of this popup is to setup ordered groups of experiments that are
+related by the variation in some condition or parameter, but otherwise the
+kind of experiment being run is the same. For example the user could setup
+experiments for a temperature series, ligand binding titration or relaxation
+rate measurement.</p>
+<p>The layout is divided into two tables. The upper table shows all of the series
+that are known to the current project and the lower table shows all of the
+experiments or planes that comprise the selected series. These series relate
+to both groups of separate experiments (and hence spectra) and also single
+experiment where one dimension is not for NMR frequency but rather a &#8220;sampled&#8221;
+dimension and thus effectively combines many experiments (e.g. for different
+T1 values) as different planes. A stack of effectively 2D experiments combined
+in this manner is typically referred to as pseudo-3D. - The experiment is 3D
+but there are only two NMR dimensions.</p>
+<p>Series which are stacks of planes in a single experiment entity are
+automatically detected and entered into the table once they are loaded. Series
+that are constructed from multiple, separate experiments however must be setup
+by the user. To setup a new series of this kind [Add Series] makes a new,
+empty NMR series. Next the user should change the &#8220;Parameter varied&#8221; column to
+specify what type of thing is varied between the different experiments. The
+user then adds experiments into this series with the [Add Series Point]
+function at the bottom. Once the points have been added to the series the name
+of the experiment for each point may be changed. Initially, arbitrary
+experiments appear for the series points, so these almost always have to be
+adjusted.</p>
+<p>Once a stacked-plane experiment or series of experiments is setup, the user
+next sets (or checks) the value of the parameter associated with each point in
+the lower table. When loading stacked-plane experiments these values may come
+though automatically, if they are present in the spectrum header or parameter
+file. Given a completed NMR series specification the user may then extract the
+relevant data from the series using one of the analysis tools like <a class="reference external" href="CalcRatesPopup.html">Follow
+Intensity Changes</a> or <a class="reference external" href="FollowShiftChangesPopup.html">Follow Shift Changes</a>.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Make sure the &#8220;Parameter Varied&#8221; for a given NMR series is appropriate to the
+type of analysis being performed. Many tools that extract T1 or Kd
+measurements for example look for specific types of series.</p>
+<p>The &#8220;Set/Unset Ref Plane&#8221; function is only used in certain kinds of series
+such as those that use trains of CPMG pulses.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="current-series">
+<h3>Current Series<a class="headerlink" href="#current-series" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the experiment series, but left blank if the series as actually a pseudo-nD experiment (with a sampled non-frequency axis)</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the experiment series, which may be a single pseudo-nD experiment  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Experiments</em></td>
+<td>The number of separate experiments (and hence spectra) present in the series</td>
+</tr>
+<tr><td><em>Parameter Varied</em></td>
+<td>The kind of quantity that varies for different experiments/planes within the NMR series, e.g. delay time, temperature, ligand concentration etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Num Points</em></td>
+<td>The number of separate points, each with a separate experiment/plane and parameter value, in the series</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Series</strong>: Make a new, blank NMR series specification in the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Series</strong>: Delete the selected NMR series from the project, although any component experiments remain. Note you cannot delete pseudo-nD series; delete the actual experiment instead</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Auto Colour Spectra</strong>: Colour the spectrum contours for each experiment in the selected series (not pseudo-nD) using a specified scheme</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Scheme</strong>: Selects which colour scheme to apply to the contours of (separate) experiments within an NMR series</p>
+</div>
+<div class="section" id="experimental-parameters-conditions">
+<h3>Experimental Parameters &amp; Conditions<a class="headerlink" href="#experimental-parameters-conditions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Parameter</em></td>
+<td>The kind of experimental parameter that is being used to define the NMR series</td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>The experiment that corresponds to the specified parameter value; can be edited from an arbitrary initial experiment  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>The numeric value of the parameter (condition) that relates to the experiment or point in the NMR series  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Error</em></td>
+<td>The estimated error in value of the condition  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>The measurement unit in which the value of the condition is represented  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Series Point</strong>: Add a new point to the NMR series with an associated parameter value and experiment</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Series Point</strong>: Remove the selected point from the series, including any associated parameter value</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set/Unset Ref Plane</strong>: For appropriate kinds of NMR series, set or unset a point as representing the plane to use as a reference</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment : NMR Series</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#current-series">Current Series</a></li>
+<li><a class="reference internal" href="#experimental-parameters-conditions">Experimental Parameters &amp; Conditions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMeasurementListsPopup.html"
+                        title="previous chapter">Resonance : Measurement Lists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CalcShiftDifferencePopup.html"
+                        title="next chapter">Data Analysis : Shift Differences</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditExperimentSeriesPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcShiftDifferencePopup.html" title="Data Analysis : Shift Differences"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

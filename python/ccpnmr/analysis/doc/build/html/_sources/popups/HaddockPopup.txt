@@ -1,0 +1,206 @@
+=====================
+HADDOCK Project Setup
+=====================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+
+General
+=======
+
+*Documentation missing*
+
+|pulldown| **HADDOCK Project**: *Documentation missing*
+
+=============  =======================
+**Table 1**
+--------------------------------------
+  *Parameter*  *Documentation missing* 
+      *Value*  *Documentation missing*  *(Editable)*
+*Description*  *Documentation missing* 
+=============  =======================
+
+
+
+Import/Export
+=============
+
+*Documentation missing*
+
+Project export options
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Export Classic Project**: *Documentation missing*
+
+|button| **Export Parameter File**: *Documentation missing*
+
+Project import options
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Import run.cns File**: *Documentation missing*
+
+Run on HADDOCK server
+~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Run Haddock server**: *Documentation missing*
+
+Molecular Partners
+==================
+
+*Documentation missing*
+
+================================  =======================
+**Table 2**
+---------------------------------------------------------
+                       *Partner*  *Documentation missing* 
+                    *Mol System*  *Documentation missing*  *(Editable)*
+                        *Chains*  *Documentation missing*  *(Editable)*
+                        *Models*  *Documentation missing*  *(Editable)*
+                   *Force Field*  *Documentation missing* 
+*Auto Set His Protonation State*  *Documentation missing*  *(Editable)*
+              *Is nucleic acid?*  *Documentation missing*  *(Editable)*
+================================  =======================
+
+
+
+|button| **Add Mol Partner**: *Documentation missing*
+
+|button| **Remove Mol Partner**: *Documentation missing*
+
+|button| **Load From File**: *Documentation missing*
+
+Residues
+========
+
+*Documentation missing*
+
+|pulldown| **Molecular Partner**: *Documentation missing*
+
+|pulldown| **Semi-flexible Mode**: *Documentation missing*
+
+|float| **AIR upper distance limit**: *Documentation missing*
+
+=============  =======================
+**Table 3**
+--------------------------------------
+ *CCPN Chain*  *Documentation missing* 
+    *Residue*  *Documentation missing* 
+    *Active?*  *Documentation missing*  *(Editable)*
+   *Passive?*  *Documentation missing*  *(Editable)*
+*Flexibility*  *Documentation missing* 
+=============  =======================
+
+
+
+|button| **Set Active**: *Documentation missing*
+
+|button| **Set Passive**: *Documentation missing*
+
+|button| **Set Inactive**: *Documentation missing*
+
+|button| **Set Fully Flexible**: *Documentation missing*
+
+|button| **Set Semi-flexible**: *Documentation missing*
+
+|button| **Set Inflexible**: *Documentation missing*
+
+Runs
+====
+
+*Documentation missing*
+
+|pulldown| **Current Run**: *Documentation missing*
+
+|button| **Edit DANI parameters**: *Documentation missing*
+
+|button| **Edit RDC parameters**: *Documentation missing*
+
+|button| **Edit Symmetries**: *Documentation missing*
+
+=============  =======================
+**Table 4**
+--------------------------------------
+  *Parameter*  *Documentation missing* 
+      *Value*  *Documentation missing*  *(Editable)*
+*Description*  *Documentation missing* 
+=============  =======================
+
+
+
+|button| **Add New Default Run**: *Documentation missing*
+
+|button| **Remove Current Run**: *Documentation missing*
+
+|button| **Copy Current Run**: *Documentation missing*
+
+Restraints
+==========
+
+*Documentation missing*
+
+|pulldown| **CCPN Constraint Set**: *Documentation missing*
+
+|pulldown| **Current Run**: *Documentation missing*
+
+================  =======================
+**Table 5**
+-----------------------------------------
+             *#*  *Documentation missing* 
+*Restraint Type*  *Documentation missing* 
+        *Format*  *Documentation missing* 
+     *CCPN List*  *Documentation missing*  *(Editable)*
+      *CNS File*  *Documentation missing*  *(Editable)*
+================  =======================
+
+
+
+|button| **Remove Restraints**: *Documentation missing*
+
+|button| **Add Restraints**: *Documentation missing*
+
+|pulldown| **Restraint Type**: *Documentation missing*
+
+|button| **Save Project**: *Documentation missing*
+

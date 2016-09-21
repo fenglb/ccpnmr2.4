@@ -1,0 +1,417 @@
+=================
+Peak : Peak Lists
+=================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Display, Edit and Create Peak Lists**
+
+This popup window collects together most of the data that relates to peaks
+picked within spectra and how they are organised within peak lists.
+Higher-level information that relates to the spectra or the experiments that
+generated the data are found elsewhere, in the Spectra_ and Experiments_
+tables. Each peak list relates to only one spectrum, but a spectrum can have
+multiple peak lists, although most spectra will normally have only one. Having
+more than one peak list for a spectrum allows different kinds of peaks to be
+separated, for example to distinguish between different peak picking
+techniques or real and synthetic peaks.
+
+This popup window is divided into three tab sections. The first shows all of
+the peak lists within the current project; the second lists all of the peaks
+within a selected list and the third allows the user to make artificial or
+synthetic peak lists based upon things like chemical shift values and
+coordinate structures.
+
+**Peak Lists**
+
+This table shows all of the peaks lists within the project, the parameters
+that relate directly to them and how they fit with the spectrum/experiment
+hierarchy. Each peak list is identified by the experiment and spectrum to
+which it belongs, as well as a serial number for the list. Some of the values
+in the table may be edited to control a peak list's display and behavior. The
+most important of these is set in the "Active?" column. Each spectrum may have
+only one active peak list. The active peak list for a spectrum is the only
+peak list that will normally be assigned, have its peak selected in the
+spectrum display and will have newly picked peaks added to it. Inactive peak
+lists are displayed but do not usually participate in the manipulations that
+are done via the spectrum windows.
+
+Each peak list may be displayed in a different style, thus this table allows
+the user to change the symbol and colour of the peak list when it is displayed
+within spectra. The symbol refers to the cross mark that is placed to indicate
+the picked position of the peak; usually an extremum in spectrum intensity.
+The colour of the peak list relates to both the colour of the marker symbols
+and any textual annotation, e.g. to indicate resonance assignment.
+
+Below the peak list table a few functions that operate on whole peak lists are
+available. The [Add Sister List] is notable because it allows the user to make
+a new blank peak list, to which new peaks may be copied or added. Here, the
+new peak list is added to the same spectrum as the peak list that is currently
+selected in the table, hence the use of the word "Sister". The [Copy Peaks] is
+used to duplicate peaks, from one peak list to another, assuming the spectrum
+dimensions are compatible in terms of isotope types. The [Shift Whole Peak
+List] is useful if all of the peaks of a list need to be moved by the same
+amount relative to their spectrum. This is useful when peaks are imported with
+an offset, e.g. for matching TROSY and non-TROSY peaks, or if spectrum
+referencing has changed and peaks have not been properly located.
+
+**Peak Table**
+
+The idea behind this table is to give a textual listing of all the peaks in
+the selected peak list. The user can compare and edit peak parameters, e.g in
+terms of assignment or intensity, and can follow links to other kinds of
+information. For example the user can go from the selected peaks to the
+resonances that are assigned to those peaks. Double-clicking on the editable
+columns of the table allows many of the parameters to be directly edited,
+although discretion is recommended for certain operations like changing
+positions and intensity values. The pulldown menu above the peak table allows
+the user to specify which peak list will be displayed. The "Status" just below
+may be used to show only a subset of peaks, depending on how they are
+assigned.
+
+Most of the options above the peak table provide functions that allow the user
+to locate and mark peaks within the spectrum display windows. The [Strip
+Selected] and [Find Peak] options are used to find particular peaks that have
+been selected in the table (with left-click +/- <Ctrl>/<Shift>). The former
+sub-divides the locations for separate peaks using strips (window dividers)
+and the latter locates only the last selected peak. The [Strip Locations] and
+[Go To Position] work in a similar way, except that they use only the
+*position information* from the selected peaks and don't necessarily display
+the actual selected peaks. The idea here is that peak positions can be used to
+move the display of any spectrum window that share at least some of the same
+kind of isotopes on their axes. For example a 2D 15N HSQC peak can be used to
+find an amide position (H & N) in 3D HNcoCA spectrum, thus locating two out of
+three axes. This functionality is very useful when some peak lists are used as
+"roots" to coordinate others.
+
+The buttons below the main peak table allow the user to edit and view many
+types of data associated with the peaks, although many parameters may be
+changed by double-clicking in the peak table. Some notable functions include:
+[Unalias] which is used to move 'ghost' peaks to their real underlying ppm
+values by adding or subtracting a whole number of spectrum widths to their
+position. This is used when a peak lies outside the normal recorded bounds of
+the spectrum but nonetheless still appears within it because as an aliased
+signal;  [Assign] opens the `Assignment Panel`_ to control which resonances
+have been linked to the dimensions of the peak; to indicate what caused the
+peak. Such assignments may be to the resonances of specific atoms or
+resonances that are currently anonymous;  [Deassign] clears all of the
+resonance assignments to the peak dimensions. This does not affect how the
+resonances may be connected to atoms;  [Set Details] allows the user to set
+the "Details" column for all of the peaks selected in the table with a single
+operation; [Propagate Assign] spreads resonance assignments from one peak (the
+last selected) to the others selected in the table, which is useful even if
+not all of the peak dimensions are the same type, for example when spreading
+amide H & N resonances from an HSQC peak to 3D triple-resonance peaks.
+
+**Synthetic Lists**
+
+The final tab is used to make new peak lists where peak entities are predicted
+by artificial or synthetic means, i.e. not by direct inspection of spectrum
+intensities. If possible, peaks that are created by one of the synthetic
+methods and which are used as a source of evidence for NMR derived information
+should ultimately be related to the spectrum data; by re-centering the peaks
+and re-calculating their intensities. Four methods are currently available for
+synthesising new peak lists:
+
+The "From Shift Intersections" section allows the user to make a peak list
+based upon the intersection between chemical shifts that occur within the
+bounds of a given spectrum (the same spectrum that the peak list will belong
+to). A shift list is selected to specify which chemical shift values are used,
+and by default this shift list is the one that the spectrum uses during
+assignment (set at the experiment level). The synthesised peaks will correspond
+to all chemical shift values that match the spectrum data dimensions, in terms
+of isotope, and fit together to give a complete peak assignment. This shift
+matching process also considers whether the spectrum data dimensions represent
+only atom sites that are directly bound; thus removing many spurious peak
+locations. For example a 15N HSQC peak list may be made from 1H and 15N
+resonances that lie along the two  spectrum axes of the resonances and are
+covalently bound to one another. The through-space options control how far
+predictions are made for transfers like NOESY, i.e. in the absence of a
+structure you can limit the number of bonds and/or number of sequential
+residues to consider. It should be noted that this system cannot predict peaks
+for all kinds of spectra. It is currently limited to those kinds of experiment
+where all magnetisation transfers go through atom sites that are either
+recorded directly as a spectrum dimension (e.g. in HNCA, HH NOESY) or are
+intermediate between two recorded dimensions (e.g. HN(co)CA) and linked via
+J-coupling or one-bond transfer. More kinds of peak list may be predicted in
+the future. It is notable that for NOESY peak lists only peaks that represent
+connections between atoms that are either in the same residue or within five
+covalent bonds of one another are used.
+
+The "For Shifts and Structure" section makes synthetic peak lists using
+chemical shift intersections, as described above, but only allowing spectra
+that have a through-space connectivity (e.g. NOESY) between two of their
+dimensions. Also when comparing through-space connections, the possible peaks
+are filtered according to how close assigned atoms are within a structure
+ensemble. Any peaks that would be assigned to pairs of atoms that are further
+apart than the "Max Dist" value will not be made. The user can also reject
+certain peaks by insisting on a minimum spectrum intensity value at its
+position.
+
+The "From Transposition" section is used to make peaks based upon reflection
+about a homonuclear diagonal. For example if peaks have been picked on only
+one side of a 2D NOESY experiment's diagonal, corresponding duplicates may be
+made on the other side of the diagonal where the assignments and positions of
+the two dimensions are swapped. Naturally, this functionality is limited to
+only spectra that have two data dimensions with of the same isotope type.
+
+The "From Distance Restraints" section is used to recreate NOE and other
+through-space peak lists based upon distance restraints, which may have been
+imported from outside CCPN. The individual distance restrains provide a list
+of atom pairs that are known to be close. The peaks are then synthesised from
+those by obtaining the chemical shift of the atom's resonances. Where
+relevant, the chemical shift of any covalently bound resonances are also
+obtained. The chemical shifts are then matched within the bounds of the
+selected spectrum, considering whether any of the data dimensions represent a
+'onebond' relationship that much be preserved in the peak assignments. It
+should be noted that a single distance restraint may give rise to more than
+one peak, when it is not possible to determine which restrained atom goes on
+which spectrum dimension. Also, ambiguous distance restraints will give rise
+to ambiguous peak assignments.
+
+**Caveats & Tips**
+
+If you need the peak positions to be displayed in Hz units or as data point
+positions, the "Position Unit" pulldown at the top may be changed.
+
+The [Set Details] function can be handy for marking peaks that cause violations
+in a structure calculation and thus need further attention.
+
+Peak lists may be merged by copying the peaks from one into another, although
+this takes no account of duplication.
+
+When making synthetic NOESY (or other though-space) peaks, having a residue
+limit of 1 or 2 will naturally not have an effect if the bond limit is too
+short, i.e. where the wouldn't be enough bonds to get to the next residues.
+
+.. _Spectra: EditSpectrumPopup.html
+.. _Experiments: EditExperimentPopup.html
+.. _`Edit Peak`: EditPeakPopup.html
+.. _`Assignment Panel`: EditAssignmentPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak Lists
+==========
+
+A table of all the peak lists within the current CCPN project
+
+============  ====================================================================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*Experiment*  The name of the experiment that gave rise to the spectrum & hence contains the peak list 
+  *Spectrum*  The name of the spectrum to which the peak list pertains 
+      *List*  The serial number of the peak list, within its spectrum 
+   *Active?*  Sets whether the peak list is the active one for its spectrum; always "yes" if there is only one list for a spectrum  *(Editable)*
+     *Color*  The colour to use for the peak cross/symbol and assignment annotation; each list may have a different colour  *(Editable)*
+    *Symbol*  The kind of symbol (a small cross on screen) used to indicate picked peak locations for the list  *(Editable)*
+ *No. Peaks*  The number of peaks in the peak list 
+*% Assigned*  The percentage of peak dimensions in the whole peak list that carry assignments 
+*Synthetic?*  Whether the peak list is synthetic/simulated; if so, peak assignments in the list have very little influence on chemical shift averages 
+   *Details*  A textual comment for the peak, often user-supplied  *(Editable)*
+============  ====================================================================================================================================================
+
+
+
+|button| **Edit Peaks**: Show a table of the individual peaks within the selected peak list
+
+|button| **Delete**: Delete the selected peak list and all its peaks
+
+|button| **Add Sister List**: Add a new, blank peak list in the same spectrum as the selected peak list
+
+|button| **Copy Peaks**: Copy the peaks (positions, intensities and assignments) from the selected peak list to another with matching dimensions
+
+|button| **Shift Whole Peak List**: Move all of the peaks in the selected peak list by specified offsets for each dimension; offsets are prompted
+
+Peak Table
+==========
+
+A table of the individual peaks within one peak list
+
+|pulldown| **Peak List**: Select peak list to display peaks from
+
+|pulldown| **Position Unit**: Choose whether to display peak positions in ppm, Hz or points
+
+|button| **Strip Selected**: Use the positions of the selected peaks to specify strip locations in the selected window
+
+|check| **Find Peak**: Locate the currently selected peak in the specified window
+
+|pulldown| **Window**: Choose the spectrum window for locating peaks or strips
+
+|check| **Mark Found**: Whether to put a cross-mark though peaks found in a given window
+
+|pulldown| **Status**: Restrict peak table to only those assigned a certain way
+
+|pulldown| **Structure**: Structure to calculate distances from
+
+|button| **Strip Locations**: Use the selected peak positions to specify strip positions in a higher dimensionality window.
+
+|check| **Go To Position**: Use the selected peak position to navigate to a location in a higher dimensionality window
+
+|pulldown| ***None***: Choose the higher dimensionality spectrum window to use as a navigation & strip target
+
+|button| **Mark Selected**: Put multidimensional cross-marks through selected peaks
+
+====================  =======================
+**Table 2**
+---------------------------------------------
+                 *#*  *Documentation missing* 
+       *Position F1*  *Documentation missing* 
+       *Position F2*  *Documentation missing* 
+         *Assign F1*  *Documentation missing* 
+         *Assign F2*  *Documentation missing* 
+            *Height*  *Documentation missing* 
+            *Volume*  *Documentation missing* 
+*Line Width F1 (Hz)*  *Documentation missing* 
+*Line Width F2 (Hz)*  *Documentation missing* 
+             *Merit*  *Documentation missing* 
+           *Details*  *Documentation missing* 
+        *Fit Method*  *Documentation missing* 
+       *Vol. Method*  *Documentation missing* 
+====================  =======================
+
+
+
+|button| **Add**: Add a new peak, specifying its position
+
+|button| **Edit**: Edit the position of the currently selected peak
+
+|button| **Unalias**: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position
+
+|button| **Delete**: Delete the currently selected peaks
+
+|button| **Assign**: Assign the dimensions of the currently selected peak
+
+|button| **Deassign**: Remove all assignments from the currently selected peaks
+
+|button| **Set Details**: Set the details field of the currently selected peaks
+
+|button| **Set As Current**: Set the peaks selected in the table as the ones selected in the spectrum windows
+
+|button| **Resonances**: Show a table of resonances assigned to the selected peaks
+
+|button| **Deassign Dim**: Deassign a specified dimension of the selected peaks
+
+|button| **Recalc Fit**: Recalculate the center, height and line width of the selected peaks
+
+|button| **Recalc Volume**: Recalculate the volume of the selected peaks
+
+|button| **Show On Structure**: Show the assignment connections of the selected peaks on the selected structure
+
+|button| **Propagate Assign**: Spread the resonance assignments of the peak last selected to all selected peaks
+
+|button| **Propagate Merit**: Copy the merit value of the last selected peak to all selected peaks
+
+|button| **Propagate Details**: Copy the details of the last selected peak to all selected peaks
+
+Synthetic Lists
+===============
+
+Tools to generate peak lists by artificial means; from shifts, structures, transposition & restraints
+
+From Shift Intersections
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Predict from shifts**: Make a synthetic peak list using the intersection of chemical shift values, according to the specified settings
+
+|pulldown| **Spectrum**: Selects which spectrum to make synthetic peaks for; a new peak list is generated
+
+|pulldown| **Isotope Labelling**: If required, selects the isotope labelling specification to filter possible chemical shift intersections & hence peak creation
+
+|pulldown| **Shift List**: Sets which list to use as the source of chemical shift values; peaks will be made at relevant shift intersections
+
+|pulldown| **Mol System**: Allows the considered shifts to be limited to only those assigned to a given molecular system (group of chains)
+
+|float| **0.25**: The minimum spin active isotope incorporation for an atom site and correlation to be considered, according to the selected labelling
+
+|check| **Use unassigned?**: Whether to make peaks for chemical shift intersections involving one or more unassigned resonances
+
+|pulldown| **Through-space bond limit**: When dealing with through-space transfers like, NOESY or DARR, which atom pairs to include, based on the maximum number if intervening bonds
+
+|pulldown| **Through-space residue limit**: When dealing with through-space transfers like, NOESY or DARR, which atom pairs to include based on residue separation
+
+From Shifts and Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Predict from structure**: Make a synthetic peak list using structural distance to filter possible chemical shift intersections
+
+|pulldown| **Spectrum**: Selects which spectrum to make distance filtered synthetic peaks for; a new peak list is generated
+
+|pulldown| **Isotope Labelling**: If required, selects a isotope labelling scheme to apply further filtering for possible chemical shift intersections
+
+|pulldown| **Structure**: Selects which structure ensemble to use for calculating atomic distances
+
+|float| **5.0**: Sets the Angstrom threshold below which atoms may be considered for making peaks; if their shift intersection lies in the spectrum bounds
+
+|float| **0.25**: The minimum spin active isotope incorporation for an atom site and correlation to be considered, according to the selected scheme
+
+|pulldown| **Shift List**: Sets which chemical shift list to use for generating potential peak locations
+
+|float| **Min Spectrum Value (Height)**: Selects a threshold for the spectrum intensity at a potential peak location, if the intensity is below the value no peak is made
+
+From Transposition
+~~~~~~~~~~~~~~~~~~
+
+
+|button| **Make transpose list**: Make a peak list, in the same spectrum as the selected list, where peak positions in homonuclear dimensions are swapped relative to the source
+
+|pulldown| **Source Peak List**: Selects which peak list to use as the source of the peak position information; the new peak list will share the same spectrum
+
+From Distance Restraints
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Make from restraints**: Make a synthetic peak list using information from a distance restraint list
+
+|pulldown| **Spectrum**: Selects which spectrum to make a new peak list in; the experiment for this spectrum states which shift list provides peak locations
+
+|pulldown| **Restraint Set**: Selects which set of restraints the input distance restraint list is contained within
+
+|pulldown| **Distance List**: Selects which distance restraint list will be used to provide information about which correlations will be made in the new peak list
+

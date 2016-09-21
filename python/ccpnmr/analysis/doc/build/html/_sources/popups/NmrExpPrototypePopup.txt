@@ -1,0 +1,431 @@
+=================================
+Experiment: Experiment Prototypes
+=================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**View and Edit NMR Experiment Prototypes**
+
+NmrExpPrototypes describe NMR experiments: The magnetisation transfer flow,
+what is being measured, and how the nuclei on the different axes are connected.
+The NmrExpPrototype groups a series of RefExperiments that share a
+magnetisation transfer pathway but can have different dimension and axis
+selection.
+
+**Finding an experiment description**
+
+NmrExpPrototypes and RefExperiments names are complex, but follow a
+systematic  nomenclature; understanding what they mean and what your target
+experiment should be called is a great help. A detailed explanation can be
+found on the documentation Wiki under 'Core Concepts -> NMR Experiment
+Nomenclature', or  (somewhat out of date) at
+http://www.springerlink.com/content/h57q76k245r14558/
+
+The best approach is to zoom in on a limited set of candidates and check the
+names and the detailed descriptions. Sorting on the 'Name', 'Synonym', or
+'Max Dim' can be a help. The 'Category', 'Synonym' and 'Keywords' columns serve
+to classify experiments, but can be incompletely filled in, or misleading.
+The Right Mouse -> Filter command is a good way to select sets of experiments;
+you might try filtering on 'NOESY', 'TOCSY', 'CA', 'CO', 'H[N]' or 'H[C]
+(respectively 15N and 13C one-bond, out-and-back transfer), etc.
+
+The following examples should get you started on the nomenclature:
+
+**HNCAHA**: 4D HNCAHA prototype, starting on HN and ending on HA. The prototype
+         includes HNcaHA (3D), HACAnH (3D, note reversed direction), HncaHA (2D) etc.
+
+**H[N[CA[HA]]]**: 4D HNCAHA prototype with out-and-back magnetisation transfer.
+
+**H[N]_H.NOESY**: 3D HSQC-NOESY. Prototype includes NOESY-HSQC (H_H[N])
+
+**H{CA|Cca}NH**: 4D HCBCANNH
+
+**C[h(0)]**: 1D carbon, selecting quaternary carbons only.
+
+
+**Viewing experiment prototypes**
+
+You need to look at all the tabs to understand the experiment in detail. The
+Atom & Measurement tab shows which atoms are on the magnetisation transfer
+pathway, and which shifts etc. are being observed; the Exp Graphs tab show
+the  magnetisation transfers and the flow of magnetisation in the experiment;
+and the RefExperiments tab shows the individual reference experiments and what
+is on the axes.
+
+
+**Editing experiment prototypes**
+
+Editing existing experiment prototypes is discouraged, as these are reference
+information and should be edited only centrally. For this reason existing
+prototypes are normally not editable (see below for instructions). Adding new
+prototypes and new RefExperiments is more likely to be useful. Ultimately it
+is the responsibility of anyone adding reference information to understand
+what he is doing, so the explanation here is focused on the simplest way to
+proceed.
+
+You must always start in the Prototypes tab. If there is a closely similar
+experiment prototype, it makes sense to use it  as a starting point. It is
+simple to change atom names, parameters etc., and to remove atom sites. If
+this will do you, select your template experiment and press [Create Copy].
+Then edit the copy, starting with the columns Name, Category, Synonym, and
+Keywords in the Prototypes tab, and continuing on the other tabs. The
+numerical columns in the ExpPrototypes table can be left alone, as the values
+will adjust to changes in the other tabs.  Remember to rename and remove or
+add RefExperiments to fit.
+
+If you need more complex operations, you are better off creating a new
+prototype. It is still helpful to use an existing one as inspiration.
+
+Start on the Prototypes tab and click [Create New]. Then set the Name,
+Category, Synonym, and Keywords, ignoring the rest of the columns on this tab.
+Try to make sure you have got the nomenclature right, preferably using another
+prototype as a template, and that the name does not duplicate that of an
+existing prototype.
+
+Now go to the Atoms & Measurements tab, and add Atom Sites and Exp
+Measurements. For clarity go through the Atom Sites in the order of the
+magnetisation flow of the experiment. Select the atom type in the pulldown
+menu besides the [Create new type] button and press the button to create the
+atom site. If you are measuring the shift (or another parameter) of this atom
+site, press the [Create New] button under the Exp Measurements table while the
+newly created atom site is still selected. This approach will minimise the
+number of mouse clicks. Finally edit the table contents if needed.
+
+Now go to the Exp Graphs tab. Create a new Exp Graph in the top left table -
+you only need more than one if you have several distinct magnetisation transfer
+flows in your experiment (essentially if you have curly braces in the systematic
+name). Now add as many magnetisation transfer steps as you need by clicking
+[Create New] under the bottom table, and edit the fields in the table to get the
+contents right. Finally add as many ExpSteps as you need, and edit the contents.
+Note that this table must follow the magnetisation step by step - an HSQC
+experiment would have steps, in order, '1 Shift(H); 2 Shift (N); 1 Shift (H)'.
+
+Finally go to the Ref Experiments tab and add the Ref Experiments. It is
+easiest if you start by making the RefExperiment with the highest
+dimensionality. There should always be a RefExperiment with the maximum
+dimensionality of the prototype, and with the same name as the prototype.
+Now add a [New ExpRefDim] in the bottom table for every dimension in your
+RefExperiment, and edit the bottom table. For clarity you should add the
+dimensions in the order of the magnetisation flow; the mapping to actual
+dimensions is done elsewhere. In most cases the only column you may need
+to change is 'expMeasurement'.
+
+Now start creating the other RefExperiments. It is good practice to have a
+RefExperiment for all combinations of axes that people might sensibly choose
+to measure, even if they are not very likely. That means taking most
+combinations, but avoiding eg. 'H[N[ca]]' (useless), 'hnCAHA' (useless) and
+h[N[CA]] (technically impossible). First select the highest-dimensionality
+RefExperiment in the top table and click [Create Copy]. Change the name so
+that one or more atom sites are in lower rather than upper case, as a sign
+that these are not measured. Now select the corresponding dimensions in the
+lower table and press [Delete RefExpDim]. This will give you a correct
+RefExperiment with lower dimensionality, provided the highest-dimensionality
+RefExperiment was already correct. Most experiments can be reversed; the
+exceptions are out-and-back experiments like H[n[CA]], or symmetric
+experiments like H[C]_H[C].NOESY. For reversible experiments you should make a
+further copy of your highest-dimensionality RefExperiment. Now change the
+name of the copy so that the atom sites are in the opposite order (e.g. from
+HNCAHA to HACANH), and set the isReversed column to Yes. Make copies of the
+highest-dimensionality reverse RefExperiment, and use them to create lower
+dimensionality reversed RefExperiments like you already did for the
+non-reversed case. Finally add any information you may have for the Synonym
+or Systematic Name columns of individual RefExperiments.
+
+For many high-dimensionality experiments it will be useful to add a 2D
+Projection RefExperiment (and possibly a reversed version as well). For this,
+create a new RefExperiment (not a copy) in the top table, and give it a name
+of the form H[N[CO[CA]]].2D.{N;CO;CA} (for H[N[CO[CA]]]). Now go into the
+bottom table and add two RefExpDim, corresponding to the acquisition dimension
+(here H) and another dimension. At this point select the non-acquisition
+dimension in the bottom table, and click [Add RefExpDimRef] once for each
+dimension in the full prototype that is not already in the table. Finally
+edit the tables as desired.
+
+NOTE: Experiment Prototypes and RefExperiments are editable when created, but
+become frozen when the project has been closed and they are reloaded from
+disk. If you *really need* to edit these data after the initial creation
+(remember, this is reference information, and changing data that is used
+in actual projects may introduce errors) this is how to make things editable:
+Go to the command line, and get hold of the MemopsRoot object (you can get
+it as top.project). Then select the NmrExpPrototype you want to edit, and
+set myNmrExpPrototype.isEditable = True. Do the same for existing
+RefExperiments you want to modify. If you wanted to edit the H[n[CA]]
+RefExperiment, for instance (hint: you do not!), you would type something
+like:
+nmrExpPrototype = top.project.findFirstNmrExpPrototype(serial=20)
+nmrExpPrototype.isEditable = True
+refExperiment = nmrExpPrototype.findFirstRefExperiment(name='H[n[CA]]')
+refExperiment.isEditable = True
+
+**References**
+
+*A nomenclature and data model to describe NMR experiments.
+Fogh RH, Vranken WF, Boucher W, Stevens TJ, Laue ED.
+J Biomol NMR. 2006 Nov;36(3):147-55* (link_)
+
+.. _`link`:  http://www.ncbi.nlm.nih.gov/pubmed/17031528
+
+
+
+Main Panel
+==========
+
+|pulldown| **Selected Prototype**: Select the experiment prototype to operate on
+
+Prototypes
+==========
+
+A table of all NMR experiment prototypes
+
+=============  ===========================================================================================================
+**Table 1**
+--------------------------------------------------------------------------------------------------------------------------
+          *#*  The serial number of the experiment prototype 
+       *Name*  CCPN systematic name for the experiment prototype. Reflects the magnetisation transfer network  *(Editable)*
+ *Atom Sites*  Number of atom sites in the magnetisation transfer flow(s) 
+     *Graphs*  Number of distinct magnetisation transfer flows 
+  *Ref Expts*  Number of associated reference experiments 
+    *Max Dim*  Maximum reference experiment dimension 
+   *Category*  Experiment prototype category. Classification of experiment purpose.  *(Editable)*
+    *Synonym*  Human-understandable experiment prototype synonym  *(Editable)*
+   *Keywords*  List of keywords, for search and filtering  *(Editable)*
+    *Details*  A user-editable textual comment for the experiment prototype  *(Editable)*
+*isEditable?*  Can experiment prototype be modified? True for newly created experiments 
+=============  ===========================================================================================================
+
+
+
+|button| **Create New**: Make a new blank experiment prototype. Information is added subsequently
+
+|button| **Create Copy**: Make a new experiment prototype that is a copy of the currently selected one
+
+|button| **Freeze**: Set selected experiment prototype to be no longer modifiable
+
+|button| **Delete**: Delete the selected experiment prototype
+
+Atom & Measurements
+===================
+
+Atoms and NMR measurements used within selected NMR experiment prototypes
+
+Atom Sites
+~~~~~~~~~~
+
+Table of atom sites
+
+
+=============  ====================================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------------------------
+          *#*  The serial number of the atom site 
+    *Isotope*  The isotope of the atom site  *(Editable)*
+       *Name*  The name of the atom site  *(Editable)*
+  *Min Shift*  The minimum allowed chemical shift of the atom site  *(Editable)*
+  *Max Shift*  The maximum allowed chemical shift of the atom site  *(Editable)*
+ *Min Number*  The minimum number of atoms in the site  *(Editable)*
+ *Max Number*  The maximum number of atoms in the site  *(Editable)*
+*Number Step*  The number step - E.g. "a non-zero, even number" would have number_step=2, min_number=2  *(Editable)*
+=============  ====================================================================================================
+
+
+
+|button| **Create New - Type**: Create new atom site of the selected type
+
+|pulldown| **Create New - Type entry**: Select atom site type to create
+
+|button| **Delete**: Delete atom site
+
+Exp Measurements
+~~~~~~~~~~~~~~~~
+
+Table of Experimental NMR measurements recorded in experiment.
+
+
+===================  ===============================================================================================================
+**Table 3**
+------------------------------------------------------------------------------------------------------------------------------------
+                *#*  The serial number of the experimental measurement 
+             *Type*  Type of NMR measurement  *(Editable)*
+       *Atom Sites*  Atom site(s) that the measurement relates to  *(Editable)*
+*Atom Site Weights*  Relative weights for multiple atom sites. Only for special types, like multiple quantum coherence.  *(Editable)*
+===================  ===============================================================================================================
+
+
+
+|button| **Create New**: Create new experimental measurement, using the currently selected atom site
+
+|button| **Delete**: Delete selected experimental measurement
+
+Exp Graphs
+==========
+
+Graph of magnetisation transfer types, and magnetisation flow, for selected experiment prototype
+
+
+ExpGraphs
+~~~~~~~~~
+
+Table of magnetisation flow graphs
+
+
+===========  ==============================================================
+**Table 4**
+---------------------------------------------------------------------------
+        *#*  The serial number of the magnetisation flow graph 
+ *PeakSign*  The relative sign of peaks arising from the graph  *(Editable)*
+===========  ==============================================================
+
+
+
+|button| **Create New**: Create new magnetisation flow graph
+
+|button| **Delete**: Delete selected magnetisation flow graph
+
+ExpSteps
+~~~~~~~~
+
+Table of magnetisation flow steps for selected graph.
+
+
+=============  =========================================================================================
+**Table 5**
+--------------------------------------------------------------------------------------------------------
+          *#*  Serial number of the magnetisation flow step (corresponds to creation order) 
+ *StepNumber*  Position of step in magnetisation flow (corresponds to flow order)  *(Editable)*
+*Measurement*  Experimental measurement that carries the magnetisation during the step  *(Editable)*
+=============  =========================================================================================
+
+
+
+|button| **Create New**: Create new magnetisation flow step for selected graph. By default created with next unused experimental measurement
+
+|button| **Re-number**: Re-number steps consecutively starting from one
+
+|button| **Delete**: Delete selected magnetisation flow step
+
+ExpTransfers
+~~~~~~~~~~~~
+
+Table of magnetisation transfer connections between atom sites for selected graph
+
+
+=================  ==================================================================================
+**Table 6**
+-----------------------------------------------------------------------------------------------------
+              *#*  Serial number of the magnetisation transfer connection 
+  *transfer Type*  Type of magnetisation transfer  *(Editable)*
+      *AtomSite1*  First atom site involved in magnetisation transfer  *(Editable)*
+      *AtomSite2*  Second atom site involved in magnetisation transfer  *(Editable)*
+*transfer ToSelf*  Does the transfer allow magnetisation to remain on the starting site?  *(Editable)*
+=================  ==================================================================================
+
+
+
+|button| **Create New**: Create new magnetisation transfer connection for selected graph
+
+|button| **Delete**: Delete selected magnetisation transfer connection
+
+Ref Experiments
+===============
+
+Reference experiments belonging to selected experiment prototype with description of the experiment axes.
+
+
+|pulldown| **NamingSystem**: Naming system for reference experiment systematic name
+
+RefExperiments
+~~~~~~~~~~~~~~
+
+Table of reference experiments included in experiment prototype
+
+
+=================  ==========================================================================================================
+**Table 7**
+-----------------------------------------------------------------------------------------------------------------------------
+              *#*  The serial number of the reference experiment 
+           *Name*  CCPN systematic name for the reference experiment. Conforms to the Experiment Prototype name.  *(Editable)*
+        *numDims*  Number of dimensions of reference experiment  *(Editable)*
+     *isReversed*  Is magnetisation transfer flow reversed relative to the experiment prototype specification?  *(Editable)*
+        *Synonym*  Human-understandable reference experiment synonym  *(Editable)*
+*Systematic Name*  Reference experiment systematic name in selected namnig system  *(Editable)*
+     *isEditable*  Can reference experiment be modified? True for newly created experiments 
+=================  ==========================================================================================================
+
+
+
+|button| **Create New**: Make a new blank reference experiment . Information is added subsequently
+
+|button| **Create Copy**: Make a new reference experiment that is a copy of the currently selected one
+
+|button| **Freeze**: Set selected reference experiment to be no longer modifiable
+
+|button| **Delete**: Delete the selected reference experiment
+
+RefExpDimRefs
+~~~~~~~~~~~~~
+
+Table of Reference experiment dimensions and dimension referencings
+
+
+=======================  ====================================================================================================================================================================
+**Table 8**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                  *Dim*  Dimension number for reference experiment dimension 
+                    *#*  Serial number for dimension referencing 
+       *expMeasurement*  Experimental measurement associated with dimension referencing  *(Editable)*
+*valid scaling factors*  Scaling factors allowed when converting from observed frequencies to measurement values  *(Editable)*
+      *grouping number*  Number that classifies dimension referencings from a dimension into consistent groups. E.g.: Group 1: 13C shift and J(HC); group 2: 15N shift and J(HN)  *(Editable)*
+     *Coupled Isotopes*  Isotopes to which couplings are active and observable. Alternative to specifying couplings as experimental measurements  *(Editable)*
+        *Constant Time*  Acquisition mode: Constant, variable or mixed time.  *(Editable)*
+             *expSteps*  Experiment steps used for measuring the measurement (in cases where it matters)  *(Editable)*
+=======================  ====================================================================================================================================================================
+
+
+
+|button| **New RefExpDim**: Add new reference experiment dimension
+
+|button| **New RefExpDimRef**: Add new dimension referencing to the same dimension as the referencing currently selected
+
+|button| **Delete RefExpDim**: Delete selected reference experiment dimension and all dimension referencings
+
+|button| **Delete RefExpDimRef**: Delete selected dimension referencing
+
+
+|button| **Purge RefExpDims**: Delete reference experiment dimensions that have no dimension referencings. Used for removing orphan dimensions after deletions elsewhere
+
+

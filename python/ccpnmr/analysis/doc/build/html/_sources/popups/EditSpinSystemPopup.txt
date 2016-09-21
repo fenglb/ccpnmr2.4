@@ -1,0 +1,245 @@
+========================
+Resonance : Spin Systems
+========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Tabular Displays of Resonance Groups**
+
+This popup window is used to display tables of the spin systems within a
+project, from these the user can perform various residue-level assignment
+and navigation operations and follow links to several kinds of relevant
+information, like peak and resonance information. In CCPN parlance a "spin
+system" is a grouping of resonances that relate to a residue or part
+residue.  Typically in an assignment project you might start with a spin
+system that consists only of amide 1H and 15N resonances and then add side
+chain resonances like CA & HA. Such a grouping of resonances relates to the
+atoms within a given residue, but the identity of the residue need not be
+known before a spin system is generated. Accordingly, a spin system may be
+completely anonymous. As more information is gained the spin system could
+be allocated a residue type, and then finally a sequence position.
+
+The various tabs of this popup break the spin system information into
+several sections, with the aim of avoiding clutter, but the underlying spin
+system entities represented in all the tables is the same and all carry an
+indication of the current assignment status. The differences are only a
+matter of presentation. Selections made in any of the spin system tables
+dictate which are used for the upper "Display" buttons or the lower panel
+of buttons. The four tables sub-divide the spin system information as
+follows:
+
+* The "Assignments" tab lists the names of the individual resonances that are
+  grouped by each spin system. Also the user is able to set a name for the
+  spin system, shich will be displayed on spectra in the absense of any
+  residue assignment information.
+
+* The "Seq. Links" tab is used to display how spin systems have been
+  connected as sequential neighbours. Such links are independent of a
+  full residue assignment, and usually derive from the peak matching
+  performed by tools like the `Protein Sequence Assignment`_ option.
+  Often spin systems are connected as sequential neighbours before
+  they are fitted into a protein chain to give the final residue assignment.
+
+* The "Shifts" tab displays the chemical shifts of the resonances that are
+  contained by each spin system.  The actual values displayed come from the
+  from shift list selected at the top.
+
+* The "Details" tab allows the user to make verbose textual comments for
+  each spin system. This is particularly useful for recording thoughts that
+  relate to assignment possibilities.
+
+**Button Functions**
+
+The various functions available as buttons operate on the spin system  (or
+spin systems where appropriate) that have been selected in the current
+table; using left mouse click +/- <Ctrl>/<Shift>. The "Display" functions
+at the top are designed to locate the selected spectrum window so so that it
+displays the resonances positions from the selected spin system, although
+only appropriate resonances are used according to axis/isotope type and
+spectrum width. In this way the user can find amide strips in an HNH window
+or HC strips in a HCH window. The "Display Cells" option is the same as the
+"Display Strips" option in most regards but differs in that the strips are
+sub-divided into cells, if resonances from the spin system are visible on
+that axis. This is handy to show the points of resonance intersection,
+e.g. for amino acid side chain assignment.
+
+The various Assign/Deassign buttons naturally control how a spin system is
+linked to residue information. Assignments may be made (or broken) to
+specific residues, residue type only or in a tentative/speculative manner.
+Although these functions are often handy, spin systems will automatically
+be assigned to the relevant residue if one of the contained resonances
+is assigned elsewhere to a specific atom in a residue; typically
+residue assignments are make when resonances are assigned to atoms
+via the `Assignment Panel`_.
+
+The "Show" functions are used to show tables of the spectrum peaks and
+resonances that connect to selected spin systems, and from these the user
+may then navigate within spectrum windows and perform assignment from these
+other contexts.
+
+**Caveats & Tips**
+
+If a shift appears to be missing within a spin system I could be that a
+resonance is simply not assigned in an experiment that uses the selected
+shift list, in this instance there may be a shift in a different list.
+
+To expedite finding particular spin systems within a large table the user
+can filter the display to only particular spin system types using the
+"Status" pulldown menu at the top. Alternatively the user can click on a
+"?" in the headings of a column to filter the table rows according to a
+user-specified value.
+
+.. _`Protein Sequence Assignment`: LinkSeqSpinSystemsPopup.html
+.. _`Assignment Panel`: EditAssignmentPopup.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **Status**: Selects which kind of spin system to show, according to its assignment status
+
+|pulldown| **Shift List**: Selects which shift list the displayed chemical shift values are from
+
+|check| **Filter table rows by Shift List**: Whether table resonances and rows are filtered by Shift List for Assignments and Seq. Links tabs
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+|button| **Display Strips**: Use the resonances in the selected spin systems to define positions for building strip panels in the selected spectrum window
+
+|button| **Display Cells**: Use the resonances in the selected spin systems to define positions for building resonance intersection cells in the selected spectrum window
+
+|pulldown| **Window**: *Documentation missing*
+
+Assignments
+===========
+
+A table listing all the spin systems within the project, including the names of all contained resonances
+
+============  ===============================================================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------------------------------------
+         *#*  The spin system serial number 
+     *Chain*  The code of the molecular chain to which the spin system is assigned 
+   *Residue*  The sequence number and name of the residue to which the spin system is assigned  *(Editable)*
+*Other Name*  A user editable name for the spin system; displayed in spectra if there are no residue assignments  *(Editable)*
+*Resonances*  The complement resonances that are present within the spin system  *(Editable)*
+ *Num Peaks*  The number of peaks is the project to which the spin system's resonances are assigned 
+============  ===============================================================================================================
+
+
+
+Seq. Links
+==========
+
+A table listing spin systems and any sequential connections they nay have
+
+=====================  =====================================================================================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                  *#*  The spin system serial number 
+              *Chain*  The code of the molecular chain to which the spin system is assigned 
+           *Previous*  The residue linked as being one position before the spin system in chain sequence 
+            *Current*  The sequence number and name of the residue to which the spin system is assigned 
+               *Next*  The residue linked as being one position after the spin system in chain sequence 
+*Backbone Resonances*  The names of the assigned backbone resonances within the spin system  *(Editable)*
+       *Seq. Segment*  For sequentially connected runs of spin systems, the number of the run and the position within the run at which the spin system is found  *(Editable)*
+=====================  =====================================================================================================================================================
+
+
+
+Shifts
+======
+
+A table listing all of the chemical shift values of the spin systems within the project
+
+============  =============================================================================================
+**Table 3**
+-----------------------------------------------------------------------------------------------------------
+         *#*  The spin system serial number 
+     *Chain*  The code of the molecular chain to which the spin system is assigned 
+   *Residue*  The sequence number and name of the residue to which the spin system is assigned  *(Editable)*
+*Unassigned*  The chemical shifts of the resonances in the spin system not assigned to atoms 
+============  =============================================================================================
+
+
+
+Details
+=======
+
+A table listing allowing verbose textual comments for each spin system
+
+===========  =============================================================================================
+**Table 4**
+----------------------------------------------------------------------------------------------------------
+        *#*  The spin system serial number 
+    *Chain*  The code of the molecular chain to which the spin system is assigned 
+  *Residue*  The sequence number and name of the residue to which the spin system is assigned  *(Editable)*
+  *Details*  A verbose user-editable textual comment for the spin system  *(Editable)*
+===========  =============================================================================================
+
+
+
+|button| **Residue**: Assign the last selected spin system, and the resonances it contains, to a specific residue in a molecular chain
+
+|button| **Tentative**: Assign the last selected spin system, and the resonances it contains,  in a fuzz or putative manner to a specific residue
+
+|button| **Type**: Assign the residue type of the spin system; selecting any residue of the required kind
+
+|button| **Residue**: Removes the specific residue assignment form the selected spin systems, any contained resonances will be deassigned too, but will still carry atom type information
+
+|button| **Tentative**: Removes any fuzzy or putative residue assignment from the selected spin systems
+
+|button| **Type**: Removes any  residue type information from the selected spin systems
+
+|button| **Merge**: Merge the selected spin systems into one; all contained resonances will be put in the same group and the last selected spin system will have any overriding assignment
+
+|button| **Delete**: Delete the selected spin systems; only allowed if the have no resonances, show and unlink resonances if cleanup is required
+
+|button| **Show Peaks**: Show a table of the peaks assigned to the resonances of the selected spin systems
+
+|button| **Show Resonances**: Show a table of the resonances contained in the selected spin systems
+
+|button| **Predict Type**: Open a tool that predicts the residue type of the last selected spin system, based on the chemical shift values if its resonances
+
+|button| **New Spin System**: Make a new, blank spin system, into which resonances may be placed
+

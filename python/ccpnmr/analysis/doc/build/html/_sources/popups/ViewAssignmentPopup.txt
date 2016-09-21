@@ -1,0 +1,175 @@
+========================
+Chart : Assignment Graph
+========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Graphical Display of Assignments and Connections**
+
+This popup window is designed to give a graphical display of the atom sites
+available in a given molecular chain. In this regard an atom site is a
+position along the side chain or scaffold of a residue, like the "beta"
+position in  amino acids, or the "three prime" position in nucleic acids.
+Accordingly, each atom site represents a carbon or nitrogen atom *and* any
+bound hydrogens. Representing atom sites rather than individual atoms provides
+an alternative to the `Atom Browser`_ with less clutter but still with
+sufficient information to give a clear indication of assignment status, and
+in this particular case, of assignment connectivity between atom sites
+
+The layout involves two tabs, one on the left contains the actual graphical
+display of the atom sites with assignments, the right "Options" tab  specifies
+the details of how to display things; spectrum connections, atom sites and
+residues to include.
+
+In normal operation the user starts by slecting the appropriate molecular
+chain in the first tab; labelled symbols will appear to display the available
+atom sites. The user then switches to the "Options" tab and chooses which
+spectra, atom sites and residue types to display. Moving back to the first tab
+the user will see that the symbols of assigned atom sites are circled, with a
+colour appropriate to the spectrum they are assigned within. Also, if the
+selected spectra contain assignments that link different atom sites the
+graphical display will include lines that connect the atom site symbols. The
+user may use the "Connection Type" pulldown menu to display different kinds of
+connectivity lines. By default the displyed connectivity is "Within 4
+Residues". Having more than one set of spectrum massignments and connections
+displayed at the same time is possible, but this may obscure information in
+the chart.
+
+The background colour of the atom set symbol (a labelled circle) is normally
+determined according to whether there are *any resonance assignments* to that
+site, considering all spectra; black indicates assigned and grey unassigned.
+If the user chooses an isotope labelling scheme/pattern in the "Options" tab,
+then this black/grey indicator is replaced by colours which represent the
+amount of spin-active isotope incorporation at the atom site, according the
+scheme or molecule patterns. The various options in the "Isotope Labelling"
+section control which colours to use, whether to use only two colours or a
+gradient, which isotope is considered (e.g. usually 13C or 1H) and what the
+minimum incorporation is for something to be considered as labelled.
+
+**Caveats & Tips**
+
+Clicking with the left mouse button on any of the atom site symbols for a
+residue will toggle the activation for the whole residue; flipping between the
+greyed-out incative state, that shows no assignments or connections, and the
+fully active state.
+
+Right click with the mouse over the main chart to save the graphical display
+as a PostScript image, which maye be printed or manipulated in an external
+program.
+
+The colours of the spectrum toggle buttons in the "Options" tab is determined
+by the positive contour colour for the relevant spectrum. If the spectrum uses
+a multicolour scheme the colour used is one from about two thirds of the way
+through the scheme.
+
+.. _`Atom Browser`: BrowseAtomsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Update**: Manually trigger a redraw of the main chart, in light of new assignments etc
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Assignment & Connections Chart
+==============================
+
+Shows a chart illustrating selected atom groups for a given sequence, their assignment status and connections between them
+
+|pulldown| **Chain**: Selects which molecular chain to display the residue and atom groups for
+
+|pulldown| **Connection Type**: Restricts the assignment connection lines to atom groups with particular sequential relationships
+
+
+Options
+=======
+
+Allows specification of which atoms, residues and spectrum information to use
+
+Spectra
+~~~~~~~
+
+
+|check| **Include predicted peak lists**: Whether to include predicted peak lists in graph
+
+|selector| ***None***: Toggles individual spectra on and off in tha chart; when set on a spectrum will be used to highlight atom groups assigned and connected in that spectrum
+
+Atoms Shown
+~~~~~~~~~~~
+
+
+|selector| ***None***: Toggles particular kinds of atom group on and off in the chart (for all residues with that kind of group) 
+
+|button| **Set1 Atoms**: Switches on assignment display and connections for atoms in "set 1"
+
+|button| **Set2 Atoms**: Switches on assignment display and connections for atoms in "set 2"
+
+|button| **All atoms**: Switches on assignment display and connections for all atom types 
+
+Residues shown
+~~~~~~~~~~~~~~
+
+
+|selector| ***None***: Toggles particular kinds of residue on and off in the chart, still observing the above atom site selections; "off" residues are merely greyed out not removes
+
+|button| **All residues**: Set all residue types, and any of the selected atom sites they contain, to be visible in the main chart
+
+|button| **Invert Selection**: Make an inverse residue type selection, so that types that were not visible in the main chart now are, and those that were are now greyed out
+
+Isotope Labelling
+~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Pattern**: If required, selects an isotope labelling scheme to use for colouring the atom site nodes
+
+|float| **0.25**: Specifies the minimum fractional spin-active isotopic incorporation for an atom to be considered "labelled"
+
+|pulldown| **Labelled Colour**: Selects which colour is use to display the atom site nodes in the main chart if they are unlabelled, according to the stated settings
+
+|pulldown| **Isotope**: Selects which kind of nuclear isotope atom site colours are derived from using the selected scheme; typically 13C for checking C-C connections
+
+|check| **Colour Gradient**: Whether, for labelled atom sites, to use a colour gradient with various hues to show isotopic incorporation, or otherwise only two colours for labelled & unlabelled
+
+|pulldown| **Unlabelled Colour**: Selects which colour is use to display the atom site nodes in the main chart if they are isotopically labelled, according to the stated settings
+

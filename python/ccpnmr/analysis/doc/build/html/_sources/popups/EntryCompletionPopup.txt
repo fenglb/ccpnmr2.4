@@ -1,0 +1,729 @@
+=====================================
+Deposition Entry Completion Interface
+=====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Setup Deposition of Coordinate and NMR Data to PDB and BMRB**
+
+The popup version of CcpNmr Entry Completion Interface (ECI), available from
+Analysis in the Structure menu.  With it, you can complete all the necessary
+information required for PDB and BMRB data depositions by adding an "Entry"
+object to your CCPN project. An "Entry" object contains all the information that
+you wish to deposit with your submission. You can also select chemical shift
+lists, peak lists, structural restraints, ensembles, etc. and all at the click
+of a button. In addition, you can add all the meta data that is required for
+submissions to the PDB and BMRB. This can be done securely on your desktop
+computer over the duration of your NMR project.
+
+For more documentation see the `ECI section of the PDBe pages at the EBI web
+site <http://www.ebi.ac.uk/pdbe/docs/pdbe_nmr_deposition/eci.html>`_.
+
+
+Main Panel
+==========
+
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Main
+====
+
+Add a new "Entry" and check the completeness of it
+
+|pulldown| **Deposition Entry**: Name of "Entry" being edited, add a new one with the button at the bottom left of this tab
+
+|pulldown| **Molecular System**: Name of molecular system used in the study - review it in more detail in the "Molecules" tab
+
+|entry| **Title**: Title that will be in the header of the PDB file
+
+|pulldown| **NMR Method Type**: Type of NMR data collected, choose from: solution, solid-state, theoretical or ?
+
+|pulldown| **Submission Type**: Is the deposition for the PDB or BMRB?  The mandatory fields in the completeness report below will reflect the type of deposition to be done
+
+|entry| ***None***: Keywords that will be in the header of the PDB file
+
+|button| **+**: Add extra row
+
+|entry| Text for a detailed description of your study (like a mini abstract)
+
+|entry| Additional instructions or notes that you wish to convey to the curators about your deposition
+
+Completion Report
+~~~~~~~~~~~~~~~~~
+
+
+================  =========================================================================================================================================================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*CCPN Data Type*  Indicates mandatory data items for PDB or BMRB depositions - clicking in any field will take you to the correct tab for editing the data  *(Editable)*
+       *Comment*  Has the mandatory data been completed? Finished data is shown in green. Clicking on any missing data (shown in red, orange, or yellow) will take you to the correct tab so that you can add this information  *(Editable)*
+================  =========================================================================================================================================================================================================================
+
+
+
+|button| **Add New Deposition Entry**: Add a new "Entry" object that can be submitted to the PDB or BMRB
+
+|button| **Remove Current Deposition Entry**: Remove the currently selected "Entry"
+
+|button| **Export as NMR-STAR 3.1**: Export an NMR-STAR 3.1 file that can be uploaded in ADIT-NMR
+
+|button| **Export PDB Coords**: Export coordinates in PDB format for viewing with Rasmol, etc.
+
+People
+======
+
+Add people, group and address information
+
+People
+~~~~~~
+
+
+=========================  ===================================================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------------------------------------------------------
+                      *#*  Number of the person in list 
+          *Entry Author?*  Is the person an author in the "Entry"? - toggle by clicking  *(Editable)*
+               *Contact?*  Is the person a contact person? - toggle by clicking  *(Editable)*
+       *Primary Contact?*  Is the person the primary contact used by AutoDep? - toggle by clicking  *(Editable)*
+            *Family Name*  Family name of the person  *(Editable)*
+                  *Title*  Professional title of the person such as Dr, Prof, Mr, etc.  *(Editable)*
+             *Given Name*  Given name of the person  *(Editable)*
+               *Initials*  Any middle initials in the person's name  *(Editable)*
+*Family Title (e.g. Jr.)*  Family title of the person like Sr., Jr., III, etc.  *(Editable)*
+                  *Group*  Group name that the person is attached to - add new groups in the frame in the bottom left of this tab  *(Editable)*
+=========================  ===================================================================================================================
+
+
+
+|button| **Add Person**: Add a new person
+
+|button| **Remove Person**: Remove the currently selected person
+
+|button| **Set Person as Author**: Set the currently selected person as an "Entry" author
+
+|button| **Set Person As Contact**: Set the currently selected person as a contact person
+
+|button| **Set Person as Primary Contact**: Set the currently selected person as the primary contact
+
+Group Information
+~~~~~~~~~~~~~~~~~
+
+
+===================  ===========================================================================================================
+**Table 3**
+--------------------------------------------------------------------------------------------------------------------------------
+       *Group Name*  Name of the group 
+  *Mailing Address*  First few lines of the mailing address of the group  *(Editable)*
+             *City*  City where the group is located  *(Editable)*
+   *State/Province*  State or Province such as Cambridgeshire, CA or ON  *(Editable)*
+      *Postal Code*  Postal code or ZIP code  *(Editable)*
+          *Country*  Country where the group is located  *(Editable)*
+*Organisation Type*  Type of organisation the group is attached to - from academic, government, commercial or other  *(Editable)*
+===================  ===========================================================================================================
+
+
+
+|button| **Add Group**: Add a new group
+
+|button| **Remove Group**: Remove the currently selected group
+
+Contact Person Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===============  =================================================================================================================
+**Table 4**
+----------------------------------------------------------------------------------------------------------------------------------
+  *Family Name*  Family name of the person 
+   *Given Name*  Given name of the person 
+*Email Address*  Email address of the person - add with the button below 
+    *Telephone*  Telephone number of the person  *(Editable)*
+          *FAX*  FAX number of the person  *(Editable)*
+     *Position*  Role of the contact person in the project - principal investigator, responsible person, investigator  *(Editable)*
+===============  =================================================================================================================
+
+
+
+|button| **Add Address**: Add a new email address for the person selected - the person does need to be set to being in a group using the two other frames in this tab
+
+|button| **Remove Address**: Remove the email address and other information for the currently selected person - note it will also remove the link to their group
+
+References
+==========
+
+Add citations and software used
+
+Citations
+~~~~~~~~~
+
+
+=============================  ==========================================================================================================================
+**Table 5**
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+                          *#*  Number of the citation in list 
+                       *Type*  Type of citation based on the button used to add it 
+                    *Submit?*  Is the citation to be submitted? Primary, other (for a secondary publication) or no  *(Editable)*
+                    *Authors*  Add authors for the citation based on people added in the preceding tab  *(Editable)*
+                    *Editors*  Add editors based on people added in the preceding tab  *(Editable)*
+                       *Year*  Year of publication, only editable if the status of the citation is set to published  *(Editable)*
+                      *Title*  Title of the citation (or title of any book chapters)  *(Editable)*
+             *Journal Abbrev*  The abbreviation of the journal's name (only for citations in journals)  *(Editable)*
+                      *Issue*  Issue number, only editable if the citation is from a published journal reference  *(Editable)*
+                     *Volume*  Volume number, only editable if the status of the citation is set to published  *(Editable)*
+                 *First page*  First page number, only editable if the status of the citation is set to published  *(Editable)*
+                  *Last Page*  Final page number, only editable if the status of the citation is set to published  *(Editable)*
+                     *Status*  Publication status of the citation - from published, in press, in preparation  *(Editable)*
+                  *PubMed ID*  PubMed number, only editable if the status of the citation is set to published  *(Editable)*
+                        *DOI*  Digital Object Identifier, only editable if the status of the citation is set to published  *(Editable)*
+                   *Keywords*  Keywords used in the publication  *(Editable)*
+                    *Details*  Additional information about the citation  *(Editable)*
+                 *Book Title*  Title of the book (for book citations only)  *(Editable)*
+                *Book Series*  Book series (for book citations only)  *(Editable)*
+             *Book Publisher*  Publisher of the book (for book citations only)  *(Editable)*
+                       *City*  City of book publishers, institution of Thesis or conference location (not relevant for journal publications)  *(Editable)*
+                    *Country*  Country of institution of Thesis or conference location (not needed for journals and books)  *(Editable)*
+*Institution granting Thesis*  Name of the institution granting a Thesis  *(Editable)*
+           *Conference Title*  Name of conference for abstract citations  *(Editable)*
+=============================  ==========================================================================================================================
+
+
+
+|button| **Add Journal Paper**: Add a new journal citation
+
+|button| **Add Book/Chapter**: Add a new book citation
+
+|button| **Add Thesis**: Add a new Thesis citation
+
+|button| **Add Conference Paper**: Add a new conference abstract citation
+
+|button| **Remove Citation**: Remove the currently selected citation
+
+Software
+~~~~~~~~
+
+
+================  =============================================================================================================================================================================================================================================================================
+**Table 6**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          *Name*  Name of the software used 
+       *Version*  Version number of the software 
+         *Tasks*  Choose a list of tasks that the software was used for during the study; such as peak picking, chemical shift assignment, data analysis, structure calculation, geometry optimisation, etc  *(Editable)*
+ *Vendor/Author*  Authors or vendors who produced the software  *(Editable)*
+*Vendor Address*  Mailing address for the software authors/vendors  *(Editable)*
+*Vendor Website*  Web address for the software authors/vendors  *(Editable)*
+       *Details*  Additional information about the software  *(Editable)*
+        *Method*  Method that the software uses to perform the task; mainly for assignment/peak picking strategies, or for structure calculation methods such as simulated annealing, distance geometry, DGSA, molecular dynamics, matrix relaxation, torsion angle dynamics, etc.  *(Editable)*
+================  =============================================================================================================================================================================================================================================================================
+
+
+
+|button| **Add Software**: Add a new software and version of the software
+
+|button| **Remove Software**: Remove the currently selected software
+
+NMR Data
+========
+
+Add chemical shift lists, peak lists and other NMR datasets
+
+NMR Measurements
+~~~~~~~~~~~~~~~~
+
+
+===========  ===============================================================================================
+**Table 7**
+------------------------------------------------------------------------------------------------------------
+*Data Type*  Type of NMR data such as shift lists, peak lists, relaxation data, etc. 
+*Available*  Number of lists in the CCPN projects for the specific NMR data type 
+ *Selected*  Number of lists selected for deposition to PDB/BMRB for the specific NMR data type 
+    *Notes*  Description of the NMR data type 
+===========  ===============================================================================================
+
+
+
+|button| **Add All Available NMR data**: Rapidly select all available data lists for deposition to PDB/BMRB
+
+|button| **Remove All NMR data**: De-select all data lists for PDB/BMRB deposition - at least one chemical shift list is now mandatory for all depositions
+
+NMR Lists Selected for Deposition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===========  =================================================================================================================
+**Table 8**
+------------------------------------------------------------------------------------------------------------------------------
+*ShiftList*  Indicate the type and name of each list, based on list type selectd in the top frame 
+     *Name*  Name of list which can also be changed  *(Editable)*
+     *Size*  Number of data points in the list 
+  *Submit?*  Is the list selected for deposition? - toggle by clicking  *(Editable)*
+ *Software*  Software used to make the list - the software will also need a method selected in the References tab  *(Editable)*
+===========  =================================================================================================================
+
+
+
+|button| **Select All**: Select all lists of the selected data type
+
+|button| **Select**: Submit the currently selected data list
+
+|button| **Unselect**: De-select all lists of the selected data type
+
+|button| **Unselect All**: De-select the currently selected data list
+
+Shifts
+======
+
+Add chemical shift references and look for chemical shift outliers
+
+Chemical Shift References
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+======================  ================================================================================================================================================================
+**Table 9**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                   *#*  The serial number of the chemical shift reference specification 
+               *Class*  Whether the chemical shift reference is internal or external to the sample 
+             *Isotope*  The kind of nuclear isotope to which the reference appliesThe number of experiments in the project which use the shift reference specification  *(Editable)*
+         *Experiments*  The name of the molecule used to give a reference value to chemical shifts 
+           *Mol. Name*  Which atom of the reference molecule provides the reference chemical shift value  *(Editable)*
+                *Atom*  The reference value of the chemical shift for the specified atom  *(Editable)*
+               *Value*  Which measurement unit the chemical shift reference value is in; ppm, ppb or ppt  *(Editable)*
+                *Unit*  Whether the chemical shift referencing is direct or indirect (and thus uses a shift ratio) - this field can be toggled  *(Editable)*
+            *Ref Type*  The precise numeric ratio used to indirectly get the reference shift value of an isotope, given the direct measurement of a different isotope  *(Editable)*
+*Indirect Shift Ratio*  For external references, a description of the geometry of the container used to hold the reference compound - for example, cylindrical or spherical  *(Editable)*
+     *Sample Geometry*  For external references, a description of the location of the reference  *(Editable)*
+            *Location*  For external references, orientation of the reference container with respect to external magnetic field - for example, parallel or perpendicular  *(Editable)*
+                *Axis*  *Documentation missing*  *(Editable)*
+======================  ================================================================================================================================================================
+
+
+
+|button| **Add Standard IUPAC References**: Add standard IUPAC chemical shift references for 1H, 13C, 15N and 31P
+
+|button| **Add Internal Reference**: Add a new record for a chemical shift reference that is internal to the sample
+
+|button| **Add External Reference**: Add a new record for a chemical shift reference that is external to the sample
+
+|button| **Remove Selected**: Delete the selected chemical shift reference records
+
+Unusual Chemical Shifts
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Shift List**: Choose a chemical shift from the CCPN project
+
+=============  =====================================================================================
+**Table 10**
+----------------------------------------------------------------------------------------------------
+          *#*  The serial number of the resonance 
+    *Isotope*  The nuclear isotope type of the resonance 
+  *Resonance*  The assignment annotation for the resonance 
+        *PPM*  Actual chemical shift of the resonance 
+         *SD*  Standard deviation of shift in multiple experiments??? 
+  *BMRB Mean*  The average chemical shift for the atom type given in BioMagResBank data 
+*Random Coil*  The sequence-adjusted random coil chemical shift value for the atom type 
+=============  =====================================================================================
+
+
+
+Molecules
+=========
+
+Review the molecules, chains and unusual chemical components in your molecular system
+
+Molecular System Chains
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=========================  ===================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+**Table 11**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             *Chain Code*  Code identifier for this chain 
+                 *Length*  Number of residues in chain 
+               *Molecule*  Name of template molecule as shown in middle frame 
+  *Conformational Isomer*  For biopolymers or ligands, does the indicated component of the system represent an observed conformational isomer of another component of the system. For example, component one may represent a polypeptide chain with proline 34 in the cis conformation and component two may represent the polypeptide chain with proline 34 in the trans conformation. In another example, component one may be alpha-D-glucose and component two beta-D-glucose  *(Editable)*
+*Chemical Exchange State*  A flag indicating whether the component of the system is in chemical exchange with another component of the system. Set as 'yes' if the component is in chemical exchange with another component in the system - for example ligands that are present in both the free and bound states  *(Editable)*
+           *Folded State*  An enumerated list of descriptive terms used to define the conformational state of the component of the assembly - for example, native, unfolded, etc.  *(Editable)*
+=========================  ===================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+
+
+Molecules in Entry
+~~~~~~~~~~~~~~~~~~
+
+
+======================  =================================================================================================================================================================================================
+**Table 12**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                *Name*  Name of template molecule 
+       *Molecule Type*  Standard derived type of molecule - for example, protein, DNA, RNA, etc. 
+  *Number of Residues*  Number of residues in this molecule 
+            *Sequence*  One letter sequence of the molecule (shows the first 25 residues for longer polymers) 
+ *Is it Paramagnetic?*  Is this molecule paramagnetic? - derived boolean value 
+       *Database Name*  Database name of cross reference (for example UniProt, GenBank, PDB, etc.), setting this will set a temporary value for the accession code, which should be set to the correct value  *(Editable)*
+*Database Acc. Number*  Accession number for cross reference - it can only be set after adding a database name and will then be initialised to 'TmpAcc'  *(Editable)*
+    *Database Details*  Additional details pertaining to the database cross reference  *(Editable)*
+  *Domain or Fragment*  Give the name of the fragment if the protein or necleic acid is a part of a larger molecule with a well established biological function  *(Editable)*
+           *EC Number*  Enzyme Commission number if the molecule is an enzyme  *(Editable)*
+           *Mutations*  Specify any mutations that have been introduced into the molecular entity - for example, Y20A  *(Editable)*
+             *Details*  Additional details pertaining to this molecule or its sequence  *(Editable)*
+======================  =================================================================================================================================================================================================
+
+
+
+Non-standard & Non-polymer Chem Comps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===========  ====================================================================================
+**Table 13**
+-------------------------------------------------------------------------------------------------
+  *CcpCode*  The CCPN code of the compound 
+ *PDB Code*  The PDB three-letter code of the compound 
+*Mol. Type*  Derived molecule type of chemical component - for example, protein, ??? 
+     *Name*  The long chemical name of the compound 
+===========  ====================================================================================
+
+
+
+Sources
+=======
+
+Add experimental and biological sources
+
+Experimental Sample Sources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===================  ========================================================================================================================================================
+**Table 14**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  *Scientific Name*  The standard scientific name for the source organism of this molecule - choose from a list of standard recombinant organisms or 'synthetic'  *(Editable)*
+      *Common Name*  The common name for the source organism of this molecule  *(Editable)*
+         *Molecule*  The name of the linked template polymeric molecule 
+*Production Method*  The method that was used to produce the organism - choose from a list including recombinant technology, chemical synthesis, etc.  *(Editable)*
+      *Host strain*  Strain information about the source organism  *(Editable)*
+      *Vector Type*  The type of vector used such as plasmid, cosmid, etc.  *(Editable)*
+      *Vector Name*  The specific name of the vector used if applicable  *(Editable)*
+        *Cell Line*  The cell line that was used if applicable  *(Editable)*
+          *Variant*  Variant details about the source organism if applicable  *(Editable)*
+          *Details*  Additional details about the production method or source organism  *(Editable)*
+===================  ========================================================================================================================================================
+
+
+
+|button| **Add Polymer Experimental Sources**: Adds experimental and natural sources for all polymers in the molecular system
+
+|button| **Remove Experimental Source**: Remove the currently selected experimental source
+
+Biological & Sequence Origin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=================  =================================================================================================================================================================================================
+**Table 15**
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*Scientific Name*  The standard scientific name for the biological or natural source of this molecule - choose from a list of the most common organisms in the PDB, which will also set the common name  *(Editable)*
+    *Common Name*  The common name for the biological or natural source organism of this molecule  *(Editable)*
+       *Molecule*  The name of the linked template polymeric molecule 
+  *Organism Type*  The type of organism that the molecule is from - for example, organism, virus, plasmid, no natural source, etc.  *(Editable)*
+         *Strain*  Strain information about the source organism  *(Editable)*
+        *Variant*  Variant details about the source organism if applicable  *(Editable)*
+      *Gene Name*  Name of the gene that the protein is produced from  *(Editable)*
+      *Cell Line*  The cell line that the protein is made from if applicable  *(Editable)*
+    *ATCC Number*  American Type Culture Collection number if sample comes from that organisation  *(Editable)*
+          *Organ*  The organ in which the protein is located if applicable  *(Editable)*
+         *Tissue*  The tissue in which the protein is located if applicable  *(Editable)*
+      *Cell Type*  The cell type that the protein is made from if applicable  *(Editable)*
+      *Organelle*  The organelle in which the protein is located if applicable  *(Editable)*
+        *Details*  Additional details about the host biological organism  *(Editable)*
+=================  =================================================================================================================================================================================================
+
+
+
+|button| **Add Polymer Natural Sources**: Adds natural sources for all polymers in the molecular system (these are usually added when experimental sources are added)
+
+|button| **Remove Natural Source**: Remoevs the currently selected natural source
+
+Samples
+=======
+
+Add sample, sample component and isotope labelling information
+
+Samples
+~~~~~~~
+
+
+================  ==================================================================================================
+**Table 16**
+--------------------------------------------------------------------------------------------------------------------
+             *#*  The serial number of the sample 
+          *Name*  The name used to label the sample 
+*Solvent System*  The solvent composition of this sample - for example, 90% H2O/10% D2O, 100% D2O, etc.  *(Editable)*
+       *Details*  Additional details about the sample  *(Editable)*
+================  ==================================================================================================
+
+
+
+|button| **Add Sample**: Add a new sample to the CCPN project
+
+|button| **Remove Sample**: Remove the currently selected sample from the CCPN project
+
+Sample Components
+~~~~~~~~~~~~~~~~~
+
+
+=====================  ========================================================================================================================================================================
+**Table 17**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*Molecular Component*  Common molecular name of the component from the sample selected in the top frame 
+ *Isotopic Labelling*  Isotopic labelling in standard IUPAC format - a common set is given in the pulldown menu or use the example provided to specify your own isotopic labelling  *(Editable)*
+      *Concentration*  Concentration value  *(Editable)*
+              *Error*  Error in concentration value  *(Editable)*
+               *Unit*  Unit of concentration - from: 'kg/m3', 'M', 'm3/m3', 'mol/mol', 'kg/kg' - use 'm3/m3' to solute ratios  *(Editable)*
+=====================  ========================================================================================================================================================================
+
+
+
+|button| **Add Polymer Sample Components**: Add the names of all polymeric components from your molecular system
+
+|button| **Add Other Sample Component**: Add the names of other components in this sample
+
+|button| **Remove Sample Component**: Remove the currently selected component
+
+NMR Conditions
+==============
+
+Add experimental conditions used in your NMR experiments
+
+NMR Condition Sets
+~~~~~~~~~~~~~~~~~~
+
+
+===============  =======================================================
+**Table 18**
+------------------------------------------------------------------------
+            *#*  The serial number of the condition set 
+*Condition Set*  The name used to label the condition set  *(Editable)*
+      *Details*  Additional details about the condition set  *(Editable)*
+===============  =======================================================
+
+
+
+|button| **Add Condition Set**: Add a new condition set to the CCPN project
+
+|button| **Remove Condition Set**: Remove the currently select condition set from the CCPN project
+
+NMR Conditions
+~~~~~~~~~~~~~~
+
+
+===========  =====================================================================================================================
+**Table 19**
+----------------------------------------------------------------------------------------------------------------------------------
+*Condition*  The name of the variable used to define a specific sample condition - for example, temperature, pH, etc. 
+    *Value*  The experimental value of the condition selected  *(Editable)*
+    *Error*  The experiemental error in the condition selected  *(Editable)*
+     *Unit*  The unit used to measure the condition - for example, K for temperature  *(Editable)*
+===========  =====================================================================================================================
+
+
+
+|button| **Add Standard Conditions**: This button adds the four standard condtions: temperature, pH, pressure and ionic strength
+
+|button| **Add Condition**: Add other types of condition to the set
+
+|button| **Remove Condition**: Remove currently selected condition from the set
+
+Instruments
+===========
+
+Add NMR spectrometers and probes
+
+NMR Spectrometers
+~~~~~~~~~~~~~~~~~
+
+
+====================  =====================================================================================================================================================================
+**Table 20**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 *#*  Serial number of the NMR spectrometer specification 
+              *Name*  A name for the spectrometer, for graphical displays  *(Editable)*
+     *Nominal Freq.*  The rounded spectrometer frequency, from the 1H resonance frequency in MHz, used in textual description - for example. '500', '900' 
+*Proton Freq. (MHz)*  The actual numeric magnetic field strength expressed as a 1H resonance frequency in MHz (also sets and rounds the nominal value) - for example '500.013'  *(Editable)*
+      *Manufacturer*  Manufacturer name - choose from a list including Bruker, Varian, GEOL, Custom, etc.  *(Editable)*
+             *Model*  The manufacturer's definition of the spectrometer model - choose from a list based on the manufacturer  *(Editable)*
+          *Serial #*  The manufacturer's serial number for the specific NMR spectrometer  *(Editable)*
+           *Details*  A user-specified textual comment about the NMR spectrometer  *(Editable)*
+====================  =====================================================================================================================================================================
+
+
+
+|button| **Add Spectrometer**: Add a new NMR spectrometer specification to the CCPN project
+
+|button| **Remove Spectrometer**: Delete the selected NMR spectrometer specification from the CCPN project
+
+NMR Probes
+~~~~~~~~~~
+
+
+===============  ========================================================================================================
+**Table 21**
+-------------------------------------------------------------------------------------------------------------------------
+            *#*  Serial number of NMR probe specification 
+         *Name*  The name of the probe for graphical representation  *(Editable)*
+         *Type*  A classification for the kind of probe used - for example, liquid, solid, nano, flow or MAS  *(Editable)*
+ *Manufacturer*  Manufacturer name  *(Editable)*
+        *Model*  The manufacturer's definition of the probe model  *(Editable)*
+     *Serial #*  The manufacturer's serial number for the specific NMR probe  *(Editable)*
+*Diameter (cm)*  The probe diameter in cm  *(Editable)*
+      *Details*  A user-specified textual comment about the probe  *(Editable)*
+===============  ========================================================================================================
+
+
+
+|button| **Add Probe**: Add a new NMR probe specification to the CCPN project
+
+|button| **Remove Probe**: Remove the selected NMR probe specification from the CCPN project
+
+Experiments
+===========
+
+Add NMR experiments and link data about samples, conditions, instruments, shift references and shift lists added in the previous tabs to the experiments
+
+Experiments
+~~~~~~~~~~~
+
+
+=====================  ================================================================================================================================================================================================
+**Table 22**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               *Name*  The textual name for the experiment, for graphical displays  *(Editable)*
+            *Submit?*  Is this experiment to be submitted? - toggle by clicking (note if the experiment is part of a selected peak list, it will automatically be submitted)  *(Editable)*
+    *Systematic Name*  The name defined by the CCPN data model for this experiment or the user-defined name if no reference NMR experiment has been defined 
+       *Sample State*  The state that best describes the sample and any molecular ordering; liquid (solution), solid, powder, ordered or crystalline  *(Editable)*
+             *Sample*  Choose which sample was used to perform the experiment from the list added to the CCPN project in the "Samples" tab  *(Editable)*
+      *Condition Set*  Choose which sample condition set was used to perform the experiment from the list added to the CCPN project in the "NMR Conditions" tab  *(Editable)*
+*Chemical Shift Ref.*  Choose multiple chemical shift references were used for any chemical shift list that the experiment was used to compile from the list added to the CCPN project in the "Shifts" tab  *(Editable)*
+          *Raw data?*  Is the raw data available? 
+       *Spectrometer*  Choose which NMR spectrometer was used to perform the experiment from the list added to the CCPN project in the "Instruments" tab  *(Editable)*
+              *Probe*  Choose which NMR probe was used to perform the experiment from the list added to the CCPN project in the "Instruments" tab  *(Editable)*
+*Chemical Shift List*  Choose a chemical shift list that the NMR experiment was used to compile, if applicable - the shift list should be selected for submission in the "NMR Data" tab  *(Editable)*
+=====================  ================================================================================================================================================================================================
+
+
+
+|button| **Add Experiment**: Add a new NMR experiment record to the CCPN project
+
+|button| **Remove Experiment**: Remove the currently selected NMR experiment from the CCPN project
+
+|button| **Submit All**: Add all NMR experiments in the list to the "Entry" deposition object
+
+|button| **Submit Minimal**: Just submit a minimal list of NMR experiments - any experiments used in submitted peak lists will remain to be submitted
+
+Structures
+==========
+
+Add a structure generation and link a structural ensemble and restraint sets to it
+
+Structure Generations
+~~~~~~~~~~~~~~~~~~~~~
+
+
+========================  ===========================================================================================================================================================================
+**Table 23**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*Structure Generation #*  The serial number of the structure generation 
+                  *Name*  The name used to label the structure generation  *(Editable)*
+               *Submit?*  Is this structure generation to be submitted? - toggle by clicking  *(Editable)*
+       *Generation Type*  Type of structure generation - denovo or refinement  *(Editable)*
+               *Details*  Additional details about the structure generation  *(Editable)*
+              *Software*  Software used to make the structure ensemble in this structure generation - the software will also need a method selected in the "References" tab  *(Editable)*
+            *Ensemble #*  Select from the structure ensembles in the CCPN project (shown in the middle frame) that was calculated using this structure generation  *(Editable)*
+      *Constraint Set #*  Select from the constraint sets in the CCPN project (shown in the bottom frame) that was used to calculate the structure ensemble in this structure generation  *(Editable)*
+========================  ===========================================================================================================================================================================
+
+
+
+|button| **Add Structure Generation**: Add a new structure generation to the CCPN project
+
+|button| **Remove Structure Generation**: Remove the currently selected structure generation from the CCPN project
+
+Structure Ensembles
+~~~~~~~~~~~~~~~~~~~
+
+
+=======================================  ==========================================================================================================
+**Table 24**
+---------------------------------------------------------------------------------------------------------------------------------------------------
+                 *Structure Ensemble #*  The serial number of the structure ensemble 
+                              *Details*  Additional details about this structure ensemble  *(Editable)*
+                               *Models*  Number of models selected in this structure ensemble 
+                               *Chains*  A list of chains in the molecular system that are represented in the structure ensemble 
+                             *Residues*  The number of residues summed over all chains represented in the structure ensemble 
+                    *Calculated Models*  Number of models calculated in this structure ensemble  *(Editable)*
+                   *Selection Criteria*  Criteria used to select models to represent the structure ensemble from all calculated models  *(Editable)*
+                 *Representative Model*  The representative model for the structure ensemble  *(Editable)*
+*Selection Criteria for Representative*  Criteria used to select the representative model in the structure ensemble  *(Editable)*
+=======================================  ==========================================================================================================
+
+
+
+Constraint Sets
+~~~~~~~~~~~~~~~
+
+
+|pulldown| **Constraint Set**: Choose a constraint set from the CCPN project (there may be multiple constraint lists in each set)
+
+=======================  ============================================================================================================
+**Table 25**
+-------------------------------------------------------------------------------------------------------------------------------------
+    *Constraint List #*  The serial number of the constraint list 
+      *Constraint Type*  The type of constraints in this list - for example, distances, NOEs, dihedral angles, RDCs, etc 
+                 *Name*  The name used to label this constraint list  *(Editable)*
+              *Details*  Additional details about this constraint list  *(Editable)*
+*Number of Constraints*  The number of constraints found in this list 
+=======================  ============================================================================================================
+
+
+

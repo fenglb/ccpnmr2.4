@@ -1,0 +1,113 @@
+==========================
+Resonance : Resonance Info
+==========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Detailed Information About a Resonance's Peak Assignments**
+
+This popup window shows the locations and identities of all of the peak
+dimensions to which a particular resonance is assigned, together with
+the averaged chemical shift values for the resonances derived from
+these assigned locations
+
+The upper table lists the positions in the spectra that the resonance is
+assigned to. Thus, the user may see the complement of peaks that the resonance
+contributes to and what the chemical shift positions of these peaks are, in the
+relevant assigned dimension. This display is handy for identifying chemical
+shift outliers that may be indicative of a mistaken assignment.
+
+The lower table shows the averaged chemical shift values that derive from the
+resonance's assignment to the various peak dimensions. It should be noted that
+each peak dimension does not necessarily contribute equally to the shift
+average. The average is weighted by spectrum (and hence peak) dimension.  By
+default this is even, but imprecise or ambiguous peak dimensions are often
+down-weighted and precise ones are up-weighted. The spectrum dimension
+weightings are set via the "Tolerances" tab, "Shift Weighting" column of main
+`Spectra`_ option.
+
+.. _`Spectra`: EditSpectrumPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Show Peaks**: For the peak assignments selected in the upper table show a table of the full peak records
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak Assignments
+~~~~~~~~~~~~~~~~
+
+A table of the peak dimensions, and hence positions, to which the current resonance is assigned
+
+
+============  ===================================================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------------------------------------
+ *Peak List*  The peak list of the peak to which the current resonance is assigned (experiment:spectrum:list number) 
+      *Peak*  The serial number of the peak, within its peak list, to which the current resonance is assigned  
+       *Dim*  The dimension number of the peak that the resonance is assigned to 
+  *Position*  The position of the peak dimension, typically in ppm units 
+*Assignment*  The assignment annotation of the whole peak 
+*Shift List*  The shift list name and number that the peak uses (via its experiment record) 
+============  ===================================================================================================================
+
+
+
+Chemical Shifts
+~~~~~~~~~~~~~~~
+
+A table of the chemical shift values associated with the current resonance
+
+
+============  ===================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------
+*Shift List*  The shift list that records a chemical shift value for the resonance 
+     *Shift*  The (averaged) value of the chemical shift in this specific shift list 
+        *SD*  The standard deviation in the averaged chemical shift value 
+============  ===================================================================================
+
+
+

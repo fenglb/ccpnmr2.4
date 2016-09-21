@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Peak : Draw Parameters &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Edit Peak Aliasing" href="EditPeakAliasingPopup.html" />
+    <link rel="prev" title="Peak : Peak Finding" href="EditPeakFindParamsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakAliasingPopup.html" title="Edit Peak Aliasing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="peak-draw-parameters">
+<h1>Peak : Draw Parameters<a class="headerlink" href="#peak-draw-parameters" title="Permalink to this headline">¶</a></h1>
+<p><strong>Control How Peak Symbols and Annotations Are Drawn</strong></p>
+<p>This popup window controls the display of picked peak positions within
+spectrum windows and also how their annotations are displayed in
+many of the tables throughout the rest of Analysis.</p>
+<p><strong>Peak Annotations</strong></p>
+<p>The &#8220;Annotation Style&#8221; tab, as the name suggests, controls which bits of
+information go to form the assignment annotation that is used to label peaks
+in spectra and when listing their identities in tables. The user can toggle
+various options on or off to dictate what should be included. With no options
+selected at all peaks will show only resonance number information like
+&#8220;[123],[45]&#8221;, irrespective of any atomic assignments. Switching the atom
+assignments on will substitute the atom and residue name for  the resonance
+names. The spin system toggle is used to control the display of spin system
+numbers like the curly bracketed numbers of &#8220;{89}[123],[45]&#8221; or a residue name
+if the spin system is assigned, although the atom assignment option will also
+give any residue name. The chain and molecular system toggles are used when
+there are several sequences in the assignment that need to be distinguished, so
+that you can identify &#8220;A25LsyH,N&#8221; separately to &#8220;B25LysH,N&#8221; or even
+&#8220;MS2:A25LysH,N&#8221;. The details toggle allows the user to contribute to peak
+annotations; such details are set in the relevant column of the peak tables
+(e.g. <a class="reference external" href="SelectedPeaksPopup.html">Selected Peaks</a>)or the &#8220;Peak::Set details&#8221; option of the right-click
+window menu. The last &#8220;Minimal Annotations&#8221; option is special because it gives
+a quick replacement for spectrum annotations that overrides all other settings,
+for example &#8220;25LysH,N&#8221; becomes &#8220;25K&#8221;, which is useful to reduce clutter when
+printing out an HSQC.</p>
+<p>It should be noted that, with the exception of the &#8220;Minimal Annotations&#8221;
+option, any changes to the annotation options for existing peak assignments
+will not be visible until [Update Full Annotations] is pressed, which can take
+a while to update if the number of peaks in the project is large. Any new
+assignments will observe the current settings.</p>
+<p><strong>Draw Size</strong></p>
+<p>The second tab controls how the peak cross symbols, which indicate the pick
+position, are drawn in the spectrum display. Here, the user has four choices:
+the default is to use a fixed number of screen pixels, so that all symbols are
+the same size, irrespective of zoom level; uniform size in ppm (with the
+appropriate values for each isotope set in the lower table that appears)
+allows the peak symbol maintain a constant size relative to the contours, and
+thus differ in on-screen size according to the contour zoom level; and two
+choices for a &#8220;scaled&#8221; size where the peak symbol is larger or smaller
+depending on the intensity of the peak, either relative to its peak list or an
+absolute globally applied value.</p>
+<p><strong>Figure of Merit</strong></p>
+<p>The last &#8220;Merit Symbols&#8221; tab allows the user to add textual markers to a peak
+depending on the figure-of-merit value, which is an indication of reliability
+(although the precise context is at the discretion of the user). The merit
+value for a peak is set via the peak tables or the &#8220;Peak::Set merit&#8221; option of
+the right-click window menu. Aside from display purposes the merit value is
+used at a few points throughout Analysis to optionally exclude peaks. Typically
+a peak with a merit value of 0.0 may be ignored during certain analyses, e.g.
+for making NOE derived distance restraints.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>When assigning peaks via the <a class="reference external" href="EditAssignmentPopup.html">Assignment Panel</a> the resonance annotation will
+always display spin system information, given that this grouping is critical
+to assignment, but the chain and atom assignment will reflect the peak
+display, and thus these details may be missing if unset in this Draw
+Parameters popup.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="annotation-style">
+<h2>Annotation Style<a class="headerlink" href="#annotation-style" title="Permalink to this headline">¶</a></h2>
+<p>Options specifying how peak annotations are drawn in spectrum windows and in tables etc.</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Spin System Info</strong>: Whether to show unassigned spin system numbers like &#8220;{123}&#8221; in peak annotations; does not affect the display of full residue assignments</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Atom Assignment</strong>: Whether to show assigned atom names in peak annotations rather than resonance numbers, e.g. &#8220;21LeuH,N&#8221; or &#8220;21Leu[55],[56]&#8221;</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Chain Assignment</strong>: Whether to show the molecular chain code letter in peak annotations, e.g. &#8220;21LeuH,N&#8221; or &#8220;A21LeuH,N&#8221;</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Molecular System</strong>: Whether to show the molecular system code name in peak annotations, e.g. &#8220;MS1:21LeuH,N&#8221; or &#8220;21LeuH,N&#8221;</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Merit Symbol</strong>: Whether to show a symbol indicating the quality of a peak; these symbols must be set in the &#8220;Merit Symbols&#8221; tab</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Details</strong>: Whether to show the details text for a peak in spectrum windows (set in the peak tables)</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Minimal Annotations (overriding option)</strong>: Whether to ignore above settings, and use a short peak annotation using only residue numbers and one-letter codes, e.g. &#8220;21L&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update Full Annotations</strong>: Manually cause an update of all peak annotations; may take some time but recommended to see the immediate effect of changes</p>
+</div>
+<div class="section" id="drawframe">
+<h2>drawFrame<a class="headerlink" href="#drawframe" title="Permalink to this headline">¶</a></h2>
+<p>Options to specify how large the peak crosses/symbols are drawn in spectrum windows</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which mode to use for determining peak cross/symbol sizes; a fixed pixel/ppm value or scaled by intensity for all peaks or just one peak list</p>
+</div>
+<div class="section" id="merit-symbols">
+<h2>Merit Symbols<a class="headerlink" href="#merit-symbols" title="Permalink to this headline">¶</a></h2>
+<p>Enables the user to specify special symbols to annotate peaks according to quality</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Good merit (&gt;0.66)</strong>: Although typically blank, sets a symbol to display for good quality peaks (merit value &gt; 0.66), if the relevant option is selected in the &#8220;Annotation Style&#8221; tab</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Medium merit</strong>: Sets a symbol to display for mediocre quality peaks (merit value between 0.34 &amp; 0.66), if the relevant option is selected in the &#8220;Annotation Style&#8221; tab</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Poor merit (&lt;0.34)</strong>: Sets a symbol to display for poor quality peaks (merit value &lt; 0.34), if the relevant option is selected in the &#8220;Annotation Style&#8221; tab</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set symbols</strong>: Commit the changes to the merit symbols; this will not automatically update the display - see the &#8220;Annotation Style&#8221; tab</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Peak : Draw Parameters</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#annotation-style">Annotation Style</a></li>
+<li><a class="reference internal" href="#drawframe">drawFrame</a></li>
+<li><a class="reference internal" href="#merit-symbols">Merit Symbols</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditPeakFindParamsPopup.html"
+                        title="previous chapter">Peak : Peak Finding</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditPeakAliasingPopup.html"
+                        title="next chapter">Edit Peak Aliasing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditPeakDrawParamsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakAliasingPopup.html" title="Edit Peak Aliasing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

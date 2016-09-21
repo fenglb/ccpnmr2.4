@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CING Setup &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Deposition Entry Completion Interface" href="EntryCompletionPopup.html" />
+    <link rel="prev" title="HADDOCK Project Setup" href="HaddockPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EntryCompletionPopup.html" title="Deposition Entry Completion Interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="HaddockPopup.html" title="HADDOCK Project Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cing-setup">
+<h1>CING Setup<a class="headerlink" href="#cing-setup" title="Permalink to this headline">¶</a></h1>
+<p><strong>Setup and Submit NMR Structure Validation Analyses to CING</strong></p>
+<p>This popup is used to connect the data in a CCPN project to the structure
+validation analyses that are available at the iCING server. When submitting to
+this service the CCPN project (without spectrum data files) will be sent over
+the Internet for analysis. Many different NMR and structure based analyses
+will be performed under the CING platform. These include: PROCHECK, ShiftX,
+DSSP, WHAT_CHECK, Wattos etc.</p>
+<p>For more information detailed information see the <a class="reference external" href="http://nmr.cmbi.ru.nl/cing/Home.html">CING home page</a>.</p>
+<p><strong>Use</strong></p>
+<p>To setup and run a CING job from Analysis the user first has to create a
+&#8220;run&#8221;, which contains all the settings. A run can be made with
+[New Run] or [Copy Run].</p>
+<p>The data that relates to a job/run is divided into three sub-tabs to indicate
+what the input data from the CCPN project is, what settings are used during
+the calculation, and what the output CCPN data is. The input data is further
+sub-divided into various categories of data, and the user can select  from
+pulldown menus to dictate which CCPN entities will be selected for the
+calculation.</p>
+<p><strong>Input Data</strong></p>
+<p>Typically to run a CING job the user will select the appropriate Molecular
+System from the &#8220;Input Data&#8221; panel, then select an structure ensemble in the
+&#8220;Structures sub-tab; these are minimum requirements for CING. The user may
+also a add shift lists, peak lists and restraint lists  to the analysis by
+going into the relevant sub-tab and clicking   the [Add ...] and [Remove ...]
+buttons to add the CCPN data entity that is selected at the bottom right of
+the panel.</p>
+<p><strong>Run Settings</strong></p>
+<p>The &#8220;Run Settings&#8221; tab allows the user to adjust settings that control the
+calculation job and actually submit all the data to the iCING server for
+analysis. Usually the user simply clicks [Submit Project!], assuming a run has
+been setup and the computer has an Internet connection. After submission the
+user can [Check Run Status] to get a short report, but otherwise the user will
+be informed when the job is complete in the CCPN interface. The CING analysis
+data will be available to download from the specified &#8220;Results URL&#8221; to the
+&#8220;Results File&#8221; by using [Download Results] Also, the data will be available
+for a time  on the CING web site ([View Results HTML]). To specifically force
+the iCING  server to remove all of the user&#8217;s data from its system [Purge
+Server Result] can be clicked. Otherwise the results will be available on the
+CING website until the server does its next data clean-up.</p>
+<p><strong>Output Data</strong></p>
+<p>The &#8220;Output Data&#8221; table lists all of the CCPN entities that were generated or
+modified by the selected calculation job (if it were run). However, this data
+is not currently filled in by the CING server, although it will be at some
+stage in the future.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Run Number</strong>: Selects which calculation job or &#8220;run&#8221; is currently being viewed or edited</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Run</strong>: Make a setup for a new calculation run</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Run</strong>: Make a new calculation run by copying the current one</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Run</strong>: Delete the current calculation run settings</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="input-data">
+<h2>Input Data<a class="headerlink" href="#input-data" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecular System</strong>: Selects which molecular system the calculation will be run on</p>
+<p><img alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Run Details</strong>: User-editable textual comment for the current calculation</p>
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: The structure ensemble coordinates to submit</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Model</em></td>
+<td>Conformational model number</td>
+</tr>
+<tr><td><em>Use</em></td>
+<td>Whether analyse this model  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Activate Selected</strong>: Activate the selected models so that they will be consedered in the analysis</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Inactivate Selected</strong>: Deactivate the selected models so that they will not be considered in the analysis</p>
+</div>
+<div class="section" id="shifts-measurements">
+<h2>Shifts &amp; Measurements<a class="headerlink" href="#shifts-measurements" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Data Type</em></td>
+<td>The kind of measurement data used and calculation input</td>
+</tr>
+<tr><td><em>Serial</em></td>
+<td>The serial number used to uniquely identify the measurement list</td>
+</tr>
+<tr><td><em>List Name</em></td>
+<td>The textual name of the measurement list</td>
+</tr>
+<tr><td><em>Size</em></td>
+<td>The number of individual measurements in the list</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User-specified textual comment</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Selected</strong>: Remove the selected measurement list from consideration (does not delete the data)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Measurement List</strong>: Add the selected measurement list as calculation input</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects a measurement list which may be added as calculation input</p>
+</div>
+<div class="section" id="peak-lists">
+<h2>Peak Lists<a class="headerlink" href="#peak-lists" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>The name of the experiment that contains the input peak list</td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The name of the spectrum that contains the input peak list</td>
+</tr>
+<tr><td><em>Serial</em></td>
+<td>The serial number of the input peak list within its spectrum</td>
+</tr>
+<tr><td><em>Peaks</em></td>
+<td>The number of peaks in the peak list</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Selected</strong>: Remove the selected peak list from consideration (does not delete the data)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Peak List</strong>: Add the selected peak list as calculation input</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects a peak list which may be added as calculation input</p>
+</div>
+<div class="section" id="restraint-lists">
+<h2>Restraint Lists<a class="headerlink" href="#restraint-lists" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Restraint Type</em></td>
+<td>The type of restraints in the input restraint list</td>
+</tr>
+<tr><td><em>Restraint Set</em></td>
+<td>The restraint set that contains the input restraint list</td>
+</tr>
+<tr><td><em>Serial</em></td>
+<td>The serial number of the input restraintlist within its restraint set</td>
+</tr>
+<tr><td><em>List Name</em></td>
+<td>The textual name of the input restraint list</td>
+</tr>
+<tr><td><em>Restraints</em></td>
+<td>The number of restraints in the input restraint list</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Selected</strong>: Remove the selected restraint list from consideration (does not delete the data)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Restraint List</strong>: Add the selected restraint list as calculation input</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects a restraint list which may be added as calculation input</p>
+</div>
+<div class="section" id="run-settings">
+<h2>Run Settings<a class="headerlink" href="#run-settings" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="server-job-submission">
+<h3>Server Job Submission<a class="headerlink" href="#server-job-submission" title="Permalink to this headline">¶</a></h3>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>iCing URL</strong>: Web location of iCING server to use</p>
+<p><img alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Results File</strong>: Name of file to store compressed CING results in</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Choose File</strong>: Select file to overwrite with CING results</p>
+<p><img alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Results URL</strong>: Web location where CING results will be posted</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>View Results HTML</strong>: Open the HTML CING results in a web browser</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Submit Project!</strong>: Submit the CCPN project to the CING server</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Check Run Status</strong>: Determin whether the iCING job is complete, pending or has failed</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Purge Server Result</strong>: Remove all trace of the last submissionfrom the iCING server</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Download Results</strong>: Download the compressed CING results, including HTML</p>
+</div>
+<div class="section" id="residue-options">
+<h3>Residue Options<a class="headerlink" href="#residue-options" title="Permalink to this headline">¶</a></h3>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Select the molecular system chain to consider</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Sequence number</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>Residue type code</td>
+</tr>
+<tr><td><em>Linking</em></td>
+<td>In-chain connectivity of residue</td>
+</tr>
+<tr><td><em>Decriptor</em></td>
+<td>Protonation and steriochemical state</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Whether to consider the residue in the analysis  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Activate Selected</strong>: Use the selected residues in the analysis</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Inactivate Selected</strong>: Do not use the selected residues in the analysis</p>
+</div>
+</div>
+<div class="section" id="output-data">
+<h2>Output Data<a class="headerlink" href="#output-data" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>Data Type</em></td>
+<td>The kind of data output by the calculation</td>
+</tr>
+<tr><td><em>#</em></td>
+<td>the serial number of the output data, within the calculation run</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the output data</td>
+</tr>
+<tr><td><em>CCPN Data</em></td>
+<td>The identity of any CPN objects that are lined to/as output data</td>
+</tr>
+<tr><td><em>Parameters</em></td>
+<td>Any parameters which relate to the output data</td>
+</tr>
+<tr><td><em>Weight</em></td>
+<td>Any fractional weighting that was applied to the output data</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CING Setup</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#input-data">Input Data</a></li>
+<li><a class="reference internal" href="#structures">Structures</a></li>
+<li><a class="reference internal" href="#shifts-measurements">Shifts &amp; Measurements</a></li>
+<li><a class="reference internal" href="#peak-lists">Peak Lists</a></li>
+<li><a class="reference internal" href="#restraint-lists">Restraint Lists</a></li>
+<li><a class="reference internal" href="#run-settings">Run Settings</a><ul>
+<li><a class="reference internal" href="#server-job-submission">Server Job Submission</a></li>
+<li><a class="reference internal" href="#residue-options">Residue Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#output-data">Output Data</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="HaddockPopup.html"
+                        title="previous chapter">HADDOCK Project Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EntryCompletionPopup.html"
+                        title="next chapter">Deposition Entry Completion Interface</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CingPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EntryCompletionPopup.html" title="Deposition Entry Completion Interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="HaddockPopup.html" title="HADDOCK Project Setup"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

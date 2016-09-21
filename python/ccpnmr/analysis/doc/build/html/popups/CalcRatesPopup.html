@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Analysis : Follow Intensity Changes &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Data Analysis : Follow Shift Changes" href="FollowShiftChangesPopup.html" />
+    <link rel="prev" title="Data Analysis : 3J H-Hα Coupling" href="CalcHnHaCouplingPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CalcHnHaCouplingPopup.html" title="Data Analysis : 3J H-Hα Coupling"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="data-analysis-follow-intensity-changes">
+<h1>Data Analysis : Follow Intensity Changes<a class="headerlink" href="#data-analysis-follow-intensity-changes" title="Permalink to this headline">¶</a></h1>
+<p><strong>Follow Peak Intensity Series for Rate Calculations etc</strong></p>
+<p>The purpose of this system is to expedite the extraction of peak intensity data
+from series of related experiments and subsequently fit a selected function to the
+data to extract parameters such as relaxation rates or NOE decay. The general idea
+is that the user sets up an &#8220;NMR series&#8221; that contains an array of experiments, or
+a single experiment stacked into separate planes (e.g. a pseudo 3D), where each
+experiment or plane in the series represents a different value for some time or
+frequency measurement being investigated. Examples of this  include T1, T2 &amp; T1rho
+delay times for estimating relaxation rates and NOE mixing times. It should be noted
+that this system is specifically designed for the extraction of parameters derived
+from spectrum peak intensities where the position of related peaks across a series
+<em>do not move significantly</em>. For following peak movements and chemical shift
+changes the <a class="reference external" href="FollowShiftChangesPopup.html">Follow Shift Changes</a> tool may be used.</p>
+<p>The layout of the popup window is split into two tabs to reduce clutter. The
+first tab allows the user to setup and adjust all of the options used to
+perform the peak intensity extraction and function fitting. The second tab is
+used to actually perform the operations and display the results on a table of
+peak groups. Each group corresponds to a series of peaks, usually with a
+common resonance assignment, with one peak for each time value (i.e. per
+experiment or plane).</p>
+<p>The general idea is that the user selects a reference peak list, which will
+determine the location and assignment identities of the peaks being analysed.
+For proteins this reference is often a 15N HSQC peak list, in which case the
+analysis  operates on peak groups that correspond to amides of individual
+residues. The reference need not be part of the series of analysed
+experiments, but naturally peak locations should match. Also, the user chooses
+an NMR series that has been setup elsewhere with the relevant experiments or
+planes and their corresponding time parameters. The [Edit NMR Series] button
+will open the <cite>NMR Series</cite> popup window to create and adjust such series. The
+&#8220;Fitting Function&#8221; option is adjusted to say what kind of curve should be
+fitted to the peak intensity data (often this is a two-parameter exponential).
+The &#8220;Rate Type&#8221; and &#8220;Coherence Type&#8221; options are only used if results are
+stored in the CCPN project as a measurement list and do not affect the initial
+analysis. The Error Method determines how the errors in the parameters of the
+fitted function (e.g. error in relaxation rate) will be calculated.</p>
+<p>The &#8220;covariance&#8221; error method can be used if the measurement errors are
+normally distributed (which is often a reasonable assumption).  For each
+parameter the error (standard deviation) estimate is the square root of
+(the chi squared value times the covariance matrix diagonal term for that
+parameter).
+Reference: section 15.6, &#8220;Confidence Limits on Estimated Model Parameters&#8221;
+in Numerical Recipes, second edition.</p>
+<p>The &#8220;bootstrap&#8221; error method uses repeated sampling to provide an estimate
+of the error.  If there are N (x, y) points to be fit then each sampling
+takes N of those (x, y), but with replacement allowed, so some of the (x, y)
+might be repeated and some might be left out.  For each sampling the best
+fit is calculated and that determines the parameters for this specific
+sampling, which in turn allows an estimate of the error (standard deviation)
+over all samplings.  Analysis uses 1000 samples.
+Reference: &#8220;Bootstrap Methods for Standard Errors, Confidence Intervals and
+Other Measures of Statistical Accuracy&#8221;, B. Efron and R. Tibshirani,
+Statistical Science, 1986, Vol. 1, No. 1, 54-77.</p>
+<p>The &#8220;jiggling&#8221; error method uses repeated sampling but here the (x, y) are
+both sampled from a normal distribution with mean the actual value and
+standard deviation the estimated data errors.  There is no real scientific
+basis for this estimate, so probably best avoided.</p>
+<p>The peak picking and search tolerance sections control how peaks are grouped
+together so that their intensities may be analysed. The basic process is that
+each reference peak position is used to locate a corresponding peak in each
+plane/experiment of the series. How exactly this is done depends on which
+options are checked. If a peak, at the right point of the NMR series, has the
+same assignment as the reference peak then that peak is used in preference to
+any others, irrespective of location. If a peak with a matching assignment
+cannot be found, the position of the reference peak is then used to locate the
+peaks for its group. When looking for peaks based on location the system
+checks to see if there are any existing, picked peaks in the series that are
+close to the reference (within the search tolerances). If no existing peaks
+are found for a point in the series then, should the &#8220;Pick new peaks&#8221; option
+be set, an attempt is made to pick a new peak extremum within the stated
+tolerances. If there is no extremum to pick, then the system may still add a
+&#8220;non-maxima&#8221; peak at exactly the reference position; useful where peak
+intensities dip into the noise levels, but are still helpful in a function
+fit. Also, having the &#8220;Assign groups?&#8221; option set means that after the first
+peak grouping, peaks will be linked via assignment and subsequent peak searches
+are not generally required.</p>
+<p>The peak grouping and function fitting is performed using the [Group &amp; Fit
+Peaks] function. After the initial grouping the intensity curve fitting may be
+redone with via one of the &#8220;Re-fit&#8221; buttons; this useful if the fitting
+function is changed. When the curve fitting is done the parameter results from
+the fit, e.g. the &#8220;A&#8221; and &#8220;B&#8221; from an &#8220;A exp(-Bx)&#8221; equation, are immediately
+made available from the results table. Also, where relevant, any time constant
+values (one divided by the rate) are also presented. In the &#8220;Peak Groups &amp;
+Analysis&#8221; table the user can see the fit results and analyse or adjust the
+peak groups. It is commonplace to look through all the intensity curves for
+each of the peak groups by using [Show Fit Graph]; here the user can check how
+well the curve-fit worked and whether any adjustments (e.g. in peak picking)
+need to be made or groups removed. See the <a class="reference external" href="EditFitGraphPopup.html">Fit Graph</a> documentation for
+details about how the resultant popup window operates. The &#8220;Y&#8221; value of the
+curves naturally come from the selected type of peak intensity and the &#8220;X&#8221;
+values come from those that were entered for the experimental points/planes in
+the NMR series. When the results have been checked, if the data is of a kind
+that corresponds to the &#8220;Rate Type&#8221; in the settings, then the user may save
+the values of the time constant, like T1 or T2, in a measurement list within
+the CCPN project using the &#8220;Make List&#8221; function. Alternatively the results may
+be used by directly exporting the fitted parameters from the table.</p>
+<p>The user may fit the peak intensity data outside of Analysis by exporting the
+values for the individual intensities (and any fitted parameters) using the
+[Export Data] button at the bottom right. This will produce an aligned,
+whitespace-separated plain text file that aims to be easy to analyse with
+external programs and scripts. If the fitting functions that are available in
+CCPN are not required, or cause problems, the fitting function may be set to
+&#8220;&lt;None&gt;&#8221;, which means that the peaks are still grouped and that their
+intensities are available for export.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Each peak group need not contain the same number of peaks if data is missing.</p>
+<p>A subset of peaks in a series may be analysed by reducing the number of peaks
+in the reference peak list. For example the user could make a copy of an HSQC
+peak list and then remove and peak locations that are not required in the
+analysis, e.g. for side chain NH2 peaks or severely overlapped peaks.</p>
+<p>Any peak picking done by the system uses the same spectrum peak finding
+parameters as is normally used in Analysis. Such parameters may be adjusted
+via the <a class="reference external" href="EditPeakFindParamsPopup.html">Peak Finding</a> popup.</p>
+<p>If there are problems with grouping peaks together the user may assign all
+peaks that ought to go in the same group to the same resonances, thus
+connecting peaks together.</p>
+<p>As with all analyses based upon peak intensity, the user should be cautious in
+regions of spectra where peaks are severely overlapped. In such cases using
+peak &#8220;height&#8221; rather than &#8220;volume&#8221; integral may help to a degree.</p>
+<p>The user should be cautious of manually copying or importing peaks into an
+intensity series from other spectra. Potentially both the peak position and
+intensity might not reflect the real data in the series. Accordingly, for
+copied peaks the user should recalculate intensities and check that the peak
+positions are at extrema, re-centring (&lt;Ctrl&gt; + &lt;p&gt;) as required.
+Alternatively, the automated series picking is normally adequate if the
+reference peak list matches reasonably and the picking PPM tolerances are
+appropriate.</p>
+<p>The NMR series that will be considered by this system are currently limited to
+the following types: &#8220;delay time&#8221;, &#8220;time&#8221;,&#8221;num delays&#8221;, &#8220;mixing time&#8221; and
+&#8220;pulsing frequency&#8221;.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="experiment-series">
+<h3>Experiment Series<a class="headerlink" href="#experiment-series" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Reference Peak List</strong>: Selects the peak list used to confer assignments and groupings to analysed peaks</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>NMR Experiment Series</strong>: The NMR series that carries details of which experiments to follow and their sampled conditions (e.g. delay times)</p>
+</div>
+<div class="section" id="data-fitting">
+<h3>Data Fitting<a class="headerlink" href="#data-fitting" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Fitting Function</strong>: Selects the type of graph to fit to the peak intensities within each grouping</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Intensity Type</strong>: Whether to fit to peak heights or volume integrals</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Error Method</strong>: Selects which method is used to estimate errors in the graph fitting</p>
+</div>
+<div class="section" id="relaxation-options">
+<h3>Relaxation Options<a class="headerlink" href="#relaxation-options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Rate Type</strong>: The type of rate experiment performed; important for storage in CCPN project</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Coherence Type</strong>: Sets which sub-type of rate experiment was performed</p>
+</div>
+<div class="section" id="dosy-parameters">
+<h3>DOSY Parameters<a class="headerlink" href="#dosy-parameters" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Total diffusion time (s)</strong>: The total diffusion time in seconds between NMR gradients (from pulse sequence)</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Gradient length (s)</strong>: The duration of the gradient in the pulse sequence</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Full gradient stength (G/cm)</strong>: The maximum gradient strength (i.e. at 100%); used if relative gradient strengths have been entered</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Bipolar separation (s)</strong>: The short time interval between bipolar gradients, if bipolar gradients were used</p>
+</div>
+<div class="section" id="peak-picking">
+<h3>Peak Picking<a class="headerlink" href="#peak-picking" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Pick new peaks?</strong>: Whether to pick new peaks, according to the reference peaks, should none of the right assignment be found</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Pick non-maxima peaks? (At reference position)</strong>: Whether to pick new peaks at exactly the reference position, if no extremum exists</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Assign groups?</strong>: Whether to assign newly picked peaks, using the reference assignment for the group</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Skip zero merit peaks?</strong>: Whether to exclude peaks from analysis if they have figure-of-merit set to zero</p>
+</div>
+<div class="section" id="peak-search-tolerances">
+<h3>Peak Search Tolerances<a class="headerlink" href="#peak-search-tolerances" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use noise threshold for finding maxima?</strong>: Whether to search for peaks above a special noise threshold, rather than the regular pick level.</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Threshold intensity</strong>: When searching for peaks, the minimum spectrum intensity level to consider. Below this level peaks may still be picked at the exact reference position.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Dimension</em></td>
+<td>Spectrum dimension for tolerance setting</td>
+</tr>
+<tr><td><em>Tolerance</em></td>
+<td>Maximum ppm distance to group or pick peaks, relative to reference position  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="peak-groups-analysis">
+<h2>Peak Groups &amp; Analysis<a class="headerlink" href="#peak-groups-analysis" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Peak group row number</td>
+</tr>
+<tr><td><em>Assign F1</em></td>
+<td>Assignment in F1 dimension, from reference peak list, for group</td>
+</tr>
+<tr><td><em>Assign F2</em></td>
+<td>Assignment in F2 dimension, from reference peak list, for group</td>
+</tr>
+<tr><td><em>Time Constant</em></td>
+<td>Time constant, e.g. T1 or T2; one over the decay rate for exponential fits</td>
+</tr>
+<tr><td><em>TC Error</em></td>
+<td>Estimated error in the time constant</td>
+</tr>
+<tr><td><em>Fit Error</em></td>
+<td>Error in the fit of the peak intensities to the fitting function</td>
+</tr>
+<tr><td><em>Num Peaks</em></td>
+<td>Number of peaks in groups</td>
+</tr>
+<tr><td><em>Function</em></td>
+<td>Function used to fit to peak intensities</td>
+</tr>
+<tr><td><em>Fit Param A</em></td>
+<td>Parameter &#8220;A&#8221; from the graph fitting equation</td>
+</tr>
+<tr><td><em>Fit Param B</em></td>
+<td>Parameter &#8220;B&#8221; from the graph fitting equation</td>
+</tr>
+<tr><td><em>Param Error A</em></td>
+<td>Estimated error in parameter &#8220;A&#8221;, according to selected error method</td>
+</tr>
+<tr><td><em>Param Error B</em></td>
+<td>Estimated error in parameter &#8220;B&#8221;, according to selected error method</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Selected Groups</strong>: Remove the selected peak groups from the table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Re-fit Selected</strong>: Redo the intensity graph fitting for the selected groups</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Fit Graph</strong>: Show a graph of peak intensities and the fitted function</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of peaks within the selected groups</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make T1 List</strong>: Save the results as a data list in the CCPN project, using selected type options</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Group &amp; Fit Peaks</strong>: Search for peaks near to reference positions to create peak groups</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Re-fit All Groups</strong>: Perform graph fitting for the intensities of peaks in all groups</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit NMR Series</strong>: Edit the selected NMR experiment series, e.g. to setup delay times</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export Data</strong>: Export the results as a flat text file</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data Analysis : Follow Intensity Changes</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#settings">Settings</a><ul>
+<li><a class="reference internal" href="#experiment-series">Experiment Series</a></li>
+<li><a class="reference internal" href="#data-fitting">Data Fitting</a></li>
+<li><a class="reference internal" href="#relaxation-options">Relaxation Options</a></li>
+<li><a class="reference internal" href="#dosy-parameters">DOSY Parameters</a></li>
+<li><a class="reference internal" href="#peak-picking">Peak Picking</a></li>
+<li><a class="reference internal" href="#peak-search-tolerances">Peak Search Tolerances</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peak-groups-analysis">Peak Groups &amp; Analysis</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CalcHnHaCouplingPopup.html"
+                        title="previous chapter">Data Analysis : 3J H-Hα Coupling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FollowShiftChangesPopup.html"
+                        title="next chapter">Data Analysis : Follow Shift Changes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CalcRatesPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CalcHnHaCouplingPopup.html" title="Data Analysis : 3J H-Hα Coupling"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

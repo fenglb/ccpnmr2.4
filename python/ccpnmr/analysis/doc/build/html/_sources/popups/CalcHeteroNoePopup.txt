@@ -1,0 +1,207 @@
+=================================
+Data Analysis : Heteronuclear NOE
+=================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Calculate Heteronuclear NOE Values From Peak Intensities**
+
+The purpose of this popup window is to calculate the heteronuclear NOE for
+amide resonances based upon a comparison of the peak intensities in spectra
+that derive from an NOE saturated experiment and an unsaturated (reference)
+experiment. The basic idea of this tool is that three peak lists are chosen,
+two of which are for heteronuclear NOE experiments (H,N axes); unsaturated
+reference and saturated, and one which is the source of assignments and peak
+locations. This last "Assignment" peak list may be the same as one of the NOE
+peak lists, but may also be entirely separate.
+
+The "Assignment" peak list is used to specify which peak assignments and
+locations should be used for the calculation of the heteronuclear NOE values,
+and thus can be used to specify only a subset of the resonances for
+measurement. For example, it is common to copy an HQSC peak list for use as
+the "Assignment" peak list but remove overlapped and NH2 peaks so that the NOE
+values are only calculated for separated backbone amides. The calculation
+process involves taking each of these assigned peaks and finding peaks with
+the same assignment in the NOE peak lists, or if that fails finding peaks with
+a similar position (within the stated tolerances); new peaks may be picked if
+the "Pick new peaks?" option is set.
+
+The first "Peak Lists & Settings" tab allows the user to choose the peak lists
+and various options that will be used in the peak-finding and NOE calculation.
+The "Peaks" table allows the peaks from each of the three peak list selections
+to be displayed when one of the "Show" buttons is clicked. The [Separate Peak
+Table] function allows these peaks to be displayed in the main, separate `Peak
+Lists`_ table, which has many more peak manipulation options. The options
+below the table may be used to locate selected peaks within the spectrum
+window displays.
+
+The second "Peak Intensity Comparison" tab is where the heteronuclear NOE
+values are actually calculated. Assuming that two NOE experiment peak lists
+have been chosen and that some of their peaks match the assigned peak
+positions then the peak intensities are extracted and NOE values automatically
+calculated when the tab is opened. Although, a refresh of the table can be
+forced with [Find Matching Peaks] at the bottom
+
+If pairs of NOE saturated and reference peaks are found then the actual
+heteronuclear NOE value is displayed as the "Intensity Ratio" in the last,
+rightmost, column of the table. To store these values as a NOE measurement
+list; so that the data can be saved in the CCPN project without need for
+recalculation, the [Create Hetero NOE List] function can be used. The results
+are then available to view at any time via the `Measurement Lists`_ table.
+
+**Caveats & Tips**
+
+Erroneous peak intensity comparisons may be removed with the [Remove Pairs]
+function, but its is common to curate the "Assign" peak list first and
+avoid tidying afterwards.
+
+The "Closeness score" can be used to find peak positions where the compared
+NOE peaks are unexpectedly far from one another.
+
+.. _`Peak Lists`: EditPeakListsPopup.html
+.. _`Measurement Lists`: EditMeasurementListsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak Lists & Settings
+=====================
+
+*Documentation missing*
+
+|pulldown| **Ref Peak List**: Selects which peak list is considered the NOE intensity reference (no saturation)
+
+|pulldown| **Sat Peak List**: Selects which peak list is considered as NOE saturated.
+
+|pulldown| **Assignment Peak List**: Selects a peak list with assignments to use as a positional reference
+
+|float| **0.02**: 1H ppm tolerance for matching assigned peaks to reference & NOE saturation peaks
+
+|float| **0.1**: 15N ppm tolerance for matching assigned peaks to reference & NOE saturation peaks
+
+|check| **Pick new peaks?**: Whether to peak new peaks in reference & NOE saturated lists (at assignment locations)
+
+|check| **Assign peaks?**: Whether to assign peaks in the peaks in the reference & NOE saturation lists, if not already assigned
+
+|pulldown| **Intensity Type**: Whether to consider peak height or volume in the heteronuclear NOE calculation
+
+Peaks
+~~~~~
+
+
+|button| **Show Ref Peaks**: Show the selected intensity reference peaks in the below table
+
+|button| **Show Sat Peaks**: Show the selected NOE saturation peaks in the below table
+
+|button| **Show Assign Peaks**: Show the selected assigned peak list in the below table
+
+|button| **Separate Peak Table**: Show the displayed peaks in a separate peak table, where assignments etc. may be adjusted
+
+=============  ===================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------
+   *Spectrum*  Experiment:spectrum of peak 
+       *List*  Peak list number 
+       *Peak*  Peak serial number 
+     *Height*  Magnitude of spectrum intensity at peak center (interpolated), unless user edited  *(Editable)*
+     *Volume*  Integral of spectrum intensity around peak location, according to chosen volume method  *(Editable)*
+      *Merit*  Figure of merit value for peak; zero: "bad" one: "good"  *(Editable)*
+    *Details*  User editable textual comment for peak  *(Editable)*
+ *Fit Method*  Method used to fit the peak location  *(Editable)*
+*Vol. Method*  Method used to calculate the peak volume integral  *(Editable)*
+=============  ===================================================================================================
+
+
+
+|button| **Strip Selected**: Use the positions of the selected peaks to specify strip locations in the selected window
+
+|check| **Find Peak**: Locate the currently selected peak in the specified window
+
+|pulldown| **Window**: Choose the spectrum window for locating peaks or strips
+
+|check| **Mark Found**: Whether to put a cross-mark though peaks found in a given window
+
+|button| **Strip Locations**: Use the selected peak positions to specify strip positions in a higher dimensionality window.
+
+|check| **Go To Position**: Use the selected peak position to navigate to a location in a higher dimensionality window
+
+|pulldown| ***None***: Choose the higher dimensionality spectrum window to use as a navigation & strip target
+
+|button| **Mark Selected**: Put multidimensional cross-marks through selected peaks
+
+|pulldown| **Position Unit**: Choose whether to display peak positions in ppm, Hz or points
+
+Peak Intensity Comparison
+=========================
+
+*Documentation missing*
+
+=================  =====================================================================================================
+**Table 2**
+------------------------------------------------------------------------------------------------------------------------
+              *#*  Row number 
+       *Sat Peak*  Assignment annotation for NOE saturation peak 
+       *Ref Peak*  Assignment annotation for reference peak (no saturation) 
+     *1H shift A*  1H chemical shift of NOE saturation peak 
+     *1H shift B*  1H chemical shift of reference peak 
+    *15N shift A*  15N chemical shift of NOE saturation peak 
+    *15N shift B*  15N chemical shift of reference peak 
+*Closeness Score*  The separation between compared peaks: square root of the sum of ppm differences squared 
+    *Intensity A*  The intensity if the NOE saturation peak 
+    *Intensity B*  The intensity of the reference peak (no saturation) 
+*Intensity Ratio*  Ration of peak intensities: saturated over reference 
+=================  =====================================================================================================
+
+
+
+|button| **Refresh Table**: Force a manual update of the table; pair-up NOE saturation and reference peaks according to assigned peak positions
+
+|button| **Remove Pairs**: Remove the selected rows of peak pairs
+
+|button| **Show Peak Pair**: Show peaks corresponding to the selected row in a table
+
+|button| **Create Hetero NOE List**: Save the Heteronuclear NOE values in the CCPN project as a data list
+

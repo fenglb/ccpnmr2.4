@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Resonance : Spin Systems &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Resonance" href="../menu/Resonance.html" />
+    <link rel="next" title="Resonance : Measurement Lists" href="EditMeasurementListsPopup.html" />
+    <link rel="prev" title="Resonance : Resonances" href="BrowseResonancesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BrowseResonancesPopup.html" title="Resonance : Resonances"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" accesskey="U">Resonance</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="resonance-spin-systems">
+<h1>Resonance : Spin Systems<a class="headerlink" href="#resonance-spin-systems" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tabular Displays of Resonance Groups</strong></p>
+<p>This popup window is used to display tables of the spin systems within a
+project, from these the user can perform various residue-level assignment
+and navigation operations and follow links to several kinds of relevant
+information, like peak and resonance information. In CCPN parlance a &#8220;spin
+system&#8221; is a grouping of resonances that relate to a residue or part
+residue.  Typically in an assignment project you might start with a spin
+system that consists only of amide 1H and 15N resonances and then add side
+chain resonances like CA &amp; HA. Such a grouping of resonances relates to the
+atoms within a given residue, but the identity of the residue need not be
+known before a spin system is generated. Accordingly, a spin system may be
+completely anonymous. As more information is gained the spin system could
+be allocated a residue type, and then finally a sequence position.</p>
+<p>The various tabs of this popup break the spin system information into
+several sections, with the aim of avoiding clutter, but the underlying spin
+system entities represented in all the tables is the same and all carry an
+indication of the current assignment status. The differences are only a
+matter of presentation. Selections made in any of the spin system tables
+dictate which are used for the upper &#8220;Display&#8221; buttons or the lower panel
+of buttons. The four tables sub-divide the spin system information as
+follows:</p>
+<ul class="simple">
+<li>The &#8220;Assignments&#8221; tab lists the names of the individual resonances that are
+grouped by each spin system. Also the user is able to set a name for the
+spin system, shich will be displayed on spectra in the absense of any
+residue assignment information.</li>
+<li>The &#8220;Seq. Links&#8221; tab is used to display how spin systems have been
+connected as sequential neighbours. Such links are independent of a
+full residue assignment, and usually derive from the peak matching
+performed by tools like the <a class="reference external" href="LinkSeqSpinSystemsPopup.html">Protein Sequence Assignment</a> option.
+Often spin systems are connected as sequential neighbours before
+they are fitted into a protein chain to give the final residue assignment.</li>
+<li>The &#8220;Shifts&#8221; tab displays the chemical shifts of the resonances that are
+contained by each spin system.  The actual values displayed come from the
+from shift list selected at the top.</li>
+<li>The &#8220;Details&#8221; tab allows the user to make verbose textual comments for
+each spin system. This is particularly useful for recording thoughts that
+relate to assignment possibilities.</li>
+</ul>
+<p><strong>Button Functions</strong></p>
+<p>The various functions available as buttons operate on the spin system  (or
+spin systems where appropriate) that have been selected in the current
+table; using left mouse click +/- &lt;Ctrl&gt;/&lt;Shift&gt;. The &#8220;Display&#8221; functions
+at the top are designed to locate the selected spectrum window so so that it
+displays the resonances positions from the selected spin system, although
+only appropriate resonances are used according to axis/isotope type and
+spectrum width. In this way the user can find amide strips in an HNH window
+or HC strips in a HCH window. The &#8220;Display Cells&#8221; option is the same as the
+&#8220;Display Strips&#8221; option in most regards but differs in that the strips are
+sub-divided into cells, if resonances from the spin system are visible on
+that axis. This is handy to show the points of resonance intersection,
+e.g. for amino acid side chain assignment.</p>
+<p>The various Assign/Deassign buttons naturally control how a spin system is
+linked to residue information. Assignments may be made (or broken) to
+specific residues, residue type only or in a tentative/speculative manner.
+Although these functions are often handy, spin systems will automatically
+be assigned to the relevant residue if one of the contained resonances
+is assigned elsewhere to a specific atom in a residue; typically
+residue assignments are make when resonances are assigned to atoms
+via the <a class="reference external" href="EditAssignmentPopup.html">Assignment Panel</a>.</p>
+<p>The &#8220;Show&#8221; functions are used to show tables of the spectrum peaks and
+resonances that connect to selected spin systems, and from these the user
+may then navigate within spectrum windows and perform assignment from these
+other contexts.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>If a shift appears to be missing within a spin system I could be that a
+resonance is simply not assigned in an experiment that uses the selected
+shift list, in this instance there may be a shift in a different list.</p>
+<p>To expedite finding particular spin systems within a large table the user
+can filter the display to only particular spin system types using the
+&#8220;Status&#8221; pulldown menu at the top. Alternatively the user can click on a
+&#8221;?&#8221; in the headings of a column to filter the table rows according to a
+user-specified value.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Status</strong>: Selects which kind of spin system to show, according to its assignment status</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list the displayed chemical shift values are from</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Filter table rows by Shift List</strong>: Whether table resonances and rows are filtered by Shift List for Assignments and Seq. Links tabs</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Display Strips</strong>: Use the resonances in the selected spin systems to define positions for building strip panels in the selected spectrum window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Display Cells</strong>: Use the resonances in the selected spin systems to define positions for building resonance intersection cells in the selected spectrum window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: <em>Documentation missing</em></p>
+</div>
+<div class="section" id="assignments">
+<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>A table listing all the spin systems within the project, including the names of all contained resonances</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The spin system serial number</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain to which the spin system is assigned</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The sequence number and name of the residue to which the spin system is assigned  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Other Name</em></td>
+<td>A user editable name for the spin system; displayed in spectra if there are no residue assignments  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Resonances</em></td>
+<td>The complement resonances that are present within the spin system  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Num Peaks</em></td>
+<td>The number of peaks is the project to which the spin system&#8217;s resonances are assigned</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="seq-links">
+<h2>Seq. Links<a class="headerlink" href="#seq-links" title="Permalink to this headline">¶</a></h2>
+<p>A table listing spin systems and any sequential connections they nay have</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The spin system serial number</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain to which the spin system is assigned</td>
+</tr>
+<tr><td><em>Previous</em></td>
+<td>The residue linked as being one position before the spin system in chain sequence</td>
+</tr>
+<tr><td><em>Current</em></td>
+<td>The sequence number and name of the residue to which the spin system is assigned</td>
+</tr>
+<tr><td><em>Next</em></td>
+<td>The residue linked as being one position after the spin system in chain sequence</td>
+</tr>
+<tr><td><em>Backbone Resonances</em></td>
+<td>The names of the assigned backbone resonances within the spin system  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Seq. Segment</em></td>
+<td>For sequentially connected runs of spin systems, the number of the run and the position within the run at which the spin system is found  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="shifts">
+<h2>Shifts<a class="headerlink" href="#shifts" title="Permalink to this headline">¶</a></h2>
+<p>A table listing all of the chemical shift values of the spin systems within the project</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The spin system serial number</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain to which the spin system is assigned</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The sequence number and name of the residue to which the spin system is assigned  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unassigned</em></td>
+<td>The chemical shifts of the resonances in the spin system not assigned to atoms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>A table listing allowing verbose textual comments for each spin system</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The spin system serial number</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain to which the spin system is assigned</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The sequence number and name of the residue to which the spin system is assigned  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A verbose user-editable textual comment for the spin system  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Residue</strong>: Assign the last selected spin system, and the resonances it contains, to a specific residue in a molecular chain</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Tentative</strong>: Assign the last selected spin system, and the resonances it contains,  in a fuzz or putative manner to a specific residue</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Type</strong>: Assign the residue type of the spin system; selecting any residue of the required kind</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Residue</strong>: Removes the specific residue assignment form the selected spin systems, any contained resonances will be deassigned too, but will still carry atom type information</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Tentative</strong>: Removes any fuzzy or putative residue assignment from the selected spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Type</strong>: Removes any  residue type information from the selected spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge</strong>: Merge the selected spin systems into one; all contained resonances will be put in the same group and the last selected spin system will have any overriding assignment</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected spin systems; only allowed if the have no resonances, show and unlink resonances if cleanup is required</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of the peaks assigned to the resonances of the selected spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Resonances</strong>: Show a table of the resonances contained in the selected spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Predict Type</strong>: Open a tool that predicts the residue type of the last selected spin system, based on the chemical shift values if its resonances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Spin System</strong>: Make a new, blank spin system, into which resonances may be placed</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Resonance : Spin Systems</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#assignments">Assignments</a></li>
+<li><a class="reference internal" href="#seq-links">Seq. Links</a></li>
+<li><a class="reference internal" href="#shifts">Shifts</a></li>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BrowseResonancesPopup.html"
+                        title="previous chapter">Resonance : Resonances</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditMeasurementListsPopup.html"
+                        title="next chapter">Resonance : Measurement Lists</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditSpinSystemPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BrowseResonancesPopup.html" title="Resonance : Resonances"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" >Resonance</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

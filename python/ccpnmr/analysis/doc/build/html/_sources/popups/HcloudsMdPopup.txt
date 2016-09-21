@@ -1,0 +1,99 @@
+=================================
+Hydrogen Cloud Molecular Dynamics
+=================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+Input constraints
+~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Constraint set**: *Documentation missing*
+
+|pulldown| **Dist constraint list 1**: *Documentation missing*
+
+|pulldown| **Dist constraint list 2**: *Documentation missing*
+
+|pulldown| **Dist constraint list 3**: *Documentation missing*
+
+|pulldown| **Dist constraint list 4**: *Documentation missing*
+
+Cooling scheme
+~~~~~~~~~~~~~~
+
+
+===============  =======================
+**Table 1**
+----------------------------------------
+         *Step*  *Documentation missing* 
+*Initial Temp.*  *Documentation missing*  *(Editable)*
+  *Final Temp.*  *Documentation missing*  *(Editable)*
+*Cooling Steps*  *Documentation missing*  *(Editable)*
+     *MD Steps*  *Documentation missing*  *(Editable)*
+       *MD Tau*  *Documentation missing*  *(Editable)*
+   *Rep. Scale*  *Documentation missing*  *(Editable)*
+===============  =======================
+
+
+
+|button| **Move earlier**: *Documentation missing*
+
+|button| **Move later**: *Documentation missing*
+
+|button| **Add step**: *Documentation missing*
+
+|button| **Remove step**: *Documentation missing*
+
+Dynamics control
+~~~~~~~~~~~~~~~~
+
+
+|int| **1**: *Documentation missing*
+
+|entry| **t_intra_**: *Documentation missing*
+
+|button| **Start molecular dynamics**: *Documentation missing*
+
+|button| **Show dynamics progress**: *Documentation missing*
+
+
+

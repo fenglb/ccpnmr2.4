@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecule : Molecules &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="next" title="Molecule : Residue Information" href="ResidueInfoPopup.html" />
+    <link rel="prev" title="Molecule : Atom Browser" href="BrowseAtomsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ResidueInfoPopup.html" title="Molecule : Residue Information"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BrowseAtomsPopup.html" title="Molecule : Atom Browser"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" accesskey="U">Molecule</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecule-molecules">
+<h1>Molecule : Molecules<a class="headerlink" href="#molecule-molecules" title="Permalink to this headline">¶</a></h1>
+<p><strong>Define Molecular Information in a CCPN Project</strong></p>
+<p>This popup window is used to setup all of the molecular information that will
+be used in a CCPN project. Naturally, the objective is to define the
+molecular entities that were present in the sample when an NMR experiment
+was run so that the resonances that appear in the resulting spectra can
+be ascribed to particular atoms, residues and polymer chains.</p>
+<p><strong>Chemical Elements &amp; Compounds</strong></p>
+<p>In general this system is concerned with several different concepts which
+combine to give the final molecular description. The first concept is that of
+the reference information that relates to chemical elements and chemical
+compounds. As far as the user is concerned this kind of information is mostly
+fixed; there should be only one invariant definition of of the element carbon
+or the amino acid histidine for example. A chemical compound in this respect
+contains a description of a group of atoms and how they are bound together, and
+also lists the different forms that the compound will take, like protonation
+states. For a given type of molecule (protein, DNA, RNA etc) a chemical
+compound will be identified by a residue code name, e.g. histidine is &#8220;His&#8221;. In
+CCPN this name is usually referred to as the &#8220;Ccp code&#8221;, and is often, but not
+always three letters. The common biological residues will also have a
+one-letter code, e.g. histidine is &#8220;H&#8221;, that may be used in some
+circumstances. Defining the sequence of a biopolymer with residue code names,
+or letters, is really selecting a list of connected chemical compound
+descriptions. Most of the chemical compounds that are in common use will be
+pre-defined and available to any CCPN project; either directly or via
+automated download. It is only bespoke or unusual compounds that will need to
+be defined by the user and imported. For example the user can import PDB and
+mol2 format compound descriptions and import them into CCPN via the
+Format Converter.</p>
+<p><strong>Molecule Templates</strong></p>
+<p>The second major molecular concept in CCPN is the molecule template, which
+records a sequence of chemical compounds and how they are linked together. A
+template will also record which version of a chemical compound is used, for
+example whether a Cys residue is disulphide linked and how acidic and basic
+residues are protonated. A molecule template does not directly contain any
+atom information, but this is available indirectly by virtue of the template
+residues linking to a given chemical compound. As the name suggests, a
+molecule template is not the entity that is directly used during the NMR
+assignment process; it is just a sequence template that is used to make one or
+more molecular systems. If a single chemical compound is going to be used  in
+NMR assignment, e.g. a ligand or cofactor, then that compound will still be
+used within a molecule template, it is just that the template will only
+contain one sequence item/residue.</p>
+<p><strong>Molecular Systems</strong></p>
+<p>Molecular systems are groups of atoms, residues and chains (protein, DNA
+etc..) that are involved in the assignment process. They are constructed
+using sequence information from molecule templates and atom information from
+the chemical compound descriptions. Molecular systems can be thought of as
+representing all of the atoms that are present within an NMR sample or
+biolmolecular assembly. If a molecular system is a homo-oligomeric protein
+complex, where there are several chains of the same sequence, then the sample
+molecule template will be used to generate each of the sub-units, but the
+result will be three separate polypeptide chains, and each can be assigned
+separately to NMR data. For example the bacteriorhodposin complex is a
+homo-trimer, and so to make this complex available in CCPN the user will enter
+the sequence of the protein chain once (to make the a template) and then use
+the sequence three times to make three chains A, B and C.</p>
+<p><strong>Chains Tab</strong></p>
+<p>The first tab in the popup window lists all on the assignable molecular chains
+that are available in the project. For example if the CCPN project was setup
+for a dimer then you might have chain A and chain B listed in a given
+molecular system. Here the user can delete chains, if they are not assigned,
+and create new chains. There are three basic ways of making chains, the first
+is to copy an existing chain, although naturally the user is asked to select a
+different identifying chain letter/code to distinguish it from the original.
+The second way is to make a chain from an existing molecule template ([Make
+Chain From Template]) and the third way is to make a new chain and a new
+molecular template at the same time (via [Add Sequence]).</p>
+<p>Most commonly, for simple monomeric protein systems, the user will click [Add
+Sequence]. After entering a sequence of residue codes, and making sure that a
+new molecular system and a new template molecule are to be made, a new
+molecular chain is created and ready for assignment. If the molecular system
+is more complicated and involves several different chains, then the user may
+use [Add Chain] several times for each of the chains within the complex,
+making sure that the same destination molecular system is chosen each time.
+Alternatively, the user can add all of the template molecules first, and then
+make the chains from the template molecules afterwards. This method gives most
+flexibility and is recommended if any of the molecules have a non-standard
+connectivity or pronation state; this cannot be changed in a template once a
+chain has bee created. For example to add insulin, which has two discrete
+regions of polypeptide that are disulphide linked, the user would make a
+molecule first by adding two polypeptide sections. change the Cys residues to
+the disulphide state and make the two disulphide links. Only after the molecule
+template definition was complete would the user [Make Chain From Template].</p>
+<p>The lower table lists the &#8220;Chain Fragments&#8221; that are present in the  chain
+entity selected in the upper table. Each fragment represents a discrete
+segment of biopolymer sequence, and although fragments are bound together in
+the same chain they are not connected by the usual biopolymer links. For
+example insulin will consist of two polypeptide chain fragments that are
+connected together by two disulphide bonds. Most of the time however a
+biopolymer will consist of only one chain fragment with a continuous backbone.
+The starting sequence number of a chain fragment can be edited by the user, as
+long as fragments do not overlap numerically. In this way the user can control
+the numbering that is present in a chain and thus used in assignment. This
+sequence numbering is reversible and can be changed at any time with immediate
+effect (although Analysis can be slow to update if there are many
+assignments).</p>
+<p><strong>Mol Systems Tab</strong></p>
+<p>This table list all of the molecular systems within the CCPN projects. These
+are used to contain the chains that go together to form a multi-component
+complex or NMR sample. The user can add new, empty molecular systems with a
+view to adding assignable chains to them at a later time. The user can also
+delete a molecular system, and thus all of the chains that it contains, but
+only if these chains do not have any assignments.</p>
+<p><strong>Sequences Tab</strong></p>
+<p>This table is used to list the sequences that are defined within the CCPN
+project. The user selects the molecular template in the upper pulldown menu
+and the sequence is listed in the table. If a sequence has not been used to
+make any chains (in a molecular system) then the sequence can be changed; the
+user can adjust the kind of residue at a given position, the compound version
+or (descriptor) and how the residue links to others. For example the user
+could setup protonation states, disulphide links and join/break sequence
+fragments. For a new molecule the user can [Add Polymer] and [Add Compound]
+multiple times, thus creating discrete bits of sequence that can be combined
+together into a larger molecule. In this way the user could add a polymer
+sequence and then a compound representing a cofactor. Alternatively, to
+construct insulin [Add Polymer] twice and then [Edit Links] after setting Cys
+residue &#8220;descriptors&#8221; to &#8220;link:SG&#8221;.</p>
+<p>The [Copy Molecule] function is used to make a new molecule based on the
+sequence of an existing one, but this is intended to help add similar
+sequences with small differences in residues, protonation states and links.
+It is not intended to make identical copies of a molecule; identical copies
+are never needed since a single chain can be used multiple times in as many
+chains and molecular systems as is required.</p>
+<p>The [Lock Molecule] function can be used to prevent any further alteration to
+a sequence. Any molecule that has been used to make any chains (for
+assignment) will be automatically be locked and cannot be unlocked until its
+chains have been deleted. This locking mechanism means that chain any
+assignments then may carry cannot be ruined by editing sequences. If the user
+genuinely made a mistake in entering a sequence after assignments have already
+been made to a chain then the best course of action is to make a new molecule
+template, with the correct sequence, a new molecular system, i.e. building
+chains using the new template, and copy the assignments from the old molecular
+system to the new one via <a class="reference external" href="CopyAssignmentsPopup.html">Copy Assignments</a>; selecting &#8220;Between Molecule
+Chains&#8221;.</p>
+<p><strong>Template Molecules Tab</strong></p>
+<p>This section lists all of the available sequence templates in the upper table
+and a list of the selected molecule&#8217;s attributes in the lower table. The user
+can copy, add, extend and delete molecules. Any fine scale editing of the
+molecule template should be done via the adjacent &#8220;Sequences&#8221; tab. In keeping
+with the above description [Delete Molecule], [Add Polymer Residues] and [Add
+Compound] may only be used if a molecule is unlocked and has not been used to
+make any chain entities, i.e. in a molecular system. Otherwise the [Add ...]
+functions operate in the same way as the equivalent in the &#8220;Sequences&#8221; tab.</p>
+<p><strong>Links</strong></p>
+<p>This tab is used to specify how the sequence elements of a molecule template
+are connected together. It should be noted that these links can only be edited
+if the template in question is not used in any chains and is unlocked (via the
+Sequences tab). The general idea is that in the sequences table you select a
+template residue and click [Edit Links] or you select the required template
+molecule and residue in the pulldown menus in the &#8220;Intra Molecule Links&#8221;
+section.</p>
+<p>With the required template residue selected the upper table is filled with
+rows that represent the covalent links that are, or could be, made from the
+selected residue to other &#8220;Destination&#8221; template residues. If the molecule is
+unlocked then the user can change or set the residue that is being linked to
+by double clicking in the &#8220;Destination Residue&#8221; column and selecting the
+required residue option. Note that only template residues that have an
+unsatisfied link will be shown as possible targets. If the desired destination
+is not free you can go to that residue and remove an existing link (setting
+destination to &#8220;&lt;None&gt;&#8221;) before making the required a new one. Most biopolymer
+residues will show the &#8220;prev&#8221; and &#8220;next&#8221; connections that represent the
+regular backbone connectivity; peptide for proteins, phosphodiester for
+nucleic acids. These connections are rarely changed, but can be adjusted to
+beak or join a biopolymer. More typically potential side chain and branching
+links are adjusted. For example if a Cys amino acid has had its descriptor
+set to &#8220;Link:SG&#8221; then an extra type of link will appear in the table. The user
+can then connect the SG of the Cys to any other free Cys SG, thus specifying
+a disulphide bridge.</p>
+<p>The &#8220;Inter Molecule Links&#8221; section is not currently used, but will be filled
+in due course.</p>
+<p><strong>Add Sequence</strong></p>
+<p>This section is used to add new biopolymer sequences to a CCPN project. The
+sequence can be used to make a new molecule template, extend an existing
+molecule template or make a molecule template and an assignable chain at the
+same time. Initially the user should set the required polymer type to  say
+what kind of molecule is being made; &#8220;GCAT&#8221; in DNA is different to &#8220;GCAT&#8221; in
+protein. Then the user sets whether the sequence will be entered as one-letter
+codes or as Ccp codes (often three-letter residue codes). Note that
+three-letter codes could be interpreted as one-letter codes without error,
+i.e. &#8220;ALA&#8221; could be interpreted as &#8220;Ala, Leu, Ala&#8221; if the one-letter option
+was on. Once the sequence is entered correctly the user can switch between the
+one-letter and Ccp codes without a problem. The start number sets what the
+number of the first residue in the sequence will be, although this can be
+changed at any time after. The &#8220;Cyclic&#8221; option means that a biopolymer link
+will be made between the first and last residue, e.g. for a protein the amide
+which would otherwise be the N-terminus is peptide linked to the last carbonyl
+group.</p>
+<p>The &#8220;Destination Molecule&#8221; and &#8220;Destination Mol System&#8221; settings are important
+because they govern how a sequence will be used in relation to existing
+molecular descriptions. If the destination molecule is set to anything
+other than &#8220;&lt;New&gt;&#8221; then the system will attempt to add the entered sequence on
+to the end of the selected molecule template. This may fail if the selected
+template has chains or is otherwise locked. If a new section of sequence is
+added to an existing molecule template then the user can adjust how those
+template residues are connected to any others via the &#8220;Sequences&#8221; and &#8220;Links&#8221;
+tabs. The setting for the destination molecular system dictates whether the
+molecule template that the sequence will make (or will extend) is used
+immediately to make an assignable chain entity. For adding simple, single
+protein chains this is usually the case and the &#8220;Destination Mol System&#8221; is
+set to &#8220;&lt;New&gt;&#8221;, although by selecting an existing molecular system the user can
+add a new subunit to the specification of a complex. Setting the molecular
+system to &#8220;&lt;None&gt;&#8221; allows the user to add a sequence template without making
+any chains at all. This is important if the molecule template needs further
+adjustment, for example to define non-backbone links or set protonation
+states. If the setting was not &#8220;&lt;None&gt;&#8221; and a chain was erroneously made, then
+the user should delete the chain in the &#8220;Chains&#8221; tab and [Unlock Molecule] in
+the &#8220;Sequences&#8221; tab before making alterations.</p>
+<p>The required biopolymer sequence is entered in the &#8220;Sequence Input&#8221; text
+panel. Usually this is done by using [Read File] to get the sequence data from
+disk, but it is also possible to place sequences into the text area on Linux
+systems via the mouse middle button, select-and-paste mechanism. Once sequence
+appears in the text area it may be further edited by typing. At any stage the
+user may click the [Tidy] function which will number the sequence and arrange
+it in neat rows. This also has the helpful effect of checking whether the
+sequence is valid and will be interpreted by the CCPN system without error.
+Once the sequence is correct and the other settings, including the destination
+molecular system, have been checked the clicking the [Add Sequence!] button
+commits the sequence by making the specified molecule template and any new
+chains.</p>
+<p><strong>Small Compounds</strong></p>
+<p>Here the user can add small compounds to molecule templates. These may be any
+ligands, co-factors, solvents, metabolites etc. that are assignable. Once a
+compound had been added to a new or existing molecule template, the compound
+can be made accessible for assignment by using its template to create a chain.</p>
+<p>Generally the user selects which kind of biopolymer the compound relates to,
+or &#8220;other&#8221; of is not associated with any polymer type. In the table on the
+right the user scrolls and selects the required chemical compound row. If
+idealised atomic coordinates are known for the selected compound these are
+displayed in the 3D coordinate display on the left. An absence of such
+coordinates does not matter with regard to selecting a compound for
+assignment. If a compound row is coloured blue, then the compound is available
+locally and may be used immediately. If the row is grey, then the compound will
+be downloaded from a remote database before use. Any downloading of this kind
+is automatic, but naturally requires an active Internet connection.</p>
+<p>Once the desired small molecule is selected the user next selects the required
+destination molecule template in the pulldown menu below the table. The
+compound can either be put into a new template, i.e. on its own, or added
+to an existing molecule, as would normally be done for a covalently linked
+cofactor. Finally [Add Compound] actually added the selected
+compound to the molecule template. To actually assign to this molecule
+the molecule template must be used to make a chain (i.e. in a given molecular
+system), which is readily achieved by using the [Make Chain From Template]
+function from the &#8220;Chains&#8221; tab.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>In order to delete a chain that carries assignments, the chain must be cleared
+of assignments first. The assignments could be moved to a different chain via
+the <a class="reference external" href="CopyAssignmentsPopup.html">Copy Assignments</a> system or removed completely. Completely removing a
+chain&#8217;s assignments can be done via the <a class="reference external" href="EditSpinSystemPopup.html">Spin Systems</a> or <a class="reference external" href="BrowseResonancesPopup.html">Resonances</a> tables
+by selecting the rows that relate to the relevant chain (sorting rows by
+residue may help) and then deassigning the spin systems or resonances.</p>
+<p>The sequence numbering of a chain can be altered at any stage by editing the
+&#8220;Start Seq Number&#8221; in the &#8220;Chain Fragments&#8221; table of the &#8220;Chains&#8221; tab.
+Although the start number can be adjusted, currently the residue numbering
+will always be sequential within a given fragment. The residue template
+numbering in the &#8220;Sequences&#8221; tab cannot be changed, although this may change
+in the future. However, the template numbering system is separate from the
+chain numbering system.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="chains">
+<h2>Chains<a class="headerlink" href="#chains" title="Permalink to this headline">¶</a></h2>
+<p>A table of all the molecular chains used in assignment, possibly from various samples and complexes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Mol System</em></td>
+<td>The short name of the molecular system to which the chain belongs; a grouping of chains, e.g. in a complex</td>
+</tr>
+<tr><td><em>Chain Code</em></td>
+<td>The short textual identifier for the chain, for graphical displays and assignment annotations (where required)</td>
+</tr>
+<tr><td><em>Molecule Template</em></td>
+<td>The name of the molecular sequence template on which the chain is based</td>
+</tr>
+<tr><td><em>Residues</em></td>
+<td>The number of residue monomers (or other separate chemical compounds) that make up the chain</td>
+</tr>
+<tr><td><em>Chain Fragments</em></td>
+<td>The number of discontinuous polymer sequence fragments into which the chain is broken</td>
+</tr>
+<tr><td><em>Molecular Types</em></td>
+<td>The kind of bio-polymer the chain represents; usually just a single kind, but hybrids like DNA/RNA are possible</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-editable textual comment for the molecular chain, which defaults to the initial snippet of one-letter sequence  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Seq</strong>: Show a table containing the residue sequence for the chain, together with associated linking and protonation states</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Chain</strong>: Delete the selected chain specification, if it is not assigned to NMR resonances (via its atoms)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Chain</strong>: Make a duplicate of the selected chain within its molecular system, using the next available chain code letter; convenient for making homo-oligomers</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Sequence</strong>: Add a new bio-polymer sequence, to make a molecule template, from which a new chain may be built</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit Molecule Templates</strong>: Show a table of all the molecule templates available in the project, from which chains may be built</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Mol System for new chain</strong>: Selects which molecular system group to place new chains in (when constructed with a sequence template)</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Template for new chain</strong>: Selects which molecular sequence template is used to make a new chain (which can then be assigned)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Chain From Template</strong>: Using the selected molecule template make a new chain withing the stated molecular system group; the chain made can be used for NMR assignments</p>
+<div class="section" id="chain-fragments">
+<h3>Chain Fragments<a class="headerlink" href="#chain-fragments" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the fragment within a chain</td>
+</tr>
+<tr><td><em>Mol Type</em></td>
+<td>The type of bio-polymer represented in the fragment</td>
+</tr>
+<tr><td><em>Residues</em></td>
+<td>The number of residues connected within the fragment of the chain</td>
+</tr>
+<tr><td><em>Start Seq Number</em></td>
+<td>The number of the first residue in the fragment, for graphical display; change this to set the residue numbering used in assignment  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Linear Polymer?</em></td>
+<td>Whether the fragment represents a standard linear bio-polymer</td>
+</tr>
+<tr><td><em>Sequence</em></td>
+<td>A short snippet of the fragments sequence, for human appreciation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="mol-systems">
+<h2>Mol Systems<a class="headerlink" href="#mol-systems" title="Permalink to this headline">¶</a></h2>
+<p>A table of the molecular system groups: collections of polymer chains and small molecules that are in the same sample or complex</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Code</em></td>
+<td>A sort textual code for the molecular system grouping; set when the molecular system is first created</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>An editable, descriptive name for the molecular system, e.g. the name of a multimeric complex  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>The identifying codes of the molecular chains that are present in the molecular system group</td>
+</tr>
+<tr><td><em>Molecules</em></td>
+<td>The names of the molecule templates which have been used to make the chains of the molecular system</td>
+</tr>
+<tr><td><em>Mol Types</em></td>
+<td>The bio-polymer or other molecule types present in the molecular system</td>
+</tr>
+<tr><td><em>Structures</em></td>
+<td>The number of structure ensembles (coordinate sets) associated with the molecular system</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-edited verbose description or comment about the molecular system  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Mol System</strong>: Add a new, blank molecular system to the CCPN project; which will then go on to contain chains of residues and their atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Mol System</strong>: Delete the selected molecular system definition, but only if it carries no NMR assignments</p>
+</div>
+<div class="section" id="sequences">
+<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<p>A table of the residue sequences for the molecules defined in the project, including bio-polymer links and protonation state</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule</strong>: The name of the molecular template to display the sequence for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Seq Code</em></td>
+<td>The number of the residue in the sequence; separate to the chain (fragment) numbering which can be edited by the user</td>
+</tr>
+<tr><td><em>Ccp Code</em></td>
+<td>The identifying code for the kind of residue; usually three letters, but not always so</td>
+</tr>
+<tr><td><em>Descriptor &amp; Stereochemistry</em></td>
+<td>A description of the residue&#8217;s protonation and stereochemical state; can only be set for unlocked templates, which have not yet been used to make chains</td>
+</tr>
+<tr><td><em>Mol Type</em></td>
+<td>The bio-polymer or other type of the residue</td>
+</tr>
+<tr><td><em>Polymer Linking</em></td>
+<td>The position of the residue relative to the bio-polymer backbone; a description of which kinds of links are made</td>
+</tr>
+<tr><td><em>Linked Residues</em></td>
+<td>The identities of residues that are covalently linked, including both regular bio-polymer links and other non-standard kinds</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Polymer</strong>: Add a bio-polymer sequence to construct a new molecular template, from which chains may be constructed</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Sequence</strong>: Copy the currently visible residue sequence into the &#8220;Add Sequence&#8221; tool; as a basis for making a similar sequence</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Compound</strong>: Add an isolated compound (small molecule) to the current template; which may include cofactors or sugar residues</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit Links</strong>: Display and edit the covalent links for the selected residue; only possible for unlocked molecules (without assignments)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Lock Molecule</strong>: Unlock the molecular sequence template so that its links and protonation states etc make be modified. Unlocking is only possible if the template has not been used to make chains</p>
+</div>
+<div class="section" id="template-molecules">
+<h2>Template Molecules<a class="headerlink" href="#template-molecules" title="Permalink to this headline">¶</a></h2>
+<p>A table of all of the molecules in the project; used as sequence templates to build assignable &#8220;chain&#8221; entities</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The short name for the molecule template, for use in graphical displays; set when the template is first created</td>
+</tr>
+<tr><td><em>Long Name</em></td>
+<td>A verbose name describing the molecular sequence; typically the protein or gene name  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Mol Type</em></td>
+<td>The types of bio-polymer or other molecule represented by the sequence template</td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>Which chains the sequence template has been used to construct (inside molecular systems)</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User-supplied textual comment for the molecule template  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Seq Details</em></td>
+<td>User-supplied comments specifically regarding the sequence of the molecule  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Seq</strong>: Show a table containing the residue sequence of the selected molecule template</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add New Molecule</strong>: Add a new, blank molecular template, to which bio-polymer sequence or small molecules may be added</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Molecule</strong>: Make another molecular template with the same sequence as the selected; allows identical sequences but different protonation states</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Molecule</strong>: Delete the selected molecular sequence template; only allowed if it is not used by any molecular system chains</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Polymer Residues</strong>: Add a sequence of bio-polymer residues to the selected template; only allowed if the template is unlocked</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Other Compound</strong>: Add a non-bio-polymer or small compound to the selected template; only allowed if the template is unlocked</p>
+<div class="section" id="molecule-data">
+<h3>Molecule Data<a class="headerlink" href="#molecule-data" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>Attribute</em></td>
+<td>Various characteristics and attributes of the selected molecule</td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>The value of the parameter described on each row</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>A table to view and setup links and bonds between residues that are not part of the normal bio-polymer connectivity</p>
+<div class="section" id="intra-molecule-links">
+<h3>Intra Molecule Links<a class="headerlink" href="#intra-molecule-links" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule</strong>: Selects which molecule template to display or edit covalent links for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue Type</strong>: Selects which kind of residue to show covalent links for; restricts the contents of the &#8220;Source Residue&#8221; pulldown menu</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Source Residue</strong>: Selects which specific residue, within the selected molecule template, to show covalent links for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 7</strong></td>
+</tr>
+<tr><td><em>Source&#8217;s Link</em></td>
+<td>A name for the kind of link relative to the selected &#8220;source&#8221; residue; the one which all links emanate from</td>
+</tr>
+<tr><td><em>Destination Residue</em></td>
+<td>The sequence number and name of the residue to which the selected &#8220;source&#8221; residue is linked</td>
+</tr>
+<tr><td><em>Destination&#8217;s Link</em></td>
+<td>The name for the kind of link relative to the residue being linked to from the &#8220;source&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inter-molecule-links">
+<h3>Inter Molecule Links<a class="headerlink" href="#inter-molecule-links" title="Permalink to this headline">¶</a></h3>
+<p><em>This section is not currently used</em> - To be filled in the future</p>
+</div>
+</div>
+<div class="section" id="add-sequence">
+<h2>Add Sequence<a class="headerlink" href="#add-sequence" title="Permalink to this headline">¶</a></h2>
+<p>Load or paste bio-polymer (protein, DNA, RNA, carbohydrate) sequences to build molecule templates</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Polymer Type</strong>: Selects which kind of bio-polymer sequence is being added</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>1</strong>: Sets the number of the first residue in the sequence; currently not subsequently editable, but can be adjusted when making chains</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Cyclic</strong>: Whether the polymer is circular, with the end of the sated sequence connecting to the beginning in the normal bio-polymer manner</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>1-Letter</strong>: The sequence will be specified in one-lette code form like &#8220;GCAT&#8221; or &#8220;TEAANDCAKE&#8221;</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>3-Letter/Ccp</strong>: The sequence will be specified in three-letter (or full CCPN) code form like &#8220;ALA GLY MET SER&#8221;</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Destination Molecule</strong>: Selects which molecule template the sequence will be added to; when making a new molecule you will be prompted for the name</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Destination Mol System</strong>: If set, specifies that the sequence should be used to immediately make an assignable chain; this disallows further editing (e.g. of protonation state)</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ccp Codes</strong>: Selects a residue type from a list of all of the CCPN residue codes available for the selected kind of bio-polymer molecule</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Append</strong>: Add a residue of the kind selected in the adjacent pulldown menu to the end of the sequence</p>
+<div class="section" id="sequence-input">
+<h3>Sequence Input<a class="headerlink" href="#sequence-input" title="Permalink to this headline">¶</a></h3>
+<p><strong>*None*</strong>: Cut, paste and edit bio-polymer residue sequences in this text box</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <em>Documentation missing</em></p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Sequence!</strong>: Add the states sequence to the selected, or new, molecule making a new chain if a molecular system is specified</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Tidy</strong>: Tidy the text window containing the sequence; lines things up and checks if the residue codes will be interpreted properly</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Read File</strong>: Read residue sequences from a file; places the result in the above text window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear</strong>: Clear the text window containing the sequence</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reverse Complement</strong>: For DNA and RNA make a sequence that is the reverse complement of the visible sequence</p>
+</div>
+</div>
+<div class="section" id="small-compounds">
+<h2>Small Compounds<a class="headerlink" href="#small-compounds" title="Permalink to this headline">¶</a></h2>
+<p>A system to choose smaller chemical components for an assignable system; includes ligands, cofactors and unusual residues</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Mol Type</strong>: Selects which bio-polymer type to show compounds for; defaults to &#8220;other&#8221;, representing things that do not fit into other categories</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Import XML File</strong>: Import a non-standard compound definition from a CCPN ChemComp XML file, e.g. something made by CcpNmr ChemBuild</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 8</strong></td>
+</tr>
+<tr><td><em>Ccp Code</em></td>
+<td>The CCPN code of the compound</td>
+</tr>
+<tr><td><em>3-Letter Code</em></td>
+<td>The PDB three-letter code of the compound</td>
+</tr>
+<tr><td><em>Long Name</em></td>
+<td>The long chemical name of the compound. <em>Note this is not standardised</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Destination Molecule</strong>: Selects which molecul template the selected chemical compound may be added</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Compound</strong>: Add the selected chemical compound to the above selected, or new, molecule template; when done the template can be used to make an assignable chain</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecule : Molecules</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#chains">Chains</a><ul>
+<li><a class="reference internal" href="#chain-fragments">Chain Fragments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mol-systems">Mol Systems</a></li>
+<li><a class="reference internal" href="#sequences">Sequences</a></li>
+<li><a class="reference internal" href="#template-molecules">Template Molecules</a><ul>
+<li><a class="reference internal" href="#molecule-data">Molecule Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#links">Links</a><ul>
+<li><a class="reference internal" href="#intra-molecule-links">Intra Molecule Links</a></li>
+<li><a class="reference internal" href="#inter-molecule-links">Inter Molecule Links</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-sequence">Add Sequence</a><ul>
+<li><a class="reference internal" href="#sequence-input">Sequence Input</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#small-compounds">Small Compounds</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BrowseAtomsPopup.html"
+                        title="previous chapter">Molecule : Atom Browser</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ResidueInfoPopup.html"
+                        title="next chapter">Molecule : Residue Information</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditMoleculesPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ResidueInfoPopup.html" title="Molecule : Residue Information"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BrowseAtomsPopup.html" title="Molecule : Atom Browser"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" >Molecule</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

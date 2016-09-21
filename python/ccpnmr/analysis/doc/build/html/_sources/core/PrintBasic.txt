@@ -1,0 +1,7 @@
+==========
+PrintBasic
+==========
+
+.. automodule:: ccpnmr.analysis.core.PrintBasic
+   :members:
+

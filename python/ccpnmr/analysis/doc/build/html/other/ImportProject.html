@@ -1,0 +1,152 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Project : Import &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Project" href="../menu/Project.html" />
+    <link rel="next" title="Project : Close" href="CloseProject.html" />
+    <link rel="prev" title="Project : Save As" href="../popups/SaveProjectPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CloseProject.html" title="Project : Close"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../popups/SaveProjectPopup.html" title="Project : Save As"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" accesskey="U">Project</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="project-import">
+<h1>Project : Import<a class="headerlink" href="#project-import" title="Permalink to this headline">¶</a></h1>
+<p><strong>Import information from a non-CCPN source into the current project</strong></p>
+<p>This submenu allows the user to add data to a CCPN project using data stored in
+file formats external to the CCPN system. Typically this is used to add
+ancilliary and derived NMR data such as chemical shift lists, peak lists and
+macromolecular coordinates etc. The data matrices for spectra sould be imported
+via the <a class="reference external" href="../popups/OpenSpectrumPopup.html">Open Spectra</a> option, <em>not</em> by using these functions.</p>
+<p><strong>Direct Import Options</strong></p>
+<p>The user may select an option to load a directly supported format, after which
+the user will be presented with a file browser to locate the file to be loaded.</p>
+<p>BioMagResBank data may be imported by selecting the option for the relevant version of
+NMR-STAR; the textual NMR depostion format. Virtually everything present in the
+NMR-STAR file will be imported, i.e. any chemical shift lists, molecular information,
+peak lists, citations, sample preparation etc. Because the BMRB data is normally
+considered as part of an NMR database deposition the imported information will be
+linked into an &#8220;Entry&#8221; record that may be viewed via the <a class="reference external" href="../popups/EntryCompletionPopup.html">ECI</a> option.</p>
+<p>Well-formatted, official PDB version 3.20 formated files containing structural
+coordinate data and header information may be loaded into the CCPN project by
+seleting the &#8220;PDB 3.20&#8221; option. Using this option not only enters atomic
+coordinate data into the CCPN project but also all of the header information that
+was specified when the PDB entry was deposited; sample specification, citations etc.
+Such deposition data may be viewed via the <a class="reference external" href="../popups/EntryCompletionPopup.html">ECI</a> option.</p>
+<p>Non-standard PDB-style files may be loaded with the &#8220;Coordinates&#8221; option. This does
+not consider any header information, only the ATOM records, and thus only loads the
+main atomic coordinates. The advantage to using this option is that it is fairly
+flexible as to which convention was used for the names of atoms, and this need not be
+known in advance. The loader attempts to automatically deduce the best naming
+convention and uses fall-back atom names if anything still does not fit as expected.</p>
+<p><strong>Importing from other formats</strong></p>
+<p>The Format Converter option should be used for or importing data from any formats
+not directly listed in the menu. Please note that Format Converter documentation
+is not currently covered in these pages.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../popups/SaveProjectPopup.html"
+                        title="previous chapter">Project : Save As</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CloseProject.html"
+                        title="next chapter">Project : Close</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/other/ImportProject.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CloseProject.html" title="Project : Close"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../popups/SaveProjectPopup.html" title="Project : Save As"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" >Project</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure : Make H Bond Restraints &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="DANGLE" href="DangleGui.html" />
+    <link rel="prev" title="Structure : Make Distance Restraints" href="CalcDistConstraintsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DangleGui.html" title="DANGLE"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CalcDistConstraintsPopup.html" title="Structure : Make Distance Restraints"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure-make-h-bond-restraints">
+<h1>Structure : Make H Bond Restraints<a class="headerlink" href="#structure-make-h-bond-restraints" title="Permalink to this headline">¶</a></h1>
+<p><strong>Create Hydrogen Bond Restraints</strong></p>
+<p>This popup allows the user to make simple distance-based hydrogen bond
+restraints for structure determination. These restraints are essentially the
+same as other distance restraints, although a single hydrogen bond is usually
+restrained with a complementary pair of restraints: one restraint is between
+the hydrogen and the acceptor atom site (usually a backbone carbonyl oxygen in
+proteins) and the other is between donor and acceptor heavy atoms (e.g.
+between protein backbone amide nitrogen and carbonyl oxygen). This combination
+of restraints work together to give an energy minimum for the restraint when
+the donor, hydrogen and acceptor atoms are co-linear; a known optimum for
+hydrogen bonds.</p>
+<p>To make hydrogen bond restraints the user first selects various options from
+the upper pulldown menus: a restraint set that groups the h-bond restraints
+with other restraint lists, an H-bond type restraint list that the individual
+restraints are place in, and a molecular system to specify which set of atoms
+the restraints are between.</p>
+<p>Next the &#8220;New H Bond Type&#8221; should be checked, but the default &#8220;N-H..O=C&#8221; is
+already set for polypeptide backbone H-bonds. The various default distances can
+be adjusted to specify what the restrained values will initially be, although
+the user can make manual adjustments (including by setting and propagating new
+defaults) afterwards. The &#8220;Lower Limit&#8221;, &#8220;Target&#8221; and &#8220;Upper Limit&#8221; distances
+refer to the separation between the hydrogen and its acceptor. The distance
+between the donor heavy atom and the acceptor atom are made automatically
+based on the &#8220;X-H&#8221; bond length setting. Specifically, the target distance for
+the heavy atoms&#8217; restraint will be the hydrogen to acceptor distance plus
+the bond length. Also, the upper and lower limits for these atoms will follow
+the same proportions as the hydrogen to acceptor values; the values will be
+the same fractions of the target distances.</p>
+<p>Hydrogen bond restraints can be added using [Add New] and then setting the
+Atom A and Atom B values by double clicking in the table and selecting the
+required atom sites. Note that generally the user only needs to set the
+hydrogen to acceptor restraints. The heavy atoms&#8217; restraint is made afterwards
+by pressing the [Make Co-linear Restraints] button. It notable that this
+function will actually add any missing restraint of a co-linear pair.</p>
+<p><strong>Evidence</strong></p>
+<p>This system relies upon the user having a reasonable and unbiased judgement
+about the location of hydrogen bond in a molecular structure. Whenever H-bond
+restraints are made the user should always be aware of the evidence for
+particular hydrogen bond. It is possible to get nice looking but otherwise
+fictitious structures by using hydrogen bond restraints too liberally.</p>
+<p>Often H-bond evidence often comes from knowledge of protein secondary
+structure (particularly alpha-helix for i to i+4 links ), which in turn can be
+deduced using chemical shift data, for example using <a class="reference external" href="DangleGui.html">DANGLE</a>, or confident
+comparative modelling of protein homologues. Also, there are some NMR
+experiments that will exploit spin couplings over hydrogen bonds themselves.
+Whatever the source of confidence about hydrogen bonds, using them as
+restraints generally requires that consistency with any other structural data
+is checked, for example by violation analysis. With NOE data for example it is
+prudent to generate initial protein structures without any H-bond information
+and only add-in H-bond restraints if they would be consistent with the initial
+NOE-derived conformations. In this way &#8216;low evidence&#8217; hydrogen bonds can be
+added to improve the later stages of structure refinement without having an
+undue influence of the general fold of a structure.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Restraint Set</strong>: Selects which restraint set the selected, or new, hydrogen bond restraint list resides in</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>H Bond List</strong>: Selects which hydrogen bond restraint list to display; may be set to &#8220;&lt;New&gt;&#8221; to put restraints in a new list</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>MolSystem</strong>: Selects which molecular system (group of chains) to make restraints for; sets which atoms are available for selection</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="h-bonds-table">
+<h2>H Bonds Table<a class="headerlink" href="#h-bonds-table" title="Permalink to this headline">¶</a></h2>
+<p>Allows the setup of individual hydrogen bond restraints</p>
+<div class="section" id="default-distances">
+<h3>Default Distances<a class="headerlink" href="#default-distances" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.73</strong>: Set the lower distance limit, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>2.2</strong>: Set best-fit/target distance, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>2.7</strong>: Set the upper distance limit, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.0</strong>: The distance between the hydrogen and its covalently bound partner atom; user to make co-linearity restraints</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>New H Bond Type</strong>: Selects which kind of hydrogen bond is being made, with respect to the kinds of atoms involved</p>
+</div>
+<div class="section" id="hydrogen-bond-restraints">
+<h3>Hydrogen Bond Restraints<a class="headerlink" href="#hydrogen-bond-restraints" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Atom A</em></td>
+<td>The donor hydrogen atom involved in the hydrogen bond restraint  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Atom B</em></td>
+<td>The acceptor atom involved in the hydrogen bond restraint  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Lower Limit</em></td>
+<td>The lower distance bound value for the restraint, in Angstrom  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Target Distance</em></td>
+<td>The best-fit/target distance for the hydrogen bond restraint, in Angstrom  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Upper Limit</em></td>
+<td>The upper distance bound value for the restraint, in Angstrom  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add New</strong>: Add a new hydrogen bond restraint to the selected list; the acceptor and donor atoms etc. are set subsequently</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Selected</strong>: Delete selected hydrogen bond restraint from the list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Default Distances</strong>: Set the selected hydrogen bond restraints to have the default upper, lower and target distances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete List</strong>: Delete the whole hydrogen bond restraint list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Co-linear Restraints</strong>: Make any complementary restraints which restrain co-linearity of X-H..Y bonds</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure : Make H Bond Restraints</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#h-bonds-table">H Bonds Table</a><ul>
+<li><a class="reference internal" href="#default-distances">Default Distances</a></li>
+<li><a class="reference internal" href="#hydrogen-bond-restraints">Hydrogen Bond Restraints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CalcDistConstraintsPopup.html"
+                        title="previous chapter">Structure : Make Distance Restraints</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DangleGui.html"
+                        title="next chapter">DANGLE</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/MakeHbondRestraintsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DangleGui.html" title="DANGLE"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CalcDistConstraintsPopup.html" title="Structure : Make Distance Restraints"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

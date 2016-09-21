@@ -1,0 +1,97 @@
+===========
+Peak Groups
+===========
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Display Groups of Peaks Linked by a Root Assignment**
+
+This popup window is used to display the results of operations in Analysis that
+generate grouped peaks, usually linked by virtue of a common 'root' assignment.
+For example a selected set of peaks may be macthed to other peaks with
+similar positions in a spectrum dimension, where each group corresponds
+to a separate C-H or N-H position. For example the right-click
+window menu option "Locate Peaks::Match multiple peaks" generates
+such groupings to find rows or columns of peaks that share chemical shifts.
+
+Whatever operation generated the groups, they are listed in ranked order in the
+table; best scoring at the top. The number of peaks in the group and any common
+assigment and position is also listed. The idea is that the groups are candidates
+for some searh or macthing process that the user triggered. The best scoring
+groups may be used to control the spectrum window display, thus displaying any
+peak matches, by using [Display Groups in Strips] after selecting  an approprate
+window. This system is often used for NOESY experiments where resonances that are
+close in space share common sets of peak positions; they are close to the same
+set of other resonances.
+
+
+
+Main Panel
+==========
+
+Matched Peak Groups
+~~~~~~~~~~~~~~~~~~~
+
+
+=================  ============================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------
+           *Rank*  The ranking of the peak group, comparing its score with others 
+          *Score*  The match score of the peak group 
+      *Num peaks*  Number of peaks within the matched peak group 
+*Root Assignment*  The root (usually amide) assignment, common to peaks in a group 
+    *F1 position*  Average location of the group in the F1 dimension 
+    *F2 position*  Average location of the group in the F2 dimension 
+=================  ============================================================================
+
+
+
+|button| **Remove Groups**: Remove the selected peak groups from the table
+
+|button| **Show Rulers**: Show 1D positional ruler lines for the selected groups
+
+|button| **Delete Rulers**: Remove any ruler lines previously added for peak group
+
+|button| **Display Groups In Strips**: Display selected peak groups within strips of selected window
+
+|pulldown| **Target window**: Selects the spectrum window in which to display strips & ruler lines
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

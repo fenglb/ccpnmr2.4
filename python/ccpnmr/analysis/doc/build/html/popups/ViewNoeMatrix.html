@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chart : Residue Interaction Matrix &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Chart" href="../menu/Chart.html" />
+    <link rel="next" title="Chart : Ramachandran Plot" href="ViewRamachandranPopup.html" />
+    <link rel="prev" title="Chart : Secondary Structure Chart" href="SecStructureGraphPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewRamachandranPopup.html" title="Chart : Ramachandran Plot"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" accesskey="U">Chart</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chart-residue-interaction-matrix">
+<h1>Chart : Residue Interaction Matrix<a class="headerlink" href="#chart-residue-interaction-matrix" title="Permalink to this headline">¶</a></h1>
+<p><strong>Display a Density Matrix of Residue-Residue Contact Information</strong></p>
+<p>This popup window is based around the &#8220;Interaction Matrix&#8221; in the first tab
+and is designed to give a graphical representation of the residue to residue
+interactions that are present in NMR data. At present this informations comes
+from peak lists; to show assignment connectivities (e.g. NOE) and restraint
+lists; to show distance and H-bond restraints.</p>
+<p>To operate this system the user opens the &#8220;Peak Lists&#8221; and &#8220;Restraint Lists&#8221;
+tabs and toggles the &#8220;Use?&#8221; columns to enable or disable peak and restraint
+lists in the analysis. After pressing the [Draw] button at the top, the
+interaction matrix in the first tab is redrawn to display the connectivity
+information form the selected sources.</p>
+<p>The main interaction matrix is colour coded so that darker squares represent
+a greater number of observed interactions. The coordinates of each square
+represents the intersection between two residues from the axes. The residues
+that are used on the X- and Y-axes many be specified via the &#8220;Residues&#8221; tab,
+both in terms of sequence range and molecular chain. To determine the precise
+residues that correspond to a given interaction the user can hover the mouse
+cursor over a small square in the matrix and the identities of the residues
+are displayed on the two axes.</p>
+<p><strong>Tips</strong></p>
+<p>If the interaction matrix display is too large or too small the size of
+the chart can be adjusted via the [+] and [-] buttons.</p>
+<p>A PostScript file of the density matrix can be saved via the right mouse menu
+of the matrix tab.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Draw</strong>: Using the selected peak lists, restraint lists and residue ranges draw a colour density residue interaction matrix</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>[+]</strong>: Zoom in on the matrix view; make the boxes larger</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>[-]</strong>: Zoom out on the matrix view; make the boxes smaller</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="interaction-matrix">
+<h2>Interaction Matrix<a class="headerlink" href="#interaction-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The main colour density matrix that displays residue-residue interaction strength</p>
+</div>
+<div class="section" id="peak-lists">
+<h2>Peak Lists<a class="headerlink" href="#peak-lists" title="Permalink to this headline">¶</a></h2>
+<p>Selects which peak lists to show residue-residue interactions for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The experiment:spectrum name of the peak list that may be considered</td>
+</tr>
+<tr><td><em>PeakList</em></td>
+<td>The serial number of the peak lists within its spectrum</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether or not the peak list will be used as a source of residue interaction information  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="restraint-lists">
+<h2>Restraint Lists<a class="headerlink" href="#restraint-lists" title="Permalink to this headline">¶</a></h2>
+<p>Selects which distance restraint lists to show residue-residue interactions for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Restraint Set</strong>: Selects which set of restraints to select restraint connectivity information from</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>List</em></td>
+<td>The serial number, within the restraint set, and name of the restraint list</td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>Whether the restraint list is a Distance restraint list or an H-Bond restraint list</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether or not the restraint list will be used as a source of residue interaction information  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="residues">
+<h2>Residues<a class="headerlink" href="#residues" title="Permalink to this headline">¶</a></h2>
+<p>Specifies which molecular chains and residue ranges to consider on the matrix axes</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>X axis</strong>: Selects which molecular chain to use as the sequence along the horizontal axis of the interaction matrix</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>IntEntry</strong>: Sets the number of the first residue that appears at the start (left) of the horizontal matrix axis</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>to</strong>: Sets the number of the last residue that appears at the end (right) of the horizontal matrix axis</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Y axis</strong>: Selects which molecular chain to use as the sequence along the vertical axis of the interaction matrix</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>IntEntry</strong>: Sets the number of the first residue that appears at the start (bottom) of the vertical matrix axis</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>to</strong>: Sets the number of the last residue that appears at the end (top) of the vertical matrix axis</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chart : Residue Interaction Matrix</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#interaction-matrix">Interaction Matrix</a></li>
+<li><a class="reference internal" href="#peak-lists">Peak Lists</a></li>
+<li><a class="reference internal" href="#restraint-lists">Restraint Lists</a></li>
+<li><a class="reference internal" href="#residues">Residues</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SecStructureGraphPopup.html"
+                        title="previous chapter">Chart : Secondary Structure Chart</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewRamachandranPopup.html"
+                        title="next chapter">Chart : Ramachandran Plot</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewNoeMatrix.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewRamachandranPopup.html" title="Chart : Ramachandran Plot"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" >Chart</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

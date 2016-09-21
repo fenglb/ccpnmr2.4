@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Peak : Selected Peaks &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Peak : Peak Finding" href="EditPeakFindParamsPopup.html" />
+    <link rel="prev" title="Peak : Peak Lists" href="EditPeakListsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakListsPopup.html" title="Peak : Peak Lists"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="peak-selected-peaks">
+<h1>Peak : Selected Peaks<a class="headerlink" href="#peak-selected-peaks" title="Permalink to this headline">¶</a></h1>
+<p><strong>Show a Subset of Peaks in Tabular Form</strong></p>
+<p>The idea behind this table is to give a textual listing of a particular subset
+of peaks. This table may be shown in two separate contexts; to represent all
+the peak entities which may be selected in one or more spectrum window
+displays inside Analysis, or it may be used by the various [Show Peaks]
+functions inside Analysis. When used for the display of in-spectrum
+selections, this table may be opened from the main Analysis menu or via the
+&#8220;Peak::Selection Table&#8221; option of the right-click window (shortcut is &#8220;s&#8221;).
+Also, the contents of this table changes as the selected peaks change, thus
+representing the current selection status.</p>
+<p>The listed peaks may be from several different spectra of any dimensionality
+or type. Putting the peak selection into a table of this kind allows the user
+to make easy comparisons and editing of their parameters, e.g in terms of
+assignment or intensity, and also provides links to other kinds of
+information. For example the user can go from the selected peaks to the
+resonances that are assigned to those peaks. Double-clicking on the editable
+columns of the table allows many of the parameters to be directly edited,
+although discretion is recommended for certain operations like changing
+positions and intensity values.</p>
+<p><strong>Spectrum Window Navigation</strong></p>
+<p>The options above the peak table provide functions that allow the user to
+locate and mark peaks within the spectrum display windows. The [Strip
+Selected] and [Find Peak] options are used to find particular peaks that have
+been selected in the table (with left-click +/- &lt;Ctrl&gt;/&lt;Shift&gt;). The former
+sub-divides the locations for separate peaks using strips (window dividers)
+and the latter locates only the last selected peak. The [Strip Locations] and
+[Go To Position] work in a similar way, except that they use only the
+<em>position information</em> from the selected peaks and don&#8217;t necessarily display
+the actual selected peaks. The idea here is that peak positions can be used to
+move the display of any spectrum window that share at least some of the same
+kind of isotopes on their axes. For example a 2D 15N HSQC peak can be used to
+find an amide position (H &amp; N) in 3D HNcoCA spectrum, thus locating two out of
+three axes. This functionality is very useful when some peak lists are used as
+&#8220;roots&#8221; to coordinate others.</p>
+<p><strong>Button Functions</strong></p>
+<p>The buttons below the main peak table allow the user to edit and view many
+types of data associated with the peaks, although many parameters may be
+changed by double-clicking in the peak table. Some notable functions include:
+[Unalias] which is used to move &#8216;ghost&#8217; peaks to their real underlying ppm
+values by adding or subtracting a whole number of spectrum widths to their
+position. This is used when a peak lies outside the normal recorded bounds of
+the spectrum but nonetheless still appears within it because as an aliased
+signal;  [Assign] opens the <a class="reference external" href="EditAssignmentPopup.html">Assignment Panel</a> to control which resonances
+have been linked to the dimensions of the peak; to indicate what caused the
+peak. Such assignments may be to the resonances of specific atoms or resonances
+that are currently anonymous;  [Deassign] clears all of the resonance
+assignments to the peak dimensions. This does not affect how the resonances
+may be connected to atoms;  [Set Details] allows the user to set the &#8220;Details&#8221;
+column for all of the peaks selected in the table with a single operation;
+[Propagate Assign] spreads resonance assignments from one peak (the last
+selected) to the others selected in the table, which is useful even if not all
+of the peak dimensions are the same type, for example when spreading amide H &amp;
+N resonances from an HSQC peak to 3D triple-resonance peaks.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>If you need the peak positions to be displayed in Hz units or as data point
+positions, the &#8220;Position Unit&#8221; pulldown at the top may be changed.</p>
+<p>The [Set Details] function can be handy for marking peaks that cause violations
+in a structure calculation and thus need further attention.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Selected</strong>: Use the positions of the selected peaks to specify strip locations in the selected window</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Find Peak</strong>: Locate the currently selected peak in the specified window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Choose the spectrum window for locating peaks or strips</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Found</strong>: Whether to put a cross-mark though peaks found in a given window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Locations</strong>: Use the selected peak positions to specify strip positions in a higher dimensionality window.</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Go To Position</strong>: Use the selected peak position to navigate to a location in a higher dimensionality window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Choose the higher dimensionality spectrum window to use as a navigation &amp; strip target</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Mark Selected</strong>: Put multidimensional cross-marks through selected peaks</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Position Unit</strong>: Choose whether to display peak positions in ppm, Hz or points</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Experiment:spectrum of peak</td>
+</tr>
+<tr><td><em>List</em></td>
+<td>Peak list number</td>
+</tr>
+<tr><td><em>Peak</em></td>
+<td>Peak serial number</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>Magnitude of spectrum intensity at peak center (interpolated), unless user edited  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>Integral of spectrum intensity around peak location, according to chosen volume method  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Merit</em></td>
+<td>Figure of merit value for peak; zero: &#8220;bad&#8221; one: &#8220;good&#8221;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User editable textual comment for peak  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Fit Method</em></td>
+<td>Method used to fit the peak location  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vol. Method</em></td>
+<td>Method used to calculate the peak volume integral  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add</strong>: Add a new peak, specifying its position</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit</strong>: Edit the position of the currently selected peak</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unalias</strong>: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the currently selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign</strong>: Assign the dimensions of the currently selected peak</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign</strong>: Remove all assignments from the currently selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Details</strong>: Set the details field of the currently selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set As Current</strong>: Set the peaks selected in the table as the ones selected in the spectrum windows</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Resonances</strong>: Show a table of resonances assigned to the selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Dim</strong>: Deassign a specified dimension of the selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Fit</strong>: Recalculate the center, height and line width of the selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalc Volume</strong>: Recalculate the volume of the selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show On Structure</strong>: Show the assignment connections of the selected peaks on the selected structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Assign</strong>: Spread the resonance assignments of the peak last selected to all selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Merit</strong>: Copy the merit value of the last selected peak to all selected peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Details</strong>: Copy the details of the last selected peak to all selected peaks</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Peak : Selected Peaks</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditPeakListsPopup.html"
+                        title="previous chapter">Peak : Peak Lists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditPeakFindParamsPopup.html"
+                        title="next chapter">Peak : Peak Finding</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/SelectedPeaksPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakListsPopup.html" title="Peak : Peak Lists"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experiment : Spectra &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Experiment" href="../menu/Experiment.html" />
+    <link rel="next" title="Experiments : Experiments" href="EditExperimentPopup.html" />
+    <link rel="prev" title="Experiment : Open Spectra" href="OpenSpectrumPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentPopup.html" title="Experiments : Experiments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="OpenSpectrumPopup.html" title="Experiment : Open Spectra"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" accesskey="U">Experiment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="experiment-spectra">
+<h1>Experiment : Spectra<a class="headerlink" href="#experiment-spectra" title="Permalink to this headline">¶</a></h1>
+<p><strong>Curate Spectrum Parameters</strong></p>
+<p>This popup window allows the user to view and edit information that is
+associated with spectra. In this regard a spectrum is a record of the NMR data
+that was <em>obtained</em>. Parameters that relate to what was <em>done experimentally</em>
+to get the data are specified elsewhere; experiment level information is set
+via the main <a class="reference external" href="EditExperimentPopup.html">Experiments</a>  popup window. Many spectrum level parameters in
+Analysis relate to how the spectrum data files are interpreted and displayed
+graphically, i.e. as contours. Data that derive from the analysis of spectra,
+like peak lists and assignments, are managed elsewhere in specialised
+displays.</p>
+<p>The layout of this popup window involves several tab panels that sub-divide
+the spectrum settings into related groups. The functionality within each
+tabbed sub-division is largely independent, although a spectrum entity
+selected in any of the tables or pulldown menus is subject to the [Delete
+Spectrum] function.</p>
+<p><strong>Main &#8220;Spectra&#8221; tab</strong></p>
+<p>This table presents an overview of all of the spectra that have been loaded
+into the CCPN project, what their dimensions are and how they relate to
+experiments and peak lists. Some of the parameters may be edited by
+double-clicking on a cell in the table, thus for example the user may change
+the name and set the active peak list (the one that is used for peak peaking
+and selection). In the main however, this table usually serves simply to
+illustrate what is present, which experiment each spectrum belongs to and
+what its NMR dimensions are.</p>
+<p><strong>Display Options</strong></p>
+<p>This table is used to control how spectra are visualised within the spectrum
+window displays of Analysis. Specifically, the user can: change the colours
+of the displayed contours and 1D slice traces; get access to the contour
+level settings, via the <a class="reference external" href="EditContourLevelsPopup.html">Spectrum Contour Levels</a> tool; access the <a class="reference external" href="EditContourFilesPopup.html">Spectrum
+Contour Files</a> setup; set keyboard toggles; and administer other graphical
+elements like bounding box lines, peak fonts and peak pointer lines. It
+should be noted that the colours for peak text and peak symbols are set for
+individual peak lists, so that different peak lists within the same spectrum
+may be distinguished. Accordingly these parameters are set via the main
+<a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a> option.</p>
+<p>The &#8220;Rank&#8221; value of a spectrum dictates the order in which spectra are drawn
+on screen and presented in the toggle options at the top of spectrum windows.
+The rank may be set on an individual basis or following the order of spectra
+in the table using [Set Ranks From Order]; this is especially useful if the
+table is first sorted in a particular way (by clicking on a table heading).</p>
+<p><strong>Referencing</strong></p>
+<p>This table is used to control how the points in a spectrum data file are
+interpreted in terms of NMR frequency, on each of their axes. Usually, this
+means to know how positions in the spectrum data, stored as an array of
+intensity data points, relate to ppm units and Hz frequency values of the
+spectrometer. Such referencing occurs by specifying how the width of a
+spectrum dimension in data points relates to its width in frequency units,
+defining the scaling factor, and how the two scales are anchored together; by
+giving a reference data point and its corresponding a frequency/ppm value.</p>
+<p>The spectrum referencing values are normally extracted from the spectrum
+header or parameter file when the spectrum was first loaded. Often these
+values do not need to be altered. However, the user may still adjust all of
+the parameters after load time, with the sole exception of the dimensions
+isotope type. Changes to spectrum referencing may be made after loading to
+correct for mistakes in the initial data interpretation and to tweak spectra
+so that they give a better overlay of signals. Note that the table columns
+&#8216;Spectrometer Frequency&#8217;, &#8216;Minimum Aliased Frequency&#8217;, &#8216;Maximum aliased
+frequency&#8217;, and &#8216;Sub Dim Name&#8217; (normally hidden) apply to the experiment, and
+will are shared between all spectra in the same experiment.</p>
+<p>Peaks that are picked within spectra have positions defined in terms of
+spectrum data points, i.e. normally indicating an extremum in intensity. The
+referencing values of a spectrum&#8217;s dimensions are used to calculate what the
+position of a peak is in ppm or Hz units. Accordingly, if spectrum
+referencing values are changed then peak ppm locations will naturally move.
+If peaks should not move with the spectrum data when referencing is changed,
+to instead stay at the same ppm values, then the user can select &#8220;ppm&#8221; in the
+&#8220;reference changes keep constant peak:&#8221; options.</p>
+<p>Some less common experiments have more than one type of signal (shift) on
+each axis, and need a reference line to describe each experiment type. One
+obvious case is projection experiments, where signals in one dimension are
+linear combinations of frequencies for different nuclei. Another would be the
+15N/13C HSQC-NOESY, where 15N and 13C are measured in parallel on one axis.
+The special options for this situation are turned on by selecting  &#8216;Use
+reduced dimensionality options&#8217;. The individual reference lines are called
+&#8216;Sub-dimensions&#8217;; they are shown explicitly when there is more than one. They
+can be added, removed, and edited individually. The Sub-dimensions set for the
+first Spectrum serve to (re)define those for the Experiment; once there is
+more than one Spectrum in an Experiment it is not possible to add extra
+Sub-dimensions. Projection spectra can only be read correctly from some
+formats (Bruker and USF3) and even these cases may require editing. The
+special &#8216;Sub Dim Name&#8217; column gives a name that is used by some external
+programs (e.g. Prodecomp) to identify a given signal type across different
+experiments. The special &#8216;Scaling Factors&#8217; column gives the scaling
+coefficient that applies to a particular signal in this spectrum. For instance
+scaling factors  CO:1; CA:0; CB:-2 would denote a signal of the form wN-2wCB.
+There can be more than one scaling factor where different types of peaks are
+possible, e.g. wN OR wC. The system has only been tested for 2D projection
+spectra.</p>
+<p>The minimum and maximum aliased frequency values for a spectrum dimension, as
+displayed in the last columns of the table, may be set to cut off the
+spectrum contour display at a particular value or extend the contour display.
+Contour displays that are extended beyond the normal sweep width (ppm range)
+of the spectrum do so by tiling; a copy of the contours (not mirror image) is
+made and placed next to the normal, fundamental region. This mechanism is
+used to cope with aliased resonances that appear (as &#8216;ghost&#8217; peak images)
+within the main spectrum width in places that are not their true ppm values;
+the resonance is really outside the sweep width of the spectrum. Making tiled
+copies of the contours allows the spectrum to extend and cover the real ppm
+values of aliased peaks. Aliased peaks may be moved to their true ppm
+locations or picked at that location in the first instance by using the
+appropriate tile region.</p>
+<p><strong>Tolerances</strong></p>
+<p>This section is used to control the weightings and tolerances that apply to
+individual spectrum dimensions during the resonance assignment process. There
+are two kinds of value that can be set. One is the &#8220;Assignment Tolerance&#8221;,
+which states how close (typically in ppm) chemical shift values of resonances
+match to peak peak locations; this is an upper limit such that resonances
+with shifts outside the tolerance are not considered as assignment
+possibilities. The second thing is the &#8220;Shift Weighting&#8221; that specifies how
+much influence resonance assignments have on the averaged chemical shift
+values. Both of these parameters affect individual spectrum dimensions
+because each axis has is its own resonance line shape and data resolution.</p>
+<p>The normal chemical shift calculation within Analysis calculates values as
+the weighted mean over all of the peak positions to which a resonance is
+assigned. If a dimension has a shift weighting of 2.0 but others have 1.0
+then any resonance assignment in the former will have twice as much influence
+on the shift mean, as if it were assigned to two peak dimensions rather than
+one. By default all weights are set to 1.0, but the user can increase this if
+a spectrum dimension is particularly precise (narrow peaks) or decrease it if
+peaks are broad or if resonance assignments are highly ambiguous; for
+speculative NOE assignments the user usually doesn&#8217;t want the shift values to
+change according to those assignments.</p>
+<p>The assignment tolerance and shift weighting values are set for the
+dimensions of a selected spectrum in the upper table. The lower &#8220;Spectrum
+Overview&#8221; table shows these values across all spectra in the project, so that
+the user can see the overall situation and range of values. Although
+tolerances are not set in the lower table on an individual basis, the
+assignment tolerances and shift weights can be spread from one spectrum (the
+last selected) to any others selected in the table (using left-click + &lt;Crtl&gt;
+or &lt;Shift), where the isotopes of dimensions match.</p>
+<p><strong>File Details</strong></p>
+<p>This tab is used to indicate the location of a spectrum&#8217;s binary data file
+and how the binary data within is read. In essence the binary values of the
+file need to be interpreted as spectrum intensity values, but in order to do
+this the system has to know how the numbers are stored. This involves knowing
+how numbers are represented per se; how many bytes a number uses, whether
+numbers are integers or floating point and what orientation the bits are in
+(big or little endian). Also, most spectrum data formats involve binary
+blocks; chunks of data organised into a grid across all the dimensions. The
+benefit of using blocks comes when looking at large data sets, e.g. using 3D
+and higher dimensionality data, because it means that when only looking at a
+sub-region of a spectrum, like a single plane of a 3D, only part of the
+spectrum data needs to be read; most of the spectrum data that isn&#8217;t
+displayed does not need to be loaded. Naturally, the system needs to know
+what the sizes of the data block along each dimension are. These are
+displayed in the lower table and may be adjusted if there are any mistakes,
+which may have been inherited from the spectrum processing.</p>
+<p>The &#8220;File name&#8221; field shows the present location of the binary data. If this
+file is missing the spectrum will still be represented in Analysis, but the
+operations which rely of having intensity data, like picking peaks, cannot be
+performed. It is notable that the binary data file for a spectrum can be
+changed at any time, either by selecting a different file name (typing
+directly or using [Choose File]) or by directly replacing the binary data
+inside the file. If the binary data or any of the parameters that influence
+its interpretation has changed, then the user can click on [Refresh Spectrum]
+to see the effect if the changes.</p>
+<p><strong>Data Locations</strong></p>
+<p>This last table is used to show the locations of all of the spectrum data
+files used by the whole project. These locations need to be changed if the
+spectrum data is moved in disk, otherwise the system will not know where to
+look. Each data location is broken down into two components; an &#8220;absolute&#8221;
+directory path and a &#8220;relative&#8221; path, which contains the file name. Both of
+these components may be changed.</p>
+<p>The absolute part of the location is from the root of the file system (the
+all-encompassing directory) and is often shared by several spectrum files; it
+is typical to store spectra in one repository. For convenience, changing the
+absolute part of the path for one spectrum will usually change the value for
+all the other spectra that use the same directory. Also, if multiple files
+are moved to the same directory then [Propagate Absolute Path] can be used to
+state that several files are in the same location.</p>
+<p>The relative part of the spectrum data path is individual to the spectrum and
+contains the name of the data file and any extra directory location, relative
+to the absolute part of the path. Which parts of the spectrum file path is
+considered to be absolute or relative may be changed using the &#8220;Shift
+Directory...&#8221; buttons. For example an absolute : relative split of
+&#8220;/data/spectra/&#8221; : &#8220;protein/123.spec&#8221; can be changed to
+&#8220;/data/spectra/protein&#8221; : &#8220;123.spec&#8221;, so that several spectra can use the
+absolute part.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>The spectrum chemical shift weighting used for synthetic peak lists is set to
+0.0001 of the the regular weighting for the spectrum dimension set via this
+popup.</p>
+<p>The fonts used for the printing of spectra (e.g. via PostScript of PDF) may
+be set separately to the main spectrum font specification, which is used
+within Analysis spectrum displays.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Spectrum</strong>: Delete selected spectrum or spectra</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="spectra">
+<h2>Spectra<a class="headerlink" href="#spectra" title="Permalink to this headline">¶</a></h2>
+<p>Basic information about spectra, their experiments, peak lists &amp; dimensions</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>The name of the experiment to which the spectrum belongs  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>A short name for the spectrum, often used with experiment name for unique identification &#8220;experiment:spectrum&#8221;. e.g. &#8220;HSQC:115&#8221;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Dimensions</em></td>
+<td>Number of dimensions/axes in the spectrum (can be fewer than in the experiment) and their isotope types</td>
+</tr>
+<tr><td><em>Active Peak List</em></td>
+<td>The active peak list, for example the peak list into which picked peaks are put  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Num Peak Lists</em></td>
+<td>Number of separate peak lists within the spectrum</td>
+</tr>
+<tr><td><em>Scale</em></td>
+<td>Spectrum scale relative to stored data points, e.g. for drawing  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Noise Level</em></td>
+<td>Estimated intensity level of spectrum noise  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Data Type</em></td>
+<td>Whether fully processed, FID or part-processed</td>
+</tr>
+<tr><td><em>Simulated?</em></td>
+<td>Whether the spectrum is simulated</td>
+</tr>
+<tr><td><em>Data File</em></td>
+<td>Location of the data file relative to the data directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="display-options">
+<h2>Display Options<a class="headerlink" href="#display-options" title="Permalink to this headline">¶</a></h2>
+<p>How spectra are displayed on screen in terms of colours &amp; contours etc.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Identifying name Experiment:Spectrum</td>
+</tr>
+<tr><td><em>Positive Colours</em></td>
+<td>Colour scheme for positive contours (can be a single colour)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Negative Colours</em></td>
+<td>Colour scheme for negative contours (can be a single colour)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Slice Colour</em></td>
+<td>Colour of 1D slice and trace lines  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Box Visible?</em></td>
+<td>Whether fundamental region (sweep width bounding) box should be drawn  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Shortcut</em></td>
+<td>Shortcut key for toggling spectrum on/off  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Rank</em></td>
+<td>Determines order spectra drawn in (lowest appears on top)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Positive Contours</em></td>
+<td>Positive contour levels, relative to global scale  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Negative Contours</em></td>
+<td>Negative contour levels, relative to global scale  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Use Contour Files</em></td>
+<td>Whether pre-calculated contours should be used  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak Font</em></td>
+<td>The typeface used for peak annotation in spectrum window displays  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak Pointer?</em></td>
+<td>Whether the peak pointer (a triangle/line from annotation to centre), if it exists, should be drawn  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Contour Levels</strong>: Open popup for detailed setting of contour levels</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Contour Files</strong>: Open popup for administering pre-calculated contour files</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Contours</strong>: Propagate contour levels from row selected last to others</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Ranks From Order</strong>: Set spectrum rank based on current order in table (e.g. after sorting on a column)</p>
+</div>
+<div class="section" id="referencing">
+<h2>Referencing<a class="headerlink" href="#referencing" title="Permalink to this headline">¶</a></h2>
+<p>Information for interpreting data points in terms of PPM &amp; Hz</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum</strong>: Select the experiment:spectrum to adjust</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use reduced dimensionality options</strong>: Used for reduced dimensionality or projected experiments when you have sub-dimensions</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>point</strong>: If you change the referencing then peak position in points stays the same</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>ppm</strong>: If you change the referencing then peak position in ppm stays the same</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Dim</em></td>
+<td>Spectrum dimension or sub dimension</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>Isotope being recorded</td>
+</tr>
+<tr><td><em>Spectrometer frequency (MHz)</em></td>
+<td>Carrier frequency for the particular isotope, in MHz  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Spectral width (ppm)</em></td>
+<td>Actual spectral width, so possibly after region truncated, in ppm</td>
+</tr>
+<tr><td><em>Spectral width (Hz)</em></td>
+<td>Actual spectral width, so possibly after region truncated, in Hz  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Reference ppm</em></td>
+<td>Ppm value at chosen reference point  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Reference point</em></td>
+<td>Point value where dimension has chosen reference ppm  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Orig. number of points</em></td>
+<td>Original number of points, so after Fourier transform and before any truncation of the region  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Point offset</em></td>
+<td>Offset of region relative to original region after Fourier transform, so 0 if the region has not been truncated  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Minimum aliased frequency (ppm)</em></td>
+<td>Minimum frequency, in ppm, of where any signal is expected, if not set then uses minimum frequency of fundamental region  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Maximum aliased frequency (ppm)</em></td>
+<td>Maximum frequency, in ppm, of where any signal is expected, if not set then uses maximum frequency of fundamental region  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Sub-dimension Copy</strong>: Add a new sub dimension (e.g. reduced dimensionality component) by copying the selected sub-dimension</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Sub-dimension</strong>: Remove selected sub-dimension</p>
+</div>
+<div class="section" id="tolerances">
+<h2>Tolerances<a class="headerlink" href="#tolerances" title="Permalink to this headline">¶</a></h2>
+<p>Per-dimension assignment tolerances &amp; chemical shift calculation contributions</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum</strong>: <em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Dimension</em></td>
+<td>Spectrum dimension</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>Isotope recorded in this dimension</td>
+</tr>
+<tr><td><em>Assignment Tolerance</em></td>
+<td>When assigning, the maximum difference between a peak dimension position and a known chemical shift value  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Shift Weighting</em></td>
+<td>Contribution, in this dimension, of peak positions to the averaged, weighed chemical shift values  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="spectrum-overview">
+<h3>Spectrum Overview<a class="headerlink" href="#spectrum-overview" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Experiment name : Spectrum name</td>
+</tr>
+<tr><td><em>Dim Assign Tolerances</em></td>
+<td>Peak vs shift assignment tolerances in the various dimensions, as set in the Spectrum table</td>
+</tr>
+<tr><td><em>Dim Shift Weights</em></td>
+<td>Chemical shift weighting contribution, in the various dimensions, as set in the Spectrum table</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Assignment Tolerances</strong>: Propagate peak vs shift assignment tolerance from last selected spectrum to other selected spectra in Spectrum Overview table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Shift Weights</strong>: Propagate chemical shift weighting contribution from last selected spectrum to other selected spectra in Spectrum Overview table</p>
+</div>
+</div>
+<div class="section" id="file-details">
+<h2>File Details<a class="headerlink" href="#file-details" title="Permalink to this headline">¶</a></h2>
+<p>Location of spectrum data files and how data is stored in blocks &amp; points</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum</strong>: Select the experiment:spectrum to operate on</p>
+<div class="section" id="data-file-details">
+<h3>Data File Details<a class="headerlink" href="#data-file-details" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>File name</strong>: Full path to the file containing the spectrum data (typically binary)</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Is data big endian?</strong>: Whether binary numbers in data are big endian (e.g. Mac PowerPC, SGI)
+or little endian (e.g. Intel), which depends on how and where data was collected and processed</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Bytes per word</strong>: Bytes per data point (normally 4)</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Data number type</strong>: Whether data is floating point or integer (normally floating point)</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>File header size</strong>: The header size in bytes, which depends on the file format</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Choose File</strong>: Select a new spectrum data file using a dialog, rather than typing it above</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh Spectrum</strong>: Save the information as chosen and refresh spectrum display</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>Dimension</em></td>
+<td>Dimension in data file</td>
+</tr>
+<tr><td><em>Number Points</em></td>
+<td>Number of data points in this dimension  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Block Size</em></td>
+<td>Size of blocks into which data points are partitioned for efficient reading  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="data-locations">
+<h2>Data Locations<a class="headerlink" href="#data-locations" title="Permalink to this headline">¶</a></h2>
+<p>A table of all spectrum data locations for en masse manipulation</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 7</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Absolute Path</em></td>
+<td>Location of the absolute path directory, that may contain multiple spectrum files  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Relative Path and File</em></td>
+<td>Location of spectrum file relative to its absolute path directory  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Spectrum / FID / Image</em></td>
+<td>Identity of the spectrum as experiment:spectrum</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Absolute Path</strong>: Copy absolute path from last row selected to other selected spectra</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Shift Directory To Absolute Path</strong>: Shift the top directory from the relative path to the absolute path</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Shift Directory To Relative Path</strong>: Shift the bottom directory from the absolute path to the relative path</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment : Spectra</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#spectra">Spectra</a></li>
+<li><a class="reference internal" href="#display-options">Display Options</a></li>
+<li><a class="reference internal" href="#referencing">Referencing</a></li>
+<li><a class="reference internal" href="#tolerances">Tolerances</a><ul>
+<li><a class="reference internal" href="#spectrum-overview">Spectrum Overview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-details">File Details</a><ul>
+<li><a class="reference internal" href="#data-file-details">Data File Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-locations">Data Locations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="OpenSpectrumPopup.html"
+                        title="previous chapter">Experiment : Open Spectra</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditExperimentPopup.html"
+                        title="next chapter">Experiments : Experiments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditSpectrumPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentPopup.html" title="Experiments : Experiments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="OpenSpectrumPopup.html" title="Experiment : Open Spectra"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" >Experiment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

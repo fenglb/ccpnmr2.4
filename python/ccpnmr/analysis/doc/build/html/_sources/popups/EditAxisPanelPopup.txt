@@ -1,0 +1,150 @@
+=============
+Window : Axes
+=============
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Make And Edit Spectrum Window Axis Types**
+
+The purpose of this popup window is to allow the user to create new types of
+axis for the display of spectra within windows. This requirement is relatively
+rare and under most circumstances the standard, default axis descriptions
+will not need to be changed. The popup is divided into three tabs which display different aspects of the
+spectrum display axis definitions.
+
+The first "Axis Units" tab lists the different units of measurement that may
+be used in an axis. Although new kinds of axis may be created, only the ppm,
+Hz and "arbitrary" units are currently used by Analysis, i.e. spectrum windows
+only display standard NMR isotope axes and intensity for a "value" Y axis.
+
+The "Axis Types" tab allows the user to specify new kinds of NMR data axis,
+for example to be able to work with spectra that have an isotope type that is
+not part of the normal Analysis setup. Clicking [Create] will prompt the user
+to specify the characteristics of the axis, and some of these can be adjusted
+after the initial definition. Under normal circumstances the only features
+that the user is likely to edit are the "Region", "Decimal places" and "Peak
+Size" columns. The region describes the upper and lower bounds of the axis
+vales, and dictates the maximum extent of a spectrum window display when fully
+zoomed out; a spectrum window cannot display outside the bounds of its axes,
+however these bounds may be changed.
+
+The "Panel Types" tab allows the user to create sub-categories within a given
+kind of axis. These are not used for very much, but are used with the 1D ruler
+lines, so that a line is only drawn on axes that share the same panel type.
+Accordingly, a ruler line drawn on an amide 1H axis (panel type "H1") will not
+show on the indirect 1H axis (panel type "H2"). The user can create extra
+panel types if this kind of distinction is required, although "H1" and "H2"
+types are present by default. The panel type of a spectrum window axis is set
+via the "Windows & Axes" section of the main Windows_ popup.
+
+.. _Windows: EditWindowPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Axis Units
+==========
+
+*Documentation missing*
+
+===============  ================================================================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------------------------------------------------------
+            *#*  Row number 
+         *Name*  Short text name for the unit of measurement, for graphical display 
+*Is backwards?*  Whether the axis values decrease left to right & bottom to top. For example "ppm" does, but most other units do not 
+===============  ================================================================================================================================
+
+
+
+|button| **Create**: Create a new specification of a unit of measurement
+
+|button| **Delete**: Delete the selected measurement unit
+
+Axis Types
+==========
+
+*Documentation missing*
+
+==================  =========================================================================================================================
+**Table 2**
+---------------------------------------------------------------------------------------------------------------------------------------------
+               *#*  Row number 
+            *Name*  Name of window axis type, for graphical interface etc. 
+   *Isotope codes*  Which isotopes the axis definition covers 
+*Measurement Type*  What kind of physical property is measured along the window axis 
+    *Dim Sampled?*  Whether the axis represents discretely sampled values or a continuum of values (albeit fixed to a data grid) 
+          *Region*  The upper and lower bounds for numerical values allowed on the axis  *(Editable)*
+  *Decimal places*  The number of decimal places used to round axis values in graphical displays  *(Editable)*
+       *Peak Size*  The relative scale for the peak symbol (i.e the "X" shape) size compared to other axes  *(Editable)*
+   *Allowed Units*  Units of measurement allowed for this kind of axis  *(Editable)*
+==================  =========================================================================================================================
+
+
+
+|button| **Create**: Create a new kind of axis to use in spectrum windows
+
+|button| **Delete**: Delete the selected window axis type specification
+
+Panel Types
+===========
+
+*Documentation missing*
+
+===========  =========================================================
+**Table 3**
+----------------------------------------------------------------------
+        *#*  Row number 
+     *Name*  Name of panel type specification 
+ *AxisType*  Which kind of axis the panel is a subtype of 
+===========  =========================================================
+
+
+
+|button| **Create**: Add a new panel type specification (a subtype of a given kind of axis)
+
+|button| **Delete**: Delete the selected panel type specification
+

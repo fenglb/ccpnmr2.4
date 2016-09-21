@@ -1,0 +1,214 @@
+=============================
+Assignment : Assignment Panel
+=============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Assign Resonances To Peak Dimensions**
+
+The purpose of this popup window is to control the assignment of resonances to
+a specific, picked, peak in a spectrum. Such resonances might already be
+associated with a specific atom or they could be anonymous, and only
+represented by a resonance number e.g. "[123]".
+
+The general layout of the window is such that you have two tables for each
+dimension of the cross peak, i.e. the dimensions are represented as separate
+rows. The first column of tables on the left indicate the resonances which
+*are* currently assigned to the peak dimensions. The second column of tables
+on the right indicate the resonances that *might be* assigned to the peak
+dimensions; these are usually ordered according to chemical shift closeness
+to the peak position in that dimension.
+
+In normal operation to assign the dimension of a peak to a specific resonance
+by clicking on one of the resonance row from the right hand table for the
+specific peak dimension. If the resonance is not already assigned, it will
+appear in the left hand table to indicate that is now assigned. More than one
+resonance may be assigned to a peak dimension (e.g. for overlapping or
+ambiguous signals) by clicking on another resonance for the same dimension.
+Totally new, never seen before, resonances are added to a dimension with the
+[<New>] option; the new resonance then gains a chemical shift based on this
+peak dimension position.
+
+Clicking on a resonance row in the left hand tables allows you to remove it as
+a peak assignment [Clear Dim Contrib] or change the way that the specific
+resonance is linked to atoms or residue spin systems. The light blue buttons
+toward the bottom will allow you to add specific atomic assignments, atom type
+information or tentative assignments. The light orange buttons allow you to
+remove atomic and residue/spin system assignments. Double clicking on a
+resonance row will open a pulldown menu with some of these options available.
+
+Various options are given to control which resonance assignment possibilities
+appear in the right hand tables. Some options show more possibilities, i.e. by
+considering wider position-to-shift tolerances or including matches outside of
+the current sweep with. Other options restrict the possibilities, usually to
+make the selection more relevant to the current situation; you may want only
+assignments within a given molecular system (group of chains), within a single
+residue, appropriate for an isotope labelling scheme or those that obey
+covalent bond relationships of the recorded experiment.
+
+**Caveats & Tips**
+
+To change the peak that is being assigned in the window move the mouse over
+the desired peak in a spectrum window and press the "a" key (lower case).
+The experiment:spectrum identity of the peak is indicated at the top left.
+
+Only resonances that are within the chemical shift tolerances (set per
+spectrum dimension) will be shown as assignment possibilities. The chemical
+shift value used for each resonance is taken from the shift list for the
+peak's experiment.
+
+Resonance and spin system names can be set by double clicking on an assigned
+resonance row and selecting the appropriate option from the pulldown menu.
+Resonance and spin system names will be annotated in brackets with serial
+numbers, e.g. "{123:contamination}[456:aliphatic]". Names will not be
+displayed if there is any atom, residue or type information. Accordingly names
+cannot be set here under such circumstances. These names are free text notes
+and have absolutely no formal meaning with regards to assignment or molecules.
+
+Distances only appear in the tables if you have an appropriate structure set
+at the top and then only if there are through-space transfers in particular
+dimensions of the peak's experiment.
+
+"Assignment Groups" are only used when you wish to specify mutually exclusive
+assignment possibilities, e.g. when you have an NOE peak caused by two signals
+and only certain assignments go together. Resonances with the same group
+number go together and those with different numbers do not mix; so you would
+not get an inappropriate distance restraint for example.
+
+
+Main Panel
+==========
+
+|pulldown| **Structure**: Selects a structure ensemble from which interatomic distances are calculated
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Assignment possibilities
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===========  ===================================================
+**Table 1**
+----------------------------------------------------------------
+       *F1*  The peak dimension number and position  *(Editable)*
+===========  ===================================================
+
+
+
+===========  ==========================================================================
+**Table 2**
+---------------------------------------------------------------------------------------
+        *#*  Row number 
+     *Name*  Resonance name 
+    *Delta*  Difference between peak dimension position and chemical shift 
+    *Shift*  Chemical shift value of assignment 
+       *SD*  Standard deviation of chemical shift 
+     *Dist*  Resonance-resonance distance in structure 
+===========  ==========================================================================
+
+
+
+|button| **<New>**: Make a new resonance object and link to this peak dimension
+
+===========  ===================================================
+**Table 3**
+----------------------------------------------------------------
+       *F2*  The peak dimension number and position  *(Editable)*
+===========  ===================================================
+
+
+
+===========  ==========================================================================
+**Table 4**
+---------------------------------------------------------------------------------------
+        *#*  Row number 
+     *Name*  Resonance name 
+    *Delta*  Difference between peak dimension position and chemical shift 
+    *Shift*  Chemical shift value of assignment 
+       *SD*  Standard deviation of chemical shift 
+     *Dist*  Resonance-resonance distance in structure 
+===========  ==========================================================================
+
+
+
+|button| **<New>**: Make a new resonance object and link to this peak dimension
+
+Options
+~~~~~~~
+
+
+|check| **Aliased Possible**: Whether to the peak dimension position may be aliased; matching chemical shifts +/- a whole number of sweep widths
+
+|check| **Restrict Mol System**: Whether to restrict assignment possibilities to only those within a single molecular system (complex)
+
+|check| **Intra-residue**: Whether to restrict assignment possibilities to only assignments within the same residue
+
+|check| **Correlated Dims**: Whether to filter the number of assignment possibilities by enforcing that for directly bound dimensions only directly bound resonances are shown
+
+|check| **Double Tolerances**: Whether to double the normal assignment tolerances for matching peak dim positions to resonance chemical shifts
+
+|check| **Assignment Groups**: Whether to display information to specify mutually exclusive assignment groups for superimposed/ambiguous assignments
+
+|pulldown| **Isotope Labelling**: Selects an isotope labelling scheme, if required, to filter the assignment possibilities
+
+|float| **0.1**: The lower limit for spin active isotope incorporation at an atom site for a resonance to be considered
+
+|button| **Assign Resonance**: Assign the resonance selected in a peak dimension table to atoms
+
+|button| **Set Type**: Set the atom type of a resonance selected in a peak dimension table
+
+|button| **Tentative Assign**: Assign the selected resonance to atoms in a fuzzy or putative manner
+
+|button| **Deassign Resonance**: Remove atomic assignments from the selected resonance
+
+|button| **Deassign Spin System**: Remove residue or spin system assignments from the selected resonance
+
+|button| **Clear Dim Contrib**: Disconnect the selected resonance from the peak dimension it its currently linked to
+
+|button| **Set Same Spin System**: Set all resonances assigned to the peak dimensions to be in the same spin system
+
+|button| **Show On Structure**: Show any atomic connectivities on a graphical structure display. If the peak is assigned the assigned connections are used, otherwise potential possibilities are displayed
+
+|button| **Show Peaks**: Show a table of all the peaks currently assigned to the selected resonance
+
+|button| **Merge Resonances**: Merge the selected resonance with the others assigned to the same peak dimension
+
+|button| **Resonance Info**: Show a table of information for the selected resonance, including the shifts of all the peaks it is linked to
+

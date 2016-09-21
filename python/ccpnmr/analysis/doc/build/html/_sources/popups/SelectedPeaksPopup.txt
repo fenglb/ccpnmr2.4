@@ -1,0 +1,189 @@
+=====================
+Peak : Selected Peaks
+=====================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Show a Subset of Peaks in Tabular Form**
+
+The idea behind this table is to give a textual listing of a particular subset
+of peaks. This table may be shown in two separate contexts; to represent all
+the peak entities which may be selected in one or more spectrum window
+displays inside Analysis, or it may be used by the various [Show Peaks]
+functions inside Analysis. When used for the display of in-spectrum
+selections, this table may be opened from the main Analysis menu or via the
+"Peak::Selection Table" option of the right-click window (shortcut is "s").
+Also, the contents of this table changes as the selected peaks change, thus
+representing the current selection status.
+
+The listed peaks may be from several different spectra of any dimensionality
+or type. Putting the peak selection into a table of this kind allows the user
+to make easy comparisons and editing of their parameters, e.g in terms of
+assignment or intensity, and also provides links to other kinds of
+information. For example the user can go from the selected peaks to the
+resonances that are assigned to those peaks. Double-clicking on the editable
+columns of the table allows many of the parameters to be directly edited,
+although discretion is recommended for certain operations like changing
+positions and intensity values.
+
+**Spectrum Window Navigation**
+
+The options above the peak table provide functions that allow the user to
+locate and mark peaks within the spectrum display windows. The [Strip
+Selected] and [Find Peak] options are used to find particular peaks that have
+been selected in the table (with left-click +/- <Ctrl>/<Shift>). The former
+sub-divides the locations for separate peaks using strips (window dividers)
+and the latter locates only the last selected peak. The [Strip Locations] and
+[Go To Position] work in a similar way, except that they use only the
+*position information* from the selected peaks and don't necessarily display
+the actual selected peaks. The idea here is that peak positions can be used to
+move the display of any spectrum window that share at least some of the same
+kind of isotopes on their axes. For example a 2D 15N HSQC peak can be used to
+find an amide position (H & N) in 3D HNcoCA spectrum, thus locating two out of
+three axes. This functionality is very useful when some peak lists are used as
+"roots" to coordinate others.
+
+**Button Functions**
+
+The buttons below the main peak table allow the user to edit and view many
+types of data associated with the peaks, although many parameters may be
+changed by double-clicking in the peak table. Some notable functions include:
+[Unalias] which is used to move 'ghost' peaks to their real underlying ppm
+values by adding or subtracting a whole number of spectrum widths to their
+position. This is used when a peak lies outside the normal recorded bounds of
+the spectrum but nonetheless still appears within it because as an aliased
+signal;  [Assign] opens the `Assignment Panel`_ to control which resonances
+have been linked to the dimensions of the peak; to indicate what caused the
+peak. Such assignments may be to the resonances of specific atoms or resonances
+that are currently anonymous;  [Deassign] clears all of the resonance
+assignments to the peak dimensions. This does not affect how the resonances
+may be connected to atoms;  [Set Details] allows the user to set the "Details"
+column for all of the peaks selected in the table with a single operation;
+[Propagate Assign] spreads resonance assignments from one peak (the last
+selected) to the others selected in the table, which is useful even if not all
+of the peak dimensions are the same type, for example when spreading amide H &
+N resonances from an HSQC peak to 3D triple-resonance peaks.
+
+**Caveats & Tips**
+
+If you need the peak positions to be displayed in Hz units or as data point
+positions, the "Position Unit" pulldown at the top may be changed.
+
+The [Set Details] function can be handy for marking peaks that cause violations
+in a structure calculation and thus need further attention.
+
+.. _`Edit Peak`: EditPeakPopup.html
+.. _`Assignment Panel`: EditAssignmentPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Strip Selected**: Use the positions of the selected peaks to specify strip locations in the selected window
+
+|check| **Find Peak**: Locate the currently selected peak in the specified window
+
+|pulldown| **Window**: Choose the spectrum window for locating peaks or strips
+
+|check| **Mark Found**: Whether to put a cross-mark though peaks found in a given window
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+|button| **Strip Locations**: Use the selected peak positions to specify strip positions in a higher dimensionality window.
+
+|check| **Go To Position**: Use the selected peak position to navigate to a location in a higher dimensionality window
+
+|pulldown| ***None***: Choose the higher dimensionality spectrum window to use as a navigation & strip target
+
+|button| **Mark Selected**: Put multidimensional cross-marks through selected peaks
+
+|pulldown| **Position Unit**: Choose whether to display peak positions in ppm, Hz or points
+
+=============  ===================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------
+   *Spectrum*  Experiment:spectrum of peak 
+       *List*  Peak list number 
+       *Peak*  Peak serial number 
+     *Height*  Magnitude of spectrum intensity at peak center (interpolated), unless user edited  *(Editable)*
+     *Volume*  Integral of spectrum intensity around peak location, according to chosen volume method  *(Editable)*
+      *Merit*  Figure of merit value for peak; zero: "bad" one: "good"  *(Editable)*
+    *Details*  User editable textual comment for peak  *(Editable)*
+ *Fit Method*  Method used to fit the peak location  *(Editable)*
+*Vol. Method*  Method used to calculate the peak volume integral  *(Editable)*
+=============  ===================================================================================================
+
+
+
+|button| **Add**: Add a new peak, specifying its position
+
+|button| **Edit**: Edit the position of the currently selected peak
+
+|button| **Unalias**: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position
+
+|button| **Delete**: Delete the currently selected peaks
+
+|button| **Assign**: Assign the dimensions of the currently selected peak
+
+|button| **Deassign**: Remove all assignments from the currently selected peaks
+
+|button| **Set Details**: Set the details field of the currently selected peaks
+
+|button| **Set As Current**: Set the peaks selected in the table as the ones selected in the spectrum windows
+
+|button| **Resonances**: Show a table of resonances assigned to the selected peaks
+
+|button| **Deassign Dim**: Deassign a specified dimension of the selected peaks
+
+|button| **Recalc Fit**: Recalculate the center, height and line width of the selected peaks
+
+|button| **Recalc Volume**: Recalculate the volume of the selected peaks
+
+|button| **Show On Structure**: Show the assignment connections of the selected peaks on the selected structure
+
+|button| **Propagate Assign**: Spread the resonance assignments of the peak last selected to all selected peaks
+
+|button| **Propagate Merit**: Copy the merit value of the last selected peak to all selected peaks
+
+|button| **Propagate Details**: Copy the details of the last selected peak to all selected peaks
+

@@ -1,0 +1,1781 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>AssignmentBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="ChemicalShiftBasic" href="ChemicalShiftBasic.html" />
+    <link rel="prev" title="Python Library Documentation" href="../codingLibrary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ChemicalShiftBasic.html" title="ChemicalShiftBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../codingLibrary.html" title="Python Library Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.AssignmentBasic">
+<span id="assignmentbasic"></span><h1>AssignmentBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.AssignmentBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.addPeakResonancesToSeqSpinSystems">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">addPeakResonancesToSeqSpinSystems</tt><big>(</big><em>peak</em>, <em>seqOffsets</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.addPeakResonancesToSeqSpinSystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the spin systems of a peak&#8217;s resonances to have sequential
+connectivity according to sequence offsets. Sequence offsets for
+HN(CO)CA would be (None,-1,None), for H,C,N dims</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Int (Nmr.ResonanceGroupProb.sequenceOffset)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ResonanceGroups</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.addPeakResonancesToSpinSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">addPeakResonancesToSpinSystem</tt><big>(</big><em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.addPeakResonancesToSpinSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the resonances assigned to given peaks to a spin system.
+Makes a new spin system if none exists for the resonances
+Multiple spin systems will be merged, if present, for resonances upon confirmation</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.addSpinSystemResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">addSpinSystemResonance</tt><big>(</big><em>spinSystem</em>, <em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.addSpinSystemResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a resonance to a given spin system</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Resonances (belonging to the spin system)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.aliasedPeakDimPosition">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">aliasedPeakDimPosition</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.aliasedPeakDimPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the position in PPM for a peak dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (ppm)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.areResonancesProchiral">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">areResonancesProchiral</tt><big>(</big><em>resonanceA</em>, <em>resonanceB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.areResonancesProchiral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a pair of resonances are assigned to a
+potentially prochiral pair of atoms.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignAtomsToRes">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignAtomsToRes</tt><big>(</big><em>atomSets</em>, <em>resonance</em>, <em>resonanceSet=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignAtomsToRes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a resonance to given atom sets via a resonanceSet (optionally specified)
+Checks ensure that the resonance ends up in the correct spin system</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.AtomSets, Nmr.Resonance, Nmr.ResonanceSet</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignPeakDim">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignPeakDim</tt><big>(</big><em>resonance</em>, <em>peakDim</em>, <em>atomSets=None</em>, <em>contrib=None</em>, <em>tolerance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignPeakDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns a given peak dimension to a given resonance,
+via a given peakDim contribution if specified
+and assign the resonance to atom sets if specified</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.Resonance, Nmr.PeakDim, List of Nmr.AtomSets,</dt>
+<dd>Nmr.PeakDimContrib, Float</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimContrib</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignResToDim">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignResToDim</tt><big>(</big><em>peakDim</em>, <em>resonance=None</em>, <em>contrib=None</em>, <em>tolerance=None</em>, <em>doWarning=True</em>, <em>peakContribs=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignResToDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a resonance to a peak dimension, via a specified
+peakDimContrib if needed. Assigns a new resonance if none
+is input. Can also specify a set of peakContribs (grouped
+assigment possibilities) that the assignment relates to.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.PeakDim, Nmr.Resonance, Nmr.PeakDimContrib, Float</dt>
+<dd>Boolean, List of Nmr.PeakContribs</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimContrib</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignResonanceResidue">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignResonanceResidue</tt><big>(</big><em>resonance</em>, <em>residue</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignResonanceResidue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the assignment of a resonance to a given residue if an 
+appropriately named atom set can be found for the resonance&#8217;s
+assignName.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignResonanceType">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignResonanceType</tt><big>(</big><em>resonance</em>, <em>atomSets=None</em>, <em>assignNames=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignResonanceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the assign names for a resonance according to given AtomSets or atom names
+without performing a real assignment. If no atom sets or assign names are given
+then all typing information is removed.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, List of Nmr.AtomSets or None, List of Words or NOne</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignSpinSystemResidue">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignSpinSystemResidue</tt><big>(</big><em>spinSystem</em>, <em>residue=None</em>, <em>warnMerge=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignSpinSystemResidue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect a given spin system to a residue. Resonances in the spin
+system are assigned where possible. Also used to disconnect from
+a residue if Residue is None. Optionally merge spin systems
+assigned to same residue, given warning.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.Residue, Boolean, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignSpinSystemType">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignSpinSystemType</tt><big>(</big><em>spinSystem</em>, <em>ccpCode=None</em>, <em>molType=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignSpinSystemType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns a spin system to a given type of possible residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Word(Molecule.MolResidue.ccpCode),
+Word(Molecule.MolResidue.molType)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignTentativeAtoms">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignTentativeAtoms</tt><big>(</big><em>atomSets</em>, <em>resonance</em>, <em>weight=1.0</em>, <em>doWarnings=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignTentativeAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a tentative/provisional/trial assignment from 
+a resonance to the input atoms. Optionally set weight of the
+tentative assignment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.AtomSets, Nmr.Resonance, Float, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.assignTentativeSpinSystemResidues">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">assignTentativeSpinSystemResidues</tt><big>(</big><em>spinSystem</em>, <em>residues</em>, <em>weight=1.0</em>, <em>doWarnings=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.assignTentativeSpinSystemResidues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a tentative/provisional/trial residue assignments 
+for a given spin system. Optionally set weight of the
+tentative assignment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, List of MolSystem.Residues, Float, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ResidueProbs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.averageShiftValue">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">averageShiftValue</tt><big>(</big><em>shift</em>, <em>simulatedPeakScale=0.0001</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.averageShiftValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the value and error for a given shift based upon the
+peaks to which its resonance is assigned. Also sets links to
+appropriate peaks and peak dims. Optional float to scale simulated
+peak contributions (normally so that they have much less influence)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Shift, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (shift.value)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.clearPeakDim">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">clearPeakDim</tt><big>(</big><em>peakDim</em>, <em>contrib=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.clearPeakDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear a peak dimension of any or a specified peakDim contribution
+Recalculates shifts of the resonances involved</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Nmr.PeakDimContrib</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.clearResonancePeakDimContribs">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">clearResonancePeakDimContribs</tt><big>(</big><em>resonance</em>, <em>peaks=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.clearResonancePeakDimContribs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a resonance&#8217;s peak dim contributions present in a 
+specified list of peaks or all peaks in project (if peak=None)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, List of Nmr.Peaks</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.clearSeqSpinSystemLinks">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">clearSeqSpinSystemLinks</tt><big>(</big><em>spinSystem</em>, <em>delta=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.clearSeqSpinSystemLinks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove sequential links for a spin system. A sequence offset may be specified
+otherwise all sequential links are removed.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.deassignResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">deassignResonance</tt><big>(</big><em>resonance</em>, <em>clearAssignNames=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.deassignResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnects a resonance from any assigned atomSets.
+Option to remove previous assignment atom names</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findConnectedSpinSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findConnectedSpinSystem</tt><big>(</big><em>spinSystem</em>, <em>delta=-1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findConnectedSpinSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a spin system sequentially connected to the input one with given sequence offset.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findConnectedSpinSystems">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findConnectedSpinSystems</tt><big>(</big><em>spinSystem</em>, <em>delta=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findConnectedSpinSystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find spin systems sequentially connected to the input one with given sequence offset.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Int  
+.. describe:: Output</p>
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findFirstAtomShiftInShiftList">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findFirstAtomShiftInShiftList</tt><big>(</big><em>atom</em>, <em>shiftList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findFirstAtomShiftInShiftList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the first shift in a shiftList for the specified atom.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Atom, Nmr.ShiftList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Shift</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findMatchingPeakDimShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findMatchingPeakDimShifts</tt><big>(</big><em>peakDim</em>, <em>shiftRanges=None</em>, <em>tolerance=None</em>, <em>aliasing=True</em>, <em>findAssigned=False</em>, <em>ppm=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findMatchingPeakDimShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>For peakDim give the NMR shifts within a tolerance
+(which may be specified) of its position in a given set of ranges
+with options if the peakDim position might be aliased
+and to find only shifts with resonances assigned to atoms.
+Obeys molSystem assignments for atom linked peaks - these
+must match the peakDim&#8217;s experiment molSystems.
+Option to pas in an alternative ppm value if the main peakDim value
+is not to be used (e.g. reduced dimensionality MQ etc).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, List of Tuples (Float, Float) Float, Boolean, Boolean, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Shifts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findMatchingShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findMatchingShifts</tt><big>(</big><em>dataDimRef</em>, <em>position</em>, <em>tolerance=None</em>, <em>findAssigned=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findMatchingShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a dataDimRef give the NMR shifts within a tolerance
+(which may be specified) to a given position with an option
+to find only shifts with resonances assigned to atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataDimRef, Float, Float, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Shifts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findResonanceSet">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findResonanceSet</tt><big>(</big><em>resonance</em>, <em>atomSets</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findResonanceSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the resonance set, if any, that connects a resonance to given atomSets
+Or that is shared between atomSets</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, List of Nmr.AtomSets</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.findSpinSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">findSpinSystem</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.findSpinSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the spin system in which a resonance resides
+makes a new spin system if none is found</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getAliasedPeakDimPositions">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getAliasedPeakDimPositions</tt><big>(</big><em>peakDim</em>, <em>shiftRanges=None</em>, <em>ppm=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getAliasedPeakDimPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give all the aliased/unaliased positions of a peakDim either in a
+specified shift range or the full range for the dimension type.
+Units for the shift ranges are ppm. Note this function uses the
+peakDim.realValue, i.e. center of couplings for main assignment.
+Use the PeakBasic version if the actual extremum location should
+be used. Optional ppm argument if main position is not the one
+to be considered, e.g. in reduced dimensionality or MQ.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, List of (Tuples of Floats (MinShift,MaxShift) )</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (Nmr.PeakDim.positions)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getAmbigProchiralLabel">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getAmbigProchiralLabel</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getAmbigProchiralLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deterimine if an ambigous prochiral resonance (non-stereospecifically assigned)
+Has an &#8220;a&#8221; label or a &#8220;b&#8221; label. &#8220;a&#8221; is reserved for the upfield proton and any
+other nulceus bound to it.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Character</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getAtomSetShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getAtomSetShifts</tt><big>(</big><em>atomSet</em>, <em>shiftList=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getAtomSetShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the shifts that an atom set may be assigned to in a specified shift list
+or the first shift list in the project if none is specified.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AtomSet, Nmr.ShiftList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Shifts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getBoundResonances">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getBoundResonances</tt><big>(</big><em>resonance</em>, <em>recalculate=False</em>, <em>contribs=None</em>, <em>doWarning=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getBoundResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all resonances that have a single bond connection to the input resonance
+Option to recalculate given assignment status (e.g. if something changes)
+Option to specify peakDimContribs to search</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Boolean, List of Nmr.PeakDimContribs</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Resonances</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getDataDimFullShiftRange">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getDataDimFullShiftRange</tt><big>(</big><em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getDataDimFullShiftRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the min and max possible chem shifts for a spectrums data dim
+based on set min/max epDim frequencies or full spec with</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.FreqDataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getFixedResonanceName">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getFixedResonanceName</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getFixedResonanceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the name for a fixedResonance, based upon a normal resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getOnebondResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getOnebondResonance</tt><big>(</big><em>resonance</em>, <em>isotopeCode=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getOnebondResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find any resonance that may have a single bond connetion to the input resonance
+Option to specify the isotope type</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance.isotopeCode</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Rssonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getPeakDimAtomTuple">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getPeakDimAtomTuple</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getPeakDimAtomTuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give a tupe of string identifiers for a peakDim indicating, chain, residue and atomic assignment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>3-Tuple of Words</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getPeakDimFullShiftRange">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getPeakDimFullShiftRange</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getPeakDimFullShiftRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the min and max possible chem shifts for a peak dim
+based on set min/max epDim frequencies or full spec with</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getPeakDimPpm">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getPeakDimPpm</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getPeakDimPpm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the position in PPM for a given peak dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (ppm)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResidueResonances">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResidueResonances</tt><big>(</big><em>residue</em>, <em>atomType=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResidueResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the resonances (for a given atom type if specified) assigned to a given residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Residue, Word (ChemComp.ChemAtom.elementSymbol)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Resonances</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonanceAtomTuple">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonanceAtomTuple</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonanceAtomTuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give a tupe of string identifiers for a resonance
+indicating, chain, residue and atomic assignment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Tuple of Words (MolSystem.Chain.code,
+MolSystem.Residue identifier, Nmr.Resonance identifier)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonanceLabellingFraction">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonanceLabellingFraction</tt><big>(</big><em>resonance</em>, <em>labelling</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonanceLabellingFraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fraction of labelling for a given resonance&#8217;s assignment
+or make a guess if it is atom typed and in a residue typed spin system.
+Can work with a reference isotopomer scheme or a labeled mixture.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, ChemComLabel.LabelingScheme or LabeledMolecule.LabeledMixture</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonanceMolSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonanceMolSystem</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonanceMolSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find, if any exists, the molecular system associated with a given resonance
+by virtue of a direct assignment or spin system link.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.MolSystem or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonanceName">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonanceName</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonanceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a name for a resonance or fixedResonance based upon its assignment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance or NmrConstraint.FixedResonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonancePairLabellingFraction">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonancePairLabellingFraction</tt><big>(</big><em>resonanceA</em>, <em>resonanceB</em>, <em>labelling</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonancePairLabellingFraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fraction of a pair of resonances both being labelled
+given a labelling scheme. Considers individual isotopomers if
+the resonances are bound within the same residue.
+Can work with a reference isotopomer scheme or a labeled mixture.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance,
+ChemComLabel.LabelingScheme or LabeledMolecule.LabeledMixture</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getResonanceResidue">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getResonanceResidue</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getResonanceResidue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the residue, if any, to which a resonance is assigned via atomSets etc</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Residue or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getSeqSpinSystemLinks">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getSeqSpinSystemLinks</tt><big>(</big><em>spinSystem</em>, <em>delta=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getSeqSpinSystemLinks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get any sequential spin system links (resonanceGroupProbs).
+An optional sequence offset may be specified.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ResonanceGroupProbs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getShiftLists">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getShiftLists</tt><big>(</big><em>nmrProject</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getShiftLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the shift lists associated with an NMR project.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrProject</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ShiftList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getSpinSystemChemComps">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getSpinSystemChemComps</tt><big>(</big><em>spinSystem</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getSpinSystemChemComps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a ChemComps that spin system is assigned to, or tentatively assigned to.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>list of MolSystem.Residue. Contains no duplicates</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getSpinSystemResidues">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getSpinSystemResidues</tt><big>(</big><em>spinSystem</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getSpinSystemResidues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a residues that spin system is assigned to, or tentatively assigned to.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>list of MolSystem.Residue. Contains no duplicates</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.getSyntheticShiftLists">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">getSyntheticShiftLists</tt><big>(</big><em>nmrProject</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.getSyntheticShiftLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the synthetic shift lists associated with an NMR project.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrProject</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ShiftList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.initResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">initResonance</tt><big>(</big><em>resonance</em>, <em>doMerge=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.initResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise a resonance. If the resonance is assigned it is
+placed in a spin system if appropriate and its assignName is set.
+Optional argument to set whether merging spin systems is allowed.
+Typically this is not allowed upon load, but is allowed when
+assigning within Analysis.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isAtomAssigned">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isAtomAssigned</tt><big>(</big><em>atom</em>, <em>toPeaks=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isAtomAssigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if an atom is assigned to any resonances, with
+an optional argument to check if the resonances are linked
+to peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Atom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isChainAssigned">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isChainAssigned</tt><big>(</big><em>chain</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isChainAssigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if an NMR chain has any atoms in its
+residues that are assigned to resonances</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Chain</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isOnebondMismatched">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isOnebondMismatched</tt><big>(</big><em>peakDim</em>, <em>resonance</em>, <em>spectrum=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isOnebondMismatched" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check to make sure a resonance to peakDim assignment obeys
+experimental onbond relationshps.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Nmr.Resonance, Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String (warning message) or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isPeakAssigned">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isPeakAssigned</tt><big>(</big><em>peak</em>, <em>fully=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isPeakAssigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if a peak is assigned, ether fully or partially</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Peak, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isResidueAssigned">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isResidueAssigned</tt><big>(</big><em>residue</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isResidueAssigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if an NMR residue has any atoms that are assigned to resonances</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.isShiftInRange">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">isShiftInRange</tt><big>(</big><em>shiftValue</em>, <em>shiftRanges</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.isShiftInRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether a chemical shift value is contained within
+one of the input ranges.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Float (Nmr.Shift.value), List of Tuples of Floats (min, max range bounds)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.makeAtomSetsGuiName">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">makeAtomSetsGuiName</tt><big>(</big><em>atomSets</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.makeAtomSetsGuiName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the name of a given set of atoms for GUIs</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.AtomSets</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.makePeakDimAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">makePeakDimAnnotation</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.makePeakDimAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an annotation string for a given peak dimension according to its assignment status</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String (Nmr.PeakDim.annotation)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.makeResonanceGuiName">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">makeResonanceGuiName</tt><big>(</big><em>resonance</em>, <em>fullName=True</em>, <em>doAtoms=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.makeResonanceGuiName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the name of a resonance for GUIs. Either full identifier or
+just the atom type name (if any), Option to force the display
+of atom assignements set doAtoms to Ture/False</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Boolean, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.makeSeqSpinSystemLink">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">makeSeqSpinSystemLink</tt><big>(</big><em>spinSystemA</em>, <em>spinSystemB</em>, <em>delta=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.makeSeqSpinSystemLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a sequential link with a give offset between two spin systems.
+Assigning A to B with a delta of 1 assumes B is C-terminal/upstream of A</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.ResonanceGroup, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroupProb</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.mergeResonances">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">mergeResonances</tt><big>(</big><em>resonanceB</em>, <em>resonanceA</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.mergeResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge two resonances and their shifts into one</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.mergeSpinSystems">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">mergeSpinSystems</tt><big>(</big><em>spinSystemB</em>, <em>spinSystemA</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.mergeSpinSystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the resonances from two spin systems into one spin system</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.ResonanceGroup</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.newPeakDimContrib">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">newPeakDimContrib</tt><big>(</big><em>peakDim</em>, <em>resonance</em>, <em>peakContribs=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.newPeakDimContrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a peakDim to resonance assignment via a PeakDimContrib.
+Optional argument to specify which PeakContrib assignment
+possibilities the peakDim assignment relates to.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Nmr.Resonance, List of Nmr.PeakContribs</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimContrib</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.newResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">newResonance</tt><big>(</big><em>project</em>, <em>isotopeCode='unknown'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.newResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new resonance in a given project. Sets initial isotopeCode.
+Uses the current NMR project.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Word (Resonance.isotopeCode)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.newSpinSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">newSpinSystem</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.newSpinSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new spin system for a project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup (spin system)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.propagatePeakAssignments">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">propagatePeakAssignments</tt><big>(</big><em>peaks</em>, <em>refPeak=None</em>, <em>cleanNonRef=False</em>, <em>tolerances=None</em>, <em>warnUnalias=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.propagatePeakAssignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Propogates approprate assignments across a group of peaks
+e.g. to spead F1 F3 assignments to a column of peaks in the same spin system.
+If a refPeak is present it will not be affected but its assignments will
+be used instead of the assignments from the other peaks.
+cleanNonRef Boolean option is used when there is a reference peak so
+that the non-reference peaks may be cleaned prior to propagation.
+Optional argument to pass in the tolerences for each dimension.
+Note peaks can be of different dimensions, but if you pass in 
+tolerances, tolerances map 1:1 to peak.sortedPeakDims()</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Nmr.Peak, Boolean, Dict of Resonance.isotopeCode:Float, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.removeAssignmentNotifiers">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">removeAssignmentNotifiers</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.removeAssignmentNotifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the notification calls to automatically update annotations
+and quick shift lookups when assignments change.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.removeSpinSystemResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">removeSpinSystemResonance</tt><big>(</big><em>spinSystem</em>, <em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.removeSpinSystemResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a resonance from a given spin system</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.setAssignmentMolSystem">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">setAssignmentMolSystem</tt><big>(</big><em>residue</em>, <em>peakDim=None</em>, <em>resonance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.setAssignmentMolSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the MolSystem.Molsystem for all experiments with assignments to a given
+resonance and/or the experiment for a given peakDim
+Displays a warning if an assignment is made outside an experiment&#8217;s
+list of molSystems.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, Nmr.PeakDim, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.setQuickShiftList">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">setQuickShiftList</tt><big>(</big><em>shift</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.setQuickShiftList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up a list of lists of shifts for a shift list
+accessed by shift.value: quicker than searching all</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Shift</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.setResonanceTypeFromRefExp">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">setResonanceTypeFromRefExp</tt><big>(</big><em>resonance</em>, <em>refExpDimRef</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.setResonanceTypeFromRefExp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a resonance&#8217;s assign names based on a refExpDimRef
+to which it is assigned. Currently limited to CO, CA, CB, HA.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, NmrExpPrototype.RefExpDimRef</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.setupAssignmentNotifiers">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">setupAssignmentNotifiers</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.setupAssignmentNotifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the notification calls to automatically update annotations
+and quick shift lookups when assignments change.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.splitResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">splitResonance</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.splitResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split assignments that were once thought to be from one resonance
+into assignments from two.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.swapProchiralResonance">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">swapProchiralResonance</tt><big>(</big><em>resonance</em>, <em>makeAmbiguous=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.swapProchiralResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a resonance is assigned to a prociral centre in a stereospecific manner, change
+the assignment to the other prochiral atom set. Automatically swaps over any other
+resonance that may be assigned to the other prochiral option.
+If the makeAmbiguous option is True then the unambiougously assigned resonances
+are changed to ambigous assignments by assigning resonances to both prochiral options.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.swapSpinSystemResonances">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">swapSpinSystemResonances</tt><big>(</big><em>spinSystemB</em>, <em>spinSystemA</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.swapSpinSystemResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swaps the resonances for as pair of spin systems.
+Spin systen assignments updates according to resonance assignments</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceGroup, Nmr.ResonanceGroup</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateAllShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateAllShifts</tt><big>(</big><em>shiftList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateAllShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recalculate the values for all shifts in a shift list given peak assignments</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ShiftList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateAtomSetMapping">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateAtomSetMapping</tt><big>(</big><em>atomSetMapping</em>, <em>atomSets=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateAtomSetMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh an AtomSetMapping according to the current assignment status.
+AtomSets optionally passed into increase speed</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.AtomSetMapping, List of Nmr.AtomSets</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateContribPeakDimAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateContribPeakDimAnnotation</tt><big>(</big><em>contrib</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateContribPeakDimAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates annotation string for the peak dimension of a given
+contribution according to its assignment status</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimContrib</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateDataDimShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateDataDimShifts</tt><big>(</big><em>analysisDataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateDataDimShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shifts of resonances assigned to a given dim of peaks
+of a given spectrum. Required if the spectrum data dims chem shift
+weighting changes.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.AnalysisDataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updatePeakDimShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updatePeakDimShifts</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updatePeakDimShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shifts of resonances assigned to
+a peakDim if that peakDim changes</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updatePeakShifts">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updatePeakShifts</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updatePeakShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shifts of resonances assigned to a peak.
+Required if the peak&#8217;s figure of merit changes</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResidueAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResidueAnnotation</tt><big>(</big><em>residue</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResidueAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the annotations for the peaks assigned to a residues resonances</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResidueProbAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResidueProbAnnotation</tt><big>(</big><em>residueProb</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResidueProbAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the annotations for the peaks assigned to a resonances
+within a spin system that has a tentative assignment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResidueProb</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResonShift">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResonShift</tt><big>(</big><em>resonance</em>, <em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResonShift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shift values (and error) for a given resonance
+given assignment to a given peak dimension. The shift list is approriate
+to the peakDim&#8217;s experiment. Note that shift to peak and shift to peak
+dim links are also set.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.PeakDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResonanceAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResonanceAnnotation</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResonanceAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the annotations for the peaks assigned to a given resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResonanceGroupAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResonanceGroupAnnotation</tt><big>(</big><em>spinSystem</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResonanceGroupAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the annotations for the peaks assigned to a resonances
+within a spin system.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResidueProb</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.AssignmentBasic.updateResonanceSetAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.AssignmentBasic.</tt><tt class="descname">updateResonanceSetAnnotation</tt><big>(</big><em>resonanceSet</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.AssignmentBasic.updateResonanceSetAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the annotations for the peaks assigned to a resonanceSet&#8217;s resonances</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ResonanceSet</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../codingLibrary.html"
+                        title="previous chapter">Python Library Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ChemicalShiftBasic.html"
+                        title="next chapter">ChemicalShiftBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/AssignmentBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ChemicalShiftBasic.html" title="ChemicalShiftBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../codingLibrary.html" title="Python Library Documentation"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

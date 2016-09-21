@@ -1,0 +1,166 @@
+==================================
+Structure : Make H Bond Restraints
+==================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Create Hydrogen Bond Restraints**
+
+This popup allows the user to make simple distance-based hydrogen bond
+restraints for structure determination. These restraints are essentially the
+same as other distance restraints, although a single hydrogen bond is usually
+restrained with a complementary pair of restraints: one restraint is between
+the hydrogen and the acceptor atom site (usually a backbone carbonyl oxygen in
+proteins) and the other is between donor and acceptor heavy atoms (e.g.
+between protein backbone amide nitrogen and carbonyl oxygen). This combination
+of restraints work together to give an energy minimum for the restraint when
+the donor, hydrogen and acceptor atoms are co-linear; a known optimum for
+hydrogen bonds.
+
+To make hydrogen bond restraints the user first selects various options from
+the upper pulldown menus: a restraint set that groups the h-bond restraints
+with other restraint lists, an H-bond type restraint list that the individual
+restraints are place in, and a molecular system to specify which set of atoms
+the restraints are between.
+
+Next the "New H Bond Type" should be checked, but the default "N-H..O=C" is
+already set for polypeptide backbone H-bonds. The various default distances can
+be adjusted to specify what the restrained values will initially be, although
+the user can make manual adjustments (including by setting and propagating new
+defaults) afterwards. The "Lower Limit", "Target" and "Upper Limit" distances
+refer to the separation between the hydrogen and its acceptor. The distance
+between the donor heavy atom and the acceptor atom are made automatically
+based on the "X-H" bond length setting. Specifically, the target distance for
+the heavy atoms' restraint will be the hydrogen to acceptor distance plus
+the bond length. Also, the upper and lower limits for these atoms will follow
+the same proportions as the hydrogen to acceptor values; the values will be
+the same fractions of the target distances.
+
+Hydrogen bond restraints can be added using [Add New] and then setting the
+Atom A and Atom B values by double clicking in the table and selecting the
+required atom sites. Note that generally the user only needs to set the
+hydrogen to acceptor restraints. The heavy atoms' restraint is made afterwards
+by pressing the [Make Co-linear Restraints] button. It notable that this
+function will actually add any missing restraint of a co-linear pair.
+
+**Evidence**
+
+This system relies upon the user having a reasonable and unbiased judgement
+about the location of hydrogen bond in a molecular structure. Whenever H-bond
+restraints are made the user should always be aware of the evidence for
+particular hydrogen bond. It is possible to get nice looking but otherwise
+fictitious structures by using hydrogen bond restraints too liberally.
+
+Often H-bond evidence often comes from knowledge of protein secondary
+structure (particularly alpha-helix for i to i+4 links ), which in turn can be
+deduced using chemical shift data, for example using DANGLE_, or confident
+comparative modelling of protein homologues. Also, there are some NMR
+experiments that will exploit spin couplings over hydrogen bonds themselves.
+Whatever the source of confidence about hydrogen bonds, using them as
+restraints generally requires that consistency with any other structural data
+is checked, for example by violation analysis. With NOE data for example it is
+prudent to generate initial protein structures without any H-bond information
+and only add-in H-bond restraints if they would be consistent with the initial
+NOE-derived conformations. In this way 'low evidence' hydrogen bonds can be
+added to improve the later stages of structure refinement without having an
+undue influence of the general fold of a structure.
+
+.. _DANGLE: DangleGui.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **Restraint Set**: Selects which restraint set the selected, or new, hydrogen bond restraint list resides in
+
+|pulldown| **H Bond List**: Selects which hydrogen bond restraint list to display; may be set to "<New>" to put restraints in a new list
+
+|pulldown| **MolSystem**: Selects which molecular system (group of chains) to make restraints for; sets which atoms are available for selection
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+H Bonds Table
+=============
+
+Allows the setup of individual hydrogen bond restraints
+
+Default Distances
+~~~~~~~~~~~~~~~~~
+
+
+|float| **1.73**: Set the lower distance limit, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted
+
+|float| **2.2**: Set best-fit/target distance, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted
+
+|float| **2.7**: Set the upper distance limit, in Angstrom, to apply to new hydrogen bond restraints; each limit may be subsequently adjusted
+
+|float| **1.0**: The distance between the hydrogen and its covalently bound partner atom; user to make co-linearity restraints
+
+|pulldown| **New H Bond Type**: Selects which kind of hydrogen bond is being made, with respect to the kinds of atoms involved
+
+Hydrogen Bond Restraints
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=================  ======================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------------
+         *Atom A*  The donor hydrogen atom involved in the hydrogen bond restraint  *(Editable)*
+         *Atom B*  The acceptor atom involved in the hydrogen bond restraint  *(Editable)*
+    *Lower Limit*  The lower distance bound value for the restraint, in Angstrom  *(Editable)*
+*Target Distance*  The best-fit/target distance for the hydrogen bond restraint, in Angstrom  *(Editable)*
+    *Upper Limit*  The upper distance bound value for the restraint, in Angstrom  *(Editable)*
+=================  ======================================================================================
+
+
+
+|button| **Add New**: Add a new hydrogen bond restraint to the selected list; the acceptor and donor atoms etc. are set subsequently
+
+|button| **Delete Selected**: Delete selected hydrogen bond restraint from the list
+
+|button| **Set Default Distances**: Set the selected hydrogen bond restraints to have the default upper, lower and target distances
+
+|button| **Delete List**: Delete the whole hydrogen bond restraint list
+
+|button| **Make Co-linear Restraints**: Make any complementary restraints which restrain co-linearity of X-H..Y bonds
+

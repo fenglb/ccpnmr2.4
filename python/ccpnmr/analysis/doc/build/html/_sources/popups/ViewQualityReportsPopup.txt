@@ -1,0 +1,282 @@
+============================
+Assignment : Quality Reports
+============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Analyses of Potential Errors and Completeness in Assignment**
+
+This popup presents a series of tables that enables the user to get a sense of
+how complete the assignment is within a given project and whether there are
+any assignments which look like they might be mistakes. This system is not
+designed to say that something is definitely missing or definitely a mistake,
+but rather tries to focus attention to any places where there may potentially
+be a problem. Often something that is highlighted in red as "unusual" merely
+needs checking, to ensure that the user has a good explanation. The layout
+consists of four tabs, each relating to a different aspect of assignment.
+
+**Atom Assign Status**
+
+The first tab contains various categories of atom, from the selected molecular
+system, like "backbone" or "Lys" (for amino acid type lysine). Each category
+has an indication of how many, out of the total available for that type, have
+been assigned and what chemical shift range they cover. This kind of
+information is useful to track the assignment progress of a project and to
+give a final summary. By default the table represents the atoms in the whole
+of the selected molecular system, but the user may specify only a subset by
+typing the appropriate chain letters and residue ranges into the "Residue
+Selection" field.
+
+**Through-Space Status**
+
+The second tab contains a table that gives the counts of various classes of
+through-space connection, e.g. for NOESY experiments. Counts are given on a
+per-chain and per-residue basis. In this way the user can gauge the
+information density that has been or may be used during structure calculation.
+By default the table shows data for all peak lists that have and experiment
+type that is deemed to be "through-space", like NOESY or solid-state
+dipole-dipole. Data may be displayed for only one of these peak lists by
+selecting from the "Peak List" pulldown menu.
+
+**Resonances**
+
+The third table considers all of the resonances that carry chemical shifts in
+a specified shift list. The purpose of this table is to indicate potential
+problems with assignment from the perspective of a resonance, rather than
+peaks, which are covered in the next tab. Three basic category of error
+are highlighted (and appear as red cells):
+
+
+- Each resonance is checked for which others it has covalent bond type
+  connectivity to, considering both atom assignments and the peak dimensions
+  it is assigned to. Typical errors include hydrogens with more than one bound
+  partner and carbons with more than four. Often errors are the result or
+  (redundant) resonance duplication.
+
+- The chemical shift of the resonance is compared to the known shift
+  distribution derived from BioMagResBank data. Outliers are coloured yellow,
+  orange or red in the "Type Score" column according to how unusual
+  the chemical shift is. Even red warnings may actually represent correct
+  atomic assignments, but the user should be able to conform the assignment.
+
+- The distribution of peak dimension position information, from which the
+  chemical shifts are derived, is used to fill the "SD" (standard deviation)
+  and "Max Peak U+0394" columns. The former gives and indication of the width
+  of spread in the shift measurement, and is weighted by spectrum dimension,
+  like all shift measurements in Analysis. The later represents the biggest
+  difference between the chemical shift value (an average) and peak dimension
+  position; and thus is useful for finding outliers, especially where the
+  number of measurements is large and the standard deviation is small.
+
+
+The user may eliminate rows from the table which do not carry any warnings
+by selecting the "Show only alerts" option.
+
+**Peaks**
+
+For a selected peak list, the forth table displays assignment and intensity
+problems on a per-peak basis. Two basic kinds of check are made for each peak:
+
+
+- For each peak any resonances assigned to its dimensions are analysed to
+  highlight potential errors. Some of the checks mirror those found in the
+  "Resonances" tab, e.g. looking for inappropriate covalent bond context.
+  Checks include: missing assignments, like on one side of a covalent pair
+  for an HSQC peak, and seemingly impossible assignments, like having an
+  HSQC peak assigned to two resonances from different residues.
+
+- The intensity (height and volume) measures for each peak are compared to the
+  average for the whole peak list and significant outliers are highlighted.
+  For magnitude comparisons peak heights and volumes are compared in
+  log-space, and red cells indicate three standard deviations from the sample
+  mean of the logarithm of the intensity. Warnings may indicate the presence
+  of problems, like unintentional diagonal peaks, but some very intense or
+  very weak peaks may be expected. A check is also made if the peak sign seems
+  inappropriate e.g. peaks of opposite sign in a NOESY experiment.
+
+
+The user may eliminate rows from the table which do not carry any warnings
+by selecting the "Show only alerts" option.
+
+
+**Caveats & Tips**
+
+Because the analyses are relatively slow to perform the tables will not
+automatically update every time there is an assignment change. If significant
+changes have been made and the tables need to be updated the user can click
+the [Update Table] button to force a refresh.
+
+The [Show Peaks] and [Show Resonances] buttons can be used to display all of
+the peaks and resonances, in tabular form, from which the information in the
+selected rows are derived. These options are not available for the first tab.
+
+Lots of red warnings in the "Resonances" tab, especially in in the "Bound"
+column, may be an indication of a problem with the specification of one or
+more experiment types, rather than a direct problem with the peak assignments.
+Knowledge of which experimental dimensions represent 'onebond' transfers, by
+virtue of peak assignment, indicates which atomic assignments are in a
+covalent bond context. The most common mistakes in this regard are the
+incorrect choice of experiment type or an incorrect choice of dimension order
+(i.e. how the real experiment dimensions map to the CCPN reference). Both of
+these problems may be fixed by considering the "Experiment Types" tab in the
+Experiments_ popup window. Here, most dimension order problems are fixed by
+editing the "Transfers To Dim" column in the lower left table, using the
+user's knowledge of how the dimensions are connected/correlated.
+
+.. _Experiments: EditExperimentPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Atom Assign Status
+==================
+
+*Documentation missing*
+
+|pulldown| **Mol System**: Selects which molecular system (group of chains) to display assignment status information for
+
+|pulldown| **Shift List**: Selects which shift list is used as the source of chemical shift information
+
+|entry| **Residue Selection**: Sets which chain and range of residues to show assignment status for, e.g. "2-10, 13-77" or "A1-99, B20-120"
+
+============  ===================================================================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------------------------------------------------------
+  *Category*  The name of a category into which atoms of the selected chain/residue have been grouped 
+ *Available*  The total number of atoms (or equivalent sets for methyl groups) that are available for assignment within the category 
+  *Assigned*  The number of atoms (or equivalence groups) that have actually been assigned within the category 
+*% Assigned*  The percentage of available atoms (or equivalence groups) hat have been assigned within the category 
+ *Min Shift*  The lowest chemical shift value of the assigned atoms within in the category 
+*Mean Shift*  The average chemical shift value of the assigned atoms within in the category 
+ *Max Shift*  The highest chemical shift value of the assigned atoms within in the category 
+============  ===================================================================================================================================
+
+
+
+Through-Space Status
+====================
+
+*Documentation missing*
+
+|pulldown| **Mol System**: Selects which molecular system (group of chains) to show through-space connectivity information for
+
+|pulldown| **Peak List**: Selects which through-space peak list(s) to show connectivity information for
+
+====================  ================================================================================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       *Seq Element*  The identity of the chain or residue that the data in the row pertains 
+             *Total*  The total number of though-space connections for the chain/residue in the selected peak list(s) 
+     *Intra Residue*  The number of connections that lie within a single residue; do not cross between different residues 
+     *Inter Residue*  The number of connections that cross from one residue to another 
+        *Sequential*  The number of connections between residues that are sequential neighbours 
+       *Short Range*  The number of connections between residues that are within four sequence positions of one another 
+     *Short Non-seq*  The number of connections between residues that are not sequential neighbours but are within four sequence positions of one another 
+        *Long Range*  The number of connections between residues that are five or more sequence positions apart 
+       *Intra Chain*  The number of connections that lie within a single molecular chain 
+       *Inter Chain*  The number of connections that cross between different molecular chains 
+*Contacted Residues*  For a given residue, a list of sequence numbers for all other residues that are connected 
+====================  ================================================================================================================================================
+
+
+
+Resonances
+==========
+
+*Documentation missing*
+
+|pulldown| **Shift List**: Selects which shift list to derive chemical shift values from in the resonance analysis
+
+|check| **Show only alerts**: Sets whether to show only rows in the table for resonances that carry warnings
+
+==============  ==========================================================================================================================================================================================
+**Table 3**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           *#*  The serial number of the resonance 
+        *Iso.*  The nuclear isotope type of the resonance 
+   *Resonance*  The assignment annotation for the resonance; just its serial number in square brackets if unassigned 
+       *Bound*  The assignment annotations of all the other resonances that are considered covalently bound; either by virtue of atom assignments or "onebond" linked experimental dimensions 
+   *BMRB Mean*  When atom assigned, the average chemical shift for the atom type given in BioMagResBank data 
+ *Random Coil*  When atom assigned, the sequence-adjusted random coil chemical shift value for the atom type 
+  *Type Score*  When atom assigned, a score indicating how well the resonance chemical shift fits with the known distribution of shifts for the atom type 
+       *Value*  The chemical shift value of the resonance, in the selected shift list 
+          *SD*  The standard deviation of the chemical shift value; over the peak dimensions to which the resonance is assigned 
+  *Max Peak Δ*  The maximum difference in the averaged chemical shift value and a peak dimension assigned to the resonance 
+*Dim Contribs*  The number of peak dimensions the resonance is assigned to 
+==============  ==========================================================================================================================================================================================
+
+
+
+Peaks
+=====
+
+*Documentation missing*
+
+|pulldown| **Peak List**: Selects which peak list to show peak analyses for
+
+|check| **Show only alerts**: Sets whether to show only rows in the table for peaks that carry warnings
+
+================  =========================================================================================================================================================================
+**Table 4**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             *#*  The serial number of the peak in the selected peak list 
+    *Assignment*  The resonance assignment annotation of the peak 
+ *Assign Errors*  Any error that relate to the peak's resonance assignment 
+      *Location*  The position of the peak, in the units of the experimental axes; usually ppm 
+        *Volume*  The integration volume of the peak; colour indicates deviation from the peak list average on a logarithmic scale 
+   *Log Vol Dev*  The standard deviation of the peak integration volume on a logarithmic scale; highlights strong/weak outliers (which could be genuine) 
+        *Height*  The height intensity of the peak; colour indicates deviation from the peak list average on a logarithmic scale 
+*Log Height Dev*  The standard deviation of the height intensity  on a logarithmic scale; highlights strong/weak outliers (which could be genuine) and inappropriate peak sign 
+================  =========================================================================================================================================================================
+
+
+
+|button| **Update Table**: Manually update the currently viewed table in light of assignment changes etc.
+
+|button| **Show Peaks**: Show a table of the peaks that relate to the selected rows, either directly or by virtue of assignment (depending on the current table)
+
+|button| **Show Resonances**: Show a table of resonances that relate to the selected rows, either directly or by virtue of assignment (depending on the current table)
+

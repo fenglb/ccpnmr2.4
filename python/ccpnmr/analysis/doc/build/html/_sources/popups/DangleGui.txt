@@ -1,0 +1,143 @@
+======
+DANGLE
+======
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**A Bayesian inferential prediction method for protein backbone dihedral angles**
+
+DANGLE (Dihedral ANgles from Global Likelihood Estimates) predicts protein
+backbone Phi and Psi angles and secondary structure assignments solely from
+amino acid sequence information, experimental chemical shifts and a database
+of known protein structures and their associated shifts. This approach
+uses Bayesian inferential logic to analyse the likelihood of conformations
+throughout Ramachandran space, paying explicit attention to the population
+distributions expected for different amino acid residue types.
+
+Simple filtering procedures can identify the most "predictable" residues,
+yielding 92% of all Phi and Psi predictions accurate to within +/-30 degrees.
+In contrast to previous approaches, more than 80% of Phi or Psi predictions
+for glycine and pre-proline are reliable. Furthermore, DANGLE provides
+meaningful upper and lower bounds for the predictions which are shown to
+represent the precision of the prediction. Over 90% of the experimental
+dihedral angles in the set of test proteins are within the boundary ranges
+suggested by DANGLE. At a lower resolution level, the program correctly
+assigns each residue to one of three secondary structure states (H, E or C) in
+85% of cases.
+
+DANGLE also provides an indication of the degeneracy in the relationship
+between shift measurements and conformation at each site.
+
+For more documentation see the `DANGLE web site`_ at SourceForge.
+
+.. _`DANGLE web site`: http://dangle.sourceforge.net/
+
+**Reference**
+
+*Ming-Sin Cheung, Mahon L. Maguire, Tim J. Stevens, and R. William Broadhurst.
+"DANGLE: A Bayesian inferential method for predicting protein backbone
+dihedral angles and secondary structure." Journal of Magnetic Resonance Volume
+202, Issue 2, February 2010, Pages 223-233*
+
+
+
+Main Panel
+==========
+
+
+Options
+~~~~~~~
+
+
+|pulldown| **Chain**: Choose the molecular system chain to make predictions for
+
+|pulldown| **Shift List**: Select the shift list to take input chemical shifts from
+
+|pulldown| **Max No. of Islands**: Select the maximum allowed number of disontinuous prediction islands
+
+|pulldown| **Dangle Run**: Select a run number to store DANGLE results within
+
+|pulldown| **Ensemble**: Select the structure ensemble for superimposition of angle values on the GLE plots
+
+|pulldown| **Restraint Set**: Select the CCPN restraint set to store DANGLE dihedral angle restraints in
+
+Global Likelihood Estimates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+Scrollbar: : 
+
+|button| **Previous**: Show GLE plot of angle predictions for previous residue in chain
+
+|button| **Next**: Show GLE plot of angle predictions for next residue in chain
+
+Dihedral Angle Predictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=================  ===================================================================
+**Table 1**
+--------------------------------------------------------------------------------------
+        *Res Num*  Residue number in chain 
+       *Res Type*  Residue type code 
+ *No. of Islands*  Number of high scoring discontinuous angle predictions 
+             *SS*  Predicted secondary structure code 
+            *Phi*  Predicted phi dihedral angle (CO-N-CA-CO)  *(Editable)*
+            *Psi*  Predicted psi dihedral angle (N-CA-CO-N)  *(Editable)*
+      *Phi Upper*  Upper bound of phi angle prediction  *(Editable)*
+      *Phi Lower*  Lower bound of phi angle prediction  *(Editable)*
+      *Psi Upper*  Upper bound of psi angle prediction  *(Editable)*
+      *Psi Lower*  Lower bound of phi angle prediction  *(Editable)*
+*Chemical Shifts*  Chemical shifts used in prediction 
+=================  ===================================================================
+
+
+
+|button| **Clear Selected**: Remove the predictions for the selected residues
+
+|button| **Run Prediction!**: Run the DANGLE method to predict dihedral angles and secondary structure
+
+|button| **Delete Current Run**: Delete the DANGLE results stored under the current run number
+
+|button| **Commit Restraints**: Store the angle predictions and bounds in a new CCPN dihedral angle restraint list
+
+|button| **Commit Secondary Structure**: Store the secondary structure predictions in the CCPN project
+

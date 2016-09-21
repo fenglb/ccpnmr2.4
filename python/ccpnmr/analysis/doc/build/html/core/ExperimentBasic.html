@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ExperimentBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="MarkBasic" href="MarkBasic.html" />
+    <link rel="prev" title="DataAnalysisBasic" href="DataAnalysisBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MarkBasic.html" title="MarkBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DataAnalysisBasic.html" title="DataAnalysisBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.ExperimentBasic">
+<span id="experimentbasic"></span><h1>ExperimentBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.ExperimentBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.calcContourLevels">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">calcContourLevels</tt><big>(</big><em>baseLevel</em>, <em>numberLevels</em>, <em>levelChanger</em>, <em>changeMode='multiply'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.calcContourLevels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the contour levels given baseLevel, numberLevels, levelChanger, changeMode</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Float, Int, Float, Word (multiply or add)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>The contour levels as a list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.changeSpectrumNContours">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">changeSpectrumNContours</tt><big>(</big><em>spectrum</em>, <em>delta</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.changeSpectrumNContours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the number of contour levels of a spectrum by a given delta</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.findSpectrumDimsByIsotope">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">findSpectrumDimsByIsotope</tt><big>(</big><em>dataSource</em>, <em>isotopeCode</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.findSpectrumDimsByIsotope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give dimension numbers of a spectrum that pertain to a given Isotope</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Word (Nmr.ExpDimRef.isotopeCode)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Ints</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getAcqExpDim">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getAcqExpDim</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getAcqExpDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>ExpDim that corresponds to acquisition dimension. NB uses heuristics</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd><p>NmrExpPrototype.Experiment</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrExpPrototype.ExpDim</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getAcqRefExpDimRef">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getAcqRefExpDimRef</tt><big>(</big><em>refExperiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getAcqRefExpDimRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>RefExpDimRef that corresponds to acquisition dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd><p>NmrExpPrototype.RefExperiment</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>NmrExpPrototype.RefExpDimRef</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getDataDimIsotopes">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getDataDimIsotopes</tt><big>(</big><em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getDataDimIsotopes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shift measurement isotopes for a spectrum data dim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.FreqDataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Set of Words (Nmr.ExpDimRef.isotopeCodes)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getDataDimRefFullRange">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getDataDimRefFullRange</tt><big>(</big><em>dataDimRef</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getDataDimRefFullRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the full range of freq values for a data dimension reference
+taking into account spectral width and min/max unaliased freqs</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.DataDimRef</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>2-List of Floats (min, max)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getDataSlice">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getDataSlice</tt><big>(</big><em>dataSource</em>, <em>position</em>, <em>sliceDim</em>, <em>unit='point'</em>, <em>diagonalExclusion=0</em>, <em>normalise=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getDataSlice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the 1D slice for the dataSource for a position which
+is fixed in all dimensions but sliceDim.
+Assumes that all dimenions are freqDataDim.
+position is of size dataSource.numDim.
+sliceDim is 1-based, not 0-based.
+The slice is returned as a Python list.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, tuple/list of Float, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>list of Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getDiagonalBondedDataDims">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getDiagonalBondedDataDims</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getDiagonalBondedDataDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get tuples of spectrum data dimensions that have digaonal positions
+and are also in one bond connections</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-List of Nmr.DataDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getEquivalentDataDims">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getEquivalentDataDims</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getEquivalentDataDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get pairs of spectrum data dimensions that are equivalent in terms of
+isotope type</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-List of Nmr.DataDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getExperimentSampledDim">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getExperimentSampledDim</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getExperimentSampledDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the first sampled data dimension for an experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of ccp.nmr.Nmr.SampledDataDim</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getExperimentSpectra">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getExperimentSpectra</tt><big>(</big><em>experiment</em>, <em>minNumDim=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getExperimentSpectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the spectra for a given NMR experiment with a minimum number of dimensions 
+.. describe:: Input</p>
+<p>Nmr.Experiment, Integer</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.DataSources</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getFilteredRefExperiments">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getFilteredRefExperiments</tt><big>(</big><em>experiment</em>, <em>category=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getFilteredRefExperiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the possible reference NMR experiments for an experiment,
+given the prototypes available within its project,
+the category and external name settings and the nuclei on the axes.
+Optional argument to specify the category of possible experiments
+(&#8216;use external&#8217;, &#8216;through-bond&#8217;, &#8216;through-space&#8217;, &#8216;quantification&#8217;,</p>
+<blockquote>
+&#8216;other&#8217;).</blockquote>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment, NmrExpPrototype.NmrExpPrototype.ExpCategory</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrExpPrototype.RefExperiments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getIndirectDataDims">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getIndirectDataDims</tt><big>(</big><em>dataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getIndirectDataDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data dims of a spectrum that represent indirect 
+(e.g. relayed NOESY) magnetisation transfers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Set of 2-List of Nmr.FreqDataDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getIndirectThroughSpaceIsotopes">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getIndirectThroughSpaceIsotopes</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getIndirectThroughSpaceIsotopes" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given experiment find the pairs of isotopes present along
+onbond transfers connected via a relayed (indirect) through space transfer.
+Returns pairs of isotopes, direct and indirect, for each experimental
+dimension. An isotope may be None if one side of the through space transfer is
+observed in experiment, e.g. H_hC.NOESY.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Dict of Nmr.ExpDimRef:(ChemElement.Isotope, ChemElement.Isotope)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getIsSpectrumBigEndian">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getIsSpectrumBigEndian</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getIsSpectrumBigEndian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get whether spectrum&#8217;s data file is big endian.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Spectrum</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None if no dataStore or not BlockedBinaryMatrix, True if big endian, False if little endian</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getMinMaxValues">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getMinMaxValues</tt><big>(</big><em>dataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getMinMaxValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the min and max values of a dataSource.
+Not recommended unless 1D or 2D because slow.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>(Float, Float)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getNdSpectra">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getNdSpectra</tt><big>(</big><em>project</em>, <em>n</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getNdSpectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give all NMR spectra in a given project that have n dimensions</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.DataSources</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getNoesyPeakLists">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getNoesyPeakLists</tt><big>(</big><em>project</em>, <em>guessUntyped=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getNoesyPeakLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the NOE peak lists from a project.
+Option to include possible peak lists that are untyped</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.MemopsRoot, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getNoiseEstimate">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getNoiseEstimate</tt><big>(</big><em>dataSource</em>, <em>nsamples=1000</em>, <em>nsubsets=10</em>, <em>fraction=0.10000000000000001</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getNoiseEstimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate the noise level for a spectrum by choosing a random nsamples points
+and finding subsets with the lowest standars devation/</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Int, Int, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getOnebondDataDims">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getOnebondDataDims</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getOnebondDataDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get pairs of spectrum data dimensions that are connected by onebond transfers</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-List of Nmr.DataDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getOnebondExpDimRefs">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getOnebondExpDimRefs</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getOnebondExpDimRefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get pairs of experiment dimensions that are connected by onebond transfers</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-List of Nmr.ExpDimRefs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getPossibleRefExperiments">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getPossibleRefExperiments</tt><big>(</big><em>experiment</em>, <em>category=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getPossibleRefExperiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the possible reference NMR experiments for an experiment,
+given the prototypes available within its project,
+the category and external name settings.
+Optional argument to specify the category of possible experiments
+(&#8216;use external&#8217;, &#8216;through-bond&#8217;, &#8216;through-space&#8217;, &#8216;quantification&#8217;,</p>
+<blockquote>
+&#8216;other&#8217;).</blockquote>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment, NmrExpPrototype.NmrExpPrototype.ExpCategory</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Iterator of NmrExpPrototype.RefExperiments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getPrimaryDataDimRef">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getPrimaryDataDimRef</tt><big>(</big><em>freqDataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getPrimaryDataDimRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>get dataDimRef child with lowest expDimRef.serial</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>freqDataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>dataDimRef or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getPrimaryExpDimRef">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getPrimaryExpDimRef</tt><big>(</big><em>expDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getPrimaryExpDimRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>get expDimRef child with lowest expDimRef.serial</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>expDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>expDimRef or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getRandomSubset">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getRandomSubset</tt><big>(</big><em>data</em>, <em>fraction</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getRandomSubset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function used by getNoiseEstimate()</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getRefExperimentCategories">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getRefExperimentCategories</tt><big>(</big><em>refExperiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getRefExperimentCategories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a set of categories (as strings) that a reference experiment
+belongs to</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.NmrExpPrototype.RefExperiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Set of Lines</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getRefExperiments">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getRefExperiments</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getRefExperiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to getFilteredRefExperiments - set category from
+1) experiment.category (temporary) attribute (if present)
+2) experiment.refExperiment category (if present)
+and pass call on to getFilteredRefExperiments</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrExpPrototype.RefExperiments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSampledDimExperiments">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSampledDimExperiments</tt><big>(</big><em>nmrProject</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSampledDimExperiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of experiments in an NMR project that have sammpled data dims</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.NmrProject</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of ccp.nmr.Nmr.Experiments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSeqAssignRefExperiments">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSeqAssignRefExperiments</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSeqAssignRefExperiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get reference amide experiments which may be used for protein sequence
+assignment. Gives a set of amide experiment types and a subset of through
+CO specific experiment types.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.MemopsRoot</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of NmrExpPrototype.RefExperiments,  List of NmrExpPrototype.RefExperiments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSpectra">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSpectra</tt><big>(</big><em>project</em>, <em>minNumDim=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSpectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give all processed spectra in a project with a minimum number of dimensions</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.DataSources</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSpectraByType">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSpectraByType</tt><big>(</big><em>project</em>, <em>experimentType</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSpectraByType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give NMR spectra of a given class in a project as identified by isotope-dimension mapping
+This funtion is just a temporary kludge prior to proper implementation on spectra types</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, String</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.DataSources</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSpectrumIsotopes">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSpectrumIsotopes</tt><big>(</big><em>dataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSpectrumIsotopes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give isotopes pertianing to the dimensions of a given NMR spectrum</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Words (Nmr.ExpDimRef.IsotopeCodes)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getSpectrumNoise">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getSpectrumNoise</tt><big>(</big><em>dataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getSpectrumNoise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the noise level for a spectrum. If the noise level is not already set it will
+be set at an estimated value.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getThroughSpaceDataDims">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getThroughSpaceDataDims</tt><big>(</big><em>dataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getThroughSpaceDataDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data dims of a spectrum that represent through-space
+magnetisation transfers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>2-List of Nmr.FreqDataDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.getThroughSpacePeakLists">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">getThroughSpacePeakLists</tt><big>(</big><em>project</em>, <em>excludeSimulated=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.getThroughSpacePeakLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the peak lists that have a through-space magnetisation
+ransfer, from a given project.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.MemopsRoot, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.initExpBoundResonances">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">initExpBoundResonances</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.initExpBoundResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh the covalently bound status for any resonances connected
+via peaks in a given experiment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.initExpTransfers">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">initExpTransfers</tt><big>(</big><em>experiment</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.initExpTransfers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the ExpTransfers for an experiment using available refExperiment
+information. Boolean option to remove any existing transfers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ExpTransfers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.isDataBigEndian">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">isDataBigEndian</tt><big>(</big><em>fileName</em>, <em>numberType='float'</em>, <em>fileHeaderSize=0</em>, <em>nbytes=4</em>, <em>nwords=1000</em>, <em>threshold=1000000000.0</em>, <em>fraction=0.01</em>, <em>fractionNonzero=0.10000000000000001</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.isDataBigEndian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine (approximately) whether data file is big endian.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>fileName and optionally numberType (&#8216;float&#8217; or &#8216;int&#8217;), fileHeaderSize,
+nbytes (bytes per word), nwords (number of words to check),
+threshold (above which value considered incorrect byte ordering),
+fraction (fraction of values checked which must have incorrect byte ordering, if considered swapped)
+fractionNonzero (fraction of values checked which must be nonzero to be considered ok)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>True if big endian or if cannot determine, False if little endian</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.isReferencingIncorrect">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">isReferencingIncorrect</tt><big>(</big><em>spectrum</em>, <em>fixErrors=False</em>, <em>printChecks=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.isReferencingIncorrect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if referencing is consistent 
+and/or fitw IUPAC referencing ratios</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.isShapeSpectrum">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">isShapeSpectrum</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.isShapeSpectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if spectrum is a Shape spectrum, possibly during set-up</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Spectrum</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.isSpectrum">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">isSpectrum</tt><big>(</big><em>dataSource</em>, <em>minNumDim=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.isSpectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if a spectrum is valid for display, i.e. processed and has the min required
+number of dimensions</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.isSpectrumBigEndian">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">isSpectrumBigEndian</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.isSpectrumBigEndian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine (approximately) whether spectrum&#8217;s data file is big endian according to actual data.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Spectrum</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None if cannot determine, True if big endian, False if little endian</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.newShiftList">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">newShiftList</tt><big>(</big><em>project</em>, <em>unit='ppm'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.newShiftList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new ShiftList for a project with an optionally specified unit (default ppm).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, String (Nmr.ShiftList.unit)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ShiftList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.ppmDataDimBoundedRegion">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">ppmDataDimBoundedRegion</tt><big>(</big><em>region</em>, <em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.ppmDataDimBoundedRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Truncate a region for a data dimension at its ppm bounds.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (region), Nmr.DataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (region)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.ptsDataDimBoundedRegion">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">ptsDataDimBoundedRegion</tt><big>(</big><em>region</em>, <em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.ptsDataDimBoundedRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Truncate a region for a data dimension at its data points bounds.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (region), Nmr.DataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (region)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.setAllIsotopeCodes">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">setAllIsotopeCodes</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.setAllIsotopeCodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>set all ExpDimRef.isotopeCodes in experiment, from sf values
+Selects isotopes so that sf ratios match isotope gyromagmetic ratios
+Unknown and inconsistent isotopes efault to 1H</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp/nmr.Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.setExperimentShiftList">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">setExperimentShiftList</tt><big>(</big><em>experiment</em>, <em>shiftList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.setExperimentShiftList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the shift list for a given experiment. Updates the shift values
+from the appropriate shift lists/</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrExperiment, Nmr.ShiftList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.setIsSpectrumBigEndian">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">setIsSpectrumBigEndian</tt><big>(</big><em>spectrum</em>, <em>isBigEndian</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.setIsSpectrumBigEndian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether spectrum&#8217;s data file is big endian.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Spectrum, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ExperimentBasic.setRefExperiment">
+<tt class="descclassname">ccpnmr.analysis.core.ExperimentBasic.</tt><tt class="descname">setRefExperiment</tt><big>(</big><em>experiment</em>, <em>refExperiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ExperimentBasic.setRefExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the reference experiment for an existing experiment
+and tries to map the ExpDims to RefExpDims appropriately.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment, NmrExpPrototype.RefExperiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DataAnalysisBasic.html"
+                        title="previous chapter">DataAnalysisBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MarkBasic.html"
+                        title="next chapter">MarkBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/ExperimentBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MarkBasic.html" title="MarkBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DataAnalysisBasic.html" title="DataAnalysisBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

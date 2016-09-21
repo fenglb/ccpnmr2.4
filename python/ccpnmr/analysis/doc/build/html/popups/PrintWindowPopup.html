@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Window : Print Window &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="../menu/Window.html" />
+    <link rel="next" title="Window : Marks and Rulers" href="EditMarksPopup.html" />
+    <link rel="prev" title="Window : New Window" href="NewWindowPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMarksPopup.html" title="Window : Marks and Rulers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="NewWindowPopup.html" title="Window : New Window"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="window-print-window">
+<h1>Window : Print Window<a class="headerlink" href="#window-print-window" title="Permalink to this headline">¶</a></h1>
+<p><strong>Print Window to Output File</strong></p>
+<p>The purpose of this dialog is to allow the saving of the drawing of
+one of the spectrum windows to a file, in one of the following formats:
+PostScript (PS), Encapsulated PostScript (EPS) or Portable Document
+Format (PDF).</p>
+<p>The one window that is being printed out is specified at the top.
+There are four tabs.  The first one, Options, is the most important.
+In particular, it is used to specify the File name.  At its simplest
+to print out a window you just need to specify the File name, and
+then click &#8220;Save Print File&#8221;.  But it is likely you will at the very
+least want to change some of the settings in the Options tab.</p>
+<p>You can specify a Title and a label for the X axis and/or Y axis.</p>
+<p>This tab is also used to specify the Paper size (default A4), the
+Orientation of the paper (default Portrait), whether the printout
+is Color or Black and white (the Style, default Color), and what
+the Format is (PS, EPS or PDF, default PS).</p>
+<p>The ticks for the rulers can be chosen to be Inside or Outside the
+main frame and can be in any combination of the Top, Bottom, Left
+or Right side of the main frame.  The Tick Font includes the option
+of not printing the tick labels at all.  The Tick spacing between
+the major and minor ticks can be set automatically (so the program
+determines it) or manually.  For the latter the user has to specify
+the Major and Minor spacings in terms of the unit of the display
+(normally ppm), and also the number of decimal places for the Tick
+labels.</p>
+<p>How the main frame fits into the paper is determined by the Scaling
+option.  The Percentage option just means that the main frame is
+scaled by that amount relative to the biggest size it could be and
+still fit on the paper.  The remaining options are if you want to
+specify the cms or inches per unit (normally ppm), or the inverse
+of these.  In this case it could be the case that the main frame
+actually exceeds the size of the paper.</p>
+<p>You can also include the Time and Date and/or the File Name in the
+printout, and you can specify the font used for this.  The same
+font is used for the Title and X and Y axis labels, except that
+the Title font is 6 pts bigger.</p>
+<p>Finally, you can also set the linewidth, in points (the default is 0.1).</p>
+<p>The other three tabs provide fine tuning of what is output.  In many
+cases they can be ignored.</p>
+<p>The Spectra tab lets you choose settings for which of the window&#8217;s
+spectra are drawn, in terms of both the positive and negative contours.
+This is independent of what is actually drawn on the screen.  But you
+need to check the &#8220;Use below settings when printing&#8221; checkbutton if you
+want the values specified here to be used rather than the screen settings.
+The values in the table are initially set to be the screen values but
+afterwards can only be changed manually.  Clicking on the &#8220;Reset Selected&#8221;
+button changes the values in the table to the current screen ones.</p>
+<p>The Peak Lists tab is similar, except it applies to the peak lists in
+the window rather than the spectra.  Again, if you want the values in
+the table to be used then you need to check the &#8220;Use below settings
+when printing&#8221; checkbutton.</p>
+<p>The Region tab is for specifying the region for the x, y and orthogonal
+axes, if you do not want to use the regions as seen in the window on the
+screen.  Again, you have to check &#8220;Use override region when printing&#8221;
+checkbutton to actually have the values in the table be used in the
+printout.  By default, the override region is set to the current
+window region if it is not set already, otherwise it is left to the
+previous value unless you click the &#8220;Set Region from Window&#8221; or the
+&#8220;Set Width from Window&#8221; or the &#8220;Set Center from Window&#8221; buttons.
+And the override region can be specified either using the min and max
+values of the region, or the center and width.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: The window that will be printed out</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Save Print File</strong>: Save the printout to the specified file</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>Optional settings for spectra</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>File</strong>: Select location to save print file</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>File entry</strong>: Location where file is saved on disk</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Title</strong>: Title of the printout, displayed at top</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>X axis label</strong>: X axis label for the printout</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Y axis label</strong>: Y axis label for the printout</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Paper size</strong>: The paper size for the printout</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Orientation</strong>: Whether the paper should be set in Portrait or Landscape mode</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Style</strong>: Whether the printout should be in colour or black and white</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Format</strong>: Whether to save as PS, EPS or PDF</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Tick Location</strong>: Whether the tick marks appear on the inside or outside of the frame</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Tick Placement</strong>: Whether the tick marks appear on the top and/or bottom and/or left and/or right</p>
+<p><strong>Tick Font</strong>: The font used for the tick mark labels</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Tick Spacing</strong>: Whether the program should automatically calculate the major/minor tick spacings and how many decimal places are used for the ticks, or whether the these are specified manually</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Tick Length</strong>: Whether the program should automatically calculate the major/minor tick lengths, or whether the these are specified manually</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Scaling</strong>: Whether the plot should be scaled as a percentage of the maximum size that would fit on the paper, or instead should be specified by the number of cms or inches per unit</p>
+<p>Scale: <em>None</em>: The percentage of the maximum size that would fit on the paper that the plot is scaled by</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Time and Date</strong>: Whether the time and date should be included in the printout</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>File Name</strong>: Whether the file name should be included in the printout</p>
+<p><strong>Using Font</strong>: The font used for the border texts</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.1</strong>: Line width for drawing</p>
+</div>
+<div class="section" id="spectra">
+<h2>Spectra<a class="headerlink" href="#spectra" title="Permalink to this headline">¶</a></h2>
+<p>Optional settings for peak lists</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use below settings when printing</strong>: Use below settings when printing instead of the window values</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reset Selected</strong>: Change the settings of the selected spectra back to their window values</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Spectrum in window</td>
+</tr>
+<tr><td><em>Pos. Contours Drawn</em></td>
+<td>Whether the positive contours should be drawn  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Neg. Contours Drawn</em></td>
+<td>Whether the negative contours should be drawn  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="peak-lists">
+<h2>Peak Lists<a class="headerlink" href="#peak-lists" title="Permalink to this headline">¶</a></h2>
+<p>Optional settings for the region</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use below settings when printing</strong>: Use below settings when printing instead of the window values</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reset Selected</strong>: Change the settings of the selected peak lists back to their window values</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Peak List</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Symbols Drawn</em></td>
+<td><em>Documentation missing</em>  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak Font</em></td>
+<td><em>Documentation missing</em>  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="region">
+<h2>Region<a class="headerlink" href="#region" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use override region when printing</strong>: Use the specified override region when printing rather than the window values</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Use Min and Max</strong>: Use min and max to specify override region</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Use Center and Width</strong>: Use center and width to specify override region</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Region from Window</strong>: Set the override region to be the current window region</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Center from Window</strong>: Set the center of the override region to be the center of the current window region</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Width from Window</strong>: Set the width of the override region to be the width of the current window region</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Axis</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Region Number</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Override Region Min (ppm)</em></td>
+<td><em>Documentation missing</em>  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Override Region Max (ppm)</em></td>
+<td><em>Documentation missing</em>  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Window : Print Window</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#spectra">Spectra</a></li>
+<li><a class="reference internal" href="#peak-lists">Peak Lists</a></li>
+<li><a class="reference internal" href="#region">Region</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="NewWindowPopup.html"
+                        title="previous chapter">Window : New Window</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditMarksPopup.html"
+                        title="next chapter">Window : Marks and Rulers</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/PrintWindowPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMarksPopup.html" title="Window : Marks and Rulers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="NewWindowPopup.html" title="Window : New Window"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

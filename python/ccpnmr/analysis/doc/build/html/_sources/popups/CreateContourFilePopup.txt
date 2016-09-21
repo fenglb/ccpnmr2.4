@@ -1,0 +1,93 @@
+================
+New Contour File
+================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Create Contour Files for Project**
+
+The purpose of this dialog is to allow the user to create new contour
+files for the project.  Not only the spectrum has to be specified, but
+also the two dimensions (X, Y) that are going to be contoured.  The
+table specifies the conditions that specify the region being contoured,
+in terms of what is included and excluded.
+
+For now, only one condition (which is an "include" condition) is allowed.
+This also means that the "Add Condition" and "Delete Condition" buttons
+are disabled.
+
+The contour directory is specified by the program, using the project
+directory but the file name can be specified by the user.
+
+The contour levels used are the ones that are current for the spectrum,
+as set in the `Contour Levels dialog`_.
+
+See also: `Spectrum Contour Files`_, `Add Existing Contour Files`_.
+
+.. _`Contour Levels dialog`: EditContourLevelsPopup.html
+.. _`Spectrum Contour Files`: EditContourFilesPopup.html
+.. _`Add Existing Contour Files`: AddContourFilePopup.html
+
+
+Main Panel
+==========
+
+|pulldown| **Spectrum**: Selects the experiment and spectrum for which to make a contour file
+
+|pulldown| **(X-dim, Y-dim)**: Selects which dimensions (projection) of the spectrum form the X and Y axes of the contour file
+
+===========  =========================================================================
+**Table 1**
+--------------------------------------------------------------------------------------
+*Condition*  Whether to include or exclude the region in the contour file 
+===========  =========================================================================
+
+
+
+|entry| **File name**: Sets the name of the contour file to save to disk
+
+|button| **Add Condition**: Add a new contour region for including in or excluding from the contour file 
+
+|button| **Delete Condition**: Remove the selected contour region from the table
+
+|button| **Contour and Save**: Make the specified contour file using the input settings & regions
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

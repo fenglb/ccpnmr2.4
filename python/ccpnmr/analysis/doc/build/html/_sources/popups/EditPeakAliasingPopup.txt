@@ -1,0 +1,128 @@
+==================
+Edit Peak Aliasing
+==================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Move Aliased Peaks to Their Underlying Resonance Position**
+
+This popup window is used to move aliased 'ghost' peaks to their real
+underlying resonance locations by adding or subtracting a whole number of
+spectrum widths to the position in one or more peak dimensions. This is used
+when a resonance, that causes a peak, lies outside the normal recorded bounds
+of the spectrum but the peak nonetheless still appears within the spectrum, as
+an aliased signal that re-appears as if wrapped back onto the opposite side of
+the spectrum.
+
+The minimum and maximum aliased frequency values for a spectrum dimension, as
+edited in the "Referencing" table of the main Spectra_ popup, may be set
+extend the contour display beyond the normal sweep width (ppm range) of the
+spectrum and thus cover the real ppm position of peaks that have been
+unaliased. In such instances the contours are extended by tiling; one or more
+copies of the contours (not mirror image) are made and placed sequentially
+next to the normal, fundamental region. If a peak is unaliased to a position
+outside the displayed spectrum limits then the contour display will naturally
+be extended to cover the new peak position; all peaks will be visible within
+the spectrum by default. However, the user may at any time reset the minimum
+and maximum aliased frequency for a spectrum display (see the Spectra_ popup);
+deleting all values will reset bounds to the original sweep with, but any
+values may be chosen, within reason.
+
+A peak can be moved to the unaliased position of its underlying resonances by
+editing the "Num. Aliasing" column of this popup; double-clicking and typing in
+the appropriate number. When this number is changed for a peak dimension the peak
+will be instantly moved to its new location. An aliasing value of zero means that
+the peak lies within the sweep width of the spectrum. For a ppm scale having a
+positive aliasing value will *reduce* the ppm value, placing the peak a number of
+spectrum widths above or to the right of the spectrum bounds. Likewise a negative
+aliasing value will place a peak at a higher ppm value; below or to the left.
+Often aliasing values will be 1 or -1, where a peak has just fallen off the edge
+of a spectrum. For example a glycine amide nitrogen really at 100 ppm may be just
+outside the top of a 15N HSQC and be wrapped back into the bottom to appear as a
+peak at around 135 ppm, which means that the aliasing value should be set to 1,
+moving the peaks position up by a sweep with of 35 ppm, from 135 ppm to 100 ppm.
+The sign of the aliasing number may seem to be backwards, but it is perhaps the
+ppm scale that is 'backwards'. More complex aliasing is often seen in 3D 13C
+spectra where the 13C axis can be folded (wrapped) to reduce the sweep width that
+needs to be recorded, but still avoiding peak overlap because of the way shifts
+correlate. For example a 13C HSQC NOESY may be recorded with a sweep with that
+covers the CA, CB range 25-75 ppm but aliased methyl carbons below 25 ppm and
+aromatic carbons between 110 ppm and 140 ppm will be present; the methyls will
+have aliasing values of 1, and the aromatics -1 or -2.
+
+It should be noted that picking peaks in the tiled copies of a contour display,
+i.e. outside the sweep width, will automatically set the aliasing value for the
+peak to reflect the displayed chemical shift value. Thus, the user does not need
+to explicitly unalias the peak position. Any peaks that are moved by virtue of
+being unaliased will have their contribution to the chemical shifts, of any
+assigned resonances, adjusted automatically. Chemical shift values are always
+calculated using the underlying resonance positions, not the apparent peak
+position. Also, if it is known that many peaks share the same aliasing values,
+i.e. are in the same sweep width tile, then the user can propagate the aliasing
+value from one peak to many others in a single step via the right-click window
+menu; "Peak::Unaliasing propagate".
+
+.. _Spectra: EditSpectrumPopup.html
+
+
+
+Main Panel
+==========
+
+Peak Dimension Positions
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+===============  ==================================================================================================================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    *Dimension*  The peak/spectrum dimension number 
+      *Isotope*  The kind of isotope measured in the dimension 
+          *ppm*  The position of the peak in this dimension, in units of ppm 
+           *Hz*  The frequency position of the peak in this dimension, in units of Hz 
+       *Points*  The data point position (in the spectrum matrix) of the peak in this dimension 
+*Num. Aliasing*  Sets the number of spectrum sweep withs to add to the peak dimension position to locate it at its real ppm value. Note an aliasing of "1" moves a peak to a lower ppm  *(Editable)*
+   *Annotation*  The assignment annotation for the peak dimension 
+===============  ==================================================================================================================================================================================
+
+
+

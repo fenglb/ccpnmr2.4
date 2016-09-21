@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Window : Marks and Rulers &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="../menu/Window.html" />
+    <link rel="next" title="WindowMenus" href="../menu/WindowMenus.html" />
+    <link rel="prev" title="Window : Print Window" href="PrintWindowPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/WindowMenus.html" title="WindowMenus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="PrintWindowPopup.html" title="Window : Print Window"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="window-marks-and-rulers">
+<h1>Window : Marks and Rulers<a class="headerlink" href="#window-marks-and-rulers" title="Permalink to this headline">¶</a></h1>
+<p><strong>Setup Spectrum Marker and Ruler Line Options</strong></p>
+<p>This popup window is used to specify how many marker and ruler lines may
+be added by the user to spectrum windows, and what colours these will be.</p>
+<p>A marker line is a multi-dimensional cross mark that is typically added to
+the spectrum display with the &#8220;m&#8221; key, using the mouse cursor location as
+the center point. A mark of this kind gives a cross that is displayed on a
+spectrum window (in the plane of the screen), although the same lines will
+be visible in other spectra that show the relevant frequency/ppm range. A
+mark will also place lines in any orthogonal (z) positions of the spectrum
+view; these will not be visible in the window to which the mark was first
+added but will be seen in any windows that show orthogonal view views of
+the marked point.</p>
+<p>A ruler is a single line that is added to the spectrum window displays,
+typically using the &#8220;h&#8221; key for a horizontal line and the &#8220;v&#8221; key for a
+vertical line. A ruler only places a single line in the plane of the
+screen at the mouse cursor location. A ruler may be visible in more than
+one spectrum window, but only if the view is in the right range and for
+axes that share the same &#8220;Panel Type&#8221;; a sub-division of axis types that
+are otherwise specified in terms of isotope. The panel type for a window
+axis is set via the main <a class="reference external" href="EditWindowPopup.html">Windows</a> table.</p>
+<p>This system allows the user to specify the maximum number of marks and
+rulers that may be displayed on the screen at any one time. It should be
+noted that this setting only applies to marks and rulers that are directly
+added by the user, others may be added by various tools throughout
+Analysis. When adding marks or rulers to a spectrum window, if the limit
+is reached then adding another will remove the oldest mark/ruler.
+Naturally, if the limit is set to one, then the mark or ruler is always
+replaced. By decreasing the maximum limit the oldest will be removed,
+although the usual way of removing (all) marks and rulers is via the &#8220;n&#8221;
+key after clicking in a spectrum window.</p>
+<p>Marks and rulers that are added by the user may use a colour scheme, such
+that each subsequent addition uses the next colour from the scheme.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multi-dimensional-marks">
+<h3>Multi-dimensional Marks<a class="headerlink" href="#multi-dimensional-marks" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Maximum marks</strong>: Sets the maximum number of multi-dimensional cross-marks that the user can add to spectrum window displays</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Mark colour</strong>: Sets the line colour of the multi-dimensional cross-marks, excepting those that go through peak centers</p>
+</div>
+<div class="section" id="dimensional-rulers">
+<h3>1-dimensional Rulers<a class="headerlink" href="#dimensional-rulers" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Maximum rulers</strong>: Sets the maximum number of 1-dimensional ruler lines that the user can add to spectrum window displays</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ruler colour</strong>: Sets the line colour of the 1-dimensional ruler lines</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Window : Marks and Rulers</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#multi-dimensional-marks">Multi-dimensional Marks</a></li>
+<li><a class="reference internal" href="#dimensional-rulers">1-dimensional Rulers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="PrintWindowPopup.html"
+                        title="previous chapter">Window : Print Window</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/WindowMenus.html"
+                        title="next chapter">WindowMenus</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditMarksPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/WindowMenus.html" title="WindowMenus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="PrintWindowPopup.html" title="Window : Print Window"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,459 @@
+====================
+Experiment : Spectra
+====================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Curate Spectrum Parameters**
+
+This popup window allows the user to view and edit information that is
+associated with spectra. In this regard a spectrum is a record of the NMR data
+that was *obtained*. Parameters that relate to what was *done experimentally*
+to get the data are specified elsewhere; experiment level information is set
+via the main Experiments_  popup window. Many spectrum level parameters in
+Analysis relate to how the spectrum data files are interpreted and displayed
+graphically, i.e. as contours. Data that derive from the analysis of spectra,
+like peak lists and assignments, are managed elsewhere in specialised
+displays.
+
+The layout of this popup window involves several tab panels that sub-divide
+the spectrum settings into related groups. The functionality within each
+tabbed sub-division is largely independent, although a spectrum entity
+selected in any of the tables or pulldown menus is subject to the [Delete
+Spectrum] function.
+
+**Main "Spectra" tab**
+
+This table presents an overview of all of the spectra that have been loaded
+into the CCPN project, what their dimensions are and how they relate to
+experiments and peak lists. Some of the parameters may be edited by
+double-clicking on a cell in the table, thus for example the user may change
+the name and set the active peak list (the one that is used for peak peaking
+and selection). In the main however, this table usually serves simply to
+illustrate what is present, which experiment each spectrum belongs to and
+what its NMR dimensions are.
+
+**Display Options**
+
+This table is used to control how spectra are visualised within the spectrum
+window displays of Analysis. Specifically, the user can: change the colours
+of the displayed contours and 1D slice traces; get access to the contour
+level settings, via the `Spectrum Contour Levels`_ tool; access the `Spectrum
+Contour Files`_ setup; set keyboard toggles; and administer other graphical
+elements like bounding box lines, peak fonts and peak pointer lines. It
+should be noted that the colours for peak text and peak symbols are set for
+individual peak lists, so that different peak lists within the same spectrum
+may be distinguished. Accordingly these parameters are set via the main
+`Peak Lists`_ option.
+
+The "Rank" value of a spectrum dictates the order in which spectra are drawn
+on screen and presented in the toggle options at the top of spectrum windows.
+The rank may be set on an individual basis or following the order of spectra
+in the table using [Set Ranks From Order]; this is especially useful if the
+table is first sorted in a particular way (by clicking on a table heading).
+
+**Referencing**
+
+This table is used to control how the points in a spectrum data file are
+interpreted in terms of NMR frequency, on each of their axes. Usually, this
+means to know how positions in the spectrum data, stored as an array of
+intensity data points, relate to ppm units and Hz frequency values of the
+spectrometer. Such referencing occurs by specifying how the width of a
+spectrum dimension in data points relates to its width in frequency units,
+defining the scaling factor, and how the two scales are anchored together; by
+giving a reference data point and its corresponding a frequency/ppm value.
+
+The spectrum referencing values are normally extracted from the spectrum
+header or parameter file when the spectrum was first loaded. Often these
+values do not need to be altered. However, the user may still adjust all of
+the parameters after load time, with the sole exception of the dimensions
+isotope type. Changes to spectrum referencing may be made after loading to
+correct for mistakes in the initial data interpretation and to tweak spectra
+so that they give a better overlay of signals. Note that the table columns
+'Spectrometer Frequency', 'Minimum Aliased Frequency', 'Maximum aliased
+frequency', and 'Sub Dim Name' (normally hidden) apply to the experiment, and
+will are shared between all spectra in the same experiment.
+
+Peaks that are picked within spectra have positions defined in terms of
+spectrum data points, i.e. normally indicating an extremum in intensity. The
+referencing values of a spectrum's dimensions are used to calculate what the
+position of a peak is in ppm or Hz units. Accordingly, if spectrum
+referencing values are changed then peak ppm locations will naturally move.
+If peaks should not move with the spectrum data when referencing is changed,
+to instead stay at the same ppm values, then the user can select "ppm" in the
+"reference changes keep constant peak:" options.
+
+Some less common experiments have more than one type of signal (shift) on
+each axis, and need a reference line to describe each experiment type. One
+obvious case is projection experiments, where signals in one dimension are
+linear combinations of frequencies for different nuclei. Another would be the
+15N/13C HSQC-NOESY, where 15N and 13C are measured in parallel on one axis.
+The special options for this situation are turned on by selecting  'Use
+reduced dimensionality options'. The individual reference lines are called
+'Sub-dimensions'; they are shown explicitly when there is more than one. They
+can be added, removed, and edited individually. The Sub-dimensions set for the
+first Spectrum serve to (re)define those for the Experiment; once there is
+more than one Spectrum in an Experiment it is not possible to add extra
+Sub-dimensions. Projection spectra can only be read correctly from some
+formats (Bruker and USF3) and even these cases may require editing. The
+special 'Sub Dim Name' column gives a name that is used by some external
+programs (e.g. Prodecomp) to identify a given signal type across different
+experiments. The special 'Scaling Factors' column gives the scaling
+coefficient that applies to a particular signal in this spectrum. For instance
+scaling factors  CO:1; CA:0; CB:-2 would denote a signal of the form wN-2wCB.
+There can be more than one scaling factor where different types of peaks are
+possible, e.g. wN OR wC. The system has only been tested for 2D projection
+spectra.
+
+
+The minimum and maximum aliased frequency values for a spectrum dimension, as
+displayed in the last columns of the table, may be set to cut off the
+spectrum contour display at a particular value or extend the contour display.
+Contour displays that are extended beyond the normal sweep width (ppm range)
+of the spectrum do so by tiling; a copy of the contours (not mirror image) is
+made and placed next to the normal, fundamental region. This mechanism is
+used to cope with aliased resonances that appear (as 'ghost' peak images)
+within the main spectrum width in places that are not their true ppm values;
+the resonance is really outside the sweep width of the spectrum. Making tiled
+copies of the contours allows the spectrum to extend and cover the real ppm
+values of aliased peaks. Aliased peaks may be moved to their true ppm
+locations or picked at that location in the first instance by using the
+appropriate tile region.
+
+**Tolerances**
+
+This section is used to control the weightings and tolerances that apply to
+individual spectrum dimensions during the resonance assignment process. There
+are two kinds of value that can be set. One is the "Assignment Tolerance",
+which states how close (typically in ppm) chemical shift values of resonances
+match to peak peak locations; this is an upper limit such that resonances
+with shifts outside the tolerance are not considered as assignment
+possibilities. The second thing is the "Shift Weighting" that specifies how
+much influence resonance assignments have on the averaged chemical shift
+values. Both of these parameters affect individual spectrum dimensions
+because each axis has is its own resonance line shape and data resolution.
+
+The normal chemical shift calculation within Analysis calculates values as
+the weighted mean over all of the peak positions to which a resonance is
+assigned. If a dimension has a shift weighting of 2.0 but others have 1.0
+then any resonance assignment in the former will have twice as much influence
+on the shift mean, as if it were assigned to two peak dimensions rather than
+one. By default all weights are set to 1.0, but the user can increase this if
+a spectrum dimension is particularly precise (narrow peaks) or decrease it if
+peaks are broad or if resonance assignments are highly ambiguous; for
+speculative NOE assignments the user usually doesn't want the shift values to
+change according to those assignments.
+
+The assignment tolerance and shift weighting values are set for the
+dimensions of a selected spectrum in the upper table. The lower "Spectrum
+Overview" table shows these values across all spectra in the project, so that
+the user can see the overall situation and range of values. Although
+tolerances are not set in the lower table on an individual basis, the
+assignment tolerances and shift weights can be spread from one spectrum (the
+last selected) to any others selected in the table (using left-click + <Crtl>
+or <Shift), where the isotopes of dimensions match.
+
+**File Details**
+
+This tab is used to indicate the location of a spectrum's binary data file
+and how the binary data within is read. In essence the binary values of the
+file need to be interpreted as spectrum intensity values, but in order to do
+this the system has to know how the numbers are stored. This involves knowing
+how numbers are represented per se; how many bytes a number uses, whether
+numbers are integers or floating point and what orientation the bits are in
+(big or little endian). Also, most spectrum data formats involve binary
+blocks; chunks of data organised into a grid across all the dimensions. The
+benefit of using blocks comes when looking at large data sets, e.g. using 3D
+and higher dimensionality data, because it means that when only looking at a
+sub-region of a spectrum, like a single plane of a 3D, only part of the
+spectrum data needs to be read; most of the spectrum data that isn't
+displayed does not need to be loaded. Naturally, the system needs to know
+what the sizes of the data block along each dimension are. These are
+displayed in the lower table and may be adjusted if there are any mistakes,
+which may have been inherited from the spectrum processing.
+
+The "File name" field shows the present location of the binary data. If this
+file is missing the spectrum will still be represented in Analysis, but the
+operations which rely of having intensity data, like picking peaks, cannot be
+performed. It is notable that the binary data file for a spectrum can be
+changed at any time, either by selecting a different file name (typing
+directly or using [Choose File]) or by directly replacing the binary data
+inside the file. If the binary data or any of the parameters that influence
+its interpretation has changed, then the user can click on [Refresh Spectrum]
+to see the effect if the changes.
+
+**Data Locations**
+
+This last table is used to show the locations of all of the spectrum data
+files used by the whole project. These locations need to be changed if the
+spectrum data is moved in disk, otherwise the system will not know where to
+look. Each data location is broken down into two components; an "absolute"
+directory path and a "relative" path, which contains the file name. Both of
+these components may be changed.
+
+The absolute part of the location is from the root of the file system (the
+all-encompassing directory) and is often shared by several spectrum files; it
+is typical to store spectra in one repository. For convenience, changing the
+absolute part of the path for one spectrum will usually change the value for
+all the other spectra that use the same directory. Also, if multiple files
+are moved to the same directory then [Propagate Absolute Path] can be used to
+state that several files are in the same location.
+
+The relative part of the spectrum data path is individual to the spectrum and
+contains the name of the data file and any extra directory location, relative
+to the absolute part of the path. Which parts of the spectrum file path is
+considered to be absolute or relative may be changed using the "Shift
+Directory..." buttons. For example an absolute : relative split of
+"/data/spectra/" : "protein/123.spec" can be changed to
+"/data/spectra/protein" : "123.spec", so that several spectra can use the
+absolute part.
+
+**Caveats & Tips**
+
+The spectrum chemical shift weighting used for synthetic peak lists is set to
+0.0001 of the the regular weighting for the spectrum dimension set via this
+popup.
+
+The fonts used for the printing of spectra (e.g. via PostScript of PDF) may
+be set separately to the main spectrum font specification, which is used
+within Analysis spectrum displays.
+
+.. _Experiments: EditExperimentPopup.html
+.. _`Spectrum Contour Levels`: EditContourLevelsPopup.html
+.. _`Spectrum Contour Files`: EditContourFilesPopup.html
+.. _`Peak Lists`: EditPeakListsPopup.html
+
+
+Main Panel
+==========
+
+|button| **Delete Spectrum**: Delete selected spectrum or spectra
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Spectra
+=======
+
+Basic information about spectra, their experiments, peak lists & dimensions
+
+==================  ============================================================================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+               *#*  Row number 
+      *Experiment*  The name of the experiment to which the spectrum belongs  *(Editable)*
+        *Spectrum*  A short name for the spectrum, often used with experiment name for unique identification "experiment:spectrum". e.g. "HSQC:115"  *(Editable)*
+      *Dimensions*  Number of dimensions/axes in the spectrum (can be fewer than in the experiment) and their isotope types 
+*Active Peak List*  The active peak list, for example the peak list into which picked peaks are put  *(Editable)*
+  *Num Peak Lists*  Number of separate peak lists within the spectrum 
+           *Scale*  Spectrum scale relative to stored data points, e.g. for drawing  *(Editable)*
+     *Noise Level*  Estimated intensity level of spectrum noise  *(Editable)*
+       *Data Type*  Whether fully processed, FID or part-processed 
+      *Simulated?*  Whether the spectrum is simulated 
+       *Data File*  Location of the data file relative to the data directory 
+==================  ============================================================================================================================================
+
+
+
+Display Options
+===============
+
+How spectra are displayed on screen in terms of colours & contours etc.
+
+===================  ================================================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------------------------------------------
+                *#*  Row number 
+         *Spectrum*  Identifying name Experiment:Spectrum 
+ *Positive Colours*  Colour scheme for positive contours (can be a single colour)  *(Editable)*
+ *Negative Colours*  Colour scheme for negative contours (can be a single colour)  *(Editable)*
+     *Slice Colour*  Colour of 1D slice and trace lines  *(Editable)*
+     *Box Visible?*  Whether fundamental region (sweep width bounding) box should be drawn  *(Editable)*
+         *Shortcut*  Shortcut key for toggling spectrum on/off  *(Editable)*
+             *Rank*  Determines order spectra drawn in (lowest appears on top)  *(Editable)*
+*Positive Contours*  Positive contour levels, relative to global scale  *(Editable)*
+*Negative Contours*  Negative contour levels, relative to global scale  *(Editable)*
+*Use Contour Files*  Whether pre-calculated contours should be used  *(Editable)*
+        *Peak Font*  The typeface used for peak annotation in spectrum window displays  *(Editable)*
+    *Peak Pointer?*  Whether the peak pointer (a triangle/line from annotation to centre), if it exists, should be drawn  *(Editable)*
+===================  ================================================================================================================
+
+
+
+|button| **Contour Levels**: Open popup for detailed setting of contour levels
+
+|button| **Contour Files**: Open popup for administering pre-calculated contour files
+
+|button| **Propagate Contours**: Propagate contour levels from row selected last to others
+
+|button| **Set Ranks From Order**: Set spectrum rank based on current order in table (e.g. after sorting on a column)
+
+Referencing
+===========
+
+Information for interpreting data points in terms of PPM & Hz
+
+|pulldown| **Spectrum**: Select the experiment:spectrum to adjust
+
+|check| **Use reduced dimensionality options**: Used for reduced dimensionality or projected experiments when you have sub-dimensions
+
+
+|radio| **point**: If you change the referencing then peak position in points stays the same
+
+|radio| **ppm**: If you change the referencing then peak position in ppm stays the same
+
+=================================  =====================================================================================================================================
+**Table 3**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                            *Dim*  Spectrum dimension or sub dimension 
+                        *Isotope*  Isotope being recorded 
+   *Spectrometer frequency (MHz)*  Carrier frequency for the particular isotope, in MHz  *(Editable)*
+           *Spectral width (ppm)*  Actual spectral width, so possibly after region truncated, in ppm 
+            *Spectral width (Hz)*  Actual spectral width, so possibly after region truncated, in Hz  *(Editable)*
+                  *Reference ppm*  Ppm value at chosen reference point  *(Editable)*
+                *Reference point*  Point value where dimension has chosen reference ppm  *(Editable)*
+         *Orig. number of points*  Original number of points, so after Fourier transform and before any truncation of the region  *(Editable)*
+                   *Point offset*  Offset of region relative to original region after Fourier transform, so 0 if the region has not been truncated  *(Editable)*
+*Minimum aliased frequency (ppm)*  Minimum frequency, in ppm, of where any signal is expected, if not set then uses minimum frequency of fundamental region  *(Editable)*
+*Maximum aliased frequency (ppm)*  Maximum frequency, in ppm, of where any signal is expected, if not set then uses maximum frequency of fundamental region  *(Editable)*
+=================================  =====================================================================================================================================
+
+
+
+|button| **Add Sub-dimension Copy**: Add a new sub dimension (e.g. reduced dimensionality component) by copying the selected sub-dimension
+
+|button| **Remove Sub-dimension**: Remove selected sub-dimension
+
+Tolerances
+==========
+
+Per-dimension assignment tolerances & chemical shift calculation contributions
+
+|pulldown| **Spectrum**: *Documentation missing*
+
+======================  ======================================================================================================================
+**Table 4**
+----------------------------------------------------------------------------------------------------------------------------------------------
+           *Dimension*  Spectrum dimension 
+             *Isotope*  Isotope recorded in this dimension 
+*Assignment Tolerance*  When assigning, the maximum difference between a peak dimension position and a known chemical shift value  *(Editable)*
+     *Shift Weighting*  Contribution, in this dimension, of peak positions to the averaged, weighed chemical shift values  *(Editable)*
+======================  ======================================================================================================================
+
+
+
+Spectrum Overview
+~~~~~~~~~~~~~~~~~
+
+
+=======================  ===========================================================================================================
+**Table 5**
+------------------------------------------------------------------------------------------------------------------------------------
+                    *#*  Row number 
+             *Spectrum*  Experiment name : Spectrum name 
+*Dim Assign Tolerances*  Peak vs shift assignment tolerances in the various dimensions, as set in the Spectrum table 
+    *Dim Shift Weights*  Chemical shift weighting contribution, in the various dimensions, as set in the Spectrum table 
+=======================  ===========================================================================================================
+
+
+
+|button| **Propagate Assignment Tolerances**: Propagate peak vs shift assignment tolerance from last selected spectrum to other selected spectra in Spectrum Overview table
+
+|button| **Propagate Shift Weights**: Propagate chemical shift weighting contribution from last selected spectrum to other selected spectra in Spectrum Overview table
+
+File Details
+============
+
+Location of spectrum data files and how data is stored in blocks & points
+
+|pulldown| **Spectrum**: Select the experiment:spectrum to operate on
+
+Data File Details
+~~~~~~~~~~~~~~~~~
+
+
+|entry| **File name**: Full path to the file containing the spectrum data (typically binary)
+
+|check| **Is data big endian?**: Whether binary numbers in data are big endian (e.g. Mac PowerPC, SGI)
+or little endian (e.g. Intel), which depends on how and where data was collected and processed
+
+|pulldown| **Bytes per word**: Bytes per data point (normally 4)
+
+|pulldown| **Data number type**: Whether data is floating point or integer (normally floating point)
+
+|int| **File header size**: The header size in bytes, which depends on the file format
+
+|button| **Choose File**: Select a new spectrum data file using a dialog, rather than typing it above
+
+|button| **Refresh Spectrum**: Save the information as chosen and refresh spectrum display
+
+===============  ========================================================================================
+**Table 6**
+---------------------------------------------------------------------------------------------------------
+    *Dimension*  Dimension in data file 
+*Number Points*  Number of data points in this dimension  *(Editable)*
+   *Block Size*  Size of blocks into which data points are partitioned for efficient reading  *(Editable)*
+===============  ========================================================================================
+
+
+
+Data Locations
+==============
+
+A table of all spectrum data locations for en masse manipulation
+
+========================  ==============================================================================================
+**Table 7**
+------------------------------------------------------------------------------------------------------------------------
+                     *#*  Row number 
+         *Absolute Path*  Location of the absolute path directory, that may contain multiple spectrum files  *(Editable)*
+*Relative Path and File*  Location of spectrum file relative to its absolute path directory  *(Editable)*
+*Spectrum / FID / Image*  Identity of the spectrum as experiment:spectrum 
+========================  ==============================================================================================
+
+
+
+|button| **Propagate Absolute Path**: Copy absolute path from last row selected to other selected spectra
+
+|button| **Shift Directory To Absolute Path**: Shift the top directory from the relative path to the absolute path
+
+|button| **Shift Directory To Relative Path**: Shift the bottom directory from the absolute path to the relative path
+

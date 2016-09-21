@@ -1,0 +1,212 @@
+================================
+Data Analysis : 3J H-Hα Coupling
+================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Calculate 3J HN-HA Couplings Using an HNHA Experiment**
+
+This system is designed to efficiently extract 3J coupling information from
+the relative intensities of HA and amide peaks recorded in a quantitative HNHA
+experiment. The couplings may be used, according to the Karplus relationship,
+to estimate the Phi protein backbone dihedral angle.
+
+The layout is broken down into two tabs: one for the results in the "Spin
+System Table" and an other for setting the various options. Although the user
+can adjust the options at any time the system will automatically perform the
+calculations and fill the results table using the first HNHA peak list it
+comes across.
+
+For the calculation to be performed the experiment must be set to the specific
+type "H{[N]+[HA]}", which may be set in the Experiment Types tab of the main
+Experiments_ table. It is also assumed that a peak list has been picked in the
+HNHA spectrum, for both the HA cross peaks and the homonuclear diagonal amide
+peaks. For a peak within the selected list to be considered it must be
+assigned to resonances in its amide dimensions *and a spin system*, for
+example using the `Pick & Assign From Roots`_ tool. This spin system
+assignment is the means to achieve the pairing of a diagonal amide peak with a
+corresponding HA peak; if two peaks for the same residue are not in the same
+spin system then the analysis will not be made. The peaks do not have to be
+assigned to particular residues, i.e. they can have anonymous spin system
+numbers. It is also unnecessary to assign the non-amide dimension (e.g. HA
+resonance) of the peaks; the amide and HA peak are automatically distinguished
+by sign and ppm location.
+
+In the "options" tab the user can switch between different HNHA peak lists,
+control how output data will be made; like where dihedral restraints of
+coupling measurements go (which restraint set), and setup the parameters for
+the estimation of Phi dihedral angles. Changing the Karplus coefficients, to
+change the below curve, will affect the prediction of the Phi dihedral angle.
+The user may wish to adjust this but the defaults are values commonly used
+for protein structures.
+
+In the main results table clicking on a particular row, assuming the follow
+option and spectrum is selected, will cause the display to show the location
+of peaks for the selected spin system. The 3J coupling values are
+automatically extracted from the relative intensities if the HN (diagonal) and
+HA peaks, according to the method referred to below, whenever the table is
+updated. The coupling measurements may be saved in the CCPN project by using
+[Make Coupling List] - this creates a kind of measurement list which may be
+inspected at any time, without having to repeat any calculations. Making
+"Coupling Restraints" is specifically for 3D structure calculations that know
+how to interpret such information. The dihedral angle estimates that are
+presented are made according to the Karplus curve displayed in the "Options",
+noting that because of its oscillatory nature there may be more than one range
+of possible angles for a particular 3J coupling. The "Only likely angles"
+option can reduce the ambiguity in Phi angle prediction by allowing only
+values that are in the common regions of the Ramachandran plot. Angle
+predictions may be converted into dihedral angle restrains, for use in
+structure calculations, with the [Make Dihedral Restraints] button.
+
+**Caveats & Tips**
+
+Because this method relies upon peak intensities, the user should be cautious
+in regions of the spectrum where peak overlap is significant enough to affect
+the size and shape of peaks. Where there is overlap using the peak 'height'
+may perform better than 'volume', but this will not overcome the problem
+entirely.
+
+Residues may be excluded from restraint and coupling list generation by
+double-clicking in the "Use?" column.
+
+If a residue or spin system appears to be missing, check that the correct peak
+list is selected (there could be many for one spectrum) and that both peaks
+for a residue are assigned to a spin system in their amide dimensions.
+
+No special provision is made for glycine residues, but they may be included
+in the analysis using the "Show Glycines" option.
+
+**Reference**
+
+The method used by this system closely follows that which is described in the
+following reference:
+
+*G. W. Vuister and A. Bax (1993). "Quantitative J correlation: a new approach
+for measuring homonuclear three-bond J(HNHa) coupling constants in
+15N-enriched proteins". J. Am. Chem. Soc. 115 (17): 7772-7777*
+
+.. _Experiments: EditExperimentPopup.html
+.. _`Pick & Assign From Roots`: LinkPeakListsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Spin System Table
+=================
+
+*Documentation missing*
+
+==================  ==================================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------
+*Root Spin System*  Assigned name of the root (amide) spin system 
+            *Use?*  Whether or not to use a given spin system when recording restraints & couplings  *(Editable)*
+        *3J[H,Hα]*  The three bond amide H to alpha H coupling in Hz 
+  *Error 3J[H,Hα]*  The estimated error in the three-bond HN-HA coupling 
+            *ΔδHα*  Difference between the observed and (sequence adjusted) random coil HA chemical shift 
+        *Φ Angles*  Predicted phi backbone torsion angles, in degrees, according to the Karplus equation 
+ *Intensity Ratio*  Ratio of peak intensities used in calculation: HA crosspeak over diagonal 
+ *Amide Intensity*  Intensity of amide H diagonal peak 
+     *α Intensity*  Intensity of alpha H crosspeak 
+==================  ==================================================================================================
+
+
+
+|button| **Assign non-root dimensions**: Assign amide H and alpha H resonances to the indirect 1H peak dimensions
+
+|button| **Make Coupling List**: Make a J-coupling measurement list from results; stored in CCPN project
+
+|button| **Make Dihedral Restraints**: Make a dihedral angle restraint list from results
+
+|button| **Make Coupling Restraints**: Make a J-coupling restraint list from results
+
+|button| **Update Table**: Manually update the table & redo calculations; useful after adjusting intensities etc.
+
+Options
+=======
+
+*Documentation missing*
+
+|pulldown| **Peak List**: Selects the HNHA peak list to calculate couplings from
+
+|pulldown| **Intensity Type**: Selects whether to compare peak heights or volume integrals
+
+|float| **0.01305**: The transfer period used in the HNHA experiment
+
+|float| **1.11**: Correction factor to compensate for differential relaxation
+
+|pulldown| **JCoupling List**: Selects a J-coupling list to store results in
+
+|pulldown| **Restraint Set**: Selects a restraint set to make dihedral (phi) angle restraints in
+
+|pulldown| **Window**: Selects a spectrum window to display peak locations in
+
+|check| **Show Glycines**: Whether to show Glycine residues in spin system table: defaults off due to two HAs
+
+|check| **Mark Peaks**: Whether to mark peak positions in windows with lines
+
+|check| **Follow Peaks**: Whethe rto follow peak positions in a spectrum window when clicking in the spin system table
+
+Φ Dihedral Angle Prediction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|float| **6.51**: The first coefficient in the Karplus equation; for the cosine^2(angle) term
+
+|float| **-1.76**: The second coefficient in the Karplus equation; for the cosine(angle) term
+
+|float| **1.6**: The third coefficient in the Karplus equation; the scalar constant
+
+|check| **Only likely angles**: Whether to show only predicted phi angles for common protein conformations
+
+|float| **30.0**: Width to derive upper and lower bound for dihedral angle restraints
+
+Karplus Curve
+~~~~~~~~~~~~~
+
+
+
+

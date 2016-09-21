@@ -1,0 +1,164 @@
+=============================
+Resonance : Measurement Lists
+=============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**The NMR Derived Measurements and Their Lists**
+
+The purpose of this popup window is to display lists of measurements within
+the current CCPN project. A "Measurement" in this regard is a value that is
+derived from NMR data and connects to one or more resonances (which may be
+assigned to atoms). The most commonly encountered kind of measurement is the
+chemical shift, which is usually derived from recording the positions of peaks
+in spectra. In this instance the chemical shift measurement of a resonance is
+made when it is assigned to the dimension of a peak. Because CCPN allows
+multiple shift lists (technically a type of measurement list) a resonance may
+have a several chemical shift measurements; useful studying different
+conditions.
+
+There are several different kinds of measurement and hence measurement list that
+may be included within a CCPN project, for example J-coupling, hydrogen
+exchange rate, chemical shift anisotropy, T1 relaxation and chemical shift.
+All types will be displayed by this popup if they are available within the
+current project, although Analysis does not necessarily have tools to record
+all of these different kinds of measurement.
+
+The layout of this popup consists of two tabs, one for the organising lists
+that contain the measurements and another to display the individual
+measurements within a single list. With the exception of blank
+lists for chemical shifts, measurement lists are not made using this popup,
+instead they are made at the point where an analysis is performed, e.g. T1
+lists are made with data from the `Follow Intensity Changes`_
+tool.
+
+The second tab, containing the "Measurements" table displays the details of
+the individual measured values within a selected list. What the values mean
+and which units they are in, if any, naturally depends on the kind of list
+being viewed. If measurements are made within CCPN software (as opposed to
+being imported) then the individual measurements usually record the spectrum
+peaks that were used in the calculation of the measured value, e.g. the peaks
+for which positions record chemical shift or intensities record T1.
+
+**Caveats & Tips**
+
+If there is no chemical shift list within a project a new one will be made
+automatically to record the shifts of any assignments.
+
+The shift list with which an experiment is associate may be changed via the "Shift
+List" column of the main `Experiments`_ table.
+
+Measurements other than chemical shift, like T1 and T2 relaxation times will only
+appear within this system if a measurement list entity is formally made. Simply
+measuring values from spectra, for example using the `Follow Intensity Changes`_
+tool
+
+.. _`Follow Intensity Changes`: CalcRatesPopup.html
+.. _`Experiments`: EditExperimentPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Measurement Lists
+=================
+
+A table of all the NMR measurement lists in the project, including shift lists, T1 lists, J-coupling lists etc.
+
+|pulldown| **Experiment**: Selects an experiment, if required, to restrict the measurement list table display; showing only lists which were derived using the experiment
+
+=============  ====================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------
+          *#*  The serial number of measurement list 
+  *List Type*  The type of measurement list, e.g. shift list, T1 list, J coupling list 
+       *Name*  A short identifying name for the list, for graphical displays  *(Editable)*
+       *Size*  The number of measurements contained within the list 
+       *Unit*  The unit of measurement used for the values in the list 
+*Experiments*  The names of the experiments which were used to derive the measurements 
+    *Details*  A user-specified textual comment for the measurement list 
+=============  ====================================================================================
+
+
+
+|button| **Show Measurements**: Show a table of the individual measurements within the selected measurement list
+
+|button| **New Shift List**: Make a new, blank chemical shift list within the project
+
+|button| **Make Random Coil Shift List**: Make a synthetic chemical shift list using random coil values, adjusting protein backbone values for sequence where approprate
+
+|button| **Delete**: Delete the selected measurement list
+
+Measurements Table
+==================
+
+A table listing all of the individual measurements within an NMR measurement list
+
+|pulldown| **Measurement List**: Selects the measurement list to display measurements for
+
+==============  ================================================================================================================
+**Table 2**
+--------------------------------------------------------------------------------------------------------------------------------
+           *#*  The serial number of the measurement within its containing list 
+   *Resonance*  The number or assignment of the NMR resonance(s) to which the measurement applies 
+ *Value (ppm)*  The numeric value of the NMR measurement on the specified resonance(s), and the unit of measurement 
+          *SD*  The standard deviation error in the measured value 
+       *Chain*  The molecular chain, if any, to which the measurement relates by virtue of atom assigned resonances 
+     *Isotope*  The isotope type(s) of the measures resonance(s) 
+*Fig of Merit*  A figure-of-merit value for the measurement indicating its quality or reliability  *(Editable)*
+       *Peaks*  The number of peaks in the CCPN project used to take the measurement  *(Editable)*
+     *Details*  A user-defined textual comment for the measurement  *(Editable)*
+==============  ================================================================================================================
+
+
+
+|button| **Show Peaks**: Show a table containing peaks that were used to derive the selected measurements
+
+|button| **Recalculate**: For some measurement lists (currently only shift lists) manually trigger a recalculation of values
+
+|button| **Show Resonances**: Show a table containing the resonances that relate to the selected measurements
+
+|button| **Delete**: Delete the selected measurement records; cannot be done for chemical shift values still ties to peaks via assignment
+

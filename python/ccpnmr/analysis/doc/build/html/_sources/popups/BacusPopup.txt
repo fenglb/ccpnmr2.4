@@ -1,0 +1,71 @@
+====================
+BACUS control module
+====================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+Inputs
+~~~~~~
+
+
+|pulldown| **NOESY**: *Documentation missing*
+
+|pulldown| **15N NOESY**: *Documentation missing*
+
+|pulldown| **13C NOESY**: *Documentation missing*
+
+|pulldown| **Shift List**: *Documentation missing*
+
+|entry| **/home/tjs23/clouds/justin/SpiBacusMidge/bacus/bacus_tjs.exe**: *Documentation missing*
+
+|button| **Choose file**: *Documentation missing*
+
+Output
+~~~~~~
+
+
+
+|button| **Run BACUS 2d**: *Documentation missing*
+
+|button| **Run BACUS 3d**: *Documentation missing*
+
+

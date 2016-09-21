@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Spin System Type Scores &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Resonance" href="../menu/Resonance.html" />
+    <link rel="next" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="prev" title="Resonance : Resonance Info" href="ResonanceInfoPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/DataAnalysis.html" title="Data Analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ResonanceInfoPopup.html" title="Resonance : Resonance Info"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" accesskey="U">Resonance</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="spin-system-type-scores">
+<h1>Spin System Type Scores<a class="headerlink" href="#spin-system-type-scores" title="Permalink to this headline">¶</a></h1>
+<p><strong>Predict Residue Type for a Spin System of Resonances</strong></p>
+<p>This tool aims to predict the residue type of a spin system based upon the
+chemical shifts of the resonances that it contains. The general principle is
+that different kinds of atoms in different kinds of residues have different
+observed distributions of chemical shifts. This system uses chemical shift
+distributions from the RefDB database, or otherwise from the BMRB where data
+is not available in RefDB. The observed chemical shifts of a spin system are
+compared to the per-atom distributions for each residue type and the residue
+types with the best matches are deemed to be more likely.</p>
+<p>This system can work with various levels of information, although the more
+information the better. Naturally, the more chemical shifts you have in a spin
+system then the better the prediction of type, and 13C resonances are more
+distinctive than 1H on the whole. Also, setting the atom type of a resonance
+can have a big influence on the type of residue predicted, for example knowing
+that a 13C resonance at 63 ppm is of type CB points  very strongly toward the
+residue being a serine. Atom type information can come from two sources: from
+a specific type assignment made by the user (via this popup or elsewhere) or
+by virtue of assignment in an experimental dimension that detects a
+restricted class of atom - e.g. 13C resonances in an HNCA experiment, assuming
+their shift matches, are of CA type as far as this prediction is concerned.
+Resonances that do not have a known atom type are compared with all of the
+unallocated types to find the combination that is most likely.</p>
+<p>The residue type prediction is based on the list of resonances displayed in the
+upper table. Here the user can see the chemical shifts (from the selected
+shift list) and any specific atom type setting. The user may set the atom type
+for any of the resonances, which would normally be done to reduce prediction
+ambiguity, by double-clicking in the &#8220;Atom Type&#8221; column.</p>
+<p>The lower table shows a ranked list of the probable residue types. All
+probability scores are normalised and represented as a percentage of the total
+of all scores, considering residue types in the selected chain. The type of a
+spin system may be set by clicking on a row of the lower table (hopefully a
+unique and high-scoring option) and  then selecting [Assign Spin System Type].
+If the user attempts to change the type of a spin system that is currently
+assigned to a specific residue then there is an opportunity to back out of the
+assignment, but otherwise any sequence specific information will be removed.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>It is assumed that the spectra from which the chemical shifts are derived are
+fairly well referenced.</p>
+<p>A type prediction will always be given, no matter how few resonances are
+present in a spin system. This system says which of the available types are
+most likely, <em>not how reliable</em> the prediction is; the latter depends largely
+on the amount of information present. The user should not for example make a
+judgement based only on amide resonances. Reliability scores will be added in
+the future.</p>
+<p>Rouge resonances in a spin system often adversely affect the prediction, if
+something is not genuinely in the spin system it should be removed.</p>
+<p>The system will never predict the residue type to be something that does not
+appear in the selected molecular chain. Thus, make sure the chain selection is
+appropriate for your prediction.</p>
+<p><strong>Reference</strong></p>
+<p>The residue type prediction method is not published independently but is very
+similar to the Bayesian method presented in: <em>Marin A, Malliavin TE, Nicolas P,
+Delsuc MA. From NMR chemical shifts to amino acid types: investigation of the
+predictive power carried by nuclei. J Biomol NMR. 2004 Sep;30(1):47-60.</em></p>
+<p>One major difference however is that probabilities for resonances not being
+observed are not used. The CCPN prediction method is not only for complete
+spin systems and may be used at any time during the assignment process; here
+missing resonances are mostly due to the current assignment state and not such
+a useful indicator of residue type.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list is the source of chemical shift information to make the residue type prediction</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain the prediction is for; sets prior probabilities for the various residue types</p>
+<div class="section" id="resonances">
+<h3>Resonances<a class="headerlink" href="#resonances" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The nuclear isotope type of the resonance within the current spin system</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The assignment annotation for the spin system resonance within the current spin system</td>
+</tr>
+<tr><td><em>Shift Value</em></td>
+<td>The chemical shift of the resonance in the stated shift list</td>
+</tr>
+<tr><td><em>Shift Error</em></td>
+<td>The weighted standard deviation of the resonance chemical shift</td>
+</tr>
+<tr><td><em>Atom Type</em></td>
+<td>The current atom type of the resonance; when set this helps refine residue type prediction  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove From Spin System</strong>: Remove the selected resonance from the current spin system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Residue Type</strong>: Remove residue type information from the current spin system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Resonance Info</strong>: Show a table of information for the  selected resonance, including a list of all peak dimension positions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of the peaks to which the selected resonance is assigned</p>
+</div>
+<div class="section" id="type-scores">
+<h3>Type Scores<a class="headerlink" href="#type-scores" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Rank</em></td>
+<td>The ranking of the residue type possibility for the current spin system</td>
+</tr>
+<tr><td><em>Ccp Code</em></td>
+<td>The CCPN residue code for the type</td>
+</tr>
+<tr><td><em>% Probability</em></td>
+<td>The estimated percentage probability of the spin system being the residue type</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Spin System Type</strong>: Assign the residue type of the current spin system to the kind selected in the lower table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Spin System Type Scores</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#resonances">Resonances</a></li>
+<li><a class="reference internal" href="#type-scores">Type Scores</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ResonanceInfoPopup.html"
+                        title="previous chapter">Resonance : Resonance Info</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/DataAnalysis.html"
+                        title="next chapter">Data Analysis</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/SpinSystemTypeScoresPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/DataAnalysis.html" title="Data Analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ResonanceInfoPopup.html" title="Resonance : Resonance Info"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" >Resonance</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

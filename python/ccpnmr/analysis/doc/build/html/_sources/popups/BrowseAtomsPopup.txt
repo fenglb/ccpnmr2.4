@@ -1,0 +1,243 @@
+=======================
+Molecule : Atom Browser
+=======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Select Atoms and Residues for Assignment**
+
+This popup window allows the user to view and select specific atom, atom set
+and residue entities from any of the molecular systems within the CCPN
+project. Most importantly this allow the user to perform resonance assignment,
+of the signal phenomena observed in NMR spectra, to particular atomic groups,
+thus labelling the origin of a resonance. In a similar manner, spin systems
+(groups of resonances from the same residue) may be linked to residues. In
+Analysis such atom and residue assignment may be performed in a specific way,
+i.e. choosing a particular atom in a particular residue within the sequence.
+However, this system also allows the user to select atoms and  residues in
+order to specify the type of a resonance or spin system; to say what kind of
+atom or residue a resonance or spin system relates to without actually
+specifying which position in the molecular sequence. This type-only
+information is useful to reflect the current state of knowledge, particularly
+during early stages of assignment, without having to make notes outside of the
+CCPN system.
+
+This system has a second important function, to show the user the current
+assignment state for the atoms of the selected chemical element types,
+molecular chain (and bearing in mind any shift list) selection. The cells
+within the table will show a darker colour if they carry a resonance
+assignment (irrespective of whether the resonance is associated with peaks)
+and thus the user can quickly get a visual appreciation of the parts of the
+molecular chain that have been assigned and those that have yet to be assigned
+
+**Atom Table**
+
+In order to use this system the user must ensure that the various options have
+been chosen appropriate to what they wish to view. Generally in the first
+"Atom Table" tab the user selects which molecular chain in the upper left
+pulldown men and click the "Elements" buttons to specify which kinds of atom
+will be visible at this time. Naturally the selection of chemical elements
+will reflect the kind of operation or assignment that is being performed at
+the  time. Thus for example if the user is assigning a 15N HSQC NOESY
+experiment which shows only 15N and 1H resonances then only the [H] and [N]
+chemical element buttons need to be toggled on. If the user wants to reduce
+clutter and only look at a particular type of residue (amino acid, nucleotide,
+sugar) then the "Residue" pulldown can be used to display only a subset of
+the sequence. The adjacent "Nucleotides" option is only relevant for nucleic
+acids like DNA & RNA, and allow the user the option of showing each residue on
+a single line (long row), or have the sugar phosphate and aromatic bas
+components displayed independently on separate lines; minimising clutter and
+the need to scroll.
+
+There are a few functions at the bottom of the first tab that control
+assignment and link to other kinds of data entity in the CCPN project. The
+[Show ...] buttons allow the user to get a separate table of either the
+spectrum peaks or resonance phenomena that have been associated with the atoms
+or resonances that have been selected in the table above. Specifically the
+`Selected Peaks`_ and `Selected Resonances`_ popups are opened. This is useful
+to navigate from the molecule based information display into the spectrum
+display and to understand the links throughout the project. The [Remove Atom
+Assignments] button does as the name suggests and disconnects any resonances
+assigned to the selected atoms from those atoms. This merely removes the
+specific atom information for those resonances, it does not affect the linking
+of the resonances to any peaks. Lastly the [Set Ring Flip Equivalency] button
+is used on the selected residue for the rare occasions that aromatic rings (in
+residues like Phe & Tyr) display two distinct resonances for atoms that in
+most circumstances are indistinguishable in NMR spectra, because they are in
+very rapid exchange due to rotation of the aromatic ring around an axis of
+symmetry. In essence this makes Phe & Thr HD*, CD, HE* and CE separate into
+HD1, HD2, CD1, CD2, HE1, HE2, CE1 & CE2 selections. This operation is
+reversible but will naturally loose fidelity of peak assignments if a peak is
+assigned to only one side of the ring.
+
+**Options**
+
+The second tab gives the user further control over how atom information is
+displayed in the main table. The upper "Prochirals" section allows the choice
+of how to display stereochemical information for atom sets that are often  not
+distinguishable in stereospecific way in NMR spectra. For example a Ser residue
+has both HB2 and HB3 atoms in its side chain, but these can prochiral atoms
+cannot generally be distinguished from one another in NMR spectra. In such
+circumstances it is commonplace to use non-stereospecific assignment labels
+like "HBa" and "HBb" so that two different resonances, usually with different
+chemical shifts, can be identified in NMR spectra, without needing to specify
+any stereochemical information. In this example "HBa" and "HBb" resonance
+assignments will both be linked to both HB2 and HB3, but this is done in a way
+that is mutually exclusive; Analysis knows that one really only goes to HB2
+and the other to HB3, whichever way round that may be. If the  user has
+structural  information that allows a proper determination of which resonance
+goes with which stereochemical location, then the "Stereospecific" option can be
+set. This would make Ser HB2 and HB3 available as separate options to "HBa"
+and "HBb" which come from the "Non-stereospecific" option. The "Ambiguous"
+option is something of a remnant and is generally only used for situations
+when the atoms in the stereo group have exactly the same chemical shift. For
+Ser HB2 & HB3 this would provide the "HB*" option in the main table, however
+this is really just a pseudonym; assigning to this actually assigns to both
+the stereospecific HB2 and HB3 at the same time (not HBa, HBb).
+
+The "Assignment Status" selection allows the number of atom options displayed
+in the main table to be reduced by only showing specific cells based upon what
+kind of assignment the underlying atoms have. For example the "unassigned"
+option may be selected to view more easily what has yet to be assigned. The
+"Shift List" pulldown controls which atom options are darkened, indicating
+resonance assignments, based upon the experiments that those assignments are
+made to and which set of conditions (and thus shift list) those assignments
+relate. By default this option is set to "<Ignore>", meaning that all
+resonance assignments are considered. Selecting a specific shift list will
+reduce the indication of assignment to only those peaks that use that shift
+list (via the experiment's connection).
+
+The lower "Isotope Labelling" section is used if the user has any experiments
+that were performed with selective spin-active isotope labelling, which would
+reduce the complement of atom sites that were deemed to be visible in spectra
+and thus available for assignment. Here, the user selects which type of isotope
+labelling scheme was used, and what level of isotopic incorporation (between
+0,0 and 1.0) must be present for an atom site to be visible.  Atom sites that
+are not deemed to be visible will not be displayed in the  main sequence + atom
+table.
+
+**Tips and Caveats**
+
+At some stage in the future it is planned that the Atom Table will become
+(optionally) context sensitive to the kind of atoms that *ought* to be visible
+in the specific spectrum being assigned at the time. For example if an HNCA
+experiment is assigned then only the H, N & CA atom options cane be displayed.
+
+.. _`Selected Peaks`: SelectedPeaksPopup.html
+.. _`Selected Resonances`: BrowseResonancesPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Atom Table
+==========
+
+*Documentation missing*
+
+|pulldown| **Chain**: Select the molecular system & chain to show atoms for
+
+|pulldown| **Residue**: Select the type of residue to display atoms for, defaults to all types
+
+|pulldown| **Nucleotides**: Select how to display rows of base and sugar-phosphate atoms for DNA & RNA nucleotide residues
+
+|selector| **Elements**: The selection of which chemical elements to display atoms for
+
+===========  =================================
+**Table 1**
+----------------------------------------------
+        *#*  Sequence number code 
+  *Residue*  Residue type code 
+===========  =================================
+
+
+
+|button| **Set Ring Flip Equivalency**: Toggle whether the symmetric aromatic ring of selected residue
+flips quickly on the NMR timescale
+
+|button| **Remove Atom Assignments**: Remove all resonance assignments from the selected atoms
+
+|button| **Show Peaks**: Show a table of all peaks assigned to the selected atoms
+
+|button| **Show Resonances**: Show a table of all resonances assigned to the selected atoms
+
+Options
+=======
+
+*Documentation missing*
+
+Prochirals
+~~~~~~~~~~
+
+
+|check| **Non-Stereospecific**: Whether to show distinct but stereoscopically ambiguous assignment options.
+For example you may not know if a Serine Hb is "Hb2" or "Hb3"
+
+|check| **Stereospecific**: Whether to show stereospecific atom options (IUPAC system) like Serine Hb2 & Hb3
+
+|check| **Ambiguous**: Whether to include multi-atom ambiguous options like Ser Hb*.
+Methyl groups are not affected by this option unless the whole group is prochiral.
+
+Assignment Status
+~~~~~~~~~~~~~~~~~
+
+
+
+|radio| **Any**: Show all atom options irrespective of assignments
+
+|radio| **Assigned**: Show only atom options which are assigned to NMR resonances
+
+|radio| **Unassigned**: Show only atom options which have no resonance assignments
+
+|radio| **Tentative**: Show only atom options that carry tentative resonance assignments
+
+|pulldown| **Shift List**: Select a specific shift list to determine an atoms assignment status or "<ignore>" to use any
+
+Isotope Filtering
+~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Isotope Labelling**: Select which per-residue isotope labelling scheme/pattern to use
+
+|float| **0.25**: Specify what proportion of atoms must be isotopically labelled (spin active) to be considered as assignable
+

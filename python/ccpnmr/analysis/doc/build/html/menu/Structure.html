@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Program Documentation" href="../analysisDoc.html" />
+    <link rel="next" title="Structure : Restraints and Violations" href="../popups/BrowseConstraintsPopup.html" />
+    <link rel="prev" title="Data Analysis : Follow Shift Changes" href="../popups/FollowShiftChangesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../popups/BrowseConstraintsPopup.html" title="Structure : Restraints and Violations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../popups/FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" accesskey="U">Program Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure">
+<h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
+<p>Menu contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html">Restraints and Violations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#restraint-sets">Restraint Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#restraint-lists">Restraint Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#restraints">Restraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#violations-lists">Violations Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/BrowseConstraintsPopup.html#violations">Violations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/EditStructuresPopup.html">Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#ensembles">Ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#structure-models">Structure Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#residues">Residues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#coords">Coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EditStructuresPopup.html#compare-ensembles">Compare Ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/ViewStructurePopup.html">Structure Viewer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/ViewStructurePopup.html#main-panel">Main Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html">Make Distance Restraints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#residue-ranges">Residue Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#shift-match-tolerances">Shift Match Tolerances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#chem-shift-ranges">Chem Shift Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/CalcDistConstraintsPopup.html#network-anchoring">Network Anchoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/MakeHbondRestraintsPopup.html">Make H Bond Restraints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/MakeHbondRestraintsPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/MakeHbondRestraintsPopup.html#h-bonds-table">H Bonds Table</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/DangleGui.html">DANGLE: Predict Dihedrals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/DangleGui.html#main-panel">Main Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/EntryCompletionPopup.html">ECI: Database Deposition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#main">Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#people">People</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#nmr-data">NMR Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#shifts">Shifts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#molecules">Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#nmr-conditions">NMR Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#instruments">Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#experiments">Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/EntryCompletionPopup.html#structures">Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/SecStructureGraphPopup.html">Secondary Structure Chart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/SecStructureGraphPopup.html#main-panel">Main Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/SecStructureGraphPopup.html#residue-data">Residue Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/SecStructureGraphPopup.html#chart">Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../popups/SecStructureGraphPopup.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popups/ViewRamachandranPopup.html">Ramachandran Plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../popups/ViewRamachandranPopup.html#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../popups/FollowShiftChangesPopup.html"
+                        title="previous chapter">Data Analysis : Follow Shift Changes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../popups/BrowseConstraintsPopup.html"
+                        title="next chapter">Structure : Restraints and Violations</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/menu/Structure.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../popups/BrowseConstraintsPopup.html" title="Structure : Restraints and Violations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../popups/FollowShiftChangesPopup.html" title="Data Analysis : Follow Shift Changes"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

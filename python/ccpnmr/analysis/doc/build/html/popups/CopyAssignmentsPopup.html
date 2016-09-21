@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Copy Assignments &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Spin System Typing" href="SpinSystemTypingPopup.html" />
+    <link rel="prev" title="Assignment : Assignment Panel" href="EditAssignmentPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypingPopup.html" title="Assignment : Spin System Typing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditAssignmentPopup.html" title="Assignment : Assignment Panel"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-copy-assignments">
+<h1>Assignment : Copy Assignments<a class="headerlink" href="#assignment-copy-assignments" title="Permalink to this headline">¶</a></h1>
+<p><strong>Copy Resonance Assignments to Different Peak Lists or Molecules</strong></p>
+<p>This popup has two separate but related purposes: firstly, to transfer
+resonance assignments from one peak list to another peak list where the peaks
+are in similar, but not identical, positions; secondly, to move or duplicate
+resonances that are assigned to atoms in one molecular chain to another of
+similar sequence.</p>
+<p><strong>Copying Assignments Between Peak Lists</strong></p>
+<p>The general idea of the first tab is to select two peak lists, one of which
+acts as the &#8220;source&#8221; where resonance assignments are copied from and another
+to act as the &#8220;target&#8221; where assignments are copied to. In general both the
+source and targets peak lists will be from experiments with the same number
+and kinds of axis. However, it is also possible to copy assignments <em>to</em> a
+target peak list that is of <em>lower</em> dimensionality than the source. For
+example you can copy 3D 15N HSQC-NOESY (H,N,H dimensions) assignments to
+15N-HSQC (H,N dimensions) or 2D NOESY (H,H dimensions), and in these cases
+only resonance assignments that go on dimensions common to source and target
+will be transferred.</p>
+<p>The &#8220;Source Peaks&#8221; table lists all the peaks that assignments may be copied
+from, together with an indication the number of peaks that are close and the
+one that is closest. The &#8220;Target Peaks&#8221; table is updated for an individual
+source peak when you click on a row of the &#8220;Source Peaks&#8221; table; to show you
+details of all the peaks that match in terms of position.</p>
+<p>The matching of peak positions is made according to a chemical shift distance
+measure and only possibilities that lie within the distance threshold are
+considered. The chemical shift distance is calculated by taking the difference
+in peak positions for each dimension, dividing each difference by the scale
+factor for the isotope that appears on that dimension, squaring the
+differences and taking the square root of their summation. The isotope scale
+factors, which you can set in the interface mean that differences in
+dissimilar dimensions can be compared. By default the distances can be thought
+of in terms as the &#8220;1H&#8221; equivalent.</p>
+<p>If suitable matches are found, resonance assignments are copied between peaks
+either on an individual basis, by selecting the required target in the lower
+table and using [Assign Selected Target], or <em>en masse</em> by using the other
+buttons which process all of the peaks in the list; copying assignments if there
+is only a single matching target within the distance threshold, or
+to the  closest matching target. When using the process-all functions it is
+common to start with a very strict/short threshold radius, assign some peaks
+and then increase the threshold to consider the poorer matching ones.</p>
+<p><strong>Copying Assignments Between Molecular Chains</strong></p>
+<p>The second tab is used to move resonances&#8217; atomic assignments to a different
+molecule/chain, while maintaining assignments to peaks. When copying
+assignments between molecular chains, i.e. the entities  with residues and
+atoms that you assign, the general principle is that you choose one chain as a
+source, to get assignments from, and another as a target, to transfer
+assignments to. Chains may have identical sequences, for example when copying
+assignments within a homodimer, or reasonably different sequences. In the
+latter case a pairwise sequence alignment is used to determine the initial
+mapping between source and target residues.</p>
+<p>With the chain selection setup, the next task is usually to consider how
+moving assignments will affect the peaks that the source chain resonances are
+assigned to. In this regard there are three options and they are all specified
+on a per-experiment basis (and thus affect that experiment&#8217;s spectra and
+peaks). The first option is to leave an experiment alone (&#8220;don&#8217;t move&#8221;) so
+that its peaks are not affected at all. The second option is to move to the
+target, whereby all resonance assignments on the peaks are moved to the other
+chain. The third option is to duplicate assignments on the peaks so that they
+are assigned to both the source and the target chains; this makes each peak
+assigned to double the number of resonances. If a resonance is moved entirely
+to the target chain (no peaks left at source) then the resonance&#8217;s atomic
+assignment is simply pointed to the different chain. If a resonance remains
+partly assigned to the original chain, then a new resonance is made and this
+is the one assigned to the target chain; the old resonance remains on the
+source chain.</p>
+<p>Where residues don&#8217;t match exactly between the two chains, any resonances
+assigned to atoms with no direct equivalent (nothing of the same name) will
+still be copied across; their spin system will become the target residue, they
+retain their original atom types, but they will not have full atomic
+assignments. If the destination residue does not appear correctly in the lower
+table, the user may change the residue-residue mapping by double clicking in
+the &#8220;Destination&#8221; column.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="between-peak-lists">
+<h2>Between Peak Lists<a class="headerlink" href="#between-peak-lists" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Source Peak List</strong>: Selects the peak list to copy assignments from</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Target Peak List</strong>: Selects the peak list which will be assigned</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show Already Copied?</strong>: Whether to show source peaks in the table whose assignments are already copied</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Overwrite Assignments?</strong>: Whether to overwrite any existing assignments in the target peak list</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Follow Peaks?</strong>: Whether to follow the location of peaks in the spectrum window when clicking on a peak row</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Only Good Matches?</strong>: When selected only source peaks with at least one good target match will be shown, otherwise all source peaks are shown</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Consider Aliased?</strong>: Whether target peaks could be aliased; position matching can add whole numbers of sweep widths</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Follow Window</strong>: Selects which spectrum window will be used to navigate to source &amp; target peak positions</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.08</strong>: The ppm search radius to match peak positions. Note spectrum dimensions will be weighted by the isotope scale factors</p>
+</div>
+<div class="section" id="scale-factors">
+<h3>Scale Factors<a class="headerlink" href="#scale-factors" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.0</strong>: The scaling factor used to weight ppm distances in 1H dimensions; used in position radius search</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>5.0</strong>: The scaling factor used to weight ppm distances in 15N dimensions; used in position radius search</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>10.0</strong>: The scaling factor used to weight ppm distances in 13C dimensions; used in position radius search</p>
+</div>
+<div class="section" id="source-peaks">
+<h3>Source Peaks<a class="headerlink" href="#source-peaks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of the source peak</td>
+</tr>
+<tr><td><em>Assignment</em></td>
+<td>Assignment of source peak; which will be copied</td>
+</tr>
+<tr><td><em>Num. Matches</em></td>
+<td>The number of target peaks that match the source peak within the ppm distance</td>
+</tr>
+<tr><td><em>Closest Distance.</em></td>
+<td>The smallest, isotope weighted, ppm distance to a target peak</td>
+</tr>
+<tr><td><em>Best Match</em></td>
+<td>Assignment annotation of closest matching target peak</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="target-peaks">
+<h3>Target Peaks<a class="headerlink" href="#target-peaks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of target peak possibility</td>
+</tr>
+<tr><td><em>Assignment</em></td>
+<td>Assignment of the target peak, which may be overwritten</td>
+</tr>
+<tr><td><em>Distance</em></td>
+<td>Isotope weighted (by scale factor per dimension) ppm distance between source and target</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Selected Target</strong>: Copy assignments from the selected source peak to the selected target</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign All Singly Matched</strong>: Process all source peaks and copy assignments to those that match a single target within the search radius</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign All To Closest</strong>: Process all source peaks and copy assignments to the closest matching target peak (if there is one in the search radius)</p>
+</div>
+</div>
+<div class="section" id="between-molecule-chains">
+<h2>Between Molecule Chains<a class="headerlink" href="#between-molecule-chains" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="id1">
+<h3>Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Source Chain</strong>: Selects the molecular chain from which atom assignments will be copied</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Target Chain</strong>: Selects the molecular chain which will receive new atom assignments</p>
+</div>
+<div class="section" id="peak-assignment-transfers">
+<h3>Peak Assignment Transfers<a class="headerlink" href="#peak-assignment-transfers" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of experiment to consider</td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>Name of experiment to consider</td>
+</tr>
+<tr><td><em>Operation</em></td>
+<td>Sets whether atom assignments for an experiment will be transferred entirely, duplicated on both chains or left unaltered  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Don&#8217;t Move</strong>: Sets the selected experiments so that their assignments will be left unaltered</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Move to Target</strong>: Sets the selected experiments so that their assignments will be transferred entirely to the target chain</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Duplicate</strong>: Sets the selected experiments so that their assignments will be duplicated for both source and target chains</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Source</em></td>
+<td>The residue from which assignments may be copied</td>
+</tr>
+<tr><td><em>Source Resonances</em></td>
+<td>The number of resonance assignments currently on the source residue&#8217;s atoms</td>
+</tr>
+<tr><td><em>Destination</em></td>
+<td>The residue in the target chain to which assignments may be copied  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Destination Resonances</em></td>
+<td>The number of resonance assignments currently on the target residue&#8217;s atoms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="residue-mapping">
+<h3>Residue Mapping<a class="headerlink" href="#residue-mapping" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Assignments!</strong>: Go ahead and copy assignments between chains using the selected options</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Enable Selected</strong>: Enable copying of assignments for the selected residues</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Disable Selected</strong>: Disable copying of assignments for the selected residues</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Copy Assignments</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#between-peak-lists">Between Peak Lists</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#scale-factors">Scale Factors</a></li>
+<li><a class="reference internal" href="#source-peaks">Source Peaks</a></li>
+<li><a class="reference internal" href="#target-peaks">Target Peaks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#between-molecule-chains">Between Molecule Chains</a><ul>
+<li><a class="reference internal" href="#id1">Options</a></li>
+<li><a class="reference internal" href="#peak-assignment-transfers">Peak Assignment Transfers</a></li>
+<li><a class="reference internal" href="#residue-mapping">Residue Mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditAssignmentPopup.html"
+                        title="previous chapter">Assignment : Assignment Panel</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SpinSystemTypingPopup.html"
+                        title="next chapter">Assignment : Spin System Typing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CopyAssignmentsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypingPopup.html" title="Assignment : Spin System Typing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditAssignmentPopup.html" title="Assignment : Assignment Panel"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

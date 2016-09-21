@@ -1,0 +1,289 @@
+====================================
+Molecule : Reference Isotope Schemes
+====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Create and Edit Per-residue Reference Isotope Schemes**
+
+This system allows the user to create schemes that describe particular
+patterns of atomic isotope labelling in terms of combinations of isotopically
+labelled forms of residues. Once constructed, these schemes may then be
+applied to a molecule of known residue sequence to gauge the levels of
+spin-active isotope incorporation in an NMR experiment. This information is
+useful in several places withing Analysis, including giving more intelligent
+assignment options and in the generation of distance restraints by matching
+peak positions to chemical shifts. Although the schemes may be used directly
+they are typically used as reference information for configuring the `Isotope
+Labelling`_ system; where isotope labelling patterns are tied to particular
+molecules and experiments.
+
+Because all of the different isotope labelled versions (isotopomers) of each
+residue type are described independently, a scheme can be used to estimate the
+specific amounts of incorporation present at multiple atom sites at the same
+time. For example, although a residue type may have significant levels of 13C
+at the CA and CB positions on average, there may be no form of the residue
+where CA and CB are labelled at the same time, and thus CA-CB correlations
+would not be observed in NMR.
+
+This popup window is divided into three main tabs, the first describes the
+overall schemes that are available; that would be applied to a molecule in a
+given situation. The second tab details the residue isotopomer components
+within the selected scheme, i.e. which labelled residue forms are present. The
+last tab displays isotopomer labelling in a graphical, three-dimensional way.
+If any isotope labelling schemes have been created or edited the user may
+immediately save these to disk via the [Save Schemes] button to the right of
+the tabs, although these will naturally be saved when the main CCPN project
+is.
+
+**Reference Schemes**
+
+This table lists all of the reference isotope schemes that are available to
+the project. A number of standard schemes are included by default, as part of
+the main CCPN installation. However, the user is free to create new schemes,
+either from a completely blank description or by copying and modifying one of
+the existing schemes. By selecting on a isttope scheme row in the table the
+scheme is selected to be active for the whole popup and the user can see the
+contents of the scheme via the other two tabs.
+
+It should be noted that the user cannot edit the standard schemes provided by
+CCPN, given that these are stored with the software. Any new or copied schemes
+that the user creates will be stored inside the current CCPN project. If a new
+scheme should be made available to multiple projects, its XML file can be
+copied into the main CCPN installation, if the user has appropriate write
+access.
+
+**Isotopomers**
+
+The middle tab allows the user to view, and where appropriate edit, the
+isotope labelling descriptions for the residues within the current scheme
+(selected in the pulldown menu at the top). An isotope scheme is constructed
+by specifying one or more isotopomers for each residue type. Each isotopomer
+represents a different way of incorporating spin-active atom labels into a
+given kind of residue. Often there will only be one labelled form of a
+residue, and hence one isotopomer. However, with some kinds of isotope
+enrichment, for example using glycerol 13C labelled at the C2 position,
+connected labelled and unlabelled atom sites can be incorporated in
+alternative ways, resulting in distinct forms of labelling patterns that are
+not the result of a pure random mix. Knowing which labels are present at the
+same time, in the same isotopomer form, can be very important for determining
+which NMR correlations are possible.
+
+In general use when looking through the default, immutable reference schemes
+that come with CCPN the user can scroll through the isotopomer versions of
+each residue in the upper table. By clicking on one of these rows the lower
+table is filled with details of the amount of each kind of isotope (on
+average) at each atom site. For the lower "Atom Labels" table only one kind of
+chemical element is shown at a time, but the user may switch to  a different
+one via the "Chemical Element" pulldown.
+
+**Editing Isotopomers**
+
+When dealing with copied or new isotope schemes the user is allowed to
+edit all aspects of the scheme. With a completely new scheme there will be no
+isotopomer records to start with and it is common practice to fill in a
+standard set of isotopomers, one for each residue type, made with a base level
+of isotope incorporation. To set this base level the user can use [Set Default
+Abundances] to manually specify values, although the default is to use natural
+abundance levels, which is appropriate in most circumstances. With the base
+levels set the [Add Default Abundance Set] will automatically fill-in a
+starting set of isotopomers for the scheme. Extra isotopomers can be added for
+a specific type of residue via the [Add New:] function and adjacent pulldown
+menu or by copying existing ones; whichever is easier. Each isotopomer has an
+editable weight to enable the user to indicate the relative abundance within a
+given residue type.
+
+Once a new isotopomer specification is created clicking on its row allows the
+user to specify the isotope labelling pattern in the lower "Atom Labels"
+table. Here the user selects which kind of chemical element to consider and
+then  double-clicks to edit the "Weighting" columns in the table. The
+weightings represent the relative abundance of a given nuclear isotope at a
+given atom site. The weightings could be set as ratios, fractions, or
+percentages; it is only the relative proportion that is important. For example
+if a carbon atom site was known to have 5% Carbon-12 and 95% Carbon-13
+isotopes then the respective weights could be entered as 1 & 19 or  0.05 &
+0.95; whatever is most convenient. For efficient setup of schemes the
+[Propagate Abundances] function can be used to spread the same levels of
+incorporation over several atom sites (from the last selected row).
+
+**Isotopomer Structure**
+
+The last tab is an alternative way of presenting the isotope patterns present
+within the residues of the current scheme (selected in either of the first two
+tabs). Here the user selects a residue type in the upper left pulldown menu
+and then a numbered isotopomer, or an average of all isotopomers, in the right
+hand pulldown menu. The structural display will show a moveable picture of the
+residue (in a standard conformation) where unlabelled atom sites are
+represented with grey spheres, labelled sites with yellow spheres and
+intermediate incorporation with shades in between.
+
+It should be noted that this kind of 3D display is only possible if there is
+an idealised structure available for a residue type. This data will be
+present for all of the regular biopolymer residues, but may be missing for
+more unusual compounds; although a lack of coordinates does not impact upon
+the isotopomer setup.
+
+To move and rotate the three-dimensional residue display the following
+keyboard controls may be used:
+
+* Rotate: Arrow keys
+
+* Zoom: Page Up & Page Down keys
+
+* Translate: Arrow keys + Control key
+
+Or alternatively the following mouse controls:
+
+* Rotate: Middle button click & drag
+
+* Zoom: Mouse wheel or middle button click + Shift key & drag up/down
+
+* Translate: Middle button click & drag + Control key
+
+Also an options menu appears when the right mouse button is clicked.
+
+.. _`Isotope Labelling`: EditMolLabellingPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Save Schemes**: Save all changes to the reference isotope scheme to disk; the saves ALL changes to the CCPN installation for all projects to use
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Reference Schemes
+=================
+
+A table of all of the reference isotope scheme definitions available to the project
+
+===============  =============================================================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------------------------------
+         *Code*  A short textual code that identifies the reference isotope scheme in graphical displays 
+         *Name*  The full name for the isotope scheme  *(Editable)*
+  *Description*  A detailed description of the isotope scheme including user comments  *(Editable)*
+*Save Location*  The name of the CCPN data repository in which the isotope scheme is saved; "refData" is in the CCPn installation 
+===============  =============================================================================================================================
+
+
+
+|button| **Copy**: Make a new reference isotope scheme definition based on a copy of the scheme currently selected
+
+|button| **Delete**: Delete the selected isotope scheme
+
+|button| **New**: Make a new, blank isotope scheme
+
+Isotopomers
+===========
+
+A list of the residue isotopomers that comprise the selected isotope labelling scheme
+
+|pulldown| **Reference Scheme**: Selects which of the available isotope schemes to view/edit
+
+Isotopomers
+~~~~~~~~~~~
+
+
+|button| **Set Default Abundances**: Opens a panel that allows you to set the basis/default abundances for C, H & N isotopes; used as the starting point for new isotopomer definitions
+
+|button| **Set Natural Abundance Default**: Sets the basis/default abundances for C, H & N isotopes to their natural abundance proportions
+
+|pulldown| **Molecule Type**: Selects which type of bio-polymer to define residue isotopomer labelling for
+
+===========  ==============================================================================================
+**Table 2**
+-----------------------------------------------------------------------------------------------------------
+ *Ccp Code*  The CCPN code that identifies the kind of residue the isotopomer relates to 
+  *Variant*  The number of the particular isotopomer (isotope pattern) within its residue type 
+   *Weight*  The fraction of the total residues, of its kind, that the isotopomer make up  *(Editable)*
+===========  ==============================================================================================
+
+
+
+|button| **Delete Selected**: Delete the selected residue isotopomers from the current isotope scheme
+
+|button| **Copy Selected**: Make a new residue isotopomer definition by copying the details of the last selected isotopomer
+
+|button| **Add Default Abundance Set**: Add a complete set of isotopomers to the isotope scheme, one for each residue type, based on the states default isotope abundances
+
+|button| **Set Atom Type To Default**: For all residue isotopomers in the scheme, set the labelling of one kind of atom (the user is prompted) to its default isotopic incorporation 
+
+|button| **Add New**: Add a new residue isotopomer definition that uses the default isotopic incorporation
+
+|pulldown| ***None***: Selects which kind of residue isotopomer may be added to the current isotope scheme
+
+Atom Labels
+~~~~~~~~~~~
+
+
+|pulldown| **Chemical Element**: Selects which kind of atoms to select from the selected residue isotopomer; to display isotopic incorporation in the below table
+
+|check| **Water Exchangeable Atoms**: Sets whether to show atoms considered as being "water exchangeable"; their isotopic labelling will rapidly equilibrate with aqueous solvent
+
+===============  ===================================================================================================================================================
+**Table 3**
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    *Atom Name*  The name of the atom within its residue, for which to set isotopic abundances, within the selected isotopomer 
+*Weighting 12C*  The amount of 12C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  *(Editable)*
+*Weighting 13C*  The amount of 13C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  *(Editable)*
+         *%12C*  The percentage 12C isotope incorporation, calculated using stated weights 
+         *%13C*  The percentage 13C isotope incorporation, calculated using stated weights 
+===============  ===================================================================================================================================================
+
+
+
+|button| **Reset Selected to Default Abundance**: For the selected atom sites, in the current isotopomer, set their isotopic incorporation to the default values
+
+|button| **Propagate Abundances**: Spread the isotopic incorporation values from the last selected atom site to all selected atoms sites
+
+Isotopomer Structure
+====================
+
+A three-dimensional representation of residues and their isotopomer labelling
+
+|pulldown| **Residue Type**: Selects which kind of residue, within the current isotope scheme, to show isotopomer structures for
+
+|pulldown| **Isotopomer**: Selects which kind of isotopomer (labelling pattern) to display, from the selected residue type.
+
+

@@ -1,0 +1,7 @@
+=========
+PeakBasic
+=========
+
+.. automodule:: ccpnmr.analysis.core.PeakBasic
+   :members:
+

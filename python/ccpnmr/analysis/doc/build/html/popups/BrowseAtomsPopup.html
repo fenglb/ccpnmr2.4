@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecule : Atom Browser &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="next" title="Molecule : Molecules" href="EditMoleculesPopup.html" />
+    <link rel="prev" title="Molecule : Reference Isotope Schemes" href="IsotopeSchemeEditor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="IsotopeSchemeEditor.html" title="Molecule : Reference Isotope Schemes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" accesskey="U">Molecule</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecule-atom-browser">
+<h1>Molecule : Atom Browser<a class="headerlink" href="#molecule-atom-browser" title="Permalink to this headline">¶</a></h1>
+<p><strong>Select Atoms and Residues for Assignment</strong></p>
+<p>This popup window allows the user to view and select specific atom, atom set
+and residue entities from any of the molecular systems within the CCPN
+project. Most importantly this allow the user to perform resonance assignment,
+of the signal phenomena observed in NMR spectra, to particular atomic groups,
+thus labelling the origin of a resonance. In a similar manner, spin systems
+(groups of resonances from the same residue) may be linked to residues. In
+Analysis such atom and residue assignment may be performed in a specific way,
+i.e. choosing a particular atom in a particular residue within the sequence.
+However, this system also allows the user to select atoms and  residues in
+order to specify the type of a resonance or spin system; to say what kind of
+atom or residue a resonance or spin system relates to without actually
+specifying which position in the molecular sequence. This type-only
+information is useful to reflect the current state of knowledge, particularly
+during early stages of assignment, without having to make notes outside of the
+CCPN system.</p>
+<p>This system has a second important function, to show the user the current
+assignment state for the atoms of the selected chemical element types,
+molecular chain (and bearing in mind any shift list) selection. The cells
+within the table will show a darker colour if they carry a resonance
+assignment (irrespective of whether the resonance is associated with peaks)
+and thus the user can quickly get a visual appreciation of the parts of the
+molecular chain that have been assigned and those that have yet to be assigned</p>
+<p><strong>Atom Table</strong></p>
+<p>In order to use this system the user must ensure that the various options have
+been chosen appropriate to what they wish to view. Generally in the first
+&#8220;Atom Table&#8221; tab the user selects which molecular chain in the upper left
+pulldown men and click the &#8220;Elements&#8221; buttons to specify which kinds of atom
+will be visible at this time. Naturally the selection of chemical elements
+will reflect the kind of operation or assignment that is being performed at
+the  time. Thus for example if the user is assigning a 15N HSQC NOESY
+experiment which shows only 15N and 1H resonances then only the [H] and [N]
+chemical element buttons need to be toggled on. If the user wants to reduce
+clutter and only look at a particular type of residue (amino acid, nucleotide,
+sugar) then the &#8220;Residue&#8221; pulldown can be used to display only a subset of
+the sequence. The adjacent &#8220;Nucleotides&#8221; option is only relevant for nucleic
+acids like DNA &amp; RNA, and allow the user the option of showing each residue on
+a single line (long row), or have the sugar phosphate and aromatic bas
+components displayed independently on separate lines; minimising clutter and
+the need to scroll.</p>
+<p>There are a few functions at the bottom of the first tab that control
+assignment and link to other kinds of data entity in the CCPN project. The
+[Show ...] buttons allow the user to get a separate table of either the
+spectrum peaks or resonance phenomena that have been associated with the atoms
+or resonances that have been selected in the table above. Specifically the
+<a class="reference external" href="SelectedPeaksPopup.html">Selected Peaks</a> and <a class="reference external" href="BrowseResonancesPopup.html">Selected Resonances</a> popups are opened. This is useful
+to navigate from the molecule based information display into the spectrum
+display and to understand the links throughout the project. The [Remove Atom
+Assignments] button does as the name suggests and disconnects any resonances
+assigned to the selected atoms from those atoms. This merely removes the
+specific atom information for those resonances, it does not affect the linking
+of the resonances to any peaks. Lastly the [Set Ring Flip Equivalency] button
+is used on the selected residue for the rare occasions that aromatic rings (in
+residues like Phe &amp; Tyr) display two distinct resonances for atoms that in
+most circumstances are indistinguishable in NMR spectra, because they are in
+very rapid exchange due to rotation of the aromatic ring around an axis of
+symmetry. In essence this makes Phe &amp; Thr HD*, CD, HE* and CE separate into
+HD1, HD2, CD1, CD2, HE1, HE2, CE1 &amp; CE2 selections. This operation is
+reversible but will naturally loose fidelity of peak assignments if a peak is
+assigned to only one side of the ring.</p>
+<p><strong>Options</strong></p>
+<p>The second tab gives the user further control over how atom information is
+displayed in the main table. The upper &#8220;Prochirals&#8221; section allows the choice
+of how to display stereochemical information for atom sets that are often  not
+distinguishable in stereospecific way in NMR spectra. For example a Ser residue
+has both HB2 and HB3 atoms in its side chain, but these can prochiral atoms
+cannot generally be distinguished from one another in NMR spectra. In such
+circumstances it is commonplace to use non-stereospecific assignment labels
+like &#8220;HBa&#8221; and &#8220;HBb&#8221; so that two different resonances, usually with different
+chemical shifts, can be identified in NMR spectra, without needing to specify
+any stereochemical information. In this example &#8220;HBa&#8221; and &#8220;HBb&#8221; resonance
+assignments will both be linked to both HB2 and HB3, but this is done in a way
+that is mutually exclusive; Analysis knows that one really only goes to HB2
+and the other to HB3, whichever way round that may be. If the  user has
+structural  information that allows a proper determination of which resonance
+goes with which stereochemical location, then the &#8220;Stereospecific&#8221; option can be
+set. This would make Ser HB2 and HB3 available as separate options to &#8220;HBa&#8221;
+and &#8220;HBb&#8221; which come from the &#8220;Non-stereospecific&#8221; option. The &#8220;Ambiguous&#8221;
+option is something of a remnant and is generally only used for situations
+when the atoms in the stereo group have exactly the same chemical shift. For
+Ser HB2 &amp; HB3 this would provide the &#8220;HB*&#8221; option in the main table, however
+this is really just a pseudonym; assigning to this actually assigns to both
+the stereospecific HB2 and HB3 at the same time (not HBa, HBb).</p>
+<p>The &#8220;Assignment Status&#8221; selection allows the number of atom options displayed
+in the main table to be reduced by only showing specific cells based upon what
+kind of assignment the underlying atoms have. For example the &#8220;unassigned&#8221;
+option may be selected to view more easily what has yet to be assigned. The
+&#8220;Shift List&#8221; pulldown controls which atom options are darkened, indicating
+resonance assignments, based upon the experiments that those assignments are
+made to and which set of conditions (and thus shift list) those assignments
+relate. By default this option is set to &#8220;&lt;Ignore&gt;&#8221;, meaning that all
+resonance assignments are considered. Selecting a specific shift list will
+reduce the indication of assignment to only those peaks that use that shift
+list (via the experiment&#8217;s connection).</p>
+<p>The lower &#8220;Isotope Labelling&#8221; section is used if the user has any experiments
+that were performed with selective spin-active isotope labelling, which would
+reduce the complement of atom sites that were deemed to be visible in spectra
+and thus available for assignment. Here, the user selects which type of isotope
+labelling scheme was used, and what level of isotopic incorporation (between
+0,0 and 1.0) must be present for an atom site to be visible.  Atom sites that
+are not deemed to be visible will not be displayed in the  main sequence + atom
+table.</p>
+<p><strong>Tips and Caveats</strong></p>
+<p>At some stage in the future it is planned that the Atom Table will become
+(optionally) context sensitive to the kind of atoms that <em>ought</em> to be visible
+in the specific spectrum being assigned at the time. For example if an HNCA
+experiment is assigned then only the H, N &amp; CA atom options cane be displayed.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="atom-table">
+<h2>Atom Table<a class="headerlink" href="#atom-table" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Select the molecular system &amp; chain to show atoms for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue</strong>: Select the type of residue to display atoms for, defaults to all types</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Nucleotides</strong>: Select how to display rows of base and sugar-phosphate atoms for DNA &amp; RNA nucleotide residues</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>Elements</strong>: The selection of which chemical elements to display atoms for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Sequence number code</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>Residue type code</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Ring Flip Equivalency</strong>: Toggle whether the symmetric aromatic ring of selected residue
+flips quickly on the NMR timescale</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Atom Assignments</strong>: Remove all resonance assignments from the selected atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of all peaks assigned to the selected atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Resonances</strong>: Show a table of all resonances assigned to the selected atoms</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="prochirals">
+<h3>Prochirals<a class="headerlink" href="#prochirals" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Non-Stereospecific</strong>: Whether to show distinct but stereoscopically ambiguous assignment options.
+For example you may not know if a Serine Hb is &#8220;Hb2&#8221; or &#8220;Hb3&#8221;</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Stereospecific</strong>: Whether to show stereospecific atom options (IUPAC system) like Serine Hb2 &amp; Hb3</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Ambiguous</strong>: Whether to include multi-atom ambiguous options like Ser Hb*.
+Methyl groups are not affected by this option unless the whole group is prochiral.</p>
+</div>
+<div class="section" id="assignment-status">
+<h3>Assignment Status<a class="headerlink" href="#assignment-status" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Any</strong>: Show all atom options irrespective of assignments</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Assigned</strong>: Show only atom options which are assigned to NMR resonances</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Unassigned</strong>: Show only atom options which have no resonance assignments</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Tentative</strong>: Show only atom options that carry tentative resonance assignments</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Select a specific shift list to determine an atoms assignment status or &#8220;&lt;ignore&gt;&#8221; to use any</p>
+</div>
+<div class="section" id="isotope-filtering">
+<h3>Isotope Filtering<a class="headerlink" href="#isotope-filtering" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotope Labelling</strong>: Select which per-residue isotope labelling scheme/pattern to use</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.25</strong>: Specify what proportion of atoms must be isotopically labelled (spin active) to be considered as assignable</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecule : Atom Browser</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#atom-table">Atom Table</a></li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#prochirals">Prochirals</a></li>
+<li><a class="reference internal" href="#assignment-status">Assignment Status</a></li>
+<li><a class="reference internal" href="#isotope-filtering">Isotope Filtering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="IsotopeSchemeEditor.html"
+                        title="previous chapter">Molecule : Reference Isotope Schemes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditMoleculesPopup.html"
+                        title="next chapter">Molecule : Molecules</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/BrowseAtomsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="IsotopeSchemeEditor.html" title="Molecule : Reference Isotope Schemes"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" >Molecule</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

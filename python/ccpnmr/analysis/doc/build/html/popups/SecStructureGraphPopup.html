@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chart : Secondary Structure Chart &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Chart" href="../menu/Chart.html" />
+    <link rel="next" title="Chart : Residue Interaction Matrix" href="ViewNoeMatrix.html" />
+    <link rel="prev" title="Chart : Chemical Shifts Table" href="ViewChemicalShiftsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewNoeMatrix.html" title="Chart : Residue Interaction Matrix"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" accesskey="U">Chart</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chart-secondary-structure-chart">
+<h1>Chart : Secondary Structure Chart<a class="headerlink" href="#chart-secondary-structure-chart" title="Permalink to this headline">¶</a></h1>
+<p><strong>Display NMR Evidence for Protein Secondary Structure</strong></p>
+<p>This popup window is designed to collect together several kinds of NMR derived
+information to give a visual representation of evidence to indicate the
+regions of a protein chain with secondary structure, and what that structure
+might be. This system collects data from several sources from through-space
+(e.g. NOE) connectivity; from secondary chemical shifts; from a combined
+chemical shift index; from 3J H-Ha scalar couplings.</p>
+<p>The main chart lists the residue sequence of the selected chain (see
+&#8220;Options&#8221;), the predicted secondary structure of the residues and various
+types of evidence of the secondary structure. The &#8220;Sec Struc&#8221; column may be
+set manually based on the contents of the table via the [Set ...] buttons at
+the bottom, or automatically via a program like <a class="reference external" href="DanglePopup.html">DANGLE</a>. In the table the
+eight through-space connectivity columns (d_aN i,i+1 to da_N i,i+2) are always
+displayed, but the other columns relating to chemical shift are optional and
+may be toggled via the top buttons. The connectivity columns are filled with a
+green colour if a given kind of connectivity is observed for a residue,
+additionally for the first three of these there is an extra distinction of
+strong (S) medium (M) and weak (W) categories. The name of a column indicates
+what kind of connectivity is present, for example d_aN i,i+1 represents the
+connection of an alpha position of one amino acid residue to the amide
+position of a residue one position further along (C-terminal) in the chain.</p>
+<p>The Delta-delta columns indicate secondary chemical shifts for Ca, Cb, C&#8217; and
+Ha atoms; the difference from recorded chemical shift to (sequence adjusted)
+random coil chemical shift. The random coil chemical shifts are calculated as
+specified in Schwarzinger et  al. as detailed below. These secondary chemical
+shifts are combined to give the CSI values (calculated according to the methods
+in the papers listed below) indicating the secondary structure type; -1
+indicates alpha-helix and +1 beta-strand. The last &#8220;3JHNHa&#8221; column lists any
+recorded scalar couplings between the amide and alpha hydrogens of a residue.
+These are indicative of the phi backbone angle, according to the Karplus
+relationship. These coupling values may be extracted and analysed in more
+detail using the Data Analysis : <a class="reference external" href="CalcHnHaCouplingPopup.html">3J H-Ha Coupling</a> system.</p>
+<p>The &#8220;Chart&#8221; tab shows a graphical representation of the secondary structure
+evidence data. This is the same data that is shown in the first table, it is
+merely presented differently, on a compact graphical form that may be printed
+out by making a PostScript file (right mouse menu). The order of the rows of
+data in the chart is the same order as the columns of the evidence table. The
+grey and white panels of the chart delineate the display into regions of ten
+residues. The text font used in the chart and the number or residues that
+are shown in a row, before the chart wraps back to start at the left again,
+are governed by settings in the last &#8220;Options Tab&#8221;.</p>
+<p>The &#8220;Options&#8221; tab controls various aspects of how the data in the other tabs
+is displayed. The &#8220;Chain&#8221; naturally selects the sequence to use and &#8220;Shift
+List&#8221; is the source of the secondary chemical shift information. The &#8220;NOE
+Intensity Classes&#8221; section allows the user to set two values which distinguish
+between strong, medium and weak connection strength. Note that these values
+represent a peak intensity relative to the average in the peak list containing
+the connection. The lower table lists the peak lists that are used as sources
+of through-space connectivity information. The use can toggle to consider or
+reject particular peak lists by double clicking in the &#8220;Consider?&#8221; column. Any
+changes to any of these settings will be reflected one the user selects one
+of the first two tabs.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>The most accurate secondary structure prediction currently available in
+CCPN comes from the embedded <a class="reference external" href="DanglePopup.html">DANGLE</a> program. Although DANGLE has a separate
+graphical interface its secondary structure predictions, if committed, will be
+visible in this system via the displayed secondary structure classification.</p>
+<p>Regions of a polypeptide backbone with stable secondary structure will tend to
+show more near-sequence (&#8220;short range&#8221;) though-space connectivities than
+unstructured, flexible  regions; commonly termini and loops. Naturally
+alpha-helices will tend to show i to i+3 and i to i+4 connections, due to the
+periodicity of the helix. Beta strand regions will often show i to i+2
+connectivity by lack i to i+3 and i to i+4, given that stands are extended
+conformations.</p>
+<p><strong>References</strong></p>
+<p>Secondary chemical shifts:</p>
+<p><em>Schwarzinger, S., Kroon, G. J. A., Foss, T. R., Chung, J., Wright, P. E., Dyson, H. J.
+&#8220;Sequence-Dependent Correlation of Random Coil NMR Chemical Shifts&#8221;,
+J. Am. Chem. Soc. 123, 2970-2978 (2001)</em></p>
+<p>Chemical Shift Index</p>
+<p><em>Wishart DS, Sykes BD.
+The 13C chemical-shift index: a simple method for the identification of protein
+secondary structure using 13C chemical-shift data.
+J Biomol NMR. 1994 Mar;4(2):171-80.</em></p>
+<p><em>Wishart DS, Sykes BD, Richards FM.
+The chemical shift index: a fast and simple method for the assignment of protein
+secondary structure through NMR spectroscopy.
+Biochemistry. 1992 Feb 18;31(6):1647-51.</em></p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="residue-data">
+<h2>Residue Data<a class="headerlink" href="#residue-data" title="Permalink to this headline">¶</a></h2>
+<p>A table of the evidence used to estimate the secondary structure type of residues</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>Column Options</strong>: Selects which of various secondary chemical shifts, chemical shift index or 3J H-Ha coupling data to display in the table and chart</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The sequence number and residue type</td>
+</tr>
+<tr><td><em>Sec Struc</em></td>
+<td>The stated secondary structure type for the residue</td>
+</tr>
+<tr><td><em>d_αN i,i+1</em></td>
+<td>Indicates residue that show an alpha(i) to amide(i+1) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_NN i,i+1</em></td>
+<td>Indicates residue that show an amide(i) to amide(i+1) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_βN i,i+1</em></td>
+<td>Indicates residue that show a beta(i) to amide(i+1) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_αN i,i+3</em></td>
+<td>Indicates residue that show an alpha(i) to amide(i+3) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_αβ i,i+3</em></td>
+<td>Indicates residue that show an alpha(i) to beta(i+3) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_αN i,i+4</em></td>
+<td>Indicates residue that show an alpha(i) to amide(i+4) through-space/NOE connectio</td>
+</tr>
+<tr><td><em>d_NN i,i+2</em></td>
+<td>Indicates residue that show an amide(i) to amide(i+2) through-space/NOE connection</td>
+</tr>
+<tr><td><em>d_αN i,i+2</em></td>
+<td>Indicates residue that show an alpha(i) to amide(i+2) through-space/NOE connection</td>
+</tr>
+<tr><td><em>Δ δ13Cα</em></td>
+<td>Carbon alpha secondary chemical shift (difference to random coil value)</td>
+</tr>
+<tr><td><em>Δ δ13Cβ</em></td>
+<td>Carbon beta secondary chemical shift (difference to random coil value)</td>
+</tr>
+<tr><td><em>Δ δ13C&#8217;</em></td>
+<td>Backbone carbonyl carbon secondary chemical shift (difference to random coil value)</td>
+</tr>
+<tr><td><em>Δ δ1Hα</em></td>
+<td>Hydrogen alpha secondary chemical shift (difference to random coil value)</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Alpha</strong>: Set the secondary structure type for the selected residue to &#8220;Alpha&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Beta</strong>: Set the secondary structure type for the selected residue to &#8220;Beta&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Coil</strong>: Set the secondary structure type for the selected residue to &#8220;Coil&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Undef</strong>: Set the secondary structure type for the selected residue to &#8220;Undef&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Read CSI File</strong>: Read CSI information for the residue from a CSI output file</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Chart</strong>: Display the secondary structure evidence information as a graphical chart, which may then be saved as a PostScript file</p>
+</div>
+<div class="section" id="chart">
+<h2>Chart<a class="headerlink" href="#chart" title="Permalink to this headline">¶</a></h2>
+<p>The secondary structure evidence information as a graphical chart, which may then be saved as a PostScript file</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>The various parameters that control the data display, including which peak lists and molecule chain to use</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain to secondary structure evidence for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list chemical shifts are derived from, for calculating deltas etc.</p>
+<p><strong>Chart Font</strong>: Sets the typeface to use in the main chart display</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue Wrap Width</strong>: Sets how wide, in terms of number residues, the main chart is; will cause sequences to wrap back to the start</p>
+<div class="section" id="noe-intensity-classes">
+<h3>NOE Intensity classes<a class="headerlink" href="#noe-intensity-classes" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.5</strong>: The intensity value, relative to peak list average, that separates strong and medium NOE strength categories</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.3</strong>: The intensity value, relative to peak list average, that separates weak and medium NOE strength categories</p>
+</div>
+<div class="section" id="noe-peak-lists">
+<h3>NOE peak lists<a class="headerlink" href="#noe-peak-lists" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The experiment:spectrum to which the through-space peak list belongs</td>
+</tr>
+<tr><td><em>Peak List</em></td>
+<td>The serial number of the through-space peak list within its spectrum</td>
+</tr>
+<tr><td><em>Consider?</em></td>
+<td>Whether the through-space peak list should be used to provide connectivity data for the secondary structure evidence table  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chart : Secondary Structure Chart</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#residue-data">Residue Data</a></li>
+<li><a class="reference internal" href="#chart">Chart</a></li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#noe-intensity-classes">NOE Intensity classes</a></li>
+<li><a class="reference internal" href="#noe-peak-lists">NOE peak lists</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ViewChemicalShiftsPopup.html"
+                        title="previous chapter">Chart : Chemical Shifts Table</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewNoeMatrix.html"
+                        title="next chapter">Chart : Residue Interaction Matrix</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/SecStructureGraphPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewNoeMatrix.html" title="Chart : Residue Interaction Matrix"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" >Chart</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

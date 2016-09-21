@@ -1,0 +1,116 @@
+=========
+Fit Graph
+=========
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Analyse Function Curve Fitting to Peak Series Data**
+
+This popup is used to display the fit of a curve, of the displayed equation
+type, to data that has been extracted for a group of spectrum peaks from an
+NMR series. Precisely which kind of data is being fitted depends on the parent
+tool that this popup window was launched from. For example, for the `Follow
+Intensity Changes`_ tool the displayed graph is of a time or frequency value
+on the "X" axis (e.g. T1) verses peak intensity. For the `Follow Shift
+Changes`_ system the plot is for the parameters of the experiment titration on
+the "X" axis (e.g concentration) verses chemical shift distance.
+
+The upper graph shows the peak data that was used; the blue points, and the
+points of the fitted theoretical curve; red points. The lower table lists the
+data points for all of the peaks in the group, to which the data relates.
+There will be one peak for each row of the table, and hence point on the "X"
+axis. For each data point in the table the corresponding peak from which the
+data was extracted may be located with the "Follow in window" option, using
+the stated spectrum window and making marker lines as desired. Alternatively,
+the peak may be viewed in a table with [Show Peak]
+
+In general operation this system is used to check how well the selected
+function curve fits the peak data. The data that is displayed comes from the
+analysis tool that launched this popup. Any outliers may be removed using
+[Remove Point] (only with good reason) or the peaks themselves may be
+corrected if something has gone awry. Given that the display is launched from
+the selection of a specific group of peaks from a popup like `Follow Shift
+Changes`_  or `Follow Intensity Changes`_ and there are usually several peak
+groups that need to be analysed, the [Previous Set] and [Next Set] buttons can
+be used to quickly jump to the next peak group and see the next curve in the
+analysis results.
+
+.. _`Follow Intensity Changes`: CalcRatesPopup.html
+.. _`Follow Shift Changes`: FollowShiftChangesPopup.html
+
+
+
+Main Panel
+==========
+
+
+
+Scrollbar: : 
+
+|pulldown| **Fitting Function**: Selects which form of function to fit to the experimental data
+
+|pulldown| **Navigation Window**: Selects which spectrum window will be used for navigating to peak positions
+
+|check| **Follow in window?**: Whether to navigate to the position of the reference peak (for the group), in the selected window
+
+|check| **Mark Ref Peak?**: Whether to put a multi-dimensional cross-mark through the reference peak position, so it can be identified in spectra
+
+===========  ===================================================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------------------------------------
+    *Point*  The number of the data point, in order of increasing X-axis value 
+        *x*  For each point, the value of the parameter which is varied in the NMR series, e.g. T1, temperature, concentration etc. 
+        *y*  For each point, the experimental value being fitted, e.g. peak intensity of chemical shift distance 
+ *Fitted y*  The value of the best-fit function at the X-axis location 
+        *Δ*  The difference between the experimental (Y-axis) value and the fitted value 
+===========  ===================================================================================================================================
+
+
+
+|button| **Remove Point**: Remove the selected data point, optionally removing the underlying peak
+
+|button| **Show Peak**: Show a table of spectrum peaks that correspond to the selected data point
+
+|button| **Previous Set**: Move to the previous set of fitted values; the next group of peaks, often corresponding to a different residue or resonance
+
+|button| **Next Set**: Move to the next set of fitted values; the next group of peaks, often corresponding to a different residue or resonance
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

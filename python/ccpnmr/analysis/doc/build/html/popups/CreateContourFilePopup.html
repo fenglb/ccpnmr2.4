@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>New Contour File &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Experiment" href="../menu/Experiment.html" />
+    <link rel="next" title="Add existing contour file" href="AddContourFilePopup.html" />
+    <link rel="prev" title="Spectrum Contour Files" href="EditContourFilesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AddContourFilePopup.html" title="Add existing contour file"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditContourFilesPopup.html" title="Spectrum Contour Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" accesskey="U">Experiment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="new-contour-file">
+<h1>New Contour File<a class="headerlink" href="#new-contour-file" title="Permalink to this headline">¶</a></h1>
+<p><strong>Create Contour Files for Project</strong></p>
+<p>The purpose of this dialog is to allow the user to create new contour
+files for the project.  Not only the spectrum has to be specified, but
+also the two dimensions (X, Y) that are going to be contoured.  The
+table specifies the conditions that specify the region being contoured,
+in terms of what is included and excluded.</p>
+<p>For now, only one condition (which is an &#8220;include&#8221; condition) is allowed.
+This also means that the &#8220;Add Condition&#8221; and &#8220;Delete Condition&#8221; buttons
+are disabled.</p>
+<p>The contour directory is specified by the program, using the project
+directory but the file name can be specified by the user.</p>
+<p>The contour levels used are the ones that are current for the spectrum,
+as set in the <a class="reference external" href="EditContourLevelsPopup.html">Contour Levels dialog</a>.</p>
+<p>See also: <a class="reference external" href="EditContourFilesPopup.html">Spectrum Contour Files</a>, <a class="reference external" href="AddContourFilePopup.html">Add Existing Contour Files</a>.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum</strong>: Selects the experiment and spectrum for which to make a contour file</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>(X-dim, Y-dim)</strong>: Selects which dimensions (projection) of the spectrum form the X and Y axes of the contour file</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Condition</em></td>
+<td>Whether to include or exclude the region in the contour file</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>File name</strong>: Sets the name of the contour file to save to disk</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Condition</strong>: Add a new contour region for including in or excluding from the contour file</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Condition</strong>: Remove the selected contour region from the table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Contour and Save</strong>: Make the specified contour file using the input settings &amp; regions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">New Contour File</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditContourFilesPopup.html"
+                        title="previous chapter">Spectrum Contour Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="AddContourFilePopup.html"
+                        title="next chapter">Add existing contour file</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CreateContourFilePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AddContourFilePopup.html" title="Add existing contour file"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditContourFilesPopup.html" title="Spectrum Contour Files"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" >Experiment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

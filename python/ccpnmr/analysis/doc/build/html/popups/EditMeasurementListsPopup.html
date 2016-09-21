@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Resonance : Measurement Lists &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Experiment : NMR Series" href="EditExperimentSeriesPopup.html" />
+    <link rel="prev" title="Data Analysis" href="../menu/DataAnalysis.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/DataAnalysis.html" title="Data Analysis"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="resonance-measurement-lists">
+<h1>Resonance : Measurement Lists<a class="headerlink" href="#resonance-measurement-lists" title="Permalink to this headline">¶</a></h1>
+<p><strong>The NMR Derived Measurements and Their Lists</strong></p>
+<p>The purpose of this popup window is to display lists of measurements within
+the current CCPN project. A &#8220;Measurement&#8221; in this regard is a value that is
+derived from NMR data and connects to one or more resonances (which may be
+assigned to atoms). The most commonly encountered kind of measurement is the
+chemical shift, which is usually derived from recording the positions of peaks
+in spectra. In this instance the chemical shift measurement of a resonance is
+made when it is assigned to the dimension of a peak. Because CCPN allows
+multiple shift lists (technically a type of measurement list) a resonance may
+have a several chemical shift measurements; useful studying different
+conditions.</p>
+<p>There are several different kinds of measurement and hence measurement list that
+may be included within a CCPN project, for example J-coupling, hydrogen
+exchange rate, chemical shift anisotropy, T1 relaxation and chemical shift.
+All types will be displayed by this popup if they are available within the
+current project, although Analysis does not necessarily have tools to record
+all of these different kinds of measurement.</p>
+<p>The layout of this popup consists of two tabs, one for the organising lists
+that contain the measurements and another to display the individual
+measurements within a single list. With the exception of blank
+lists for chemical shifts, measurement lists are not made using this popup,
+instead they are made at the point where an analysis is performed, e.g. T1
+lists are made with data from the <a class="reference external" href="CalcRatesPopup.html">Follow Intensity Changes</a>
+tool.</p>
+<p>The second tab, containing the &#8220;Measurements&#8221; table displays the details of
+the individual measured values within a selected list. What the values mean
+and which units they are in, if any, naturally depends on the kind of list
+being viewed. If measurements are made within CCPN software (as opposed to
+being imported) then the individual measurements usually record the spectrum
+peaks that were used in the calculation of the measured value, e.g. the peaks
+for which positions record chemical shift or intensities record T1.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>If there is no chemical shift list within a project a new one will be made
+automatically to record the shifts of any assignments.</p>
+<p>The shift list with which an experiment is associate may be changed via the &#8220;Shift
+List&#8221; column of the main <a class="reference external" href="EditExperimentPopup.html">Experiments</a> table.</p>
+<p>Measurements other than chemical shift, like T1 and T2 relaxation times will only
+appear within this system if a measurement list entity is formally made. Simply
+measuring values from spectra, for example using the <a class="reference external" href="CalcRatesPopup.html">Follow Intensity Changes</a>
+tool</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="measurement-lists">
+<h2>Measurement Lists<a class="headerlink" href="#measurement-lists" title="Permalink to this headline">¶</a></h2>
+<p>A table of all the NMR measurement lists in the project, including shift lists, T1 lists, J-coupling lists etc.</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Experiment</strong>: Selects an experiment, if required, to restrict the measurement list table display; showing only lists which were derived using the experiment</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of measurement list</td>
+</tr>
+<tr><td><em>List Type</em></td>
+<td>The type of measurement list, e.g. shift list, T1 list, J coupling list</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>A short identifying name for the list, for graphical displays  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Size</em></td>
+<td>The number of measurements contained within the list</td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>The unit of measurement used for the values in the list</td>
+</tr>
+<tr><td><em>Experiments</em></td>
+<td>The names of the experiments which were used to derive the measurements</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-specified textual comment for the measurement list</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Measurements</strong>: Show a table of the individual measurements within the selected measurement list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Shift List</strong>: Make a new, blank chemical shift list within the project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Random Coil Shift List</strong>: Make a synthetic chemical shift list using random coil values, adjusting protein backbone values for sequence where approprate</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected measurement list</p>
+</div>
+<div class="section" id="measurements-table">
+<h2>Measurements Table<a class="headerlink" href="#measurements-table" title="Permalink to this headline">¶</a></h2>
+<p>A table listing all of the individual measurements within an NMR measurement list</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Measurement List</strong>: Selects the measurement list to display measurements for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the measurement within its containing list</td>
+</tr>
+<tr><td><em>Resonance</em></td>
+<td>The number or assignment of the NMR resonance(s) to which the measurement applies</td>
+</tr>
+<tr><td><em>Value (ppm)</em></td>
+<td>The numeric value of the NMR measurement on the specified resonance(s), and the unit of measurement</td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>The standard deviation error in the measured value</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The molecular chain, if any, to which the measurement relates by virtue of atom assigned resonances</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The isotope type(s) of the measures resonance(s)</td>
+</tr>
+<tr><td><em>Fig of Merit</em></td>
+<td>A figure-of-merit value for the measurement indicating its quality or reliability  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peaks</em></td>
+<td>The number of peaks in the CCPN project used to take the measurement  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-defined textual comment for the measurement  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table containing peaks that were used to derive the selected measurements</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Recalculate</strong>: For some measurement lists (currently only shift lists) manually trigger a recalculation of values</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Resonances</strong>: Show a table containing the resonances that relate to the selected measurements</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected measurement records; cannot be done for chemical shift values still ties to peaks via assignment</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Resonance : Measurement Lists</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#measurement-lists">Measurement Lists</a></li>
+<li><a class="reference internal" href="#measurements-table">Measurements Table</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/DataAnalysis.html"
+                        title="previous chapter">Data Analysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditExperimentSeriesPopup.html"
+                        title="next chapter">Experiment : NMR Series</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditMeasurementListsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/DataAnalysis.html" title="Data Analysis"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

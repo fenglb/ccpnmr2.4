@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About CcpNmr Analysis &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="index.html" />
+    <link rel="next" title="Program Documentation" href="analysisDoc.html" />
+    <link rel="prev" title="CcpNmr Analysis Documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="analysisDoc.html" title="Program Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CcpNmr Analysis Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="about-ccpnmr-analysis">
+<h1>About CcpNmr Analysis<a class="headerlink" href="#about-ccpnmr-analysis" title="Permalink to this headline">¶</a></h1>
+<p>CcpNmr Analysis is a graphics-based interactive NMR spectrum visualisation, resonance assigment
+and data analysis program. CcpNmr Analysis can be considered a platform for almost all the NMR
+data described by the CCPN <a class="reference external" href="http://www.ccpn.ac.uk/api-documentation/ccpnmr/ccpnmr2.0/python/doc/api.html">data model</a> and a place from which to interact with connected
+non-CCPN programs, for example those integrated in the <a class="reference external" href="http://www.extend-nmr.eu/">Extend-NMR</a> project. To name only a subset
+of its capabilities, you can use CcpNmr Analysis to assign atomic resonances (proteins, nucleic
+acid, glycans &amp; small molecules), measure relaxation rates, measure kinetic paremeters, calculate
+distance constraints, co-ordinate structure generation, edit molecular information and as a
+starting point to develop new software and algorithms for NMR.</p>
+<p><strong>Development</strong></p>
+<p>CcpNmr Analysis was primarily witten by Wayne Boucher and Tim Stevens at the University of
+Cambridge. Most of the computer code for Analysis is written in Python. Only speed-critical
+functions are performed by code written in the fast, compiled language C. Such C functions include
+the calculation of contours and mathematically intensive algorithms. The Python part of the
+program consists of a series of integrated graphical windows (&#8220;Popups&#8221;) and an underlying layer of
+<a class="reference external" href="codingLibrary.html">Python library functions</a>. The graphical elements allow the user to enter information and to
+view the status of the data, while the library functions manipulate the CCPN <a class="reference external" href="http://www.ccpn.ac.uk/api-documentation/ccpnmr/ccpnmr2.0/python/doc/api.html">data model</a> objects
+to record the scientific information.</p>
+<p>CcpNmr Analysis has its own CCPN <a class="reference external" href="http://www.ccpn.ac.uk/api-documentation/ccpnmr/ccpnmr2.0/python/doc/api.html">data model</a> package, which means it uses CCPN technology to create a
+program-specific part of the Python API and thus allows program information (colours, window
+positions etc.) to be recorded and stored as XML files.</p>
+<p><strong>Objectives</strong></p>
+<p>At the start of the CCPN project the requirement was for an NMR data analysis program that used a
+modern graphical user interface and could run on many types of computer. It would be supported and
+maintained by CCPN and would allow modification and extension, including for new NMR techniques.
+The first version of Analysis was released in 2005. Analysis is built directly on the CCPN data
+model and its design is partly inspired by the older ANSIG[1]. and SPARKY[2] programs, but it has
+continued to develop from the suggestions, requirements and computational contributions of its
+user community. Analysis is freely available to academic and non-profit institutions. Commercial
+users are required to subscribe to CCPN for a moderate fee.</p>
+<div class="section" id="main-program-concepts">
+<h2>Main Program Concepts<a class="headerlink" href="#main-program-concepts" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;ve not seen this documentation before you may want to know what it&#8217;s all about, so here are
+some highlights of the CcpNmr Analysis software.</p>
+<div class="section" id="spectrum-windows">
+<h3>Spectrum Windows<a class="headerlink" href="#spectrum-windows" title="Permalink to this headline">¶</a></h3>
+<p>An Analysis project may contain an almost limitless number of spectrum windows. The windows are
+are inherently N-dimensional with scrollbars for not only the screen dimensions but also for
+orthogonal planes, with the ability to select any plane thickness. A window can be divided into
+several strips for easy comparison of different regions of spectra. Many spectra may be
+superimposed in the same window where their contours and peaks are readily toggled on or off.
+Navigation is achieved by using the mouse or keyboard and there are inbuilt navigation functions
+to easily find orthogonal planes and return-peak positions etc. Many functions may be applied to
+crosspeaks directly from the window menu. For example peaks may be assigned, deleted, unaliased
+and shift matched. Several of these functions can be used on several peaks at once to improve user
+efficiency. For example, columns of NOE peaks derived from the same amide resonances may be
+assigned to this amide at the same time.</p>
+</div>
+<div class="section" id="molecules">
+<h3>Molecules<a class="headerlink" href="#molecules" title="Permalink to this headline">¶</a></h3>
+<p>Polymer chains and small molecules are readily put into NMR projects. Sequences may be imported
+from file or entered directly by the user and from this Analysis will build the molecules with all
+of their NMR assignable atoms. Many molecules of different types can be included and may be
+connected together into chains. For example, a GIP-anchored glycoprotein may be constructed by
+joining protein, sugar and lipid components. By using data provided by the PDBe at the EBI, CcpNmr
+software has access to a large number small molecule templates - those that have appeared in PDB
+structures.</p>
+</div>
+<div class="section" id="tables">
+<h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
+<p>Virtually all of the information within a project is available to the user via a graphical
+interface (and a Python shell should you be brave enough to use it) and much of the commonly used
+information is presented in tabular form. These tables are used to display peak lists, chemical
+shifts, constraints, coordinates, spectrum configuration and the like. To allow the user to change
+information (peak position, contour colour, experiment name to name only a few...) they often have
+editable columns. The rows of the table may be sorted on any of the column types, may be filtered
+according to a search expression and may be selected (often several at once) to apply specific
+functions. Also, the data in a table may be exported to a text file, output as PostScript and if
+numerical may be plotted in a graph.</p>
+</div>
+<div class="section" id="resonance-assignment">
+<h3>Resonance Assignment<a class="headerlink" href="#resonance-assignment" title="Permalink to this headline">¶</a></h3>
+<p>Assignment in CcpNmr software is a two-step process proceeding via an intermediate Resonance
+object. This allows the user to represent anonymous but connected assignment states, and allows
+atomic assignment to be made to several peaks at once. Most crosspeak assignment is made by the
+user choosing a resonance (which need not be assigned to specific atoms) from a curated/ranked
+list. The choice is made with a single click (and is readily reversible) from a list of
+possibilities that are close in chemical shift. Structural information can also be used in
+assignment. Here through-space linked resonances may be ranked according to their distance in an
+intermediate structure.</p>
+<p>Assignment of resonances to specific atoms is achieved by selecting the atom on a display showing
+the well-curated molecular information. This needs to be done only once for each resonance as
+all peaks which correspond to the same resonance will automatically share the atom information.
+A resonance may be assigned, where appropriate, in a stereospecific or non-stereospecific manner.
+For example, it is possible to say that two peaks represent two different hydrogen beta atoms in a
+residue, with different chemical shifts, but without necessarily specifying the stereochemical
+arrangement of the two atoms.</p>
+<p>There are many tools designed to expedite the resonance assignment process, including using root
+resonance locations (e.g. amide) to direct peak picking and assignment in higher dimensionality
+spectra, automated matching of peak positions for sequential protein backbone assignment and
+chemical shift plus structure based filtering of NOE/through-space assignment possibilities.</p>
+</div>
+<div class="section" id="structure-generation">
+<h3>Structure Generation<a class="headerlink" href="#structure-generation" title="Permalink to this headline">¶</a></h3>
+<p>Analysis can be used to generate distance and dihedral angle restraints for structure generation.
+Distance restraints may be generated from assigned NOESY peaks, or may be created by performing
+shift matching on unassigned peaks. The potentially ambiguous constraints thus output may then be
+used by programs, such as ARIA, which are able to take input data from a CCPN project and write the
+results back. The violations that result from a structure generation cycle may be imported into Analysis, from
+where the user can readily follow a link to the peaks which were used in the generation of the
+violated constraint. Connections to the CING software allow easy validation of macromolecular
+structures.</p>
+</div>
+<div class="section" id="data-analyses">
+<h3>Data Analyses<a class="headerlink" href="#data-analyses" title="Permalink to this headline">¶</a></h3>
+<p>Analysis has specialist tools to extract relaxation rates, chemical shift changes, kinetic
+parameters, scalar couplings etc. These are designed to make such tasks in NMR less tedious, and
+the program aims to automate as much of the simple parts of the processes as possible. For example
+when following chemical shift changes in titration experiments Analysis automatically tracks the
+trajectories of shifting peaks so that the titration points can be considered as an analytic
+group. The program also goes on to fit equation curves to the data and extrct the relevant
+paremeters.</p>
+</div>
+<div class="section" id="reference-information">
+<h3>Reference Information<a class="headerlink" href="#reference-information" title="Permalink to this headline">¶</a></h3>
+<p>All the CcpNmr programs have access to a library of reference information. This includes chemical
+compound descriptions, chemical shift distributions, isotope information, idealised residue
+coordinates etc. This is often used implicitly within Analysis, so that the user doesn&#8217;t have to
+worry about how to get hold of such information. Some of the data is visualised where it can be
+helpful. For example, chemical shift distributions during assignment.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>P.J. Kraulis, &#8220;ANSIG: A Program for the Assignment of Protein 1H 2D NMR
+spectra by Interactive Graphics&#8221; (1989) J. Magn. Reson 24, pp 627-633</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>T.D. Goddard and D.G. Kneller, SPARKY 3, University of California,
+San Francisco</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About CcpNmr Analysis</a><ul>
+<li><a class="reference internal" href="#main-program-concepts">Main Program Concepts</a><ul>
+<li><a class="reference internal" href="#spectrum-windows">Spectrum Windows</a></li>
+<li><a class="reference internal" href="#molecules">Molecules</a></li>
+<li><a class="reference internal" href="#tables">Tables</a></li>
+<li><a class="reference internal" href="#resonance-assignment">Resonance Assignment</a></li>
+<li><a class="reference internal" href="#structure-generation">Structure Generation</a></li>
+<li><a class="reference internal" href="#data-analyses">Data Analyses</a></li>
+<li><a class="reference internal" href="#reference-information">Reference Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">CcpNmr Analysis Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="analysisDoc.html"
+                        title="next chapter">Program Documentation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/about.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="analysisDoc.html" title="Program Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CcpNmr Analysis Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

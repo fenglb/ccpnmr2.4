@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Project : Archive &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Project" href="../menu/Project.html" />
+    <link rel="next" title="Project : Preferences : User Options" href="EditProfilesPopup.html" />
+    <link rel="prev" title="Project : Backup" href="BackupProjectPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="EditProfilesPopup.html" title="Project : Preferences : User Options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BackupProjectPopup.html" title="Project : Backup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" accesskey="U">Project</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="project-archive">
+<h1>Project : Archive<a class="headerlink" href="#project-archive" title="Permalink to this headline">¶</a></h1>
+<p><strong>Archive the Project</strong></p>
+<p>This popup window enables the user to archive the CCPN Project into a gzipped
+tar file.  By default it only includes the <a href="#id1"><span class="problematic" id="id2">*</span></a>.xml files which reside in the
+project directory.  If the &#8220;Include <a href="#id3"><span class="problematic" id="id4">*</span></a>.xml.bak files&#8221; check button is checked
+then it will also include the <a href="#id5"><span class="problematic" id="id6">*</span></a>.xml.bak files which reside in the project
+directory.  If the &#8220;Include data files which are in the project directory&#8221;
+check button is checked then it will also include the binary data files
+which reside in the project directory.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>The archive excludes the reference data <a href="#id7"><span class="problematic" id="id8">*</span></a>.xml files (quite sensibly).</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>RatesGI_101001</strong>: File name (excluding .tgz ending) for archive</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Include *.xml.bak files</strong>: If checked include <a href="#id9"><span class="problematic" id="id10">*</span></a>.xml.bak files</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Include data files which are in project directory</strong>: If checked include data files if they are located in project directory</p>
+<div class="section" id="archive-location">
+<h3>Archive Location<a class="headerlink" href="#archive-location" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Directory</em></td>
+<td>Name of directory</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Back</strong>: Go to previous location in history</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Forward</strong>: Go forward in location history</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Up</strong>: Go up one directory level</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Top</strong>: Go to root directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Home</strong>: Go to home directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New</strong>: Make a new directory</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh</strong>: Refresh directory listing</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show hidden</strong>: Show hidden files beginning with &#8220;.&#8221; etc.</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Dir path</strong>: Directory navigation to current location</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Save</strong>: Create archive file</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">Project : Archive</a><ul>
+<li><a class="reference external" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference external" href="#archive-location">Archive Location</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="BackupProjectPopup.html"
+                                  title="previous chapter">Project : Backup</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="EditProfilesPopup.html"
+                                  title="next chapter">Project : Preferences : User Options</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/popups/ArchiveProjectPopup.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="EditProfilesPopup.html" title="Project : Preferences : User Options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BackupProjectPopup.html" title="Project : Backup"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" >Project</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.6.
+    </div>
+  </body>
+</html>

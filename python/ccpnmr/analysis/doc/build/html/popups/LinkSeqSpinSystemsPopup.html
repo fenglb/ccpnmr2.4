@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Protein Sequence Assignment &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Automated Seq. Assignment" href="AutoBackbonePopup.html" />
+    <link rel="prev" title="Assignment : Pick &amp; Assign From Roots" href="LinkPeakListsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AutoBackbonePopup.html" title="Assignment : Automated Seq. Assignment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="LinkPeakListsPopup.html" title="Assignment : Pick &amp; Assign From Roots"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-protein-sequence-assignment">
+<h1>Assignment : Protein Sequence Assignment<a class="headerlink" href="#assignment-protein-sequence-assignment" title="Permalink to this headline">¶</a></h1>
+<p><strong>Find and Link Sequentially Related Protein Backbone Assignments</strong></p>
+<p>This popup window is designed to expedite the process of sequentially
+assigning a polypeptide backbone. The tool is semi-automated, in that
+possibilities for sequentially related peaks and spin systems are
+automatically found and presented, but it is still up to the user to determine
+which are really sequentially linked. Likewise, the tool will show where a
+sequential stretch of assignments best fits with a molecular sequence, but its
+is the users&#8217; decision to commit the final choice. A fully automated tool is
+available using the <a class="reference external" href="AutoBackbonePopup.html">Automated Seq. Assignment</a> option, although this is best
+suited to relatively complete and clean data sets.</p>
+<p>This system works with pairs of spectra where one spectrum has peaks that are
+through-carbonyl specific; to show the previous (i-1) residue relative to the
+amide (like with HNcoCA/CB), the other spectrum is non-specific in that it
+shows both peaks for the amides current residue (i) and the previous residue
+in the chain (i-1) (link with HNCA/CB). The general principle is that the
+combination of the carbonyl-specific and non-specific experiment enables
+identification of the resonances for the current residue and the residue one
+previous in the sequence. The sequential assignment is made by finding amide
+locations where the &#8220;current residue&#8221; resonances of one (hopefully
+unambiguously) match the &#8220;previous residue&#8221; resonances of another. Fitting of
+chains of amides linked in this way to the molecular sequence, by considering
+chemical shift values, then gives the final residue assignment.</p>
+<p>For any of the spectra to be used by this system they must be peak picked and
+corresponding positions must be linked to the relevant spin system and
+resonance assignments, albeit in an anonymous way. This setup is readily
+achieved by the <a class="reference external" href="LinkPeakListsPopup.html">Pick &amp; Assign From Roots</a> option. The peaks of different
+spectra that relate to the  same amide are only known to be from the same
+amide because of assignment. Several different kinds of spectra may be used,
+including those that detect 13C resonances (like HNCO, HNcaCO, HNcoCA, HNCA
+etc) and those that detect 1H resonances (like HNcocaHA, HNHA, etc). This tool
+can match multiple types of spectra at the same time to improve the assignment
+process, for example matching HA, CO, CA and CB positions to minimise
+ambiguity. However, the spectra that are involved with matching 1H positions
+are naturally displayed in a different spectrum window to those using 13C
+positions.</p>
+<p><strong>User Operation</strong></p>
+<p>To perform the sequence assignment the user first selects spectra, and
+spectrum windows to display them in, categorising them as &#8220;query&#8221;; selecting
+in the upper panel, or &#8220;match&#8221;; selecting in the lower panel (toggling the
+&#8220;Use?&#8221; column). The &#8220;query&#8221; spectra are those that remain at a set position
+according to a selected amide. The &#8220;match&#8221; spectra are those that the query
+peaks are compared against and represent the, potentially multiple, positions
+of candidates for amides that might be sequence neighbours to the query. Query
+spectra can be of through-carbonyl types (e.g, HNcoCA), in which case matches
+represent the preceding residue in the sequence (an i to i-1 step), or the
+query spectra can be non-specific, where the matches will be to the following
+residue in the sequence (i to i+1). When making sequential links the tool
+automatically knows which sequence direction to make links with.</p>
+<p>The &#8220;Options&#8221; tab may be viewed to control how the matching of peaks works,
+but the default values will be acceptable in most instances. Most options
+control how the spectrum window strip regions are made and displayed.
+Occasionally it may be useful to consider the &#8220;Filter By Inter/Intra Type&#8221;
+options. By default matches between &#8220;previous residue&#8221; peaks and other
+&#8220;previous residue&#8221; peaks from different amides are discarded. However, if a
+&#8220;current residue&#8221; peak overlaps with a &#8220;previous residue&#8221; peak for the same
+amide (e.g. very similar 13C positions) then the default rule may miss a
+legitimate match. Toggling the &#8220;Filter By Inter/Intra Type&#8221; option off will
+allow positions with such overlap to be successfully matched, although this may
+increase the number of spurious matches and add ambiguity.</p>
+<p>The actual sequential assignment is performed in the &#8220;Spin System Table&#8221; tab.
+The general idea is that the user selects a spin system row, whereupon the
+query window navigates to the amide position of that row and the  match window
+displays all of the other amide positions, in as many strips as required,
+that have the relevant matches to at least some of the query peaks. The
+identity of the potential sequential matches is also listed in the middle
+&#8220;Matched Peak Positions&#8221; table. In this table the user may discard certain
+amide positions/strips from consideration, but the objective is to select one
+match position that represents a real sequential neighbour. If such a choice
+can be made [Set Seq Link] sets the appropriate connection between the query
+and matched amide spin systems. Not that this is merely a statement of
+sequence relationship, no residue assignment will be made unless one of the
+amides is assigned, whereupon the assignment will spread along the chain in
+the appropriate direction.</p>
+<p>Once the user has connected sufficient spin systems into regions of sequential
+connectivity  (visible in the &#8220;i+1&#8221; and &#8220;i-1&#8221; columns) the next task is to
+associate the linked but unassigned amides with particular residues. Full
+residue assignment is made by selecting a region of sequence in the lower left
+&#8220;Sequence Locations&#8221; table and clicking [Assign Selected]. This table and the
+&#8220;Residue Types&#8221; table to the right are designed to show you how the amides may
+fit into the residue sequence. The right hand table shows the probable residue
+types for the query amide, based upon the chemical shifts in the spin system
+(use [Predict Type] to see details of the prediction for the current spin
+system), and any sequentially linked neighbours. The left hand table shows
+where in the sequence the stretch of sequentially linked amides best fits,
+according to residue type predictions. Those residues that have already been
+assigned are coloured blue.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>When working with multiple polypeptide chains, make sure the correct one is
+selected in the &#8220;options&#8221; tab to give the right sequence.</p>
+<p>The peak-peak match tolerance is set on a per-spectrum basis (for the relevant
+dimension) in the &#8220;Tolerance&#8221; columns of the &#8220;Windows and Spectra&#8221; tab. Note
+that this is actually the same attribute as the regular peak assignment
+tolerance.</p>
+<p>It should be noted that mixing of carbonyl-specific and non-specific in the
+query or match spectra is not permitted; otherwise it is not clear in which
+direction the sequential linking is made.</p>
+<p>The ability to use spectra that match in a 15N dimension, e.g. HNcaN, HNcoCAN
+will be added in due course.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="windows-spectra">
+<h2>Windows &amp; Spectra<a class="headerlink" href="#windows-spectra" title="Permalink to this headline">¶</a></h2>
+<p>Selects which spectra are used as the source for sequential spin system queries and which are used to find match possibilities</p>
+<div class="section" id="query-windows-and-spectra">
+<h3>Query Windows and Spectra<a class="headerlink" href="#query-windows-and-spectra" title="Permalink to this headline">¶</a></h3>
+<p>The spectra that are the fixed source of peak positions for a spin system, and the windows to display them in</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>13C Window</strong>: Selects which spectrum window is used to display peaks that provide the source 13C positions; to match against potential sequence neighbours</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>1H Window</strong>: Selects which spectrum window is used to display peaks that provide the source 1H positions; to match against potential sequence neighbours</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Root Window</strong>: Selects which spectrum window is used to follow the root (amide) position of the query spin system</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The &#8220;experiment:spectrum&#8221; name of the spectrum for a potential query peak list; used as the source of peak positions for a spin system  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak List</em></td>
+<td>The serial number of a potential query peak list within its spectrum; used as the source of peak positions for a spin system</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether the peak list is currently used as a source of spin systems for peak-peak matching to find sequence neighbours  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Tolerance</em></td>
+<td>Sets maximum ppm difference for peaks to be considered as potentially coming from the same resonance; in the spectrum dimension being matched  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Expt Type</em></td>
+<td>The full CCPN experiment type for the peak list; should correspond to a partner experiment type in the match spectra</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="match-windows-and-spectra">
+<h3>Match Windows and Spectra<a class="headerlink" href="#match-windows-and-spectra" title="Permalink to this headline">¶</a></h3>
+<p>The spectra that matches to the query peaks are found within, and the windows to display them in</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>13C Window</strong>: Selects which spectrum window is used to display potential (sequence neighbour) spin system matches to 13C query locations</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>1H Window</strong>: Selects which spectrum window is used to display potential (sequence neighbour) spin system matches to 1H query locations</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The &#8220;experiment:spectrum&#8221; name of the spectrum that may be searched for potential matches to the peak positions from the query spin systems  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Peak List</em></td>
+<td>The serial number of potential match peak list within its spectrum; may be searched for matches to query spin system peak positions</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether the peak list is currently used as a target for peak-peak matching to find sequence neighbours  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Tolerance</em></td>
+<td>Sets maximum ppm difference for peaks to be considered as potentially coming from the same resonance; in the spectrum dimension being matched. The value also weights peak closeness scores  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Expt Type</em></td>
+<td>The full CCPN experiment type for the peak list; should correspond to a partner experiment type in the query spectra</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="spin-system-table">
+<h2>Spin System Table<a class="headerlink" href="#spin-system-table" title="Permalink to this headline">¶</a></h2>
+<p>Lists the spin systems from the query spectra, how each matches to potential sequence neighbours and fits in a protein sequence</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the query spin system; used as a source of peak positions to match against</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The assignment annotation name for the query spin system</td>
+</tr>
+<tr><td><em>i-1</em></td>
+<td>The spin system that is currently linked as being one position later in the sequence, relative to the spin system for the row</td>
+</tr>
+<tr><td><em>i+1</em></td>
+<td>The spin system that is currently linked as being one position earlier in the sequence, relative to the spin system for the row</td>
+</tr>
+<tr><td><em>i+0</em></td>
+<td>The identity of any extra spin system that is considered as being at the same sequential position; could be an NH2 side chain group etc.</td>
+</tr>
+<tr><td><em>Seq, Segment</em></td>
+<td>For sequentially connected runs of spin systems, the number of the run and the position within the run at which the spin system is found</td>
+</tr>
+<tr><td><em>Position</em></td>
+<td>The &#8220;root&#8221; location of the spin system (e.g. amide); the matching to find sequential matches used non-root peak positions</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Row</strong>: Show peak matches locations for the next spin system in the table, assuming a spin system is currently selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous Row</strong>: Show peak matches locations for the previous spin system in the table, assuming a spin system is currently selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Goto i-1</strong>: Show peak matches locations for the spin system connected as one earlier in the sequence, relative to the currently selected one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Goto i+1</strong>: Show peak matches locations for the spin system connected as one later in the sequence, relative to the currently selected one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear i-1 Links</strong>: For the selected spin system, clear any connections to spin systems set as being one earlier in the sequence</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear i+1 Links</strong>: For the selected spin system, clear any connections to spin systems set as being one later in the sequence</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear All Links</strong>: For the selected spin system, clear all connections to any sequentially linked spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add HA/CO/CA/CB</strong>: Considering how peaks in different spectra overlap, add non-root (HA/CO/CA/CB) resonance assignments to peaks in the selected spin system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of peaks currently assigned to the selected spin system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Predict Type</strong>: Show a table of the resonances currently contained within the selected spin system</p>
+<div class="section" id="matched-peak-positions">
+<h3>Matched Peak Positions<a class="headerlink" href="#matched-peak-positions" title="Permalink to this headline">¶</a></h3>
+<p>The locations of the amide spin systems that are potential sequence neighbours to the query spin system</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Rank</em></td>
+<td>The rank of the spin system with regards to how well its peaks match the peaks in the query</td>
+</tr>
+<tr><td><em>Mean Peak Score</em></td>
+<td>The average match score for the peaks matched in the spin system</td>
+</tr>
+<tr><td><em>Total Peak Score</em></td>
+<td>The total of the match score for all peaks matched in the spin system</td>
+</tr>
+<tr><td><em>Spin System</em></td>
+<td>The identity (assignment annotation) for the spin system that was matched by considering peaks in the selected spectra</td>
+</tr>
+<tr><td><em>i-1</em></td>
+<td>The identity of any spin system connected to the matched spin system one earlier in the sequence</td>
+</tr>
+<tr><td><em>i+1</em></td>
+<td>The identity of any spin system connected to the matched spin system one later in the sequence</td>
+</tr>
+<tr><td><em>Num Peaks</em></td>
+<td>The number of peaks involved in the position comparison between the query and the matched spin system</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh Matches</strong>: Manually force a refresh of the above table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Discard Selected</strong>: Remove the currently selected match spin system from the table; only removes from display does not change anything else</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Seq Link</strong>: Set the selected spin system as being sequentially related to the query; sets up the appropriate sequence link and any inherited assignment</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear Rulers</strong>: Clear all ruler lines, that are use to mark peak positions, from the spectrum windows</p>
+</div>
+<div class="section" id="sequence-locations">
+<h3>Sequence Locations<a class="headerlink" href="#sequence-locations" title="Permalink to this headline">¶</a></h3>
+<p>A ranked list of the sequence locations that best match the residue type possibilities of the query spin system and any sequential links</p>
+</div>
+<div class="section" id="residue-types">
+<h3>Residue Types<a class="headerlink" href="#residue-types" title="Permalink to this headline">¶</a></h3>
+<p>The predicted residue types for the selected spin system and any sequence neighbours</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>Rank</em></td>
+<td>The ranking how well the query and selected match spin system fits a region of protein sequence</td>
+</tr>
+<tr><td><em>Score</em></td>
+<td>The score for how well the query and selected match spin system, considering any set sequence links, fits the protein sequence</td>
+</tr>
+<tr><td><em>i-2</em></td>
+<td>For a potential sequence location, the residue two positions before the residue paired with the query spin system</td>
+</tr>
+<tr><td><em>i-1</em></td>
+<td>For a potential sequence location, the residue one position before the residue paired with the query spin system</td>
+</tr>
+<tr><td><em>i</em></td>
+<td>For a potential sequence location, the residue paired with the query spin system</td>
+</tr>
+<tr><td><em>i+1</em></td>
+<td>For a potential sequence location, the residue two positions after the residue paired with the query spin system</td>
+</tr>
+<tr><td><em>i+2</em></td>
+<td>For a potential sequence location, the residue two positions after the residue paired with the query spin system</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>i-2</em></td>
+<td>The score for predicting the residue type of the i-2 spin system; connected as two sequence positions earlier than the query spin system</td>
+</tr>
+<tr><td><em>i-1</em></td>
+<td>The score for predicting the residue type of the i-1 spin system; connected as one sequence position earlier than the query spin system</td>
+</tr>
+<tr><td><em>i</em></td>
+<td>The score for predicting the residue type of the query spin system</td>
+</tr>
+<tr><td><em>i+1</em></td>
+<td>The score for predicting the residue type of the i+1 spin system; connected as one sequence position later than the query spin system</td>
+</tr>
+<tr><td><em>i+2</em></td>
+<td>The score for predicting the residue type of the i+2 spin system; connected as two sequence positions later than the query spin system</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign</strong>: Assign the query spin system and any sequentially linked spin systems to the residue sequence at the selected location</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign</strong>: Remove any spin system assignments to the selected residue (position i), including any sequentially linked neighbours</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip</strong>: Display the spin systems in the selected sequence region as strips (within the match window)</p>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>Specifies the various parameters that are used when matching peaks to fins potential sequentially linked spin systems</p>
+<div class="section" id="sequence">
+<h3>Sequence<a class="headerlink" href="#sequence" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain the assignment is done for; sets which sequence spin systems match and are assigned to</p>
+</div>
+<div class="section" id="peak-matching">
+<h3>Peak Matching<a class="headerlink" href="#peak-matching" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>7</strong>: Sets the maximum number of matching spin systems to display in strips of the selected spectrum window</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>5.0</strong>: When the &#8220;Focus 13C matches?&#8221; option is on, specifies how closely to zoom in on the 13C peak locations; the width of the window region</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.5</strong>: When the &#8220;Focus 1HC matches?&#8221; option is on, specifies how closely to zoom in on the 1H peak locations; the width of the window region</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Auto Match</strong>: Whether to automatically get sequential spin system match candidates when selecting in the list of query spin systems</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Filter 13C By Inter/Intra Type</strong>: Whether to exclude peak matches for 13C positions where the i-1 resonance matches another i-1 resonance; gives more spurious matches but useful if i &amp; i-1 peaks have the same shift</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Filter 1H By Inter/Intra Type</strong>: Whether to exclude peak matches for 1H positions where the i-1 resonance matches another i-1 resonance; gives more spurious matches but useful if i &amp; i-1 peaks have the same shift</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Focus 13C matches?</strong>: Whether to zoom in on the 13C peak locations using the above stated focus width for the window region</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Focus 1H matches?</strong>: Whether to zoom in on the 1H peak locations using the above stated focus width for the window region</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Match Order</strong>: Sets whether potential sequential spin system matches should be ranked by the average peak position difference or total difference</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Protein Sequence Assignment</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#windows-spectra">Windows &amp; Spectra</a><ul>
+<li><a class="reference internal" href="#query-windows-and-spectra">Query Windows and Spectra</a></li>
+<li><a class="reference internal" href="#match-windows-and-spectra">Match Windows and Spectra</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spin-system-table">Spin System Table</a><ul>
+<li><a class="reference internal" href="#matched-peak-positions">Matched Peak Positions</a></li>
+<li><a class="reference internal" href="#sequence-locations">Sequence Locations</a></li>
+<li><a class="reference internal" href="#residue-types">Residue Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#sequence">Sequence</a></li>
+<li><a class="reference internal" href="#peak-matching">Peak Matching</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="LinkPeakListsPopup.html"
+                        title="previous chapter">Assignment : Pick &amp; Assign From Roots</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="AutoBackbonePopup.html"
+                        title="next chapter">Assignment : Automated Seq. Assignment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/LinkSeqSpinSystemsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AutoBackbonePopup.html" title="Assignment : Automated Seq. Assignment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="LinkPeakListsPopup.html" title="Assignment : Pick &amp; Assign From Roots"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

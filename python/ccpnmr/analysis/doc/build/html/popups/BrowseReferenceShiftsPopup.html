@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Resonance : Reference Chemical Shifts &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Resonance" href="../menu/Resonance.html" />
+    <link rel="next" title="Chart : Chemical Shifts Table" href="ViewChemicalShiftsPopup.html" />
+    <link rel="prev" title="Resonance : Measurement Lists" href="EditMeasurementListsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" accesskey="U">Resonance</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="resonance-reference-chemical-shifts">
+<h1>Resonance : Reference Chemical Shifts<a class="headerlink" href="#resonance-reference-chemical-shifts" title="Permalink to this headline">¶</a></h1>
+<p><strong>Graphs and Charts of Database Chemical Shift Data</strong></p>
+<p>This popup window presents the user with the distributions of known chemical
+shift values, for various kinds of atom, as they appear in the BioMagResBank
+or re-referenced RefDB databases. This information is useful when attempting
+to determine the type of a residue from its NMR spectra, for example when
+performing protein sequence assignment.</p>
+<p>The popup is divided into two tabs for two different kinds of graphical
+display. The first &#8220;1D graphs&#8221; tab shows the distributions of chemical shift
+value for either hydrogens or other &#8220;heavy&#8221; atoms within a given kind of
+residue. The buttons that carry atom names above the main graph can be toggled
+two switch the display for different kinds of atom on or off.</p>
+<p>The second &#8220;Amino Acid CA CB&#8221; tab is a special display to assist in the
+assignment of protein sequences when using triple-resonance experiments
+like HNCA/CB. Data for all of the common amino acids is displayed, but
+only for the alpha and beta carbons.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Two dimensional correlations, e.g. between a 1H resonance and a covalently
+bound 13C will be added to Analysis in the future.</p>
+<p>DNA and RNA chemical shift distributions is not present in the RefDB data, but
+are present in the BMRB data; to view the BMRB data change the pulldown menu
+at the top-right.</p>
+<p>Some of the atom types have a second, minor chemical shift distribution, far
+from the main peak, that is erroneous (this data is still present in the
+source databases). An example of this is for the NE atom of the amino acid
+arginine at around 115 ppm, which in this instance is probably caused by peaks
+being assigned in HSQC spectra in the normal backbone amide ppm range when the
+NE peak is really an aliased harmonic and should be a spectrum width away,
+nearer 85 ppm.</p>
+<p>Distributions that are notably jagged, due to lack of data for a given atom
+type should naturally not be relied upon to any great degree.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Source Database</strong>: Whether to use chemical shift data from the BMRB (unfiltered) or RefDB sets</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="d-graphs">
+<h2>1D Graphs<a class="headerlink" href="#d-graphs" title="Permalink to this headline">¶</a></h2>
+<p>Simple graphs of how chemical shift values are distributed for a given atom type</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule Type</strong>: Which of the common bio-polymer types to show data for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue Code</strong>: Which residue code to show chemical shift distributions for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Atom Type</strong>: Whether to show distributions for hydrogen atoms or other atoms</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>*None*</strong>: The selection of atom name to display distributions for</p>
+<p>Scrollbar: :</p>
+</div>
+<div class="section" id="amino-acid-ca-cb">
+<h2>Amino Acid CA CB<a class="headerlink" href="#amino-acid-ca-cb" title="Permalink to this headline">¶</a></h2>
+<p>Density plots of alpha a &amp; beta carbon shift distributions for common amnio acids</p>
+<p>Scrollbar: :</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Resonance : Reference Chemical Shifts</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#d-graphs">1D Graphs</a></li>
+<li><a class="reference internal" href="#amino-acid-ca-cb">Amino Acid CA CB</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMeasurementListsPopup.html"
+                        title="previous chapter">Resonance : Measurement Lists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewChemicalShiftsPopup.html"
+                        title="next chapter">Chart : Chemical Shifts Table</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/BrowseReferenceShiftsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMeasurementListsPopup.html" title="Resonance : Measurement Lists"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" >Resonance</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

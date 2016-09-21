@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chart : Chemical Shifts Table &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Chart" href="../menu/Chart.html" />
+    <link rel="next" title="Chart : Secondary Structure Chart" href="SecStructureGraphPopup.html" />
+    <link rel="prev" title="Chart : Chemical Shifts Table" href="" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="#" title="Chart : Chemical Shifts Table"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" accesskey="U">Chart</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chart-chemical-shifts-table">
+<h1>Chart : Chemical Shifts Table<a class="headerlink" href="#chart-chemical-shifts-table" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Table of Chemical Shifts for Export</strong></p>
+<p>This section is designed to make a layout of a table for chemical shifts  on a
+per-residue basis which may them be exported as either PostScript, for
+printing and graphical manipulation, or as plain text for import into other
+software or computer scripts.</p>
+<p>The user chooses the molecular chain (which sequence) and the shift list to
+use at the top of the popup, together with a few other options that control
+how things are rendered. Then buttons are toggled to select which kinds of
+atom will be displayed in aligned columns; other kinds will simply be listed
+to the right of the columns. Thus for example if the shift list does not
+contain any carbonyl resonances in a protein chain then the user may toggle
+the empty &#8220;C&#8221; column off.</p>
+<p>Once the desired layout is achieved the user then uses the [Export PostScript]
+or [Export Text] buttons to write the data into a file of the appropriate
+type. The user will be presented wit ha file browser to specify the location
+and the name of the file to be saved. It should be noted that although the
+graphical display in the popup itself is somewhat limited, e.g. the gaps and
+spacing doesn&#8217;t always look perfect, the PostScript version that is exported
+is significantly neater.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>If you need a chemical shift list represented in a particular format, specific
+for a particular external NMR program then you should use the FormatConverter
+software.</p>
+<p>Chemical shifts may also be exported from any table in Analysis that contains
+such data by clicking the right mouse button over the table and selecting the
+export option.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain to show residues and chemical shift values for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list is used to derive the displayed chemical shift values</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>List all shifts</strong>: Sets whether to display all the chemical shifts for residues or just for the nominated atom types in columns</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>1-letter codes</strong>: Whether to use 1-letter residue codes in the table, or otherwise Ccp/three-letter codes</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>1H precision</strong>: Specifies how many decimal places to use when displaying 1H chemical shift values</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Other precision</strong>: Specifies how many decimal places to use when displaying chemical shift values for isotopes other than 1H</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>Column Atoms</strong>: Selects which kinds of atoms are displayed in aligned columns, or otherwise displayed at the end of the residue row (if &#8220;List all shifts&#8221; is set)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export PostScript</strong>: Output information from the table as PostScript file, for printing etc.</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export Text</strong>: Output information from the table as a whitespace separated plain text file</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chart : Chemical Shifts Table</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href=""
+                        title="previous chapter">Chart : Chemical Shifts Table</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SecStructureGraphPopup.html"
+                        title="next chapter">Chart : Secondary Structure Chart</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewChemicalShiftsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="#" title="Chart : Chemical Shifts Table"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" >Chart</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

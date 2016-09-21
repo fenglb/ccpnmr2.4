@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>WindowMenus &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="Window.html" />
+    <link rel="next" title="Peak" href="Peak.html" />
+    <link rel="prev" title="Window : Marks and Rulers" href="../popups/EditMarksPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Peak.html" title="Peak"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../popups/EditMarksPopup.html" title="Window : Marks and Rulers"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="windowmenus">
+<h1>WindowMenus<a class="headerlink" href="#windowmenus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="menu-assign-peak">
+<h2>Menu Assign peak<a class="headerlink" href="#menu-assign-peak" title="Permalink to this headline">¶</a></h2>
+<p>Open a popup window to assign the dimensions of the peak under the cursor to resonances</p>
+</div>
+<div class="section" id="menu-propagate-assignments">
+<h2>Menu Propagate assignments<a class="headerlink" href="#menu-propagate-assignments" title="Permalink to this headline">¶</a></h2>
+<p>Spread resonance assignments from the peak under the cursor to all selected peaks; where shifts match peak dimension positions</p>
+</div>
+<div class="section" id="menu-add-to-spin-system">
+<h2>Menu Add to spin system<a class="headerlink" href="#menu-add-to-spin-system" title="Permalink to this headline">¶</a></h2>
+<p>For the peak under the cursor, put all resonance assignments into the same spin system (resonance group)</p>
+</div>
+<div class="section" id="menu-predict-spin-system-type">
+<h2>Menu Predict Spin System Type<a class="headerlink" href="#menu-predict-spin-system-type" title="Permalink to this headline">¶</a></h2>
+<p>Predict the residue type of the primary spin system the peak under the cursor is assigned to</p>
+</div>
+<div class="section" id="menu-deassign-selected-peaks">
+<h2>Menu Deassign selected peaks<a class="headerlink" href="#menu-deassign-selected-peaks" title="Permalink to this headline">¶</a></h2>
+<p>Clear all peak dimension assignments (to resonances) for all selected peaks (potentially in many windows)</p>
+</div>
+<div class="section" id="menu-clear-all-sequential-links">
+<h2>Menu Clear all sequential links<a class="headerlink" href="#menu-clear-all-sequential-links" title="Permalink to this headline">¶</a></h2>
+<p>Remove all sequential links between resonances assigned to the dimensions of the peak under the cursor</p>
+</div>
+<div class="section" id="menu-unite-resonance-positions">
+<h2>Menu Unite resonance positions<a class="headerlink" href="#menu-unite-resonance-positions" title="Permalink to this headline">¶</a></h2>
+<p>Based on the cursor peak having representative shift values for its assigned resonances, align all peak dimensions assigned to the same resonances to the same value(s)</p>
+</div>
+<div class="section" id="menu-selection-table">
+<h2>Menu Selection Table<a class="headerlink" href="#menu-selection-table" title="Permalink to this headline">¶</a></h2>
+<p>Show a table of the peaks currently selected in spectrum windows</p>
+</div>
+<div class="section" id="menu-add-new-peak-s">
+<h2>Menu Add new peak(s)<a class="headerlink" href="#menu-add-new-peak-s" title="Permalink to this headline">¶</a></h2>
+<p>Make a new peak at the current cursor location; makes peaks in all spectra displayed in the window</p>
+</div>
+<div class="section" id="menu-delete-selected">
+<h2>Menu Delete selected<a class="headerlink" href="#menu-delete-selected" title="Permalink to this headline">¶</a></h2>
+<p>Delete the selected peaks, which may be in more than one window</p>
+</div>
+<div class="section" id="menu-set-details">
+<h2>Menu Set details<a class="headerlink" href="#menu-set-details" title="Permalink to this headline">¶</a></h2>
+<p>Set a textual comment for the peak under the cursor</p>
+<div class="section" id="menu-0-0">
+<h3>Menu 0.0<a class="headerlink" href="#menu-0-0" title="Permalink to this headline">¶</a></h3>
+<p>Set the figure-of-merit value for the peak under the cursor to 0.0; a &#8220;bad&#8221; peak</p>
+</div>
+<div class="section" id="menu-0-5">
+<h3>Menu 0.5<a class="headerlink" href="#menu-0-5" title="Permalink to this headline">¶</a></h3>
+<p>Set the figure-of-merit value for the peak under the cursor to 0.5; a &#8220;mediocre&#8221; peak</p>
+</div>
+<div class="section" id="menu-1-0">
+<h3>Menu 1.0<a class="headerlink" href="#menu-1-0" title="Permalink to this headline">¶</a></h3>
+<p>Set the figure-of-merit value for the peak under the cursor to 1.0; a &#8220;good&#8221; peak</p>
+</div>
+</div>
+<div class="section" id="menu-snap-selected-peaks">
+<h2>Menu Snap selected peaks<a class="headerlink" href="#menu-snap-selected-peaks" title="Permalink to this headline">¶</a></h2>
+<p>Re-center the selected peaks to their nearest spectrum intensity extremum, if within the normal peak finding tolerances</p>
+</div>
+<div class="section" id="menu-unalias-peak">
+<h2>Menu Unalias peak<a class="headerlink" href="#menu-unalias-peak" title="Permalink to this headline">¶</a></h2>
+<p>Move the peak under the cursor to its real ppm value by adding or removing spectrum sweep widths, to unfold or unalias</p>
+</div>
+<div class="section" id="menu-unaliasing-propagate">
+<h2>Menu Unaliasing propagate<a class="headerlink" href="#menu-unaliasing-propagate" title="Permalink to this headline">¶</a></h2>
+<p>Set the selected peaks to be in the same spectrum (sweep width based) ppm range as the peak under the cursor</p>
+</div>
+<div class="section" id="menu-label-auto-arrange">
+<h2>Menu Label Auto Arrange<a class="headerlink" href="#menu-label-auto-arrange" title="Permalink to this headline">¶</a></h2>
+<p>For the selected peaks, automatically adjust the positions of the textual peak labels to avoid overlap; this operation is zoom-level dependent</p>
+</div>
+<div class="section" id="menu-label-position-reset">
+<h2>Menu Label Position Reset<a class="headerlink" href="#menu-label-position-reset" title="Permalink to this headline">¶</a></h2>
+<p>For the selected peaks, reset all textual peak labels to their default/unmoved positions</p>
+</div>
+<div class="section" id="menu-make-intermediate-peak">
+<h2>Menu Make intermediate peak<a class="headerlink" href="#menu-make-intermediate-peak" title="Permalink to this headline">¶</a></h2>
+<p>Make a new peak in the geometric center of the selected peaks; useful for COSY etc.</p>
+</div>
+<div class="section" id="menu-structure-connections">
+<h2>Menu Structure connections<a class="headerlink" href="#menu-structure-connections" title="Permalink to this headline">¶</a></h2>
+<p>Show any non-onebond connections described by the resonance assignments of the cursor peak in a graphical structure display</p>
+</div>
+<div class="section" id="menu-re-reference-to-this-peak">
+<h2>Menu Re-reference to this peak<a class="headerlink" href="#menu-re-reference-to-this-peak" title="Permalink to this headline">¶</a></h2>
+<p>Re-reference the points to ppm relationship for the spectra of the selected peaks by aligning peak positions; cursor peak is the reference</p>
+</div>
+<div class="section" id="menu-center-z-planes-on-peak">
+<h2>Menu Center z planes on peak<a class="headerlink" href="#menu-center-z-planes-on-peak" title="Permalink to this headline">¶</a></h2>
+<p>Move the viewed region of the window so the peak under the cursor is in the center of the screen-orthogonal (Z) dimensions</p>
+<div class="section" id="menu-use-strips">
+<h3>Menu Use strips<a class="headerlink" href="#menu-use-strips" title="Permalink to this headline">¶</a></h3>
+<p>Display the results of finding symmetry related (e.g. return) peaks using strips in the window</p>
+</div>
+<div class="section" id="menu-use-tables">
+<h3>Menu Use tables<a class="headerlink" href="#menu-use-tables" title="Permalink to this headline">¶</a></h3>
+<p>Display the results of finding symmetry related (e.g. return) peaks in a table</p>
+</div>
+</div>
+<div class="section" id="menu-strip-plot-selected-peaks">
+<h2>Menu Strip plot selected peaks<a class="headerlink" href="#menu-strip-plot-selected-peaks" title="Permalink to this headline">¶</a></h2>
+<p>Make strips in the current window based on the locations of the selected peaks</p>
+</div>
+<div class="section" id="menu-zoom-to-selected-peaks">
+<h2>Menu Zoom to selected peaks<a class="headerlink" href="#menu-zoom-to-selected-peaks" title="Permalink to this headline">¶</a></h2>
+<p>Center the viewed region of the contour display to cover any peaks selected in the window</p>
+</div>
+<div class="section" id="menu-zoom-to-spin-system-peaks">
+<h2>Menu Zoom to spin system peaks<a class="headerlink" href="#menu-zoom-to-spin-system-peaks" title="Permalink to this headline">¶</a></h2>
+<p>Change the window view to see all peaks assigned to the same, primary spin system as the peak under the cursor</p>
+<div class="section" id="menu-out-by-2">
+<h3>Menu Out by 2<a class="headerlink" href="#menu-out-by-2" title="Permalink to this headline">¶</a></h3>
+<p>Change the viewed region of the contour display to see twice as much on the X and Y axes</p>
+</div>
+<div class="section" id="menu-in-by-2">
+<h3>Menu In by 2<a class="headerlink" href="#menu-in-by-2" title="Permalink to this headline">¶</a></h3>
+<p>Change the viewed region of the contour display to see half as much on the X and Y axes</p>
+</div>
+<div class="section" id="id1">
+<h3>Menu Zoom to selected peaks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Center the viewed region of the contour display to cover any peaks selected in the window</p>
+</div>
+<div class="section" id="id2">
+<h3>Menu Zoom to spin system peaks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Change the window view to see all peaks assigned to the same, primary spin system as the peak under the cursor</p>
+</div>
+</div>
+<div class="section" id="menu-center-here">
+<h2>Menu Center here<a class="headerlink" href="#menu-center-here" title="Permalink to this headline">¶</a></h2>
+<p>Center the window so that its middle is at the current cursor location</p>
+<div class="section" id="menu-up-by-2">
+<h3>Menu Up by 2<a class="headerlink" href="#menu-up-by-2" title="Permalink to this headline">¶</a></h3>
+<p>Increase the contour base level ,for all displayed spectra, by a factor of two; move away from zero</p>
+</div>
+<div class="section" id="menu-down-by-2">
+<h3>Menu Down by 2<a class="headerlink" href="#menu-down-by-2" title="Permalink to this headline">¶</a></h3>
+<p>Decrease the contour base level, for all displayed spectra, by half; move away towards zero</p>
+</div>
+<div class="section" id="menu-general">
+<h3>Menu General...<a class="headerlink" href="#menu-general" title="Permalink to this headline">¶</a></h3>
+<p>Open a popup window to give fine control over spectrum contour levels</p>
+</div>
+</div>
+<div class="section" id="menu-add-vertical-strip">
+<h2>Menu Add Vertical strip<a class="headerlink" href="#menu-add-vertical-strip" title="Permalink to this headline">¶</a></h2>
+<p>Add a new vertical strip/sub-division to the window</p>
+</div>
+<div class="section" id="menu-add-horizontal-strip">
+<h2>Menu Add Horizontal strip<a class="headerlink" href="#menu-add-horizontal-strip" title="Permalink to this headline">¶</a></h2>
+<p>Add a new Horizontal strip/sub-division to the window</p>
+</div>
+<div class="section" id="menu-delete-vertical-strip">
+<h2>Menu Delete vertical strip<a class="headerlink" href="#menu-delete-vertical-strip" title="Permalink to this headline">¶</a></h2>
+<p>Delete the vertical strip currently under the cursor</p>
+</div>
+<div class="section" id="menu-delete-horizontal-strip">
+<h2>Menu Delete horizontal strip<a class="headerlink" href="#menu-delete-horizontal-strip" title="Permalink to this headline">¶</a></h2>
+<p>Delete the horizontal strip currently under the cursor</p>
+</div>
+<div class="section" id="menu-switch-direction">
+<h2>Menu Switch direction<a class="headerlink" href="#menu-switch-direction" title="Permalink to this headline">¶</a></h2>
+<p>Swap between vertical window strips and horizontal strips</p>
+</div>
+<div class="section" id="menu-add-mark">
+<h2>Menu Add Mark<a class="headerlink" href="#menu-add-mark" title="Permalink to this headline">¶</a></h2>
+<p>Add a multi-dimensional cross mark at the current cursor location</p>
+</div>
+<div class="section" id="menu-add-horizontal-ruler">
+<h2>Menu Add Horizontal ruler<a class="headerlink" href="#menu-add-horizontal-ruler" title="Permalink to this headline">¶</a></h2>
+<p>Add a single horizontal line at the current cursor location</p>
+</div>
+<div class="section" id="menu-add-vertical-ruler">
+<h2>Menu Add Vertical ruler<a class="headerlink" href="#menu-add-vertical-ruler" title="Permalink to this headline">¶</a></h2>
+<p>Add a single vertical line at the current cursor location</p>
+</div>
+<div class="section" id="menu-delete-marks">
+<h2>Menu Delete marks<a class="headerlink" href="#menu-delete-marks" title="Permalink to this headline">¶</a></h2>
+<p>Delete all multi-dimensional cross marks in all windows</p>
+</div>
+<div class="section" id="menu-delete-rulers">
+<h2>Menu Delete rulers<a class="headerlink" href="#menu-delete-rulers" title="Permalink to this headline">¶</a></h2>
+<p>Delete all horizontal and vertical ruler (1D) lines in all windows</p>
+</div>
+<div class="section" id="menu-options">
+<h2>Menu Options<a class="headerlink" href="#menu-options" title="Permalink to this headline">¶</a></h2>
+<p>Open a popup window to alter the display settings for cross marks and ruler lines</p>
+</div>
+<div class="section" id="menu-clone">
+<h2>Menu Clone<a class="headerlink" href="#menu-clone" title="Permalink to this headline">¶</a></h2>
+<p>Make a near identical copy of the current window</p>
+</div>
+<div class="section" id="menu-delete">
+<h2>Menu Delete<a class="headerlink" href="#menu-delete" title="Permalink to this headline">¶</a></h2>
+<p>Delete the current window</p>
+</div>
+<div class="section" id="menu-print">
+<h2>Menu Print<a class="headerlink" href="#menu-print" title="Permalink to this headline">¶</a></h2>
+<p>Export a PostScript, EPS of PDF rendering of the window for printing etc.</p>
+</div>
+<div class="section" id="menu-window-properties">
+<h2>Menu Window properties<a class="headerlink" href="#menu-window-properties" title="Permalink to this headline">¶</a></h2>
+<p>Open a popup window to give fine control over spectrum window setting</p>
+<div class="section" id="menu-all">
+<h3>Menu All<a class="headerlink" href="#menu-all" title="Permalink to this headline">¶</a></h3>
+<p>Show navigation scrollbars on all axes of the current window</p>
+</div>
+<div class="section" id="menu-z-only">
+<h3>Menu Z only<a class="headerlink" href="#menu-z-only" title="Permalink to this headline">¶</a></h3>
+<p>Show navigation scrollbars for only the screen-orthogonal (Z) axes; removes X and Y</p>
+</div>
+<div class="section" id="menu-none">
+<h3>Menu None<a class="headerlink" href="#menu-none" title="Permalink to this headline">¶</a></h3>
+<p>Remove all navigation scrollbars on all axes of the current window</p>
+</div>
+<div class="section" id="menu-x-y">
+<h3>Menu X &amp; Y<a class="headerlink" href="#menu-x-y" title="Permalink to this headline">¶</a></h3>
+<p>For both X and Y axes, superimpose 1D slice/transect traces, from the cursor location, on the crosshairs</p>
+</div>
+<div class="section" id="menu-x">
+<h3>Menu X<a class="headerlink" href="#menu-x" title="Permalink to this headline">¶</a></h3>
+<p>For only the X axis, superimpose 1D slice/transect traces, from the cursor location, on the crosshairs</p>
+</div>
+<div class="section" id="menu-y">
+<h3>Menu Y<a class="headerlink" href="#menu-y" title="Permalink to this headline">¶</a></h3>
+<p>For only the Y axis, superimpose 1D slice/transect traces, from the cursor location, on the crosshairs</p>
+</div>
+<div class="section" id="id3">
+<h3>Menu None<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Remove all 1D slice/transect traces superimposed on crosshairs</p>
+</div>
+</div>
+<div class="section" id="menu-add-side-traces">
+<h2>Menu Add side traces<a class="headerlink" href="#menu-add-side-traces" title="Permalink to this headline">¶</a></h2>
+<p>Add displays of one-dimensional spectrum slices/transects in panels at the edges of X and Y axes</p>
+</div>
+<div class="section" id="menu-remove-side-traces">
+<h2>Menu Remove side traces<a class="headerlink" href="#menu-remove-side-traces" title="Permalink to this headline">¶</a></h2>
+<p>Remove the one-dimensional spectrum slices/transects panels from the window edges</p>
+<div class="section" id="menu-50">
+<h3>Menu 50<a class="headerlink" href="#menu-50" title="Permalink to this headline">¶</a></h3>
+<p><em>Menu Documentation Missing</em></p>
+</div>
+<div class="section" id="menu-100">
+<h3>Menu 100<a class="headerlink" href="#menu-100" title="Permalink to this headline">¶</a></h3>
+<p><em>Menu Documentation Missing</em></p>
+</div>
+<div class="section" id="menu-150">
+<h3>Menu 150<a class="headerlink" href="#menu-150" title="Permalink to this headline">¶</a></h3>
+<p><em>Menu Documentation Missing</em></p>
+</div>
+<div class="section" id="menu-200">
+<h3>Menu 200<a class="headerlink" href="#menu-200" title="Permalink to this headline">¶</a></h3>
+<p><em>Menu Documentation Missing</em></p>
+</div>
+<div class="section" id="menu-250">
+<h3>Menu 250<a class="headerlink" href="#menu-250" title="Permalink to this headline">¶</a></h3>
+<p><em>Menu Documentation Missing</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">WindowMenus</a><ul>
+<li><a class="reference internal" href="#menu-assign-peak">Menu Assign peak</a></li>
+<li><a class="reference internal" href="#menu-propagate-assignments">Menu Propagate assignments</a></li>
+<li><a class="reference internal" href="#menu-add-to-spin-system">Menu Add to spin system</a></li>
+<li><a class="reference internal" href="#menu-predict-spin-system-type">Menu Predict Spin System Type</a></li>
+<li><a class="reference internal" href="#menu-deassign-selected-peaks">Menu Deassign selected peaks</a></li>
+<li><a class="reference internal" href="#menu-clear-all-sequential-links">Menu Clear all sequential links</a></li>
+<li><a class="reference internal" href="#menu-unite-resonance-positions">Menu Unite resonance positions</a></li>
+<li><a class="reference internal" href="#menu-selection-table">Menu Selection Table</a></li>
+<li><a class="reference internal" href="#menu-add-new-peak-s">Menu Add new peak(s)</a></li>
+<li><a class="reference internal" href="#menu-delete-selected">Menu Delete selected</a></li>
+<li><a class="reference internal" href="#menu-set-details">Menu Set details</a><ul>
+<li><a class="reference internal" href="#menu-0-0">Menu 0.0</a></li>
+<li><a class="reference internal" href="#menu-0-5">Menu 0.5</a></li>
+<li><a class="reference internal" href="#menu-1-0">Menu 1.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-snap-selected-peaks">Menu Snap selected peaks</a></li>
+<li><a class="reference internal" href="#menu-unalias-peak">Menu Unalias peak</a></li>
+<li><a class="reference internal" href="#menu-unaliasing-propagate">Menu Unaliasing propagate</a></li>
+<li><a class="reference internal" href="#menu-label-auto-arrange">Menu Label Auto Arrange</a></li>
+<li><a class="reference internal" href="#menu-label-position-reset">Menu Label Position Reset</a></li>
+<li><a class="reference internal" href="#menu-make-intermediate-peak">Menu Make intermediate peak</a></li>
+<li><a class="reference internal" href="#menu-structure-connections">Menu Structure connections</a></li>
+<li><a class="reference internal" href="#menu-re-reference-to-this-peak">Menu Re-reference to this peak</a></li>
+<li><a class="reference internal" href="#menu-center-z-planes-on-peak">Menu Center z planes on peak</a><ul>
+<li><a class="reference internal" href="#menu-use-strips">Menu Use strips</a></li>
+<li><a class="reference internal" href="#menu-use-tables">Menu Use tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-strip-plot-selected-peaks">Menu Strip plot selected peaks</a></li>
+<li><a class="reference internal" href="#menu-zoom-to-selected-peaks">Menu Zoom to selected peaks</a></li>
+<li><a class="reference internal" href="#menu-zoom-to-spin-system-peaks">Menu Zoom to spin system peaks</a><ul>
+<li><a class="reference internal" href="#menu-out-by-2">Menu Out by 2</a></li>
+<li><a class="reference internal" href="#menu-in-by-2">Menu In by 2</a></li>
+<li><a class="reference internal" href="#id1">Menu Zoom to selected peaks</a></li>
+<li><a class="reference internal" href="#id2">Menu Zoom to spin system peaks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-center-here">Menu Center here</a><ul>
+<li><a class="reference internal" href="#menu-up-by-2">Menu Up by 2</a></li>
+<li><a class="reference internal" href="#menu-down-by-2">Menu Down by 2</a></li>
+<li><a class="reference internal" href="#menu-general">Menu General...</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-add-vertical-strip">Menu Add Vertical strip</a></li>
+<li><a class="reference internal" href="#menu-add-horizontal-strip">Menu Add Horizontal strip</a></li>
+<li><a class="reference internal" href="#menu-delete-vertical-strip">Menu Delete vertical strip</a></li>
+<li><a class="reference internal" href="#menu-delete-horizontal-strip">Menu Delete horizontal strip</a></li>
+<li><a class="reference internal" href="#menu-switch-direction">Menu Switch direction</a></li>
+<li><a class="reference internal" href="#menu-add-mark">Menu Add Mark</a></li>
+<li><a class="reference internal" href="#menu-add-horizontal-ruler">Menu Add Horizontal ruler</a></li>
+<li><a class="reference internal" href="#menu-add-vertical-ruler">Menu Add Vertical ruler</a></li>
+<li><a class="reference internal" href="#menu-delete-marks">Menu Delete marks</a></li>
+<li><a class="reference internal" href="#menu-delete-rulers">Menu Delete rulers</a></li>
+<li><a class="reference internal" href="#menu-options">Menu Options</a></li>
+<li><a class="reference internal" href="#menu-clone">Menu Clone</a></li>
+<li><a class="reference internal" href="#menu-delete">Menu Delete</a></li>
+<li><a class="reference internal" href="#menu-print">Menu Print</a></li>
+<li><a class="reference internal" href="#menu-window-properties">Menu Window properties</a><ul>
+<li><a class="reference internal" href="#menu-all">Menu All</a></li>
+<li><a class="reference internal" href="#menu-z-only">Menu Z only</a></li>
+<li><a class="reference internal" href="#menu-none">Menu None</a></li>
+<li><a class="reference internal" href="#menu-x-y">Menu X &amp; Y</a></li>
+<li><a class="reference internal" href="#menu-x">Menu X</a></li>
+<li><a class="reference internal" href="#menu-y">Menu Y</a></li>
+<li><a class="reference internal" href="#id3">Menu None</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#menu-add-side-traces">Menu Add side traces</a></li>
+<li><a class="reference internal" href="#menu-remove-side-traces">Menu Remove side traces</a><ul>
+<li><a class="reference internal" href="#menu-50">Menu 50</a></li>
+<li><a class="reference internal" href="#menu-100">Menu 100</a></li>
+<li><a class="reference internal" href="#menu-150">Menu 150</a></li>
+<li><a class="reference internal" href="#menu-200">Menu 200</a></li>
+<li><a class="reference internal" href="#menu-250">Menu 250</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../popups/EditMarksPopup.html"
+                        title="previous chapter">Window : Marks and Rulers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Peak.html"
+                        title="next chapter">Peak</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/menu/WindowMenus.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Peak.html" title="Peak"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../popups/EditMarksPopup.html" title="Window : Marks and Rulers"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

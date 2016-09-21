@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>StructureBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="Util" href="Util.html" />
+    <link rel="prev" title="QualityControlBasic" href="QualityControlBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Util.html" title="Util"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="QualityControlBasic.html" title="QualityControlBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.StructureBasic">
+<span id="structurebasic"></span><h1>StructureBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.StructureBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.alignCoordinates">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">alignCoordinates</tt><big>(</big><em>coords1</em>, <em>coords0</em>, <em>allCoords</em>, <em>W</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.alignCoordinates" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Align on two sets of coordinates (may be sub sets of whole)</dt>
+<dd>and then update all coordinates given this new position.
+Coordinates are weighted for alignment.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>List of List of Floats (x,y,z), List of List of Floats (reference x,y,z),</dt>
+<dd>List of List of Floats (x,y,z), List of Floats (weights)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>List of List of Floats (aligned x,y,z),</dt>
+<dd>List of List of Floats (all updated x,y,z),
+Float (fitting score)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.alignStructures">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">alignStructures</tt><big>(</big><em>structures</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.alignStructures" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Align structures by minimising weighted atomic RMSD.</dt>
+<dd>All members of any entered ensembles are aligned.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of MolStructure.StructureEnsembles</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>List of MolStructure.StructureEnsembles, Float (Fit error), </dt>
+<dd>Float (overall RMSD), List of Floats (Atom RMSDs)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.centerCoordinates">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">centerCoordinates</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.centerCoordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>More the centre of mass of input coordinates to the origin.
+.. describe:: Input</p>
+<p>List of List of Floats (x,z,y coords)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of Floats (x,z,y coords)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.centerStructures">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">centerStructures</tt><big>(</big><em>structures</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.centerStructures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the input structures&#8217; centre of mass  to the origin.
+.. describe:: Input</p>
+<p>List of MolStructure.StructureEnsembles</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.compareEnsembles">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">compareEnsembles</tt><big>(</big><em>structure1</em>, <em>structure2</em>, <em>compareBackboneOnly=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.compareEnsembles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Compare models in two ensembles by minimising weighted atomic RMSD.</dt>
+<dd>The alignment is only done in the C world, not in the Python world.
+If compareBackboneOnly then only backbone atoms are used.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.StructureEnsemble, MolStructure.StructureEnsemble, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (overall RMSD), Dict: MolSystem.Residue &#8211;&gt; RMSD</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.findMatchingMolSystemAtom">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">findMatchingMolSystemAtom</tt><big>(</big><em>atomName</em>, <em>residue</em>, <em>namingSystem</em>, <em>excludeAtoms</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.findMatchingMolSystemAtom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the best matching CCPN atom name in a residue for the input
+atom name in the input naming system Will try other naming systems
+if the input one doesn&#8217;t work</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Word (imported atom name), MolSystem.Residue,
+Word (ChemComp.NamingSystem.name), List of MolSystem.Atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word (MolSystem.Atom.name)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getAtomSetCoords">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getAtomSetCoords</tt><big>(</big><em>atomSet</em>, <em>structure</em>, <em>model=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getAtomSetCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the coordinates corresponsing to an NMR atom set in a given model
+of a given structure structure. The model defaults to an arbitrary one
+if none is specified.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AtomSet, MolStructure.StructureEnsemble, MolStructure.Model</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of Floats (x,y,z for each atom)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getAtomSetsDihedral">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getAtomSetsDihedral</tt><big>(</big><em>atomSets</em>, <em>structure</em>, <em>model=None</em>, <em>inDegrees=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getAtomSetsDihedral" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Measure the dihedral angle in a structure between four groups</dt>
+<dd>of atoms (lists of atom sets). Input atom sets are a list of lists
+to allow for ambigous assignments (e.g. Ser Hb*) here the mean position is used.
+If mo nodel is specified the values are averates over the whole ensemble.
+Option to specify degrees or radians.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>4 List of List of Nmr.AtomSets or 4 List of Nmr.AtomSets,</dt>
+<dd>MolStructure.StructureEnsemble, Int, Boolean</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getAtomSetsDistance">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getAtomSetsDistance</tt><big>(</big><em>atomSets1</em>, <em>atomSets2</em>, <em>structure</em>, <em>model=None</em>, <em>method='noe'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getAtomSetsDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the distance between two atom sets in a specified structure or ensemble
+of structures. Distances for multi atom atom sets are calculated using the
+NOE sum method by default. A model may be specified if the structure
+ensemble has many models, otherwise all models in the ensemble will be
+considered and an avergate distance is returned. The method can be either
+&#8220;noe&#8221; for NOE sum, &#8220;min&#8221; for minimum distance or &#8220;max&#8221; for maximum distance.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AtomSet, Nmr.AtomSet, MolStructure.StructureEnsemble,
+MolStructure.Model or None, Word</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (distance)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getBestChemComp">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getBestChemComp</tt><big>(</big><em>project</em>, <em>resName</em>, <em>atomNames</em>, <em>molType=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getBestChemComp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the best matching ccpCode (often 3 letters) for the input</dt>
+<dd>residue name that has the input atomNames</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Implementation.Project, Word (imported residue name),</dt>
+<dd>List of Words (imported atom names)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word (Molecule.MolResidue.ccpCodes)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getBestMolType">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getBestMolType</tt><big>(</big><em>atomNames</em>, <em>ccpCodes=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getBestMolType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Determine the best molecule type (protein, DNA, RNA, carbohydrate or</dt>
+<dd>nonpolymer) given the input atom names and residue ccpCodes</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>List of Words (imported atom names),</dt>
+<dd>List of Words (Molecule.MolResidue.ccpCodes)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word (Molecule.Molecule.molType)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getBestNamingSystem">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getBestNamingSystem</tt><big>(</big><em>residues</em>, <em>atomNamesList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getBestNamingSystem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Determine the best naming system for a list of list of atom names</dt>
+<dd>which correspond to the input residues.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of MolSystem.Residues, List of List of Words (imported atom names)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word (ChemAtomSysName.namingSystem)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getCentreOfMass">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getCentreOfMass</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getCentreOfMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the center of mass of data model coordinates. (Uss atomic weights)
+.. describe:: Input</p>
+<p>List of MolStructure.Coords</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (x,y,z centre of mass)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getMeanCoords">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getMeanCoords</tt><big>(</big><em>coordList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getMeanCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the mean position of data model coordinates.
+.. describe:: Input</p>
+<p>List of MolStructure.Coords</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (x,y,z coords of mean)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getMeanStrucCoords">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getMeanStrucCoords</tt><big>(</big><em>structureCoords</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getMeanStrucCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the mean position of input coordinates of multiple structures.
+.. describe:: Input</p>
+<p>List of List of List of Floats (x,y,z per atom per structure)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of Floats (mean x,y,z per atom)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getResiduePhiPsi">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getResiduePhiPsi</tt><big>(</big><em>residue</em>, <em>inDegrees=True</em>, <em>model=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getResiduePhiPsi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the Phi and Psi backbone dihedral angles for a residue in a structure.</dt>
+<dd>Option inDegrees can be set to False to get an angle in radians.
+Option to specify which model of an ensemble to use, otherwise
+all models are considered and the angles are an average.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.Residue, Boolean, MolStructure.Model</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>2-List of Floats (Phi, Psi)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getRmsd">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getRmsd</tt><big>(</big><em>structureCoords</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getRmsd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the root mean square devatation for a list of structures</dt>
+<dd>(their coordinates in lists)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of List of Floats (x,y,z per atom per structure)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getStructureCoordinates">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getStructureCoordinates</tt><big>(</big><em>structure</em>, <em>model=None</em>, <em>atomNameDict=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getStructureCoordinates" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a list of coordinate objects from a structure in a consistent order.</dt>
+<dd>Option to select coords from a given model if required.
+Option to extract only atoms of certain names</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.StructureEnsemble, MolStructure.Model, List of Strings</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of MolStructure.Coords (1st list per atom 2nd per model)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.getStructureFromFile">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">getStructureFromFile</tt><big>(</big><em>molSystem</em>, <em>filePath</em>, <em>fileType='rough'</em>, <em>doWarnings=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.getStructureFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates a structure ensemble belonging to a molecular system </dt>
+<dd>by loading a PDB style file.
+Option to specify the type of file loaded (proper PDB, rough PDB or CNS style)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.MolSystem, String (File Name), String (file type)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.StructureEmsemble</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.makeEnsemble">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">makeEnsemble</tt><big>(</big><em>structures</em>, <em>replaceStructures=True</em>, <em>modelSerials=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.makeEnsemble" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Combine the input structure ensembles (or selected models from them)</dt>
+<dd>into a single structure ensemble. Option to replace the input
+structures entirely (i.e. delete them), Option to use only certain
+models: If set uses only model numbers in input list.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>List of MolStructure.StructureEmsembles, Boolean,</dt>
+<dd>List of Ints (MolStructure.Model.serial) or None</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.StructureEmsemble</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.makePdbFromStructure">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">makePdbFromStructure</tt><big>(</big><em>fileName</em>, <em>structure</em>, <em>model=None</em>, <em>useOxt=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.makePdbFromStructure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a PDB file from a structure or ensemble of structures.</dt>
+<dd>If a model is passed in the PDB style file will contain only
+that model&#8217;s coordinates, otherwise all models will be used.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>String (file name), MolStructure.StructureEnsemble,</dt>
+<dd>MolStructure.Model</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.makeStructureDictFromPdb">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">makeStructureDictFromPdb</tt><big>(</big><em>fileName</em>, <em>fileType</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.makeStructureDictFromPdb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a structure dictionary [model][chainCode][resNum][atomName] =</dt>
+<dd>(x,y,z coords) from a CNS or true PDB format PDB file.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>String (file name), fileType (&#8216;cns&#8217; or &#8216;pdb&#8217;)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.makeStructureDictFromRoughPdb">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">makeStructureDictFromRoughPdb</tt><big>(</big><em>fileName</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.makeStructureDictFromRoughPdb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a structure dictionary [model][chainCode][resNum][atomName] =</dt>
+<dd>(x,y,z coords) from a non-standard PDB file.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>String (file name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.makeStructures">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">makeStructures</tt><big>(</big><em>strucDict</em>, <em>molSystem</em>, <em>doWarnings=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.makeStructures" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Makes structure ensemble from a structure dictionary</dt>
+<dd>[model][chainCode][resNum][atomName] = (x,y,z coords)
+in a mol system. Options to supress warnings and thus
+automatically link non-identical, but similar chains
+or make a new chain if none is found,</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Dictionary, MolSystem.MolSystem, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructures.StructureEnsemble</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.StructureBasic.moveCoords">
+<tt class="descclassname">ccpnmr.analysis.core.StructureBasic.</tt><tt class="descname">moveCoords</tt><big>(</big><em>coords</em>, <em>vector</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.StructureBasic.moveCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move data model coordinates according to a vactor.
+.. describe:: Input</p>
+<p>List of MolStructure.Coords, List of Floats (translation vector)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of MolStructure.Coords</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="QualityControlBasic.html"
+                        title="previous chapter">QualityControlBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Util.html"
+                        title="next chapter">Util</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/StructureBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Util.html" title="Util"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="QualityControlBasic.html" title="QualityControlBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

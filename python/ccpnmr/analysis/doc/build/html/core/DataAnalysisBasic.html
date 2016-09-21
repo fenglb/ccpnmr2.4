@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DataAnalysisBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="ExperimentBasic" href="ExperimentBasic.html" />
+    <link rel="prev" title="CouplingBasic" href="CouplingBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ExperimentBasic.html" title="ExperimentBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CouplingBasic.html" title="CouplingBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.DataAnalysisBasic">
+<span id="dataanalysisbasic"></span><h1>DataAnalysisBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.DataAnalysisBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.DataFitting">
+<em class="property">class </em><tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">DataFitting</tt><big>(</big><em>refObject=None</em>, <em>objects=None</em>, <em>fitFunction=1</em>, <em>noiseLevel=1.0</em>, <em>dataX=None</em>, <em>dataY=None</em>, <em>guiParent=None</em>, <em>errorsX=None</em>, <em>errorsY=None</em>, <em>fitErrorFunction='covariance'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.DataFitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to store data prior to the fitting of a function and hold the 
+data relating to the fit afterwards</p>
+<dl class="method">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the FittedData and clean up</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.fit">
+<tt class="descname">fit</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the fit given the specified input data.
+Returns True if fit went ok, False otherwise</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.resetAll">
+<tt class="descname">resetAll</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.resetAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset all attributes, i.e. including input data, to blank or null values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.resetFit">
+<tt class="descname">resetFit</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.DataFitting.resetFit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the ouput fit attributes to blank or null values</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.calcT2List">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">calcT2List</tt><big>(</big><em>t1List</em>, <em>t1rhoList</em>, <em>spinLock</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.calcT2List" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new T2 list based on a T1 list and a T1rho list</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.T1List, Nmr.T1rhoList, float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.T2List</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.functionFitData">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">functionFitData</tt><big>(</big><em>dataFitting</em>, <em>numIterations=1000</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.functionFitData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to fit a function (type of which is specified by method) to X and Y
+values. Noise level can be added to estimate the error rate for the overall
+fit. A separate error is given for the fit parameters, i.e. for rate
+constants.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccpnmr.analysis.dataFitting object (non CCPN API), Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>ccpnmr.analysis.dataFitting object (non CCPN API)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getClosestPeak">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getClosestPeak</tt><big>(</big><em>peak</em>, <em>peaks</em>, <em>tolerances</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getClosestPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy code copy only. Function now in PeakBasic.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Nmr.Peaks, List of Floats</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getExperimentConditionSet">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getExperimentConditionSet</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getExperimentConditionSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or make a new SampleConditionSet for an NMR experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.SampleConditionSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getFitMethodInfo">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getFitMethodInfo</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getFitMethodInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the data: equation name, number of parameters, formatted formula string </dt>
+<dd>from a numbered fitting function &amp; which patameter, if any, is a &#8220;rate&#8221;.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Integer</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Tuple(String, Int, Tuple(String, Tuple(Ints)) )</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getNmrExpSeriesSampleConditions">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getNmrExpSeriesSampleConditions</tt><big>(</big><em>nmrExpSeries</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getNmrExpSeriesSampleConditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Sample conditions that relate to an NmrExpSeries</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrExpSeries</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Dict of SampleCondition Type : List of Nmr.SampleConditions</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getOverlapScore">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getOverlapScore</tt><big>(</big><em>peakA</em>, <em>peakB</em>, <em>tolerances</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getOverlapScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy code copy only. Function now in PeakBasic.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.Peak, List of Floats (tolerances for each Nmr.PeakDim)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getPeakMatchRegion">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getPeakMatchRegion</tt><big>(</big><em>peak</em>, <em>tolerances</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getPeakMatchRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy code copy only. Function now in PeakBasic.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Floats (tolerances for each Nmr.PeakDim)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List or (Float, Float)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getPeakSampledDimIntensities">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getPeakSampledDimIntensities</tt><big>(</big><em>peaks</em>, <em>experiment</em>, <em>intensityType='volume'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getPeakSampledDimIntensities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the intensities (of specified type) of the input peaks and
+list them with their corresponding  sampled condition values.
+E.g. List peak intensities with the sampled T1/T2 time.
+Often used to generate graphs.
+Note the input experiment must have a sampled data dim.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Nmr.Experiment, String (Nmr.PeakIntensity.intensityType)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Tuple of (List of Floats (Nmr.PeakIntensity.value), List of Floats (Nmr.ExpSeriesCondition.value))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.getPeakSeriesIntensities">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">getPeakSeriesIntensities</tt><big>(</big><em>peaks</em>, <em>expSeries</em>, <em>intensityType='volume'</em>, <em>sampleConditionType='delay time'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.getPeakSeriesIntensities" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the intensities (of specified type) of the input peaks and list them with their corresponding</dt>
+<dd>NMR experiment series condition values. E.g. List peak intensities with the pH of their experiment.
+Often used to generate graphs.
+If an experiment, rather than an NmrExpSeries is passed in the experiment has a sampled data dim.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Nmr.NmrExpSeries, String (Nmr.PeakIntensity.intensityType), String</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Tuple of (List of Floats (Nmr.PeakIntensity.value), List of Floats (Nmr.ExpSeriesCondition.value))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.isResidueInRange">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">isResidueInRange</tt><big>(</big><em>residue</em>, <em>residueRanges</em>, <em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.isResidueInRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a residue is in a residue range</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.Residue, List of (Nmr.DataDim, Nmr.Chain, Integer</dt>
+<dd>(Nmr.Residue.seqCode - first), Integer
+(Nmr.Residue.seqCode - last)), Nmr.DataDim</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.makeDataList">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">makeDataList</tt><big>(</big><em>name</em>, <em>unit</em>, <em>values</em>, <em>errors=None</em>, <em>peaks=None</em>, <em>peakDims=None</em>, <em>measurements=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.makeDataList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Makes an NMR data list e.g. to record chemical shift changes during a titration.</dt>
+<dd>Assumes for the moment that one derivation gives one datum.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Word, Word, List of Floats, List of Floats, List of List of Nmr.Peaks</dt>
+<dd>List of List of Nmr.PeakDims, List of List of Nmr.AstractMeasuremenrs</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.makeRatesList">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">makeRatesList</tt><big>(</big><em>rateType</em>, <em>experimentOrSeries</em>, <em>specificType</em>, <em>peakGroups</em>, <em>values</em>, <em>errors=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.makeRatesList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an NMR rates list of a specified type (T1, T2 etc) with input values.
+If an experiment is passed in, rather than a series, the experiment has a sampled dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>String (&#8216;T1&#8217;,&#8217;T2&#8217;,&#8217;H/D exchange&#8217; or &#8216;H/D protection&#8217;),
+Nmr.NmrExpSeries or Nmr.Experiment, String (Nmr.Measurement.coherenceType/protectionType)
+List of List of Nmr.Peaks (rate series), List of Floats (Nmr.AbstractMeasurement.values),
+List of Floats (Nmr.AbstractMeasurement.errors)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AbstractMeasurementList (depends on rateType)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.matchHnoePeaks">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">matchHnoePeaks</tt><big>(</big><em>assignPeakList</em>, <em>refPeakList</em>, <em>satPeakList</em>, <em>tolerancesA</em>, <em>tolerancesB</em>, <em>pickNewPeaks=True</em>, <em>doAssignments=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.matchHnoePeaks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Match reference and saturation peak list peaks to an assigned (potentially) peak list</dt>
+<dd>using input toleranes. Used to calaulate the NOE from peak intensity ratios.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.PeakList, Nmr.PeakList, List of Floats, List of Floats</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of (Nmr.Peak, Nmr.Peak)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.matchSampledExperimentPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">matchSampledExperimentPeaks</tt><big>(</big><em>refPeakList</em>, <em>experiment</em>, <em>tolerances</em>, <em>pickPeaks=True</em>, <em>pickNonMaxima=False</em>, <em>doAssign=True</em>, <em>progressBar=None</em>, <em>noiseThreshold=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.matchSampledExperimentPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches the peaks of the experiment (with a sampled dimension) to
+a reference peak list according to the input tolerances. Generates
+a list of peaks that are grouped together by having overlapping
+positions. Useful precursor for determining rates form the peak
+intensities of groups. Optional arguments to specify whether new
+peaks can be picked, whether at non-maximal contours and whether to
+assign matched peaks - all relative to the reference peak list. A
+progress bar popup can be passed in. Peaks will not be searched for
+below the noiseThreshold, but may be picked at the ref position.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.Experiment,
+List of Floats (tolerances),
+Boolean, Boolean, Boolean, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.matchSeriesPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">matchSeriesPeaks</tt><big>(</big><em>refPeakList</em>, <em>expSeries</em>, <em>tolerances</em>, <em>pickPeaks=True</em>, <em>pickNonMaxima=False</em>, <em>doAssign=True</em>, <em>progressBar=None</em>, <em>noiseThreshold=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.matchSeriesPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches the peaks of the experiments in an NMR experiment series to
+a reference peak list according to the input tolerances. Generates
+a list of peaks that are grouped together by having overlapping
+positions. Useful precursor for determining rates from the peak
+intensities of groups. Optional arguments to specify whether new
+peaks can be picked, whether at non-maximal contours and whether to
+assign matched peaks - all relative to the reference peak list. A
+progress bar popup can be passed in.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.NmrExpSeries, List of Floats (tolerances),
+Boolean, Boolean, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.DataAnalysisBasic.pairHnHaPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.DataAnalysisBasic.</tt><tt class="descname">pairHnHaPeaks</tt><big>(</big><em>peakList</em>, <em>residueRanges=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.DataAnalysisBasic.pairHnHaPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Generates pairs of Hn and Ha peaks from a peak list</dt>
+<dd>which may be restricted to optional residue ranges.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.PeakList. List of (Nmr.DataDim, Nmr.Chain,</dt>
+<dd>Integer (Nmr.Residue.seqCode - first)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of (Nmr.Peak, Nmr.Peak)</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CouplingBasic.html"
+                        title="previous chapter">CouplingBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ExperimentBasic.html"
+                        title="next chapter">ExperimentBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/DataAnalysisBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ExperimentBasic.html" title="ExperimentBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CouplingBasic.html" title="CouplingBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

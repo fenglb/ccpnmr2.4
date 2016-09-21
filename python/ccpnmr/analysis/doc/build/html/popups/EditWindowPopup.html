@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Window : Windows &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="../menu/Window.html" />
+    <link rel="next" title="Window : Axes" href="EditAxisPanelPopup.html" />
+    <link rel="prev" title="Window" href="../menu/Window.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditAxisPanelPopup.html" title="Window : Axes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Window.html" title="Window"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="window-windows">
+<h1>Window : Windows<a class="headerlink" href="#window-windows" title="Permalink to this headline">¶</a></h1>
+<p><strong>Edit Spectrum Window Parameters</strong></p>
+<p>This popup window controls all of the settings that relate to the spectrum
+display windows used in Analysis. All of the spectrum windows within the
+project are listed and all of the details which control how they show spectra
+and peak lists are given, and in many cases the parameters can be edited. The
+settings available in this popup are often also, and sometimes more commonly,
+manipulated elsewhere. For example, the toggle buttons at the top of spectrum
+windows are usually used to control spectrum and peak list visibility.
+However, this popup window provides an authoritative list of all relevant
+settings, including a few that are not accessible from elsewhere.</p>
+<p>The layout of the popup is divided into three tabs; the first lists the main
+properties of the spectrum windows and their axis, the second controls how
+spectra and peak lists are mapped into the windows and displayed, and the
+third allows the user to group windows together so that different sets may be
+reserved for different kinds of operation.</p>
+<p><strong>Windows &amp; Axes</strong></p>
+<p>The first tab is divided into two sections. The upper table lists the spectrum
+windows which have been defined in the current CCPN project or, if the &#8220;Active
+windows&#8221; options is set, those in the active window group. The settings given
+in the table, which may all be edited, relate to general properties that
+govern the whole window display. Typically user may change the name of a
+window and adjust the aspect ratio; all spectrum window displays in Analysis
+preserve aspect ratio when zooming, so peaks remain the same aesthetic shape.
+The crosshair trace settings control whether a 1D intensity slice is
+superimposed upon the cursor location, although this is normally toggled on or
+off via the right-click mouse menu of the particular spectrum window. For both
+the spectrum traces that appear at the crosshair location and those that may
+be added to side panels (at the window&#8217;s edge) the &#8220;Slice Range&#8221; column
+dictates the scale that is used to show the intensity axis. In normal
+operation the user controls this with the &lt;PgUp&gt; and &lt;PgDn&gt; keys, rather than
+via this table. The last two columns of the table indicate whether strip
+numbers and Z axis positions are superimposed on the spectrum display (in the
+corners).</p>
+<p>The lower table lists the kinds of axes are present in the selected window;
+the selected row in the upper table. Here the user can control whether a
+scrollbar to move window contents appears or not, e.g. to save some screen
+space. The &#8220;Panel Type&#8221; column is used to make sub-groups of window axes that
+otherwise have the same isotope type. The panel type definitions are set
+elsewhere, in the <a class="reference external" href="EditAxisPanelPopup.html">Axes</a> popup. The panel type is only relevant for dictating
+where 1D ruler lines go in different windows; a ruler is only displayed on
+axes with the same panel type, thus the user can distinguish amide 1H axes
+(panel type &#8220;H1&#8221;) and other 1H axes (panel type &#8220;H2&#8221;). The last two columns
+adjust the depth and presence of the &#8220;Side Trace&#8221;. When visible, a side trace
+shows a 1D intensity graph at the edge of the window axis. Naturally, this
+only applies for the X &amp; Y screen dimensions.</p>
+<p><strong>Spectrum &amp; Peak List Mappings</strong></p>
+<p>The second tab controls how spectra and peak lists are displayed within the
+spectrum window selected at the top. It should be noted that spectrum contour levels and
+colours are set elsewhere, via the main <a class="reference external" href="EditSpectrumPopup.html">Spectra</a> popup. Likewise, the peak
+list symbols and colours are changed in the <a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a> popup. These
+peaklist and spectrum settings are set on a project-wide basis, and thus are
+not set for an individual display window.</p>
+<p>The upper table lists all of the spectra that may be displayed in the selected
+spectrum window. Here the user can control: whether a spectrum is listed in
+the  toolbar at the top of the window, where spectra are switched on and off;
+whether the positive contours are drawn; whether the negative contours are
+drawn; and whether the 1D intensity slices, when used, include the spectrum.
+The last &#8220;Dim. Mapping&#8221; column is important if the user wishes to change how
+the data dimensions of a spectrum are mapped to the X, y &amp; Z axes of the
+spectrum window, especially given that Analysis cannot always guess this
+correctly when there are two axis with the same isotope type. If, for example,
+the user has a 3D HC_cH.TOCSY spectrum and the first 1H data dimension (from
+the spectrum file) is displayed on the X axis, when it should really be on the
+Z axis, then the user clicks on the &#8220;Dim. Mapping&#8221; column. In the resulting
+mini-popup, changing the &#8220;Dimension 1&#8221; pulldown menu from &#8220;x&#8221; to &#8220;z1&#8221; will
+correct the axis mapping and effectively rotate the spectrum data as far as
+the window view is concerned. It should be noted that multiple windows may
+need to be adjusted in this way for any given spectrum; only the user can
+really decide what is correct, especially where data axes have been swapped.</p>
+<p>The lower &#8220;Mapped Peak Lists&#8221; table shows all of the peak lists that may be
+displayed in the selected spectrum window. In the display sense, a peak list
+consists of a list of peak symbols (i.e. positioned crosses) and assignment
+annotations. The two columns of the table that can be edited dictate whether a
+peak list&#8217;s peak symbols and annotations are drawn, thus giving total control.
+However, these settings are usually controlled via the toolbar at the top of a
+spectrum window, and normally the peak symbols and textual annotations are both
+switched on or off at the same time.</p>
+<p><strong>Window Groups</strong></p>
+<p>Defining window groups is a mechanism by which different selections of
+spectrum windows may be made so that only some are visible at the same time.
+There will only be one active group of spectrum windows at a given time, and
+only those in this active group can be opened and will be shown in the main
+Analysis menu. The user can create as many named window groupings as is
+required and can add any window to any group. Clicking on a group in the upper
+table lists all of the windows in the project and whether they are included in
+the selected group or not. To add a window to a group, or remove it from a
+group, the user simply toggles the &#8220;In Group?&#8221; column. The selected group may
+be set as the active one by clicking on the central [Make Active] button.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="windows-axes">
+<h2>Windows &amp; Axes<a class="headerlink" href="#windows-axes" title="Permalink to this headline">¶</a></h2>
+<p>Shows a table of spectrum contour windows and details of their axes</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>All windows</strong>: For the below table, show all of the spectrum windows in the current project, irrespective of the active group</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Active windows</strong>: For the below table, show only spectrum windows that are in the currently active window group</p>
+<div class="section" id="edit-windows">
+<h3>Edit Windows<a class="headerlink" href="#edit-windows" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Short textual name to identify the window  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Aspect Ratio</em></td>
+<td>The screen (X-Y) pixel:unit aspect ratio of the window, defaults according to isotope; &#8220;8.0&#8221; means Y axis shows 8.0 units for every 1.0 on X  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>X Crosshair Trace</em></td>
+<td>Whether to show a 1D slice of the specta at the cursor position, along the horizontal screen axis  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Y Crosshair Trace</em></td>
+<td>Whether to show a 1D slice of the specta at the cursor position, along the vertical screen axis  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Slice Intensity Range</em></td>
+<td>The upper and lower intensity bounds for the 1D cursor slice display; used to scale the magnitude of the drawn amplitude  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Strip Numbers</em></td>
+<td>Whether to display strip numbers, in the upper left of each window subdivision  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Strip Z Locations</em></td>
+<td>Whether to display the Z-axis positions of each window strip, in the lower left corner of each window subdivision  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Open</strong>: Open and display the selected spectrum window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Open a tool to create a new spectrum window; specifying names and axes etc.</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Make a copy of the currently selected window, which may then be independently manipulated</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the currently selected spectrum window; does not affect the loaded spectra</p>
+</div>
+<div class="section" id="window-axes">
+<h3>Window Axes<a class="headerlink" href="#window-axes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Axis Label</em></td>
+<td>A short label for identifying the axis within its window, e.g. &#8220;x&#8221;, &#8220;y&#8221;, &#8220;z1&#8221;, &#8220;z2&#8221;</td>
+</tr>
+<tr><td><em>Axis Type</em></td>
+<td>A name for the kind of thing represented along this axis; usually serves to subdivide frequency axes into different isotope types</td>
+</tr>
+<tr><td><em>Panel Type</em></td>
+<td>For a given kind of axis, which sub-type is currently set; used to differentiate axes with the same isotope   <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Scrollbar Visible</em></td>
+<td>Whether the scrollbar, which shifts the spectrum view position, is displayed for the window axis  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Side Trace Visible</em></td>
+<td>For an X or Y axis, whether a 1D slice trace (at the cursor position) is displayed alongside the main contour display  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Side Trace Height</em></td>
+<td>For an X or Y axis, sets the number of pixels use for the amplitude display of 1D slice traces (using cursor position)  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Axis</strong>: For the currently selected spectrum window, add a new axis</p>
+</div>
+</div>
+<div class="section" id="spectrum-peak-list-mappings">
+<h2>Spectrum &amp; Peak List Mappings<a class="headerlink" href="#spectrum-peak-list-mappings" title="Permalink to this headline">¶</a></h2>
+<p>Sets how spectra &amp; peak lists are drawn in contour windows, including axis mappings; note colours are set elsewhere in peak list &amp; spectrum tables</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spectrum Window</strong>: Selects the spectrum window to display the mappable spectra &amp; peak lists for</p>
+<div class="section" id="mapped-spectra">
+<h3>Mapped Spectra<a class="headerlink" href="#mapped-spectra" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>The name of the experiment record for the window-mappable spectrum</td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The name of the window-mappable spectrum</td>
+</tr>
+<tr><td><em>Spectrum In Toolbar</em></td>
+<td>Whether the spectrum appears with its own toggle button in the toolbar at the top of the spectrum window  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Pos. Contours Visible</em></td>
+<td>Whether the positive contour levels are shown in the window for the spectrum  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Neg. Contours Visible</em></td>
+<td>Whether the negative contour levels are shown in the window for the spectrum  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Slice Visible</em></td>
+<td>Whether 1D slices are visible for the spectrum, if any slice displays are active for the window  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Dim. Mapping</em></td>
+<td>Sets how the spectrum dimensions map to corresponding window axes; for a given kind, enables swapping of spectrum dimensions relative to the window  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit Spectra</strong>: Opens a table allowing editing of per-spectrum (rather than window) parameters</p>
+</div>
+<div class="section" id="mapped-peak-lists">
+<h3>Mapped Peak Lists<a class="headerlink" href="#mapped-peak-lists" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Experiment</em></td>
+<td>The name of the experiment record for the window-mappable peak list</td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The name of the window-mappable spectrum that contains the peak list</td>
+</tr>
+<tr><td><em>Peak list</em></td>
+<td>The serial number of the peak list, which is displayable in the spectrum window</td>
+</tr>
+<tr><td><em>Symbol Drawn?</em></td>
+<td>Whether the peak crosses/symbols are drawn for the peak list in the selected window; to indicate the position of extrema/resonances  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Annotation Drawn?</em></td>
+<td>Whether the peak annotation texts are drawn for the peak list in the selected window  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit Peak List</strong>: Show a table of the peaks within the selected peak list</p>
+</div>
+</div>
+<div class="section" id="window-groups">
+<h2>Window Groups<a class="headerlink" href="#window-groups" title="Permalink to this headline">¶</a></h2>
+<p>Allows spectrum windows to be grouped into sets so that only some are displayed at a given time</p>
+<div class="section" id="id1">
+<h3>Window Groups<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Group</em></td>
+<td>The name for the group of spectrum windows  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Number of windows</em></td>
+<td>The number of windows contained within the group</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Active</strong>: Sets the selected window group as the active one; only windows within this group will be displayable (in menus etc.)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Group</strong>: Make a new grouping of spectrum windows, which can be used to quickly swap between different displayed sets</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Selected</strong>: Delete the selected grouping from the CCPN project; does not otherwise affect the contained windows</p>
+</div>
+<div class="section" id="group-membership">
+<h3>Group Membership<a class="headerlink" href="#group-membership" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Window</em></td>
+<td>The name of the spectrum window, which may or may not be in the selected group  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>In Group?</em></td>
+<td>Whether the spectrum window is part of the selected grouping; can be toggled to include &amp; exclude  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Window : Windows</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#windows-axes">Windows &amp; Axes</a><ul>
+<li><a class="reference internal" href="#edit-windows">Edit Windows</a></li>
+<li><a class="reference internal" href="#window-axes">Window Axes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spectrum-peak-list-mappings">Spectrum &amp; Peak List Mappings</a><ul>
+<li><a class="reference internal" href="#mapped-spectra">Mapped Spectra</a></li>
+<li><a class="reference internal" href="#mapped-peak-lists">Mapped Peak Lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#window-groups">Window Groups</a><ul>
+<li><a class="reference internal" href="#id1">Window Groups</a></li>
+<li><a class="reference internal" href="#group-membership">Group Membership</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Window.html"
+                        title="previous chapter">Window</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditAxisPanelPopup.html"
+                        title="next chapter">Window : Axes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditWindowPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditAxisPanelPopup.html" title="Window : Axes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Window.html" title="Window"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

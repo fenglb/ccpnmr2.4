@@ -1,0 +1,7 @@
+=============
+CouplingBasic
+=============
+
+.. automodule:: ccpnmr.analysis.core.CouplingBasic
+   :members:
+

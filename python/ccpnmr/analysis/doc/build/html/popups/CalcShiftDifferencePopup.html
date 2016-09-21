@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Analysis : Shift Differences &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Data Analysis : Heteronuclear NOE" href="CalcHeteroNoePopup.html" />
+    <link rel="prev" title="Experiment : NMR Series" href="EditExperimentSeriesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcHeteroNoePopup.html" title="Data Analysis : Heteronuclear NOE"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="data-analysis-shift-differences">
+<h1>Data Analysis : Shift Differences<a class="headerlink" href="#data-analysis-shift-differences" title="Permalink to this headline">¶</a></h1>
+<p><strong>Measure Differences Between Pairs of Chemical Shifts</strong></p>
+<p>This system is designed to calculate the differences between pairs of chemical
+shift values in two contexts: firstly directly comparing peak locations in
+related spectra and secondly by comparing averaged chemical shift values
+(averaged over potentially many peak locations) in two different shift lists.
+The former allows the comparison to be restricted to only certain peaks, i.e.
+those with common assignments in two peak lists, and gives an overall &#8216;shift
+distance&#8217; for each peak, rather than just differences for the separate
+dimensions.</p>
+<p><strong>Peak List Comparison</strong></p>
+<p>Comparing peak positions is achieved with the functions presented in the first
+tab. In essence, the user selects two peak lists from the top pulldown menus
+and views the results in the table below. The &#8220;Atom Names&#8221; options allow the
+comparison to be restricted to only certain kinds of assignment. (The atom
+names have to be complete, no wild cards are allowed.)  The &#8220;Scale Factor&#8221;
+values are used in the calculation of the &#8220;Shift Sum&#8221; and &#8220;Shift Dist&#8221; values
+so that positional differences in dimensions with dissimilar isotopes may be
+compared; the difference for a dimension is multiplied by the scale factor
+for its isotope type.</p>
+<p><strong>Shift List Comparison</strong></p>
+<p>The second tab simply takes two chemical shift lists, specified in the
+top pulldown menus and compares the values of the contained chemical shifts.
+Each row corresponds to one resonance that has a shift measurement in the
+two shift lists. The user may optionally filter the list by adding specific
+&#8220;Atom Names&#8221; so that only certain kinds of assigned resonance are compared.
+(The atom  names have to be complete, no wild cards are allowed.) It should
+be noted that the values in shift lists are typically based upon an average
+of the assigned peak positions for resonances that use that list.  Two
+different sets of experiments may be compared by allocating them among two
+separate shift lists; see the main <a class="reference external" href="EditExperimentPopup.html">Experiments</a> option.</p>
+<p><strong>Sequence Alignments</strong></p>
+<p>When comparing peak lists or shift lists where assignments are made to two
+different but similar chains, the calculations can optionally use a sequence
+alignment. The sequence alignment that is used is presented in the third tab
+and represents a residue to residue mapping. Which chains are used in the
+alignment is automatically determined from those that are assigned in the
+selected peak lists or shift lists and at present only the highest scoring
+pair of sequences is considered. More fine-grain control may be added in the
+future.</p>
+<p><strong>Function Buttons</strong></p>
+<p>The lower function buttons relate to either the peak list or shift list
+comparison, depending on which is currently viewed. The [Make Shift
+Difference List] is handy to give a permanent record, stored in the CCPN
+project, of the calculated chemical shift differences. The shift  difference
+lists are a kind of measurement list and are viewable at any time via the
+<a class="reference external" href="EditMeasurementListsPopup.html">Measurement Lists</a> table. If a measurement list is not made the only way to
+get the same shift differences again is to repeat the calculation. The [Show
+On Structure] is designed to colour a graphical structure display so that the
+size and colour of atoms is determined by the shift difference of their
+resonances - atoms without a shift difference are left at their default
+rendering.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>For investigating how chemical shifts differ when considering more than two
+peaks, e.g. when following how peaks move during a titration the
+<a class="reference external" href="FollowShiftChangesPopup.html">Follow Shift Changes</a> tool should be used.</p>
+<p>To make a peak list that is based on averaged chemical shift values, which may
+be compared by this system, then for certain types of spectra the user may
+create a synthetic peak list. This is accessed via the <a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a> popup
+option [Predict from Shifts].</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="peak-list-comparison">
+<h2>Peak List Comparison<a class="headerlink" href="#peak-list-comparison" title="Permalink to this headline">¶</a></h2>
+<p>Measure differences in chemical shifts by comparing peak positions</p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List A</strong>: First peak list to use in comparison</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List B</strong>: Second peak list to use in comparison</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Fully assigned only</strong>: Whether to compare positions for only fully assigned peaks</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>H,H1</strong>: Restricts the comparison to peaks assigned to particular kinds of atoms, in their first dimension</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>N</strong>: Restricts the comparison to peaks assigned to particular kinds of atoms, in their second dimension</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use Sequence Alignment</strong>: Whether to use the residue sequence alignment in the shift comparison</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.0</strong>: First dimension scaling factor use to compare shifts of dissimilar isotopes</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.15</strong>: Second dimension scaling factor use to compare shifts of dissimilar isotopes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Residue(s)</em></td>
+<td>The residue assignment(s) of the peaks</td>
+</tr>
+<tr><td><em>Reson. 1</em></td>
+<td>Resonance assignment in the first dimension</td>
+</tr>
+<tr><td><em>Shift 1A</em></td>
+<td>Chemical shift of first peak (A) in first dimension</td>
+</tr>
+<tr><td><em>Shift 1B</em></td>
+<td>Chemical shift of second peak (B) in first dimension</td>
+</tr>
+<tr><td><em>Δ 1 (ppm)</em></td>
+<td>Chemical shift difference in ppm for first dimension</td>
+</tr>
+<tr><td><em>Reson. 2</em></td>
+<td>Resonance assignment in the second dimension</td>
+</tr>
+<tr><td><em>Shift 2A</em></td>
+<td>Chemical shift of first peak (A) in second dimension</td>
+</tr>
+<tr><td><em>Shift 2B</em></td>
+<td>Chemical shift of second peak (B) in second dimension</td>
+</tr>
+<tr><td><em>Δ 2 (ppm)</em></td>
+<td>Chemical shift difference in ppm for second dimension</td>
+</tr>
+<tr><td><em>Shift Sum</em></td>
+<td>Sum of the chemical shift differences in the two dimensions</td>
+</tr>
+<tr><td><em>Shift Dist</em></td>
+<td>The square root of the sum of the isotope weighted shift differences squared</td>
+</tr>
+<tr><td><em>Seq Num</em></td>
+<td>Sequence number of any assigned residue (for easy graphing)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="shift-list-comparison">
+<h2>Shift List Comparison<a class="headerlink" href="#shift-list-comparison" title="Permalink to this headline">¶</a></h2>
+<p>Measure differences in the chemical shift values from two shift lists</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List A</strong>: First chemical shift list used in comparison</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List B</strong>: Second chemical shift list used in comparison</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Use Sequence Alignment</strong>: Whether to use the residue sequence alignment to compare dissimilar molecules</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Atom Names</strong>: Restricts the comparison to only specific atom types, e.g. &#8220;HA, HB&#8221;</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#1</em></td>
+<td>Serial number of first resonance</td>
+</tr>
+<tr><td><em>#2</em></td>
+<td>Serial number of second resonance</td>
+</tr>
+<tr><td><em>Assign Name</em></td>
+<td>Assignment of resonance(s)</td>
+</tr>
+<tr><td><em>Residue 1</em></td>
+<td>Residue assigned to first resonance</td>
+</tr>
+<tr><td><em>Residue 2</em></td>
+<td>Residue assigned to second resonance</td>
+</tr>
+<tr><td><em>Shift 1</em></td>
+<td>Chemical shift value of first resonance</td>
+</tr>
+<tr><td><em>Shift 2</em></td>
+<td>Chemical shift value of second resonance</td>
+</tr>
+<tr><td><em>Δ</em></td>
+<td>Chemical shift difference, in units of the shift list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sequence-alignment">
+<h2>Sequence Alignment<a class="headerlink" href="#sequence-alignment" title="Permalink to this headline">¶</a></h2>
+<p>The sequence alignment used to compare shifts between two different molecules</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>Residue in the first sequence</td>
+</tr>
+<tr><td><em>Aligned Residue</em></td>
+<td>Aligned residue in the second sequence</td>
+</tr>
+<tr><td><em>Common Assignments</em></td>
+<td>Names of atom assigned resonances common to aligned residues</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of peaks corresponding/assigned to the selected rows</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update</strong>: Force a manual refresh of the shift difference calculation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Make Shift Difference List</strong>: Save the results in the CCPN project as a data list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show On Structure</strong>: Show the shift difference results on a graphical structure display</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data Analysis : Shift Differences</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#peak-list-comparison">Peak List Comparison</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shift-list-comparison">Shift List Comparison</a></li>
+<li><a class="reference internal" href="#sequence-alignment">Sequence Alignment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditExperimentSeriesPopup.html"
+                        title="previous chapter">Experiment : NMR Series</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CalcHeteroNoePopup.html"
+                        title="next chapter">Data Analysis : Heteronuclear NOE</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CalcShiftDifferencePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcHeteroNoePopup.html" title="Data Analysis : Heteronuclear NOE"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

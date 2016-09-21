@@ -1,0 +1,127 @@
+============================
+Structure : Structure Viewer
+============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**A Simple Graphical Display for Macromolecule 3D Coordinates**
+
+CcpNmr Analysis contains a simple 3D structure viewing module which is used to
+display NMR derived information on macromolecular coordinates. For example
+this viewer can be used to display alternative possibilities for NOE
+assignments as dashed lines that connect different parts of a molecular
+structure. The structural model may be moved and rotated by various means
+listed below. Also, specific atoms may be selected and de-selected in the
+display by left clicking.
+
+The structures that may be displayed with this system are loaded in to the
+CCPN project via the main Structures_ popup window. A structure is chosen for
+display by selecting from the "MolSystem", "Ensemble" and "Model" pulldown
+menus, i.e. at present only one conformational model is displayed at a time.
+
+The "Peak List" selection is used in combination with the [Show Peaks] button
+at the bottom, which brings up a table listing all of the peaks, within the
+selected peak list, that relate to that atoms chosen (left mouse click) in the
+structural view.
+
+Much of the NMR-derived information that is presented in the graphical display
+will be controlled via separate popups, for example the [Show On Structure]
+button of the `Assignment Panel`_ or [Show Selected On Structure] in the
+`Restraints and Violations`_ popup. Nonetheless, some data can be added to the
+display via the viewer directly; ensemble RMSDs and other validation parameters
+can be superimposed as coloured spheres of various sizes.
+
+**View Controls**
+
+To move and rotate the three-dimensional coordinate display the following
+keyboard controls may be used:
+
+* Rotate: Arrow keys
+
+* Zoom: Page Up & Page Down keys
+
+* Translate: Arrow keys + Control key
+
+Or alternatively the following mouse controls:
+
+* Rotate: Middle button click & drag
+
+* Zoom: Mouse wheel or middle button click + Shift key & drag up/down
+
+* Translate: Middle button click & drag + Control key
+
+Also an options menu appears when the right mouse button is clicked
+and the left mouse button is used to select and de-select atoms in
+the current model view.
+
+.. _Structures: EditStructuresPopup.html
+.. _`Assignment Panel`: EditAssignmentPopup.html
+.. _`Restraints and Violations`: BrowseConstraintsPopup.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **MolSystem**: Selects which molecular system to select a structure for
+
+|pulldown| **Ensemble**: Selects which structure ensemble to display, for the specified molecular system
+
+|pulldown| **Model**: Selects which conformational model of the selected structure/ensemble to display
+
+|pulldown| **Peak List**: When using the "Show Peak" option, sets which peak list is used to display atom connectivities
+
+|pulldown| **Dist Method**: Where the distances between sets of atoms are displayed, sets whether to use the NOE equivalent (sum r^-6 intensities) or minimum distance
+
+
+|button| **Reset**: Remove all highlights and connections from the structure display
+
+|button| **RMSDs**: For an ensemble, calculate the per-atom coordinate root mean square deviations and adjust atom size and colours accordingly
+
+|button| **Display Params**: Display the selected structural parameters on the structure, adjusting atom labels, size and colours accordingly
+
+|pulldown| ***None***: Selects which structural parameters, from those calculated, to display on the structure
+
+|button| **Show Peaks**: In the stated peak list, display peak assignment connectivities between the highlighted atoms (left click to select atoms in the display)
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

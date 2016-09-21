@@ -1,0 +1,318 @@
+========================================
+Data Analysis : Follow Intensity Changes
+========================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Follow Peak Intensity Series for Rate Calculations etc**
+
+The purpose of this system is to expedite the extraction of peak intensity data
+from series of related experiments and subsequently fit a selected function to the
+data to extract parameters such as relaxation rates or NOE decay. The general idea
+is that the user sets up an "NMR series" that contains an array of experiments, or
+a single experiment stacked into separate planes (e.g. a pseudo 3D), where each
+experiment or plane in the series represents a different value for some time or
+frequency measurement being investigated. Examples of this  include T1, T2 & T1rho
+delay times for estimating relaxation rates and NOE mixing times. It should be noted
+that this system is specifically designed for the extraction of parameters derived
+from spectrum peak intensities where the position of related peaks across a series
+*do not move significantly*. For following peak movements and chemical shift
+changes the `Follow Shift Changes`_ tool may be used.
+
+The layout of the popup window is split into two tabs to reduce clutter. The
+first tab allows the user to setup and adjust all of the options used to
+perform the peak intensity extraction and function fitting. The second tab is
+used to actually perform the operations and display the results on a table of
+peak groups. Each group corresponds to a series of peaks, usually with a
+common resonance assignment, with one peak for each time value (i.e. per
+experiment or plane).
+
+The general idea is that the user selects a reference peak list, which will
+determine the location and assignment identities of the peaks being analysed.
+For proteins this reference is often a 15N HSQC peak list, in which case the
+analysis  operates on peak groups that correspond to amides of individual
+residues. The reference need not be part of the series of analysed
+experiments, but naturally peak locations should match. Also, the user chooses
+an NMR series that has been setup elsewhere with the relevant experiments or
+planes and their corresponding time parameters. The [Edit NMR Series] button
+will open the `NMR Series` popup window to create and adjust such series. The
+"Fitting Function" option is adjusted to say what kind of curve should be
+fitted to the peak intensity data (often this is a two-parameter exponential).
+The "Rate Type" and "Coherence Type" options are only used if results are
+stored in the CCPN project as a measurement list and do not affect the initial
+analysis. The Error Method determines how the errors in the parameters of the
+fitted function (e.g. error in relaxation rate) will be calculated.
+
+The "covariance" error method can be used if the measurement errors are
+normally distributed (which is often a reasonable assumption).  For each
+parameter the error (standard deviation) estimate is the square root of
+(the chi squared value times the covariance matrix diagonal term for that
+parameter).
+Reference: section 15.6, "Confidence Limits on Estimated Model Parameters"
+in Numerical Recipes, second edition.
+
+The "bootstrap" error method uses repeated sampling to provide an estimate
+of the error.  If there are N (x, y) points to be fit then each sampling
+takes N of those (x, y), but with replacement allowed, so some of the (x, y)
+might be repeated and some might be left out.  For each sampling the best
+fit is calculated and that determines the parameters for this specific
+sampling, which in turn allows an estimate of the error (standard deviation)
+over all samplings.  Analysis uses 1000 samples.
+Reference: "Bootstrap Methods for Standard Errors, Confidence Intervals and
+Other Measures of Statistical Accuracy", B. Efron and R. Tibshirani,
+Statistical Science, 1986, Vol. 1, No. 1, 54-77.
+
+The "jiggling" error method uses repeated sampling but here the (x, y) are
+both sampled from a normal distribution with mean the actual value and
+standard deviation the estimated data errors.  There is no real scientific
+basis for this estimate, so probably best avoided.
+
+The peak picking and search tolerance sections control how peaks are grouped
+together so that their intensities may be analysed. The basic process is that
+each reference peak position is used to locate a corresponding peak in each
+plane/experiment of the series. How exactly this is done depends on which
+options are checked. If a peak, at the right point of the NMR series, has the
+same assignment as the reference peak then that peak is used in preference to
+any others, irrespective of location. If a peak with a matching assignment
+cannot be found, the position of the reference peak is then used to locate the
+peaks for its group. When looking for peaks based on location the system
+checks to see if there are any existing, picked peaks in the series that are
+close to the reference (within the search tolerances). If no existing peaks
+are found for a point in the series then, should the "Pick new peaks" option
+be set, an attempt is made to pick a new peak extremum within the stated
+tolerances. If there is no extremum to pick, then the system may still add a
+"non-maxima" peak at exactly the reference position; useful where peak
+intensities dip into the noise levels, but are still helpful in a function
+fit. Also, having the "Assign groups?" option set means that after the first
+peak grouping, peaks will be linked via assignment and subsequent peak searches
+are not generally required.
+
+The peak grouping and function fitting is performed using the [Group & Fit
+Peaks] function. After the initial grouping the intensity curve fitting may be
+redone with via one of the "Re-fit" buttons; this useful if the fitting
+function is changed. When the curve fitting is done the parameter results from
+the fit, e.g. the "A" and "B" from an "A exp(-Bx)" equation, are immediately
+made available from the results table. Also, where relevant, any time constant
+values (one divided by the rate) are also presented. In the "Peak Groups &
+Analysis" table the user can see the fit results and analyse or adjust the
+peak groups. It is commonplace to look through all the intensity curves for
+each of the peak groups by using [Show Fit Graph]; here the user can check how
+well the curve-fit worked and whether any adjustments (e.g. in peak picking)
+need to be made or groups removed. See the `Fit Graph`_ documentation for
+details about how the resultant popup window operates. The "Y" value of the
+curves naturally come from the selected type of peak intensity and the "X"
+values come from those that were entered for the experimental points/planes in
+the NMR series. When the results have been checked, if the data is of a kind
+that corresponds to the "Rate Type" in the settings, then the user may save
+the values of the time constant, like T1 or T2, in a measurement list within
+the CCPN project using the "Make List" function. Alternatively the results may
+be used by directly exporting the fitted parameters from the table.
+
+The user may fit the peak intensity data outside of Analysis by exporting the
+values for the individual intensities (and any fitted parameters) using the
+[Export Data] button at the bottom right. This will produce an aligned,
+whitespace-separated plain text file that aims to be easy to analyse with
+external programs and scripts. If the fitting functions that are available in
+CCPN are not required, or cause problems, the fitting function may be set to
+"<None>", which means that the peaks are still grouped and that their
+intensities are available for export.
+
+**Caveats & Tips**
+
+Each peak group need not contain the same number of peaks if data is missing.
+
+A subset of peaks in a series may be analysed by reducing the number of peaks
+in the reference peak list. For example the user could make a copy of an HSQC
+peak list and then remove and peak locations that are not required in the
+analysis, e.g. for side chain NH2 peaks or severely overlapped peaks.
+
+Any peak picking done by the system uses the same spectrum peak finding
+parameters as is normally used in Analysis. Such parameters may be adjusted
+via the `Peak Finding`_ popup.
+
+If there are problems with grouping peaks together the user may assign all
+peaks that ought to go in the same group to the same resonances, thus
+connecting peaks together.
+
+As with all analyses based upon peak intensity, the user should be cautious in
+regions of spectra where peaks are severely overlapped. In such cases using
+peak "height" rather than "volume" integral may help to a degree.
+
+The user should be cautious of manually copying or importing peaks into an
+intensity series from other spectra. Potentially both the peak position and
+intensity might not reflect the real data in the series. Accordingly, for
+copied peaks the user should recalculate intensities and check that the peak
+positions are at extrema, re-centring (<Ctrl> + <p>) as required.
+Alternatively, the automated series picking is normally adequate if the
+reference peak list matches reasonably and the picking PPM tolerances are
+appropriate.
+
+The NMR series that will be considered by this system are currently limited to
+the following types: "delay time", "time","num delays", "mixing time" and
+"pulsing frequency".
+
+.. _`Follow Shift Changes`: FollowShiftChangesPopup.html
+.. _`NMR Series`: EditExperimentSeriesPopup.html
+.. _`Peak Finding`: EditPeakFindParamsPopup.html
+.. _`Fit Graph`: EditFitGraphPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Settings
+========
+
+*Documentation missing*
+
+Experiment Series
+~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Reference Peak List**: Selects the peak list used to confer assignments and groupings to analysed peaks 
+
+|pulldown| **NMR Experiment Series**: The NMR series that carries details of which experiments to follow and their sampled conditions (e.g. delay times)
+
+Data Fitting
+~~~~~~~~~~~~
+
+
+|pulldown| **Fitting Function**: Selects the type of graph to fit to the peak intensities within each grouping
+
+|pulldown| **Intensity Type**: Whether to fit to peak heights or volume integrals
+
+|pulldown| **Error Method**: Selects which method is used to estimate errors in the graph fitting
+
+Relaxation Options
+~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Rate Type**: The type of rate experiment performed; important for storage in CCPN project
+
+|pulldown| **Coherence Type**: Sets which sub-type of rate experiment was performed
+
+DOSY Parameters
+~~~~~~~~~~~~~~~
+
+
+|float| **Total diffusion time (s)**: The total diffusion time in seconds between NMR gradients (from pulse sequence)
+
+|float| **Gradient length (s)**: The duration of the gradient in the pulse sequence
+
+|float| **Full gradient stength (G/cm)**: The maximum gradient strength (i.e. at 100%); used if relative gradient strengths have been entered
+
+|float| **Bipolar separation (s)**: The short time interval between bipolar gradients, if bipolar gradients were used
+
+Peak Picking
+~~~~~~~~~~~~
+
+
+|check| **Pick new peaks?**: Whether to pick new peaks, according to the reference peaks, should none of the right assignment be found
+
+|check| **Pick non-maxima peaks? (At reference position)**: Whether to pick new peaks at exactly the reference position, if no extremum exists
+
+|check| **Assign groups?**: Whether to assign newly picked peaks, using the reference assignment for the group
+
+|check| **Skip zero merit peaks?**: Whether to exclude peaks from analysis if they have figure-of-merit set to zero
+
+Peak Search Tolerances
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+|check| **Use noise threshold for finding maxima?**: Whether to search for peaks above a special noise threshold, rather than the regular pick level.
+
+|float| **Threshold intensity**: When searching for peaks, the minimum spectrum intensity level to consider. Below this level peaks may still be picked at the exact reference position.
+
+===========  ========================================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------------
+*Dimension*  Spectrum dimension for tolerance setting 
+*Tolerance*  Maximum ppm distance to group or pick peaks, relative to reference position  *(Editable)*
+===========  ========================================================================================
+
+
+
+Peak Groups & Analysis
+======================
+
+*Documentation missing*
+
+===============  =======================================================================================
+**Table 2**
+--------------------------------------------------------------------------------------------------------
+            *#*  Peak group row number 
+    *Assign F1*  Assignment in F1 dimension, from reference peak list, for group 
+    *Assign F2*  Assignment in F2 dimension, from reference peak list, for group 
+*Time Constant*  Time constant, e.g. T1 or T2; one over the decay rate for exponential fits 
+     *TC Error*  Estimated error in the time constant 
+    *Fit Error*  Error in the fit of the peak intensities to the fitting function 
+    *Num Peaks*  Number of peaks in groups 
+     *Function*  Function used to fit to peak intensities 
+  *Fit Param A*  Parameter "A" from the graph fitting equation 
+  *Fit Param B*  Parameter "B" from the graph fitting equation 
+*Param Error A*  Estimated error in parameter "A", according to selected error method 
+*Param Error B*  Estimated error in parameter "B", according to selected error method 
+===============  =======================================================================================
+
+
+
+|button| **Remove Selected Groups**: Remove the selected peak groups from the table
+
+|button| **Re-fit Selected**: Redo the intensity graph fitting for the selected groups
+
+|button| **Show Fit Graph**: Show a graph of peak intensities and the fitted function
+
+|button| **Show Peaks**: Show a table of peaks within the selected groups
+
+|button| **Make T1 List**: Save the results as a data list in the CCPN project, using selected type options
+
+|button| **Group & Fit Peaks**: Search for peaks near to reference positions to create peak groups
+
+|button| **Re-fit All Groups**: Perform graph fitting for the intensities of peaks in all groups
+
+|button| **Edit NMR Series**: Edit the selected NMR experiment series, e.g. to setup delay times
+
+|button| **Export Data**: Export the results as a flat text file
+

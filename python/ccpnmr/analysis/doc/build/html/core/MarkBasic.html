@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MarkBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="MergeObjects" href="MergeObjects.html" />
+    <link rel="prev" title="ExperimentBasic" href="ExperimentBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MergeObjects.html" title="MergeObjects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ExperimentBasic.html" title="ExperimentBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.MarkBasic">
+<span id="markbasic"></span><h1>MarkBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.MarkBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.createNonPeakMark">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">createNonPeakMark</tt><big>(</big><em>positions</em>, <em>axisTypes</em>, <em>lineWidth=1</em>, <em>dashLength=2</em>, <em>gapLength=2</em>, <em>color=None</em>, <em>remove=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.createNonPeakMark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mark at a general (i.e. non-peak) position.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Floats (Analysis.Mark.positions), List of Analysis.AxisTypes,
+Int, Int, Int, Word (Analysis.Color.name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.Mark</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.createPeakDimRuler">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">createPeakDimRuler</tt><big>(</big><em>peakDim</em>, <em>windowPane</em>, <em>lineWidth=1</em>, <em>dashLength=3</em>, <em>gapLength=1</em>, <em>color=None</em>, <em>remove=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.createPeakDimRuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an Analysis ruler at a peakDim position given a window</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Analysis.SpectrumWindowPane, Int, Int, Int,
+Analysis.Color, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.Ruler</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.createPeakMark">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">createPeakMark</tt><big>(</big><em>peak</em>, <em>lineWidth=1</em>, <em>dashLength=2</em>, <em>gapLength=2</em>, <em>remove=True</em>, <em>axisTypeDict=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.createPeakMark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mark positioned at a given peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Int, Int, Int, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.Mark</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.createRuler">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">createRuler</tt><big>(</big><em>position</em>, <em>panelType</em>, <em>lineWidth=1</em>, <em>dashLength=4</em>, <em>gapLength=2</em>, <em>color=None</em>, <em>remove=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.createRuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an Analysis ruler</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Float (Analysis.Ruler.position), Analysis.PanelType,
+Int, Int, Int, Word (Analysis.Color.name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.Ruler</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.removeAllMarksAndRulers">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">removeAllMarksAndRulers</tt><big>(</big><em>argServer</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.removeAllMarksAndRulers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Macro to remove all marks and rulers in a project.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.removeMarks">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">removeMarks</tt><big>(</big><em>project</em>, <em>removeAll=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.removeMarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove marks in a project. If removeAll = True then remove all marks.
+Otherwise remove only marks above the user-specified limit maxMarks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.removeRulers">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">removeRulers</tt><big>(</big><em>project</em>, <em>removeAll=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.removeRulers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove rulers in a project. If removeAll = True then remove all rulers.
+Otherwise remove only rulers above the user-specified limit maxRulers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.setNonPeakMarkColor">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">setNonPeakMarkColor</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.setNonPeakMarkColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the colour of general marks (i.e. not positioned on peaks).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Word (Analysis.Color.name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.setPeakMarkColor">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">setPeakMarkColor</tt><big>(</big><em>peakList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.setPeakMarkColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the colour of marks positioned on peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MarkBasic.setRulerColor">
+<tt class="descclassname">ccpnmr.analysis.core.MarkBasic.</tt><tt class="descname">setRulerColor</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MarkBasic.setRulerColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the colour of rulers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, Word (Analysis.Color.name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ExperimentBasic.html"
+                        title="previous chapter">ExperimentBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MergeObjects.html"
+                        title="next chapter">MergeObjects</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/MarkBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MergeObjects.html" title="MergeObjects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ExperimentBasic.html" title="ExperimentBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

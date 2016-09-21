@@ -1,0 +1,118 @@
+=====================================
+Resonance : Reference Chemical Shifts
+=====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Graphs and Charts of Database Chemical Shift Data**
+
+This popup window presents the user with the distributions of known chemical
+shift values, for various kinds of atom, as they appear in the BioMagResBank
+or re-referenced RefDB databases. This information is useful when attempting
+to determine the type of a residue from its NMR spectra, for example when
+performing protein sequence assignment.
+
+The popup is divided into two tabs for two different kinds of graphical
+display. The first "1D graphs" tab shows the distributions of chemical shift
+value for either hydrogens or other "heavy" atoms within a given kind of
+residue. The buttons that carry atom names above the main graph can be toggled
+two switch the display for different kinds of atom on or off.
+
+The second "Amino Acid CA CB" tab is a special display to assist in the
+assignment of protein sequences when using triple-resonance experiments
+like HNCA/CB. Data for all of the common amino acids is displayed, but
+only for the alpha and beta carbons.
+
+**Caveats & Tips**
+
+Two dimensional correlations, e.g. between a 1H resonance and a covalently
+bound 13C will be added to Analysis in the future.
+
+DNA and RNA chemical shift distributions is not present in the RefDB data, but
+are present in the BMRB data; to view the BMRB data change the pulldown menu
+at the top-right.
+
+Some of the atom types have a second, minor chemical shift distribution, far
+from the main peak, that is erroneous (this data is still present in the
+source databases). An example of this is for the NE atom of the amino acid
+arginine at around 115 ppm, which in this instance is probably caused by peaks
+being assigned in HSQC spectra in the normal backbone amide ppm range when the
+NE peak is really an aliased harmonic and should be a spectrum width away,
+nearer 85 ppm.
+
+Distributions that are notably jagged, due to lack of data for a given atom
+type should naturally not be relied upon to any great degree.
+
+
+
+Main Panel
+==========
+
+|pulldown| **Source Database**: Whether to use chemical shift data from the BMRB (unfiltered) or RefDB sets
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+1D Graphs
+=========
+
+Simple graphs of how chemical shift values are distributed for a given atom type
+
+|pulldown| **Molecule Type**: Which of the common bio-polymer types to show data for
+
+|pulldown| **Residue Code**: Which residue code to show chemical shift distributions for
+
+|pulldown| **Atom Type**: Whether to show distributions for hydrogen atoms or other atoms
+
+|selector| ***None***: The selection of atom name to display distributions for
+
+
+
+Scrollbar: : 
+
+Amino Acid CA CB
+================
+
+Density plots of alpha a & beta carbon shift distributions for common amnio acids
+
+
+Scrollbar: : 
+

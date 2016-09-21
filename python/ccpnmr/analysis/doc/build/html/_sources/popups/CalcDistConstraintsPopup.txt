@@ -1,0 +1,407 @@
+====================================
+Structure : Make Distance Restraints
+====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Create Structural Distance Restraints From NMR Peaks**
+
+This system is used to make resonance to resonance distance restraints based
+on peak intensity information from through-space NMR experiments, such as
+NOESY. Three mechanisms are available with regard to the assignment of
+resonance pairs to individual restraints, but for all three methods the
+distance information is extracted from peak intensities in the same way.  The
+use of peak intensities and the three restraint generation methods are
+described below.
+
+**Restraint Distance Estimation**
+
+The options available in the "Restraint Distance Params section" if the
+"Settings" tab allow the user to specify how through-space peak intensities
+relate to the distance bounds of any any generated distance restraints. The
+default method is to calculate a target distance as peak height raised to the
+power of -1/6 multiplied by some scaling factor. However the user may also use
+peak volumes by changing the "Intensity Type" and other power relations
+via the "Distance function" pulldown menu.
+
+The peak intensity scaling factor is defined such that the reference intensity
+(defaults to the peak list's average volume) exactly corresponds to the
+reference distance (default 3.2 Angstroms). The user may change either of
+these values to calibrate in a different way. For example by measuring the
+peak intensities of known atomic distances such as those in an aromatic ring.
+The default values are appropriate for most protein structure calculations
+based on NOESY experiments, and in any case structure calculation programs
+like ARIA and CYANA will normally re-calibrate peak intensity scaling during
+the structure generation process. Hence, the initial calibration is not too
+critical; covalent geometry will provide better global calibration.
+
+The upper and lower bounds of the distance restraints are calculated as
+fractional differences from the calculated target distance. For example if a
+target distance is 3.2 Angstroms an upper fractional error of 0.20 gives an
+upper limit of 3.84 (20% more) and 0.2 lower fractional error gives a lower
+limit of 2.56 (20% less). The upper and lower bounds are also confined the
+upper and lower distance limits. These are absolute minimum and maximum values
+for the bounds (1.72 & 8.00 Angstroms respectively by default).
+
+If none of the fractional power distance functions are appropriate for the NMR
+data then the user may select the "Distance Bins" option. Here the user
+defines peak intensity classes, each of which relates to a target distance and
+distance bounds. Each class has a "Min. Peak Intensity" value, which is a
+multiplying factor relative to the reference intensity (by default the peak
+list mean). When Analysis determines which distance class to use for a peak it
+first divides its intensity value by the reference intensity to get a relative
+value, then the distance classes are searched for the class with the largest
+"Min. Peak Intensity" that is below the peak's relative intensity. For
+example with two classes defined at 0.0 and 1.0 minimum intensities, a peak
+with a relative intensity value of 0.5 would fall in the first class, and a
+peak with 1.2 would fall in the second.
+
+**Restraints From Fully Assigned Peaks**
+
+The simplest way of generating distance restraints from through-space NMR
+experiments is to use the spectrum peaks that have been fully assigned. If a
+peak is caused by correlation between resonances and the atomic identities of
+those causal resonances is known (or at least suspected) a distance restraint
+can be created from the peak information. In CCPN terms the restraint will be
+between the resonances that are assigned to the through-space correlated peak
+dimensions, but only if those resonances are assigned to particular atoms (in
+a molecular system). Restraints are made for assigned peaks by selecting an
+appropriate peak list in the pulldown menu, at the very top of the popup,
+above the tabs, and pressing the [Make Assigned Restraints] at the bottom.
+Naturally, the user should make sure that parameters are specified for
+distance estimation and residue ranges and that the correct restraint set is
+selected in the "Settings" tab, to say where the generated restraint list
+should be placed.
+
+Restraints will be generated for peaks that carry multiple, ambiguous
+assignments. This happens where the observed peak in a spectrum covers
+multiple resonance intersections that are unresolvable due to the relative
+scale of linewidths compared to the similarity of chemical shifts. In such
+circumstances all of the resonances assigned to the peaks through-space
+correlated dimensions will appear in the restraint. By default, if a peak is
+assigned to resonances A & B in one dimension and C & D on the other then an
+ambiguous restraint will be generated with items for all four resonance pairs;
+A-C, A-D, B-C and B-D, and a restraint would be satisfied by any of these
+pairs being within distance bounds. However, if the user knows that only
+certain pairings are possible on an ambiguously assigned peak then the
+assignments may be grouped via the `Assignment Panel`_. Referring to the
+previous example if resonance A & C are in group 1 and B & D are in group 2
+then the generated restraint will only have two items; A-C and B-D.
+
+**Restraints From Matching Chemical Shifts**
+
+There is a second common way to generate distance restraints, which is to
+match the chemical shifts of resonances to unassigned peak positions, thus
+generating potentially highly ambiguous distance restraints. Such restraints
+would typically be filtered to select only the correct contributing resonance
+pairs, by iterative structure generation and violation analysis in a program
+like ARIA or CYANA. Often the user can leave the matching of chemical shifts
+to the structure generation program, by passing the program peak lists rather
+than restraint lists. However, it is also possible to make such restraints in
+CCPN.  The [Make Shift Match Restraints] can be used to generate restraints
+for the unassigned peaks in the selected peak list, however the user should be
+aware of all of the parameters that will be applied, including the "Shift
+Match Tolerances", "Residue Ranges" and "Chem Shift Ranges".
+
+The "Shift Match Tolerances" tab is important because it specifies how the
+matching is done between (unassigned) peak positions and resonances with known
+chemical shifts. In essence, every unassigned peak dimension is compared to
+the chemical shifts contained within the shift list that is associated  with
+the NMR experiment from which the peak derive. The shift list that relates to
+an experiment, and hence to a peak list, may be adjusted in the main
+Experiments_ table. Resonances whose shifts are close to the peak position may
+be the cause of that peak and so can be used to make a restraint. Often
+several resonances will match in each peak dimension, resulting in a restraint
+with many alternative, ambiguous resonance pairings (restraint "items"). The
+incorrect possibilities may be removed by automated structure generation
+programs, which generate guide structures based on the unambiguous restraints.
+The "... PPM tolerance" values are used to control the maximum allowed
+difference from a peak location to a chemical shift for a resonance to be
+considered as an assignment possibility; the threshold width of the shift
+matching. In the absence of linewidth information only the "Min/default PPM
+tolerance" is used. If a peak has a recorded linewidth then its value may be
+used to scale the shift-match threshold, i.e. wider peaks match a wider PPM
+range. In such cases the shift-match threshold is the peak's linewidth
+multiplied by the "line width multiplier" value, but bounded by the minimum
+and maximum PPM tolerance values.
+
+The [Test Shift Match] function can be used to trail the peak to resonance
+matching procedure without generating any distance restraints. This is useful
+to test how many peaks would fail to be matched, and the resonance why.
+
+When shift-match restraints are made the resonance matches can be filtered by
+using a guide structure (e.g. homologue or rough structure) with a
+corresponding distance cutoff, so that resonance pairs that are far apart  in
+the guide will not be places in the restraints. Also, shift matching obeys any
+isotope labelling scheme setting; any resonance pair that has a spin-active
+isotope incorporation below the "Minimum Isotope Fraction" is deemed not to be
+visible and will not be present in a restraint.
+
+**Network Anchoring**
+
+In the case of the shift-matching method potentially ambiguous distance
+restraints are generated by simply matching peak positions to close chemical
+shifts. In the case of network anchoring method, chemical shifts are also
+matched to peaks, but the ambiguous possibilities are refined by selecting
+only NOE assignments from amongst the possibilities that are supported by
+other known close resonances or covalent structure. Say, for example, that a
+peak could have arisen from a number of resonance pairs with matching shifts.
+Two resonances A & B are more likely to be a correct assignment for the peak
+if we know that they are close to (or bound to) the same intermediary
+resonance, C and therefore must be close to each other.
+
+The network anchoring procedure is directed using the "Network Anchoring" tab
+and   operates over several peak lists at the same time. These peak lists are
+selected in the "Peak List Selection" table by double clicking in the "Use?"
+column to indicate "Yes". Any assigned peaks in these peak lists, together
+with the covalent connectivity of the atoms, will form the initial
+through-space network. The restraint generation occurs after the iterative
+network refinement process converges (usually in fewer than five cycles). The
+parameters for the refinement are specified above the main table. It should be
+noted that only a shift list and set of shift match tolerances is currently
+used.
+
+The "Min net. score" is used during refinement to dictate how much network
+support an assignment possibility must have for it to be included. Setting
+this to a higher value will mean fewer mistakes are made but at the expense of
+making fewer restraints. The "Strictness" setting relates to which residues
+may be involved in the local network to help resolve restraint possibilities.
+Considering only connections within a single residue makes few mistakes but
+doesn't resolve much of the ambiguity. Using any residue makes most mistakes
+but most restraints. The default "Normal: Sequential residue support"
+is a useful compromise between these two extremes.
+
+**Residue and Chemical Shift Ranges**
+
+The "Residue Ranges" section is used to restrict the restraint generation to
+only specific regions of a molecular system.  For example, this is useful if a
+protein is known to have an unstructured tail and the chemical shifts from
+this should not be considered because they would add unnecessary ambiguity. A
+residue range applies to one molecular chain and the peak dimensions on one
+side of a through-space correlation. This means that different dimensions can
+be restricted to different bits of a molecular system; useful with X-filtered
+NMR experiments. Residue ranges are applied to all forms of restraint
+generation, i.e. for assigned peaks, shift matching and network anchoring.
+
+The "Chem Shift Ranges" tab is used to allow or disallow certain resonance
+signals from being used in the shift matching and network anchoring restraint
+generation. Different allowed ranges can be specified for each spectrum
+dimension (of the selected peak list) and a single dimension can have multiple
+ranges. In this way the user can control whether certain kind of resonances
+with distinct shifts are used, e.g. methyls. Often a 'water notch' is used,
+where two ranges with a small gap between are constructed to exclude peaks
+near the chemical shift of water; such peaks do not related to close macromolecule
+distances.
+
+**Caveats & Tips**
+
+Restraints are always made in a restraint list that is placed in the selected
+restraint set. By default a new restraint set is made, thus to  make restraint
+lists that go together in an existing set the right  one must be selected in
+the "Settings Tab".
+
+A new restraint set should always be used if any resonance to atom assignments
+have been changed, otherwise new restraints will still obey the original
+"fixed" assignments that were present in the old restraint set, not the new
+ones.
+
+.. _`Assignment Panel`: EditAssignmentPopup.html
+.. _Experiments: EditExperimentPopup.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **Peak List**: Selects which peak list is used in the generation of distance restraints
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Settings
+========
+
+*Documentation missing*
+
+|pulldown| **Restraint Set**: Selects the restraint set in which to make new restraint lists
+
+|pulldown| **Isotope Labelling**: Selects the isotope labelling scheme, if any, to filter restraint possibilities
+
+|pulldown| **Shift Match Guide Structure**: Selects a structure that can be used to remove distal resonance pairs from distance restraints
+
+|float| **1.0**: Threshold for peak figure-of-merit value, below which peaks will not be considered for making restraints
+
+|float| **0.1**: If using an isotope labelling scheme, the minimum proportion of spin active isotope to consider a resonance for restraints
+
+|float| **20.0**: The maximum allowed distance if filtering restraint possibilities using a structure
+
+
+Restraint Distance Params
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **Intensity type**: The kind of intensity to estimate distances with
+
+|pulldown| **Distance function**: How to derive restraint distances from peak intensity
+
+|check| **Only assigned ref intensities**: Whether to consider only assigned peaks when calculating average, reference intensity
+
+|float| **1.0**: The peak intensity that corresponds to the reference distance. Defaults to peak list mean
+
+|float| **0.2**: The fractional lower restraint bound, defaults to 20% closer
+
+|float| **1.72**: The absolute lower distance limit, overriding fractional error
+
+|float| **3.2**: The distance corresponding to the reference peak intensity; to perform calibration
+
+|float| **0.2**: The fractional upper restraint bound bound, defaults to 20% further
+
+|float| **8.0**: The absolute upper distance limit, overriding fractional error
+
+Residue Ranges
+==============
+
+*Documentation missing*
+
+|pulldown| **Molecular system**: Selects which molecular chain to set sequence/residue ranges for
+
+============  ==========================================================================
+**Table 1**
+----------------------------------------------------------------------------------------
+*Dimensions*  Which spectrum dimensions the residue range filter applies to  *(Editable)*
+     *Chain*  The molecular chain of the allowed residue range  *(Editable)*
+     *Start*  The first allowable residue position to make restraints for  *(Editable)*
+       *End*  The last allowable residue position to make restraints for  *(Editable)*
+============  ==========================================================================
+
+
+
+|button| **Add Residue Range**: Add a new allowable residue range to the table
+
+|button| **Delete Residue Range**: Remove the currently selected residue range
+
+Shift Match Tolerances
+======================
+
+*Documentation missing*
+
+|check| **Consider aliased shifts?**: Whether peaks that are matched to shifts might be aliased one or more sweep withs; i.e. not at their real PPM
+
+|check| **Ignore diagonal peaks?**: Whether to avoid matching shifts to diagonal peaks
+
+|button| **Copy From**: Copy shift match tolerances settings from a different spectrum (overwrites old values)
+
+|pulldown| **Copy From entry**: Copy shift match tolerances settings from a different spectrum (overwrites old values)
+
+===========================  ================================================================================================================================================================================================
+**Table 2**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                *Dimension*  The spectrum dimension that the tolerance applies to 
+*Min/default PPM tolerance*  If a peak has no recorded linewidth, how far in ppm shift values can be from peak positions to make a restraint. With a linewidth, the absolute lower limit to this ppm difference   *(Editable)*
+    *line width multiplier*  A factor that governs how the peak-shift match tolerance scales with peak linewidth  *(Editable)*
+        *Max PPM tolerance*  If a peak has a recorded linewidth, the absolute upper limit to the peak-shift ppm difference  *(Editable)*
+===========================  ================================================================================================================================================================================================
+
+
+
+Chem Shift Ranges
+=================
+
+*Documentation missing*
+
+===========  =============================================================================================
+**Table 3**
+----------------------------------------------------------------------------------------------------------
+*Dimension*  The spectrum dimension to which an allowed chemical shift range applies  *(Editable)*
+  *Isotope*  The isotope(s) relevant to the spectrum dimension 
+    *Start*  The lower bound of the allowed chemical shift range for matching shifts to peaks  *(Editable)*
+      *End*  The upper bound of the allowed chemical shift range for matching shifts to peaks  *(Editable)*
+===========  =============================================================================================
+
+
+
+|button| **Add Chem Shift Range**: Add a new chemical shift range for matching peak positions to chemical shifts
+
+|button| **Delete Chem Shift Range**: Remove the selected chemical shift range from the table
+
+Network Anchoring
+=================
+
+*Documentation missing*
+
+|float| **1.0**: The threshold NOE network sore, below which an assignment possibility will not be considered
+
+|check| **Assign Peaks**: Whether to assign the peaks of the input peak lists according to the filtered assignment possibilities
+
+|pulldown| **Strictness**: Selects which kinds of NOE network information can filter assignment options;
+higher strictness means fewer errors but fewer restraints
+
+|float| **0.04**: When generating restraint possibilities, the maximum difference between peak position and 1H chemical shift
+
+|float| **0.4**: When generating restraint possibilities, the maximum difference between peak position and 15N chemical shift
+
+|float| **0.4**: When generating restraint possibilities, the maximum difference between peak position and 13C chemical shift
+
+|pulldown| **Shift List**: Selects which list of chemical shifts to compare to peak positions
+
+Peak List Selection
+~~~~~~~~~~~~~~~~~~~
+
+
+===========  ======================================================================================
+**Table 4**
+---------------------------------------------------------------------------------------------------
+ *Spectrum*  The experiment: spectrum of the input peak list 
+ *PeakList*  Peak list serial number 
+     *Use?*  Whether to use this peak list in the NOE network and restraint generation  *(Editable)*
+*Num Peaks*  NUmber of peaks in the peak list 
+===========  ======================================================================================
+
+
+
+|button| **Make Assigned Restraints**: Make restraints using the assigned peaks in the selected peak list, according to the settings
+
+|button| **Make Shift Match Restraints**: Make restraints by matching peaks in the selected list to chemical shifts
+
+|button| **Test Shift Match**: Make an analysis of peak to chemical shift matches, without committing any restraints
+
+|button| **Network Anchor Restraints**: Run the network anchoring calculation to generate restraints
+

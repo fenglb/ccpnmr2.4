@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DANGLE &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Deposition Entry Completion Interface" href="EntryCompletionPopup.html" />
+    <link rel="prev" title="Structure : Make H Bond Restraints" href="MakeHbondRestraintsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EntryCompletionPopup.html" title="Deposition Entry Completion Interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="MakeHbondRestraintsPopup.html" title="Structure : Make H Bond Restraints"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dangle">
+<h1>DANGLE<a class="headerlink" href="#dangle" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Bayesian inferential prediction method for protein backbone dihedral angles</strong></p>
+<p>DANGLE (Dihedral ANgles from Global Likelihood Estimates) predicts protein
+backbone Phi and Psi angles and secondary structure assignments solely from
+amino acid sequence information, experimental chemical shifts and a database
+of known protein structures and their associated shifts. This approach
+uses Bayesian inferential logic to analyse the likelihood of conformations
+throughout Ramachandran space, paying explicit attention to the population
+distributions expected for different amino acid residue types.</p>
+<p>Simple filtering procedures can identify the most &#8220;predictable&#8221; residues,
+yielding 92% of all Phi and Psi predictions accurate to within +/-30 degrees.
+In contrast to previous approaches, more than 80% of Phi or Psi predictions
+for glycine and pre-proline are reliable. Furthermore, DANGLE provides
+meaningful upper and lower bounds for the predictions which are shown to
+represent the precision of the prediction. Over 90% of the experimental
+dihedral angles in the set of test proteins are within the boundary ranges
+suggested by DANGLE. At a lower resolution level, the program correctly
+assigns each residue to one of three secondary structure states (H, E or C) in
+85% of cases.</p>
+<p>DANGLE also provides an indication of the degeneracy in the relationship
+between shift measurements and conformation at each site.</p>
+<p>For more documentation see the <a class="reference external" href="http://dangle.sourceforge.net/">DANGLE web site</a> at SourceForge.</p>
+<p><strong>Reference</strong></p>
+<p><em>Ming-Sin Cheung, Mahon L. Maguire, Tim J. Stevens, and R. William Broadhurst.
+&#8220;DANGLE: A Bayesian inferential method for predicting protein backbone
+dihedral angles and secondary structure.&#8221; Journal of Magnetic Resonance Volume
+202, Issue 2, February 2010, Pages 223-233</em></p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Choose the molecular system chain to make predictions for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Select the shift list to take input chemical shifts from</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Max No. of Islands</strong>: Select the maximum allowed number of disontinuous prediction islands</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Dangle Run</strong>: Select a run number to store DANGLE results within</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: Select the structure ensemble for superimposition of angle values on the GLE plots</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Restraint Set</strong>: Select the CCPN restraint set to store DANGLE dihedral angle restraints in</p>
+</div>
+<div class="section" id="global-likelihood-estimates">
+<h3>Global Likelihood Estimates<a class="headerlink" href="#global-likelihood-estimates" title="Permalink to this headline">¶</a></h3>
+<p>Scrollbar: :</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous</strong>: Show GLE plot of angle predictions for previous residue in chain</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next</strong>: Show GLE plot of angle predictions for next residue in chain</p>
+</div>
+<div class="section" id="dihedral-angle-predictions">
+<h3>Dihedral Angle Predictions<a class="headerlink" href="#dihedral-angle-predictions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Res Num</em></td>
+<td>Residue number in chain</td>
+</tr>
+<tr><td><em>Res Type</em></td>
+<td>Residue type code</td>
+</tr>
+<tr><td><em>No. of Islands</em></td>
+<td>Number of high scoring discontinuous angle predictions</td>
+</tr>
+<tr><td><em>SS</em></td>
+<td>Predicted secondary structure code</td>
+</tr>
+<tr><td><em>Phi</em></td>
+<td>Predicted phi dihedral angle (CO-N-CA-CO)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Psi</em></td>
+<td>Predicted psi dihedral angle (N-CA-CO-N)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Phi Upper</em></td>
+<td>Upper bound of phi angle prediction  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Phi Lower</em></td>
+<td>Lower bound of phi angle prediction  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Psi Upper</em></td>
+<td>Upper bound of psi angle prediction  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Psi Lower</em></td>
+<td>Lower bound of phi angle prediction  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Chemical Shifts</em></td>
+<td>Chemical shifts used in prediction</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear Selected</strong>: Remove the predictions for the selected residues</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Run Prediction!</strong>: Run the DANGLE method to predict dihedral angles and secondary structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Current Run</strong>: Delete the DANGLE results stored under the current run number</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Commit Restraints</strong>: Store the angle predictions and bounds in a new CCPN dihedral angle restraint list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Commit Secondary Structure</strong>: Store the secondary structure predictions in the CCPN project</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DANGLE</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#global-likelihood-estimates">Global Likelihood Estimates</a></li>
+<li><a class="reference internal" href="#dihedral-angle-predictions">Dihedral Angle Predictions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MakeHbondRestraintsPopup.html"
+                        title="previous chapter">Structure : Make H Bond Restraints</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EntryCompletionPopup.html"
+                        title="next chapter">Deposition Entry Completion Interface</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/DangleGui.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EntryCompletionPopup.html" title="Deposition Entry Completion Interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="MakeHbondRestraintsPopup.html" title="Structure : Make H Bond Restraints"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

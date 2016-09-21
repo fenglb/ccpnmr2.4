@@ -1,0 +1,224 @@
+=================================
+Data Analysis : Shift Differences
+=================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Measure Differences Between Pairs of Chemical Shifts**
+
+This system is designed to calculate the differences between pairs of chemical
+shift values in two contexts: firstly directly comparing peak locations in
+related spectra and secondly by comparing averaged chemical shift values
+(averaged over potentially many peak locations) in two different shift lists.
+The former allows the comparison to be restricted to only certain peaks, i.e.
+those with common assignments in two peak lists, and gives an overall 'shift
+distance' for each peak, rather than just differences for the separate
+dimensions.
+
+**Peak List Comparison**
+
+Comparing peak positions is achieved with the functions presented in the first
+tab. In essence, the user selects two peak lists from the top pulldown menus
+and views the results in the table below. The "Atom Names" options allow the
+comparison to be restricted to only certain kinds of assignment. (The atom
+names have to be complete, no wild cards are allowed.)  The "Scale Factor"
+values are used in the calculation of the "Shift Sum" and "Shift Dist" values
+so that positional differences in dimensions with dissimilar isotopes may be
+compared; the difference for a dimension is multiplied by the scale factor
+for its isotope type.
+
+**Shift List Comparison**
+
+The second tab simply takes two chemical shift lists, specified in the
+top pulldown menus and compares the values of the contained chemical shifts.
+Each row corresponds to one resonance that has a shift measurement in the
+two shift lists. The user may optionally filter the list by adding specific
+"Atom Names" so that only certain kinds of assigned resonance are compared.
+(The atom  names have to be complete, no wild cards are allowed.) It should
+be noted that the values in shift lists are typically based upon an average
+of the assigned peak positions for resonances that use that list.  Two
+different sets of experiments may be compared by allocating them among two
+separate shift lists; see the main Experiments_ option.
+
+**Sequence Alignments**
+
+When comparing peak lists or shift lists where assignments are made to two
+different but similar chains, the calculations can optionally use a sequence
+alignment. The sequence alignment that is used is presented in the third tab
+and represents a residue to residue mapping. Which chains are used in the
+alignment is automatically determined from those that are assigned in the
+selected peak lists or shift lists and at present only the highest scoring
+pair of sequences is considered. More fine-grain control may be added in the
+future.
+
+**Function Buttons**
+
+The lower function buttons relate to either the peak list or shift list
+comparison, depending on which is currently viewed. The [Make Shift
+Difference List] is handy to give a permanent record, stored in the CCPN
+project, of the calculated chemical shift differences. The shift  difference
+lists are a kind of measurement list and are viewable at any time via the
+`Measurement Lists`_ table. If a measurement list is not made the only way to
+get the same shift differences again is to repeat the calculation. The [Show
+On Structure] is designed to colour a graphical structure display so that the
+size and colour of atoms is determined by the shift difference of their
+resonances - atoms without a shift difference are left at their default
+rendering.
+
+**Caveats & Tips**
+
+For investigating how chemical shifts differ when considering more than two
+peaks, e.g. when following how peaks move during a titration the
+`Follow Shift Changes`_ tool should be used.
+
+To make a peak list that is based on averaged chemical shift values, which may
+be compared by this system, then for certain types of spectra the user may
+create a synthetic peak list. This is accessed via the `Peak Lists`_ popup
+option [Predict from Shifts].
+
+.. _`Follow Shift Changes`: FollowShiftChangesPopup.html
+.. _`Peak Lists`: EditPeakListsPopup.html
+.. _Experiments: EditExperimentPopup.html
+.. _`Measurement Lists`: EditMeasurementListsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak List Comparison
+====================
+
+Measure differences in chemical shifts by comparing peak positions
+
+Options
+~~~~~~~
+
+
+|pulldown| **Peak List A**: First peak list to use in comparison
+
+|pulldown| **Peak List B**: Second peak list to use in comparison
+
+|check| **Fully assigned only**: Whether to compare positions for only fully assigned peaks
+
+|entry| **H,H1**: Restricts the comparison to peaks assigned to particular kinds of atoms, in their first dimension
+
+|entry| **N**: Restricts the comparison to peaks assigned to particular kinds of atoms, in their second dimension
+
+|check| **Use Sequence Alignment**: Whether to use the residue sequence alignment in the shift comparison
+
+|float| **1.0**: First dimension scaling factor use to compare shifts of dissimilar isotopes
+
+|float| **0.15**: Second dimension scaling factor use to compare shifts of dissimilar isotopes
+
+============  =========================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------------
+*Residue(s)*  The residue assignment(s) of the peaks 
+  *Reson. 1*  Resonance assignment in the first dimension 
+  *Shift 1A*  Chemical shift of first peak (A) in first dimension 
+  *Shift 1B*  Chemical shift of second peak (B) in first dimension 
+ *Δ 1 (ppm)*  Chemical shift difference in ppm for first dimension 
+  *Reson. 2*  Resonance assignment in the second dimension 
+  *Shift 2A*  Chemical shift of first peak (A) in second dimension 
+  *Shift 2B*  Chemical shift of second peak (B) in second dimension 
+ *Δ 2 (ppm)*  Chemical shift difference in ppm for second dimension 
+ *Shift Sum*  Sum of the chemical shift differences in the two dimensions 
+*Shift Dist*  The square root of the sum of the isotope weighted shift differences squared 
+   *Seq Num*  Sequence number of any assigned residue (for easy graphing) 
+============  =========================================================================================
+
+
+
+Shift List Comparison
+=====================
+
+Measure differences in the chemical shift values from two shift lists
+
+|pulldown| **Shift List A**: First chemical shift list used in comparison
+
+|pulldown| **Shift List B**: Second chemical shift list used in comparison
+
+|check| **Use Sequence Alignment**: Whether to use the residue sequence alignment to compare dissimilar molecules
+
+|entry| **Atom Names**: Restricts the comparison to only specific atom types, e.g. "HA, HB"
+
+=============  ==================================================================
+**Table 2**
+---------------------------------------------------------------------------------
+         *#1*  Serial number of first resonance 
+         *#2*  Serial number of second resonance 
+*Assign Name*  Assignment of resonance(s) 
+  *Residue 1*  Residue assigned to first resonance 
+  *Residue 2*  Residue assigned to second resonance 
+    *Shift 1*  Chemical shift value of first resonance 
+    *Shift 2*  Chemical shift value of second resonance 
+          *Δ*  Chemical shift difference, in units of the shift list 
+=============  ==================================================================
+
+
+
+Sequence Alignment
+==================
+
+The sequence alignment used to compare shifts between two different molecules
+
+====================  =========================================================================
+**Table 3**
+-----------------------------------------------------------------------------------------------
+           *Residue*  Residue in the first sequence 
+   *Aligned Residue*  Aligned residue in the second sequence 
+*Common Assignments*  Names of atom assigned resonances common to aligned residues 
+====================  =========================================================================
+
+
+
+|button| **Show Peaks**: Show a table of peaks corresponding/assigned to the selected rows
+
+|button| **Update**: Force a manual refresh of the shift difference calculation
+
+|button| **Make Shift Difference List**: Save the results in the CCPN project as a data list
+
+|button| **Show On Structure**: Show the shift difference results on a graphical structure display
+

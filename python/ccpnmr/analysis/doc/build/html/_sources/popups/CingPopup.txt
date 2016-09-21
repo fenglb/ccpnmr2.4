@@ -1,0 +1,285 @@
+==========
+CING Setup
+==========
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Setup and Submit NMR Structure Validation Analyses to CING**
+
+This popup is used to connect the data in a CCPN project to the structure
+validation analyses that are available at the iCING server. When submitting to
+this service the CCPN project (without spectrum data files) will be sent over
+the Internet for analysis. Many different NMR and structure based analyses
+will be performed under the CING platform. These include: PROCHECK, ShiftX,
+DSSP, WHAT_CHECK, Wattos etc.
+
+For more information detailed information see the `CING home page
+<http://nmr.cmbi.ru.nl/cing/Home.html>`_.
+
+**Use**
+
+To setup and run a CING job from Analysis the user first has to create a
+"run", which contains all the settings. A run can be made with
+[New Run] or [Copy Run].
+
+The data that relates to a job/run is divided into three sub-tabs to indicate
+what the input data from the CCPN project is, what settings are used during
+the calculation, and what the output CCPN data is. The input data is further
+sub-divided into various categories of data, and the user can select  from
+pulldown menus to dictate which CCPN entities will be selected for the
+calculation.
+
+**Input Data**
+
+Typically to run a CING job the user will select the appropriate Molecular
+System from the "Input Data" panel, then select an structure ensemble in the
+"Structures sub-tab; these are minimum requirements for CING. The user may
+also a add shift lists, peak lists and restraint lists  to the analysis by
+going into the relevant sub-tab and clicking   the [Add ...] and [Remove ...]
+buttons to add the CCPN data entity that is selected at the bottom right of
+the panel.
+
+**Run Settings**
+
+The "Run Settings" tab allows the user to adjust settings that control the
+calculation job and actually submit all the data to the iCING server for
+analysis. Usually the user simply clicks [Submit Project!], assuming a run has
+been setup and the computer has an Internet connection. After submission the
+user can [Check Run Status] to get a short report, but otherwise the user will
+be informed when the job is complete in the CCPN interface. The CING analysis
+data will be available to download from the specified "Results URL" to the
+"Results File" by using [Download Results] Also, the data will be available
+for a time  on the CING web site ([View Results HTML]). To specifically force
+the iCING  server to remove all of the user's data from its system [Purge
+Server Result] can be clicked. Otherwise the results will be available on the
+CING website until the server does its next data clean-up.
+
+**Output Data**
+
+The "Output Data" table lists all of the CCPN entities that were generated or
+modified by the selected calculation job (if it were run). However, this data
+is not currently filled in by the CING server, although it will be at some
+stage in the future.
+
+
+
+Main Panel
+==========
+
+
+|pulldown| **Run Number**: Selects which calculation job or "run" is currently being viewed or edited
+
+|button| **New Run**: Make a setup for a new calculation run
+
+|button| **Copy Run**: Make a new calculation run by copying the current one
+
+|button| **Delete Run**: Delete the current calculation run settings
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Input Data
+==========
+
+*Documentation missing*
+
+|pulldown| **Molecular System**: Selects which molecular system the calculation will be run on
+
+|entry| **Run Details**: User-editable textual comment for the current calculation
+
+Structures
+==========
+
+*Documentation missing*
+
+|pulldown| **Ensemble**: The structure ensemble coordinates to submit
+
+===========  ========================================
+**Table 1**
+-----------------------------------------------------
+    *Model*  Conformational model number 
+      *Use*  Whether analyse this model  *(Editable)*
+===========  ========================================
+
+
+
+|button| **Activate Selected**: Activate the selected models so that they will be consedered in the analysis
+
+|button| **Inactivate Selected**: Deactivate the selected models so that they will not be considered in the analysis
+
+Shifts & Measurements
+=====================
+
+*Documentation missing*
+
+===========  =============================================================================
+**Table 2**
+------------------------------------------------------------------------------------------
+        *#*  Row number 
+*Data Type*  The kind of measurement data used and calculation input 
+   *Serial*  The serial number used to uniquely identify the measurement list 
+*List Name*  The textual name of the measurement list 
+     *Size*  The number of individual measurements in the list 
+  *Details*  User-specified textual comment 
+===========  =============================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected measurement list from consideration (does not delete the data)
+
+|button| **Add Measurement List**: Add the selected measurement list as calculation input
+
+|pulldown| ***None***: Selects a measurement list which may be added as calculation input
+
+Peak Lists
+==========
+
+*Documentation missing*
+
+============  =========================================================================
+**Table 3**
+---------------------------------------------------------------------------------------
+         *#*  Row number 
+*Experiment*  The name of the experiment that contains the input peak list 
+  *Spectrum*  The name of the spectrum that contains the input peak list 
+    *Serial*  The serial number of the input peak list within its spectrum 
+     *Peaks*  The number of peaks in the peak list 
+============  =========================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected peak list from consideration (does not delete the data)
+
+|button| **Add Peak List**: Add the selected peak list as calculation input
+
+|pulldown| ***None***: Selects a peak list which may be added as calculation input
+
+Restraint Lists
+===============
+
+*Documentation missing*
+
+================  ==================================================================================
+**Table 4**
+----------------------------------------------------------------------------------------------------
+             *#*  Row number 
+*Restraint Type*  The type of restraints in the input restraint list 
+ *Restraint Set*  The restraint set that contains the input restraint list 
+        *Serial*  The serial number of the input restraintlist within its restraint set 
+     *List Name*  The textual name of the input restraint list 
+    *Restraints*  The number of restraints in the input restraint list 
+================  ==================================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected restraint list from consideration (does not delete the data)
+
+|button| **Add Restraint List**: Add the selected restraint list as calculation input
+
+|pulldown| ***None***: Selects a restraint list which may be added as calculation input
+
+Run Settings
+============
+
+*Documentation missing*
+
+Server Job Submission
+~~~~~~~~~~~~~~~~~~~~~
+
+
+|pulldown| **iCing URL**: Web location of iCING server to use
+
+|entry| **Results File**: Name of file to store compressed CING results in
+
+|button| **Choose File**: Select file to overwrite with CING results
+
+|entry| **Results URL**: Web location where CING results will be posted
+
+|button| **View Results HTML**: Open the HTML CING results in a web browser
+
+|button| **Submit Project!**: Submit the CCPN project to the CING server
+
+|button| **Check Run Status**: Determin whether the iCING job is complete, pending or has failed
+
+|button| **Purge Server Result**: Remove all trace of the last submissionfrom the iCING server
+
+|button| **Download Results**: Download the compressed CING results, including HTML
+
+Residue Options
+~~~~~~~~~~~~~~~
+
+
+|pulldown| **Chain**: Select the molecular system chain to consider
+
+===========  ============================================================
+**Table 5**
+-------------------------------------------------------------------------
+        *#*  Sequence number 
+  *Residue*  Residue type code 
+  *Linking*  In-chain connectivity of residue 
+*Decriptor*  Protonation and steriochemical state 
+     *Use?*  Whether to consider the residue in the analysis  *(Editable)*
+===========  ============================================================
+
+
+
+|button| **Activate Selected**: Use the selected residues in the analysis
+
+|button| **Inactivate Selected**: Do not use the selected residues in the analysis
+
+Output Data
+===========
+
+*Documentation missing*
+
+============  =============================================================================
+**Table 6**
+-------------------------------------------------------------------------------------------
+ *Data Type*  The kind of data output by the calculation 
+         *#*  the serial number of the output data, within the calculation run 
+      *Name*  The name of the output data 
+ *CCPN Data*  The identity of any CPN objects that are lined to/as output data 
+*Parameters*  Any parameters which relate to the output data 
+    *Weight*  Any fractional weighting that was applied to the output data 
+============  =============================================================================
+
+
+

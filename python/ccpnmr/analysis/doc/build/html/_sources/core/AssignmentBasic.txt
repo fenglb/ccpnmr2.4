@@ -1,0 +1,7 @@
+===============
+AssignmentBasic
+===============
+
+.. automodule:: ccpnmr.analysis.core.AssignmentBasic
+   :members:
+

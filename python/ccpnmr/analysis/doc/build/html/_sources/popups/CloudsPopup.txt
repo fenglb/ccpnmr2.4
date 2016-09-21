@@ -1,0 +1,126 @@
+=========================
+Resonance Clouds Analysis
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+Setup peak lists
+~~~~~~~~~~~~~~~~
+
+
+|pulldown| **1H-1H NOESY spectrum**: *Documentation missing*
+
+|pulldown| **15N HSQC spectrum**: *Documentation missing*
+
+|pulldown| **15N HSQC TOCSY spectrum**: *Documentation missing*
+
+|pulldown| **15N HSQC NOESY spectrum**: *Documentation missing*
+
+|button| **Setup resonances & peaks**: *Documentation missing*
+
+|button| **Show Peaks**: *Documentation missing*
+
+|button| **Show resonances**: *Documentation missing*
+
+Calculate distance constraints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+========================  =======================
+**Table 1**
+-------------------------------------------------
+*Spectrometer frequency*  *Documentation missing*  *(Editable)*
+        *Max iterations*  *Documentation missing*  *(Editable)*
+      *Mixing time (ms)*  *Documentation missing*  *(Editable)*
+     *Correl. time (ns)*  *Documentation missing*  *(Editable)*
+             *Leak rate*  *Documentation missing*  *(Editable)*
+         *Max intensity*  *Documentation missing*  *(Editable)*
+========================  =======================
+
+
+
+|pulldown| **Benchmark structure**: *Documentation missing*
+
+|pulldown| **ADC atom types**: *Documentation missing*
+
+|button| **Calculate distances**: *Documentation missing*
+
+|button| **Show distance constraints**: *Documentation missing*
+
+|button| **Show anti-distance constraints**: *Documentation missing*
+
+Proton cloud molecular dynamics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===============  =======================
+**Table 2**
+----------------------------------------
+         *Step*  *Documentation missing* 
+*Initial temp.*  *Documentation missing*  *(Editable)*
+  *Final temp.*  *Documentation missing*  *(Editable)*
+*Cooling steps*  *Documentation missing*  *(Editable)*
+     *MD steps*  *Documentation missing*  *(Editable)*
+       *MD tau*  *Documentation missing*  *(Editable)*
+   *Rep. scale*  *Documentation missing*  *(Editable)*
+===============  =======================
+
+
+
+|button| **Move earlier**: *Documentation missing*
+
+|button| **Move later**: *Documentation missing*
+
+|button| **Add step**: *Documentation missing*
+
+|button| **Remove step**: *Documentation missing*
+
+|float| **100**: *Documentation missing*
+
+|entry| **cloud_**: *Documentation missing*
+
+|button| **Start molecular dynamics**: *Documentation missing*
+
+|button| **Show dynamics progress**: *Documentation missing*
+
+
+

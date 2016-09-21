@@ -1,0 +1,143 @@
+==================================
+Chart : Residue Interaction Matrix
+==================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Display a Density Matrix of Residue-Residue Contact Information**
+
+This popup window is based around the "Interaction Matrix" in the first tab
+and is designed to give a graphical representation of the residue to residue
+interactions that are present in NMR data. At present this informations comes
+from peak lists; to show assignment connectivities (e.g. NOE) and restraint
+lists; to show distance and H-bond restraints.
+
+To operate this system the user opens the "Peak Lists" and "Restraint Lists"
+tabs and toggles the "Use?" columns to enable or disable peak and restraint
+lists in the analysis. After pressing the [Draw] button at the top, the
+interaction matrix in the first tab is redrawn to display the connectivity
+information form the selected sources.
+
+The main interaction matrix is colour coded so that darker squares represent
+a greater number of observed interactions. The coordinates of each square
+represents the intersection between two residues from the axes. The residues
+that are used on the X- and Y-axes many be specified via the "Residues" tab,
+both in terms of sequence range and molecular chain. To determine the precise
+residues that correspond to a given interaction the user can hover the mouse
+cursor over a small square in the matrix and the identities of the residues
+are displayed on the two axes.
+
+**Tips**
+
+If the interaction matrix display is too large or too small the size of
+the chart can be adjusted via the [+] and [-] buttons.
+
+A PostScript file of the density matrix can be saved via the right mouse menu
+of the matrix tab.
+
+
+Main Panel
+==========
+
+|button| **Draw**: Using the selected peak lists, restraint lists and residue ranges draw a colour density residue interaction matrix
+
+|button| **[+]**: Zoom in on the matrix view; make the boxes larger
+
+|button| **[-]**: Zoom out on the matrix view; make the boxes smaller
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Interaction Matrix
+==================
+
+The main colour density matrix that displays residue-residue interaction strength
+
+
+Peak Lists
+==========
+
+Selects which peak lists to show residue-residue interactions for
+
+===========  ==========================================================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------------------------------
+ *Spectrum*  The experiment:spectrum name of the peak list that may be considered 
+ *PeakList*  The serial number of the peak lists within its spectrum 
+     *Use?*  Sets whether or not the peak list will be used as a source of residue interaction information  *(Editable)*
+===========  ==========================================================================================================
+
+
+
+Restraint Lists
+===============
+
+Selects which distance restraint lists to show residue-residue interactions for
+
+|pulldown| **Restraint Set**: Selects which set of restraints to select restraint connectivity information from
+
+===========  ===============================================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------------------------------------
+     *List*  The serial number, within the restraint set, and name of the restraint list 
+     *Type*  Whether the restraint list is a Distance restraint list or an H-Bond restraint list 
+     *Use?*  Sets whether or not the restraint list will be used as a source of residue interaction information  *(Editable)*
+===========  ===============================================================================================================
+
+
+
+Residues
+========
+
+Specifies which molecular chains and residue ranges to consider on the matrix axes
+
+|pulldown| **X axis**: Selects which molecular chain to use as the sequence along the horizontal axis of the interaction matrix
+
+|int| **IntEntry**: Sets the number of the first residue that appears at the start (left) of the horizontal matrix axis
+
+|int| **to**: Sets the number of the last residue that appears at the end (right) of the horizontal matrix axis
+
+|pulldown| **Y axis**: Selects which molecular chain to use as the sequence along the vertical axis of the interaction matrix
+
+|int| **IntEntry**: Sets the number of the first residue that appears at the start (bottom) of the vertical matrix axis
+
+|int| **to**: Sets the number of the last residue that appears at the end (top) of the vertical matrix axis
+

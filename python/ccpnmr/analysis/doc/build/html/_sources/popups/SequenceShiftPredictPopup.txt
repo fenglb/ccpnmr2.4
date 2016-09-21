@@ -1,0 +1,111 @@
+============================================
+Data Analysis : Predict Shifts from Sequence
+============================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Predict Protein Shifts from Sequence**
+
+This popup window is designed to allow the prediction of chemical shifts
+for a protein chain from the sequence (so with no structural information),
+using the (external) program CamCoil.
+
+The Options to select are the Chain for which the prediction is made, and
+the prediction type and the pH used for the prediction, and also the Shift
+List, which is not used for the prediction but is used for the comparison
+with the prediction.
+
+CamCoil has two variations, one for the prediction of random coil chemical
+shifts and one for prediction of protein loops chemical shifts.
+
+The Chemical Shift Predictions table lists the atoms in the chain.
+For each atom the data listed is the residue number, residue type, atom
+name, first shift found for that atom in the chosen shiftList, chemical
+shift predicted by CamCoil, and the difference between the actual shift
+and the predicted shift (if both exist).
+
+To run the prediction click on the "Run CamCoil Prediction!" button.  This
+does not store any predicted shifts in the project.
+
+**Caveats & Tips**
+
+**References**
+
+The CamCoil programme:
+
+http://www-vendruscolo.ch.cam.ac.uk/camcoil.php
+
+*A. De Simone, A. Cavalli, S-T. D. Hsu, W. Vranken and M. Vendruscolo
+Accurate random coil chemical shifts from an analysis of loop regions in native states of proteins.
+J. Am. Chem. Soc. 131(45):16332-3
+
+
+Main Panel
+==========
+
+Options
+~~~~~~~
+
+
+|pulldown| **Chain**: Choose the molecular system chain to make predictions for
+
+|pulldown| **Shift List**: Select the shift list to take input chemical shifts from
+
+|pulldown| **Type**: Select the algorithm script for this chain
+
+|pulldown| **pH**: Select the pH to make the prediction for
+
+Chemical Shift Predictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=================  ===========================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------
+        *Res Num*  Residue number in chain 
+       *Res Type*  Residue type code 
+      *Atom Name*  Atom name 
+   *Actual Shift*  Actual shift (first one it finds for atom in chosen shiftList) 
+*Predicted Shift*  CamCoil predicted shift 
+     *Difference*  Predicted - Actual 
+=================  ===========================================================================
+
+
+
+|button| **Run CamCoil Prediction!**: Run the CamCoil method to predict chemical shifts from sequence
+

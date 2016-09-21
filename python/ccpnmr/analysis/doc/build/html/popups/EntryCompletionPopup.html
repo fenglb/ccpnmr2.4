@@ -1,0 +1,1237 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deposition Entry Completion Interface &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Chart : Secondary Structure Chart" href="SecStructureGraphPopup.html" />
+    <link rel="prev" title="DANGLE" href="DangleGui.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DangleGui.html" title="DANGLE"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="deposition-entry-completion-interface">
+<h1>Deposition Entry Completion Interface<a class="headerlink" href="#deposition-entry-completion-interface" title="Permalink to this headline">¶</a></h1>
+<p><strong>Setup Deposition of Coordinate and NMR Data to PDB and BMRB</strong></p>
+<p>The popup version of CcpNmr Entry Completion Interface (ECI), available from
+Analysis in the Structure menu.  With it, you can complete all the necessary
+information required for PDB and BMRB data depositions by adding an &#8220;Entry&#8221;
+object to your CCPN project. An &#8220;Entry&#8221; object contains all the information that
+you wish to deposit with your submission. You can also select chemical shift
+lists, peak lists, structural restraints, ensembles, etc. and all at the click
+of a button. In addition, you can add all the meta data that is required for
+submissions to the PDB and BMRB. This can be done securely on your desktop
+computer over the duration of your NMR project.</p>
+<p>For more documentation see the <a class="reference external" href="http://www.ebi.ac.uk/pdbe/docs/pdbe_nmr_deposition/eci.html">ECI section of the PDBe pages at the EBI web
+site</a>.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="main">
+<h2>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h2>
+<p>Add a new &#8220;Entry&#8221; and check the completeness of it</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Deposition Entry</strong>: Name of &#8220;Entry&#8221; being edited, add a new one with the button at the bottom left of this tab</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecular System</strong>: Name of molecular system used in the study - review it in more detail in the &#8220;Molecules&#8221; tab</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Title</strong>: Title that will be in the header of the PDB file</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>NMR Method Type</strong>: Type of NMR data collected, choose from: solution, solid-state, theoretical or ?</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Submission Type</strong>: Is the deposition for the PDB or BMRB?  The mandatory fields in the completeness report below will reflect the type of deposition to be done</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>*None*</strong>: Keywords that will be in the header of the PDB file</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>+</strong>: Add extra row</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> Text for a detailed description of your study (like a mini abstract)</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> Additional instructions or notes that you wish to convey to the curators about your deposition</p>
+<div class="section" id="completion-report">
+<h3>Completion Report<a class="headerlink" href="#completion-report" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>CCPN Data Type</em></td>
+<td>Indicates mandatory data items for PDB or BMRB depositions - clicking in any field will take you to the correct tab for editing the data  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Comment</em></td>
+<td>Has the mandatory data been completed? Finished data is shown in green. Clicking on any missing data (shown in red, orange, or yellow) will take you to the correct tab so that you can add this information  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add New Deposition Entry</strong>: Add a new &#8220;Entry&#8221; object that can be submitted to the PDB or BMRB</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Current Deposition Entry</strong>: Remove the currently selected &#8220;Entry&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export as NMR-STAR 3.1</strong>: Export an NMR-STAR 3.1 file that can be uploaded in ADIT-NMR</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export PDB Coords</strong>: Export coordinates in PDB format for viewing with Rasmol, etc.</p>
+</div>
+</div>
+<div class="section" id="people">
+<h2>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
+<p>Add people, group and address information</p>
+<div class="section" id="id1">
+<h3>People<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Number of the person in list</td>
+</tr>
+<tr><td><em>Entry Author?</em></td>
+<td>Is the person an author in the &#8220;Entry&#8221;? - toggle by clicking  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Contact?</em></td>
+<td>Is the person a contact person? - toggle by clicking  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Primary Contact?</em></td>
+<td>Is the person the primary contact used by AutoDep? - toggle by clicking  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Family Name</em></td>
+<td>Family name of the person  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Title</em></td>
+<td>Professional title of the person such as Dr, Prof, Mr, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Given Name</em></td>
+<td>Given name of the person  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Initials</em></td>
+<td>Any middle initials in the person&#8217;s name  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Family Title (e.g. Jr.)</em></td>
+<td>Family title of the person like Sr., Jr., III, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Group</em></td>
+<td>Group name that the person is attached to - add new groups in the frame in the bottom left of this tab  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Person</strong>: Add a new person</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Person</strong>: Remove the currently selected person</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Person as Author</strong>: Set the currently selected person as an &#8220;Entry&#8221; author</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Person As Contact</strong>: Set the currently selected person as a contact person</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Person as Primary Contact</strong>: Set the currently selected person as the primary contact</p>
+</div>
+<div class="section" id="group-information">
+<h3>Group Information<a class="headerlink" href="#group-information" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Group Name</em></td>
+<td>Name of the group</td>
+</tr>
+<tr><td><em>Mailing Address</em></td>
+<td>First few lines of the mailing address of the group  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>City</em></td>
+<td>City where the group is located  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>State/Province</em></td>
+<td>State or Province such as Cambridgeshire, CA or ON  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Postal Code</em></td>
+<td>Postal code or ZIP code  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Country</em></td>
+<td>Country where the group is located  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Organisation Type</em></td>
+<td>Type of organisation the group is attached to - from academic, government, commercial or other  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Group</strong>: Add a new group</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Group</strong>: Remove the currently selected group</p>
+</div>
+<div class="section" id="contact-person-information">
+<h3>Contact Person Information<a class="headerlink" href="#contact-person-information" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Family Name</em></td>
+<td>Family name of the person</td>
+</tr>
+<tr><td><em>Given Name</em></td>
+<td>Given name of the person</td>
+</tr>
+<tr><td><em>Email Address</em></td>
+<td>Email address of the person - add with the button below</td>
+</tr>
+<tr><td><em>Telephone</em></td>
+<td>Telephone number of the person  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>FAX</em></td>
+<td>FAX number of the person  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Position</em></td>
+<td>Role of the contact person in the project - principal investigator, responsible person, investigator  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Address</strong>: Add a new email address for the person selected - the person does need to be set to being in a group using the two other frames in this tab</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Address</strong>: Remove the email address and other information for the currently selected person - note it will also remove the link to their group</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Add citations and software used</p>
+<div class="section" id="citations">
+<h3>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Number of the citation in list</td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>Type of citation based on the button used to add it</td>
+</tr>
+<tr><td><em>Submit?</em></td>
+<td>Is the citation to be submitted? Primary, other (for a secondary publication) or no  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Authors</em></td>
+<td>Add authors for the citation based on people added in the preceding tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Editors</em></td>
+<td>Add editors based on people added in the preceding tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Year</em></td>
+<td>Year of publication, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Title</em></td>
+<td>Title of the citation (or title of any book chapters)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Journal Abbrev</em></td>
+<td>The abbreviation of the journal&#8217;s name (only for citations in journals)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Issue</em></td>
+<td>Issue number, only editable if the citation is from a published journal reference  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>Volume number, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>First page</em></td>
+<td>First page number, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Last Page</em></td>
+<td>Final page number, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Status</em></td>
+<td>Publication status of the citation - from published, in press, in preparation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>PubMed ID</em></td>
+<td>PubMed number, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>DOI</em></td>
+<td>Digital Object Identifier, only editable if the status of the citation is set to published  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Keywords</em></td>
+<td>Keywords used in the publication  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional information about the citation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Book Title</em></td>
+<td>Title of the book (for book citations only)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Book Series</em></td>
+<td>Book series (for book citations only)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Book Publisher</em></td>
+<td>Publisher of the book (for book citations only)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>City</em></td>
+<td>City of book publishers, institution of Thesis or conference location (not relevant for journal publications)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Country</em></td>
+<td>Country of institution of Thesis or conference location (not needed for journals and books)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Institution granting Thesis</em></td>
+<td>Name of the institution granting a Thesis  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Conference Title</em></td>
+<td>Name of conference for abstract citations  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Journal Paper</strong>: Add a new journal citation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Book/Chapter</strong>: Add a new book citation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Thesis</strong>: Add a new Thesis citation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Conference Paper</strong>: Add a new conference abstract citation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Citation</strong>: Remove the currently selected citation</p>
+</div>
+<div class="section" id="software">
+<h3>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of the software used</td>
+</tr>
+<tr><td><em>Version</em></td>
+<td>Version number of the software</td>
+</tr>
+<tr><td><em>Tasks</em></td>
+<td>Choose a list of tasks that the software was used for during the study; such as peak picking, chemical shift assignment, data analysis, structure calculation, geometry optimisation, etc  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vendor/Author</em></td>
+<td>Authors or vendors who produced the software  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vendor Address</em></td>
+<td>Mailing address for the software authors/vendors  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vendor Website</em></td>
+<td>Web address for the software authors/vendors  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional information about the software  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Method</em></td>
+<td>Method that the software uses to perform the task; mainly for assignment/peak picking strategies, or for structure calculation methods such as simulated annealing, distance geometry, DGSA, molecular dynamics, matrix relaxation, torsion angle dynamics, etc.  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Software</strong>: Add a new software and version of the software</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Software</strong>: Remove the currently selected software</p>
+</div>
+</div>
+<div class="section" id="nmr-data">
+<h2>NMR Data<a class="headerlink" href="#nmr-data" title="Permalink to this headline">¶</a></h2>
+<p>Add chemical shift lists, peak lists and other NMR datasets</p>
+<div class="section" id="nmr-measurements">
+<h3>NMR Measurements<a class="headerlink" href="#nmr-measurements" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 7</strong></td>
+</tr>
+<tr><td><em>Data Type</em></td>
+<td>Type of NMR data such as shift lists, peak lists, relaxation data, etc.</td>
+</tr>
+<tr><td><em>Available</em></td>
+<td>Number of lists in the CCPN projects for the specific NMR data type</td>
+</tr>
+<tr><td><em>Selected</em></td>
+<td>Number of lists selected for deposition to PDB/BMRB for the specific NMR data type</td>
+</tr>
+<tr><td><em>Notes</em></td>
+<td>Description of the NMR data type</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add All Available NMR data</strong>: Rapidly select all available data lists for deposition to PDB/BMRB</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove All NMR data</strong>: De-select all data lists for PDB/BMRB deposition - at least one chemical shift list is now mandatory for all depositions</p>
+</div>
+<div class="section" id="nmr-lists-selected-for-deposition">
+<h3>NMR Lists Selected for Deposition<a class="headerlink" href="#nmr-lists-selected-for-deposition" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 8</strong></td>
+</tr>
+<tr><td><em>ShiftList</em></td>
+<td>Indicate the type and name of each list, based on list type selectd in the top frame</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of list which can also be changed  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Size</em></td>
+<td>Number of data points in the list</td>
+</tr>
+<tr><td><em>Submit?</em></td>
+<td>Is the list selected for deposition? - toggle by clicking  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Software</em></td>
+<td>Software used to make the list - the software will also need a method selected in the References tab  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Select All</strong>: Select all lists of the selected data type</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Select</strong>: Submit the currently selected data list</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unselect</strong>: De-select all lists of the selected data type</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unselect All</strong>: De-select the currently selected data list</p>
+</div>
+</div>
+<div class="section" id="shifts">
+<h2>Shifts<a class="headerlink" href="#shifts" title="Permalink to this headline">¶</a></h2>
+<p>Add chemical shift references and look for chemical shift outliers</p>
+<div class="section" id="chemical-shift-references">
+<h3>Chemical Shift References<a class="headerlink" href="#chemical-shift-references" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 9</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the chemical shift reference specification</td>
+</tr>
+<tr><td><em>Class</em></td>
+<td>Whether the chemical shift reference is internal or external to the sample</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The kind of nuclear isotope to which the reference appliesThe number of experiments in the project which use the shift reference specification  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Experiments</em></td>
+<td>The name of the molecule used to give a reference value to chemical shifts</td>
+</tr>
+<tr><td><em>Mol. Name</em></td>
+<td>Which atom of the reference molecule provides the reference chemical shift value  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Atom</em></td>
+<td>The reference value of the chemical shift for the specified atom  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>Which measurement unit the chemical shift reference value is in; ppm, ppb or ppt  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>Whether the chemical shift referencing is direct or indirect (and thus uses a shift ratio) - this field can be toggled  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Ref Type</em></td>
+<td>The precise numeric ratio used to indirectly get the reference shift value of an isotope, given the direct measurement of a different isotope  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Indirect Shift Ratio</em></td>
+<td>For external references, a description of the geometry of the container used to hold the reference compound - for example, cylindrical or spherical  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Sample Geometry</em></td>
+<td>For external references, a description of the location of the reference  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Location</em></td>
+<td>For external references, orientation of the reference container with respect to external magnetic field - for example, parallel or perpendicular  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Axis</em></td>
+<td><em>Documentation missing</em>  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Standard IUPAC References</strong>: Add standard IUPAC chemical shift references for 1H, 13C, 15N and 31P</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Internal Reference</strong>: Add a new record for a chemical shift reference that is internal to the sample</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add External Reference</strong>: Add a new record for a chemical shift reference that is external to the sample</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Selected</strong>: Delete the selected chemical shift reference records</p>
+</div>
+<div class="section" id="unusual-chemical-shifts">
+<h3>Unusual Chemical Shifts<a class="headerlink" href="#unusual-chemical-shifts" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Choose a chemical shift from the CCPN project</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 10</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the resonance</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The nuclear isotope type of the resonance</td>
+</tr>
+<tr><td><em>Resonance</em></td>
+<td>The assignment annotation for the resonance</td>
+</tr>
+<tr><td><em>PPM</em></td>
+<td>Actual chemical shift of the resonance</td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>Standard deviation of shift in multiple experiments???</td>
+</tr>
+<tr><td><em>BMRB Mean</em></td>
+<td>The average chemical shift for the atom type given in BioMagResBank data</td>
+</tr>
+<tr><td><em>Random Coil</em></td>
+<td>The sequence-adjusted random coil chemical shift value for the atom type</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="molecules">
+<h2>Molecules<a class="headerlink" href="#molecules" title="Permalink to this headline">¶</a></h2>
+<p>Review the molecules, chains and unusual chemical components in your molecular system</p>
+<div class="section" id="molecular-system-chains">
+<h3>Molecular System Chains<a class="headerlink" href="#molecular-system-chains" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 11</strong></td>
+</tr>
+<tr><td><em>Chain Code</em></td>
+<td>Code identifier for this chain</td>
+</tr>
+<tr><td><em>Length</em></td>
+<td>Number of residues in chain</td>
+</tr>
+<tr><td><em>Molecule</em></td>
+<td>Name of template molecule as shown in middle frame</td>
+</tr>
+<tr><td><em>Conformational Isomer</em></td>
+<td>For biopolymers or ligands, does the indicated component of the system represent an observed conformational isomer of another component of the system. For example, component one may represent a polypeptide chain with proline 34 in the cis conformation and component two may represent the polypeptide chain with proline 34 in the trans conformation. In another example, component one may be alpha-D-glucose and component two beta-D-glucose  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Chemical Exchange State</em></td>
+<td>A flag indicating whether the component of the system is in chemical exchange with another component of the system. Set as &#8216;yes&#8217; if the component is in chemical exchange with another component in the system - for example ligands that are present in both the free and bound states  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Folded State</em></td>
+<td>An enumerated list of descriptive terms used to define the conformational state of the component of the assembly - for example, native, unfolded, etc.  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="molecules-in-entry">
+<h3>Molecules in Entry<a class="headerlink" href="#molecules-in-entry" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 12</strong></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Name of template molecule</td>
+</tr>
+<tr><td><em>Molecule Type</em></td>
+<td>Standard derived type of molecule - for example, protein, DNA, RNA, etc.</td>
+</tr>
+<tr><td><em>Number of Residues</em></td>
+<td>Number of residues in this molecule</td>
+</tr>
+<tr><td><em>Sequence</em></td>
+<td>One letter sequence of the molecule (shows the first 25 residues for longer polymers)</td>
+</tr>
+<tr><td><em>Is it Paramagnetic?</em></td>
+<td>Is this molecule paramagnetic? - derived boolean value</td>
+</tr>
+<tr><td><em>Database Name</em></td>
+<td>Database name of cross reference (for example UniProt, GenBank, PDB, etc.), setting this will set a temporary value for the accession code, which should be set to the correct value  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Database Acc. Number</em></td>
+<td>Accession number for cross reference - it can only be set after adding a database name and will then be initialised to &#8216;TmpAcc&#8217;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Database Details</em></td>
+<td>Additional details pertaining to the database cross reference  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Domain or Fragment</em></td>
+<td>Give the name of the fragment if the protein or necleic acid is a part of a larger molecule with a well established biological function  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>EC Number</em></td>
+<td>Enzyme Commission number if the molecule is an enzyme  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Mutations</em></td>
+<td>Specify any mutations that have been introduced into the molecular entity - for example, Y20A  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details pertaining to this molecule or its sequence  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="non-standard-non-polymer-chem-comps">
+<h3>Non-standard &amp; Non-polymer Chem Comps<a class="headerlink" href="#non-standard-non-polymer-chem-comps" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 13</strong></td>
+</tr>
+<tr><td><em>CcpCode</em></td>
+<td>The CCPN code of the compound</td>
+</tr>
+<tr><td><em>PDB Code</em></td>
+<td>The PDB three-letter code of the compound</td>
+</tr>
+<tr><td><em>Mol. Type</em></td>
+<td>Derived molecule type of chemical component - for example, protein, ???</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The long chemical name of the compound</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<p>Add experimental and biological sources</p>
+<div class="section" id="experimental-sample-sources">
+<h3>Experimental Sample Sources<a class="headerlink" href="#experimental-sample-sources" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 14</strong></td>
+</tr>
+<tr><td><em>Scientific Name</em></td>
+<td>The standard scientific name for the source organism of this molecule - choose from a list of standard recombinant organisms or &#8216;synthetic&#8217;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Common Name</em></td>
+<td>The common name for the source organism of this molecule  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Molecule</em></td>
+<td>The name of the linked template polymeric molecule</td>
+</tr>
+<tr><td><em>Production Method</em></td>
+<td>The method that was used to produce the organism - choose from a list including recombinant technology, chemical synthesis, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Host strain</em></td>
+<td>Strain information about the source organism  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vector Type</em></td>
+<td>The type of vector used such as plasmid, cosmid, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vector Name</em></td>
+<td>The specific name of the vector used if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Cell Line</em></td>
+<td>The cell line that was used if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Variant</em></td>
+<td>Variant details about the source organism if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about the production method or source organism  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Polymer Experimental Sources</strong>: Adds experimental and natural sources for all polymers in the molecular system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Experimental Source</strong>: Remove the currently selected experimental source</p>
+</div>
+<div class="section" id="biological-sequence-origin">
+<h3>Biological &amp; Sequence Origin<a class="headerlink" href="#biological-sequence-origin" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 15</strong></td>
+</tr>
+<tr><td><em>Scientific Name</em></td>
+<td>The standard scientific name for the biological or natural source of this molecule - choose from a list of the most common organisms in the PDB, which will also set the common name  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Common Name</em></td>
+<td>The common name for the biological or natural source organism of this molecule  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Molecule</em></td>
+<td>The name of the linked template polymeric molecule</td>
+</tr>
+<tr><td><em>Organism Type</em></td>
+<td>The type of organism that the molecule is from - for example, organism, virus, plasmid, no natural source, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Strain</em></td>
+<td>Strain information about the source organism  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Variant</em></td>
+<td>Variant details about the source organism if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Gene Name</em></td>
+<td>Name of the gene that the protein is produced from  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Cell Line</em></td>
+<td>The cell line that the protein is made from if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>ATCC Number</em></td>
+<td>American Type Culture Collection number if sample comes from that organisation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Organ</em></td>
+<td>The organ in which the protein is located if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Tissue</em></td>
+<td>The tissue in which the protein is located if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Cell Type</em></td>
+<td>The cell type that the protein is made from if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Organelle</em></td>
+<td>The organelle in which the protein is located if applicable  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about the host biological organism  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Polymer Natural Sources</strong>: Adds natural sources for all polymers in the molecular system (these are usually added when experimental sources are added)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Natural Source</strong>: Remoevs the currently selected natural source</p>
+</div>
+</div>
+<div class="section" id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>Add sample, sample component and isotope labelling information</p>
+<div class="section" id="id2">
+<h3>Samples<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 16</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the sample</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name used to label the sample</td>
+</tr>
+<tr><td><em>Solvent System</em></td>
+<td>The solvent composition of this sample - for example, 90% H2O/10% D2O, 100% D2O, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about the sample  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Sample</strong>: Add a new sample to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Sample</strong>: Remove the currently selected sample from the CCPN project</p>
+</div>
+<div class="section" id="sample-components">
+<h3>Sample Components<a class="headerlink" href="#sample-components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 17</strong></td>
+</tr>
+<tr><td><em>Molecular Component</em></td>
+<td>Common molecular name of the component from the sample selected in the top frame</td>
+</tr>
+<tr><td><em>Isotopic Labelling</em></td>
+<td>Isotopic labelling in standard IUPAC format - a common set is given in the pulldown menu or use the example provided to specify your own isotopic labelling  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Concentration</em></td>
+<td>Concentration value  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Error</em></td>
+<td>Error in concentration value  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>Unit of concentration - from: &#8216;kg/m3&#8217;, &#8216;M&#8217;, &#8216;m3/m3&#8217;, &#8216;mol/mol&#8217;, &#8216;kg/kg&#8217; - use &#8216;m3/m3&#8217; to solute ratios  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Polymer Sample Components</strong>: Add the names of all polymeric components from your molecular system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Other Sample Component</strong>: Add the names of other components in this sample</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Sample Component</strong>: Remove the currently selected component</p>
+</div>
+</div>
+<div class="section" id="nmr-conditions">
+<h2>NMR Conditions<a class="headerlink" href="#nmr-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Add experimental conditions used in your NMR experiments</p>
+<div class="section" id="nmr-condition-sets">
+<h3>NMR Condition Sets<a class="headerlink" href="#nmr-condition-sets" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 18</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the condition set</td>
+</tr>
+<tr><td><em>Condition Set</em></td>
+<td>The name used to label the condition set  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about the condition set  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Condition Set</strong>: Add a new condition set to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Condition Set</strong>: Remove the currently select condition set from the CCPN project</p>
+</div>
+<div class="section" id="id3">
+<h3>NMR Conditions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 19</strong></td>
+</tr>
+<tr><td><em>Condition</em></td>
+<td>The name of the variable used to define a specific sample condition - for example, temperature, pH, etc.</td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>The experimental value of the condition selected  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Error</em></td>
+<td>The experiemental error in the condition selected  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Unit</em></td>
+<td>The unit used to measure the condition - for example, K for temperature  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Standard Conditions</strong>: This button adds the four standard condtions: temperature, pH, pressure and ionic strength</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Condition</strong>: Add other types of condition to the set</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Condition</strong>: Remove currently selected condition from the set</p>
+</div>
+</div>
+<div class="section" id="instruments">
+<h2>Instruments<a class="headerlink" href="#instruments" title="Permalink to this headline">¶</a></h2>
+<p>Add NMR spectrometers and probes</p>
+<div class="section" id="nmr-spectrometers">
+<h3>NMR Spectrometers<a class="headerlink" href="#nmr-spectrometers" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 20</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of the NMR spectrometer specification</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>A name for the spectrometer, for graphical displays  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Nominal Freq.</em></td>
+<td>The rounded spectrometer frequency, from the 1H resonance frequency in MHz, used in textual description - for example. &#8216;500&#8217;, &#8216;900&#8217;</td>
+</tr>
+<tr><td><em>Proton Freq. (MHz)</em></td>
+<td>The actual numeric magnetic field strength expressed as a 1H resonance frequency in MHz (also sets and rounds the nominal value) - for example &#8216;500.013&#8217;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Manufacturer</em></td>
+<td>Manufacturer name - choose from a list including Bruker, Varian, GEOL, Custom, etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Model</em></td>
+<td>The manufacturer&#8217;s definition of the spectrometer model - choose from a list based on the manufacturer  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Serial #</em></td>
+<td>The manufacturer&#8217;s serial number for the specific NMR spectrometer  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-specified textual comment about the NMR spectrometer  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Spectrometer</strong>: Add a new NMR spectrometer specification to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Spectrometer</strong>: Delete the selected NMR spectrometer specification from the CCPN project</p>
+</div>
+<div class="section" id="nmr-probes">
+<h3>NMR Probes<a class="headerlink" href="#nmr-probes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 21</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of NMR probe specification</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the probe for graphical representation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>A classification for the kind of probe used - for example, liquid, solid, nano, flow or MAS  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Manufacturer</em></td>
+<td>Manufacturer name  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Model</em></td>
+<td>The manufacturer&#8217;s definition of the probe model  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Serial #</em></td>
+<td>The manufacturer&#8217;s serial number for the specific NMR probe  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Diameter (cm)</em></td>
+<td>The probe diameter in cm  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-specified textual comment about the probe  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Probe</strong>: Add a new NMR probe specification to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Probe</strong>: Remove the selected NMR probe specification from the CCPN project</p>
+</div>
+</div>
+<div class="section" id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
+<p>Add NMR experiments and link data about samples, conditions, instruments, shift references and shift lists added in the previous tabs to the experiments</p>
+<div class="section" id="id4">
+<h3>Experiments<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 22</strong></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The textual name for the experiment, for graphical displays  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Submit?</em></td>
+<td>Is this experiment to be submitted? - toggle by clicking (note if the experiment is part of a selected peak list, it will automatically be submitted)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Systematic Name</em></td>
+<td>The name defined by the CCPN data model for this experiment or the user-defined name if no reference NMR experiment has been defined</td>
+</tr>
+<tr><td><em>Sample State</em></td>
+<td>The state that best describes the sample and any molecular ordering; liquid (solution), solid, powder, ordered or crystalline  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Sample</em></td>
+<td>Choose which sample was used to perform the experiment from the list added to the CCPN project in the &#8220;Samples&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Condition Set</em></td>
+<td>Choose which sample condition set was used to perform the experiment from the list added to the CCPN project in the &#8220;NMR Conditions&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Chemical Shift Ref.</em></td>
+<td>Choose multiple chemical shift references were used for any chemical shift list that the experiment was used to compile from the list added to the CCPN project in the &#8220;Shifts&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Raw data?</em></td>
+<td>Is the raw data available?</td>
+</tr>
+<tr><td><em>Spectrometer</em></td>
+<td>Choose which NMR spectrometer was used to perform the experiment from the list added to the CCPN project in the &#8220;Instruments&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Probe</em></td>
+<td>Choose which NMR probe was used to perform the experiment from the list added to the CCPN project in the &#8220;Instruments&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Chemical Shift List</em></td>
+<td>Choose a chemical shift list that the NMR experiment was used to compile, if applicable - the shift list should be selected for submission in the &#8220;NMR Data&#8221; tab  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Experiment</strong>: Add a new NMR experiment record to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Experiment</strong>: Remove the currently selected NMR experiment from the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Submit All</strong>: Add all NMR experiments in the list to the &#8220;Entry&#8221; deposition object</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Submit Minimal</strong>: Just submit a minimal list of NMR experiments - any experiments used in submitted peak lists will remain to be submitted</p>
+</div>
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<p>Add a structure generation and link a structural ensemble and restraint sets to it</p>
+<div class="section" id="structure-generations">
+<h3>Structure Generations<a class="headerlink" href="#structure-generations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 23</strong></td>
+</tr>
+<tr><td><em>Structure Generation #</em></td>
+<td>The serial number of the structure generation</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name used to label the structure generation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Submit?</em></td>
+<td>Is this structure generation to be submitted? - toggle by clicking  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Generation Type</em></td>
+<td>Type of structure generation - denovo or refinement  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about the structure generation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Software</em></td>
+<td>Software used to make the structure ensemble in this structure generation - the software will also need a method selected in the &#8220;References&#8221; tab  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Ensemble #</em></td>
+<td>Select from the structure ensembles in the CCPN project (shown in the middle frame) that was calculated using this structure generation  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Constraint Set #</em></td>
+<td>Select from the constraint sets in the CCPN project (shown in the bottom frame) that was used to calculate the structure ensemble in this structure generation  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Structure Generation</strong>: Add a new structure generation to the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Structure Generation</strong>: Remove the currently selected structure generation from the CCPN project</p>
+</div>
+<div class="section" id="structure-ensembles">
+<h3>Structure Ensembles<a class="headerlink" href="#structure-ensembles" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 24</strong></td>
+</tr>
+<tr><td><em>Structure Ensemble #</em></td>
+<td>The serial number of the structure ensemble</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about this structure ensemble  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Models</em></td>
+<td>Number of models selected in this structure ensemble</td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>A list of chains in the molecular system that are represented in the structure ensemble</td>
+</tr>
+<tr><td><em>Residues</em></td>
+<td>The number of residues summed over all chains represented in the structure ensemble</td>
+</tr>
+<tr><td><em>Calculated Models</em></td>
+<td>Number of models calculated in this structure ensemble  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Selection Criteria</em></td>
+<td>Criteria used to select models to represent the structure ensemble from all calculated models  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Representative Model</em></td>
+<td>The representative model for the structure ensemble  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Selection Criteria for Representative</em></td>
+<td>Criteria used to select the representative model in the structure ensemble  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="constraint-sets">
+<h3>Constraint Sets<a class="headerlink" href="#constraint-sets" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Constraint Set</strong>: Choose a constraint set from the CCPN project (there may be multiple constraint lists in each set)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 25</strong></td>
+</tr>
+<tr><td><em>Constraint List #</em></td>
+<td>The serial number of the constraint list</td>
+</tr>
+<tr><td><em>Constraint Type</em></td>
+<td>The type of constraints in this list - for example, distances, NOEs, dihedral angles, RDCs, etc</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name used to label this constraint list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>Additional details about this constraint list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Number of Constraints</em></td>
+<td>The number of constraints found in this list</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deposition Entry Completion Interface</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#main">Main</a><ul>
+<li><a class="reference internal" href="#completion-report">Completion Report</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#people">People</a><ul>
+<li><a class="reference internal" href="#id1">People</a></li>
+<li><a class="reference internal" href="#group-information">Group Information</a></li>
+<li><a class="reference internal" href="#contact-person-information">Contact Person Information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a><ul>
+<li><a class="reference internal" href="#citations">Citations</a></li>
+<li><a class="reference internal" href="#software">Software</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nmr-data">NMR Data</a><ul>
+<li><a class="reference internal" href="#nmr-measurements">NMR Measurements</a></li>
+<li><a class="reference internal" href="#nmr-lists-selected-for-deposition">NMR Lists Selected for Deposition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shifts">Shifts</a><ul>
+<li><a class="reference internal" href="#chemical-shift-references">Chemical Shift References</a></li>
+<li><a class="reference internal" href="#unusual-chemical-shifts">Unusual Chemical Shifts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#molecules">Molecules</a><ul>
+<li><a class="reference internal" href="#molecular-system-chains">Molecular System Chains</a></li>
+<li><a class="reference internal" href="#molecules-in-entry">Molecules in Entry</a></li>
+<li><a class="reference internal" href="#non-standard-non-polymer-chem-comps">Non-standard &amp; Non-polymer Chem Comps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sources">Sources</a><ul>
+<li><a class="reference internal" href="#experimental-sample-sources">Experimental Sample Sources</a></li>
+<li><a class="reference internal" href="#biological-sequence-origin">Biological &amp; Sequence Origin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#samples">Samples</a><ul>
+<li><a class="reference internal" href="#id2">Samples</a></li>
+<li><a class="reference internal" href="#sample-components">Sample Components</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nmr-conditions">NMR Conditions</a><ul>
+<li><a class="reference internal" href="#nmr-condition-sets">NMR Condition Sets</a></li>
+<li><a class="reference internal" href="#id3">NMR Conditions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#instruments">Instruments</a><ul>
+<li><a class="reference internal" href="#nmr-spectrometers">NMR Spectrometers</a></li>
+<li><a class="reference internal" href="#nmr-probes">NMR Probes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experiments">Experiments</a><ul>
+<li><a class="reference internal" href="#id4">Experiments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structures">Structures</a><ul>
+<li><a class="reference internal" href="#structure-generations">Structure Generations</a></li>
+<li><a class="reference internal" href="#structure-ensembles">Structure Ensembles</a></li>
+<li><a class="reference internal" href="#constraint-sets">Constraint Sets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DangleGui.html"
+                        title="previous chapter">DANGLE</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SecStructureGraphPopup.html"
+                        title="next chapter">Chart : Secondary Structure Chart</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EntryCompletionPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SecStructureGraphPopup.html" title="Chart : Secondary Structure Chart"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DangleGui.html" title="DANGLE"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

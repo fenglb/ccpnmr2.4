@@ -1,0 +1,1255 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PeakBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="PrintBasic" href="PrintBasic.html" />
+    <link rel="prev" title="MoleculeBasic" href="MoleculeBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PrintBasic.html" title="PrintBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="MoleculeBasic.html" title="MoleculeBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.PeakBasic">
+<span id="peakbasic"></span><h1>PeakBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.PeakBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.addPeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">addPeak</tt><big>(</big><em>peakList</em>, <em>position</em>, <em>tile=None</em>, <em>parent=None</em>, <em>doFit=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.addPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a peak to a peak list at a position in a specified GUI tile location</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.PeakList, List of Floats (Nmr.PeakDim.positions),</dt>
+<dd>List of Ints (Nmr.PeakDim.numAliasing), Tkinter.widget (GUI parent)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.addPeakToSelected">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">addPeakToSelected</tt><big>(</big><em>peak</em>, <em>parent=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.addPeakToSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a peak to the GUI current peak selection</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Tkinter.widget 
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.aliasedPeakDimPosition">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">aliasedPeakDimPosition</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.aliasedPeakDimPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the aliased points position of a given peak dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim
+.. describe:: Output</p>
+<p>Float (Nmr.PeakDim.position points)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.arePeaksAssignedSame">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">arePeaksAssignedSame</tt><big>(</big><em>peakA</em>, <em>peakB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.arePeaksAssignedSame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether peaks carry the same resonance assignments.
+PeakDimContrib order unimportant. If one peak has a lower dimensionality
+than the other then the best overlapping mapping of dims is considered:
+e.g. 3D and 2D NOESY peaks have same asignment if common 1H dims carry same
+resonances. Reciprocal peaks; e.g. with resonances (r1, r2) and (r2, r1)
+respectively on their dims, are considered to be assigned the same.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.Peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.checkContourRegion">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">checkContourRegion</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.checkContourRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the contours of a peaks spectrum extend to cover the input peak&#8217;s position.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.copyPeakList">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">copyPeakList</tt><big>(</big><em>peakList</em>, <em>destPeakList</em>, <em>progressBar=None</em>, <em>rePick=False</em>, <em>peaks=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.copyPeakList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies peaks from one peak list to another if appropriate, i.e dimension isotopes match
+Has the option to re-pick peaks, rather than doing a straight copy,
+NB this routine will <em>not</em> handle subpeaks correctly.
+Optional argument to copy only a subset of peaks from the source peak list.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.PeakList, ProgressBar, Boolean, List of Nmr.Peaks</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.copyPeakListNew">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">copyPeakListNew</tt><big>(</big><em>peakList</em>, <em>destDataSource</em>, <em>peakListParams=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.copyPeakListNew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies an entire peak list to another (or the same) DataSource)
+There are no appropriateness tests (so far)
+NB this routine <em>will</em> handle subpeaks correctly
+NB spectra must have same referencing otherwise peak points will
+not make sense</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.DataSource, dictionary
+peakListParams is a dictionary of parameters that will be passed
+to the copy of the peaklist (for e.g. changing its name)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList (new peak list)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.deletePeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">deletePeak</tt><big>(</big><em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.deletePeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete given peaks with a warning</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks
+.. describe:: Output</p>
+<p>Boolean (success)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.doPeaksOverlap">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">doPeaksOverlap</tt><big>(</big><em>peakA</em>, <em>peakB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.doPeaksOverlap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Determine if two peaks overlap accordint to their data dim</dt>
+<dd>assignment tolerance.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.Peak
+.. describe:: Output</p>
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findClosePeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findClosePeaks</tt><big>(</big><em>peak</em>, <em>peakList</em>, <em>tolerances=None</em>, <em>pickNewPeaks=False</em>, <em>considerAliased=False</em>, <em>dimMapping=None</em>, <em>noiseThreshold=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findClosePeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find peaks in a peak list within position tolerances of the input peak.
+Default tolerances are the assignment tolerances for each dimension
+The peak dimension distances are weighted according to the tolerances.
+Option to pick new peaks if no existing peaks are found.
+Option to look for peaks at aliased positions.
+Optional dict can be passed in to say how peak dims map together (list
+indices start at 0, key is for input peak).
+New peaks will not be picked below the noiseThreshold.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.PeakList, List of Floats, Boolean, Boolean, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findDataDimRegions">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findDataDimRegions</tt><big>(</big><em>dataDim</em>, <em>region</em>, <em>axisUnit</em>, <em>thickness</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findDataDimRegions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a region of a data dimension in terms of a  given axis unit with extra thickness if required</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.FreqDataDim, List of List of Floats (min,max poitions), Word (ShiftList.unit), List of Floats
+.. describe:: Output</p>
+<p>List of Tuple of Floats min,max poitions), Float (min value), Float (max value)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findMatchingPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findMatchingPeaks</tt><big>(</big><em>peakList</em>, <em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findMatchingPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find peaks within a peak list that are within the data dim assignment tolerance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, Nmr.PeakDim
+.. describe:: Output</p>
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findNumAliasing">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findNumAliasing</tt><big>(</big><em>dataDimRef</em>, <em>p</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findNumAliasing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the number if aliased spectral widths at a given point for a reference data dimension</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataDimRef, Float
+.. describe:: Output</p>
+<p>Int (number of aliasings)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findPeakBoxValues">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findPeakBoxValues</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findPeakBoxValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the value of a peak&#8217;s box width</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>List of List of Floats (min,max points positions for dim), List of Floats (Nmr.PeakDim.BoxWidth in points), List of Floats (centre position)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findPeakVolume">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findPeakVolume</tt><big>(</big><em>peak</em>, <em>volumeMethod=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findPeakVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the volume of a peak using the volume method passed in, or if not set then the one stored in application specific data.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findPeaks</tt><big>(</big><em>peakList</em>, <em>region</em>, <em>parent=None</em>, <em>thickness=None</em>, <em>excludedRegions=None</em>, <em>intensityThreshold=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pick new peaks in a given region (units: ppm) of a peak list.
+Thickness (units: points) can be specified for orthogonal dimensions
+to include extra planes (must be of length ndim).
+ExcludedRegions (units: points) can be specified to exclude a list of
+regions.  Each list is an ndim list of 2-tuples, with each 2-tuple the
+(min, max) of that dimension.
+Peaks are added to the GUI current selection.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, List of List of Floats (min,max positions) in ppm, &#8216;w&#8217;idget,
+List of Floats, List of List of 2-tuples of Floats in points</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findPositionMatches">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findPositionMatches</tt><big>(</big><em>peaks</em>, <em>dimDict</em>, <em>peakLists=None</em>, <em>matchTolerance=None</em>, <em>separateSpinSystems=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findPositionMatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search the target peaklist or the peak lists of the input peaks for other
+groups of peaks which have matches to the positions of the input peaks in the
+given dimension. The search dimension is given but the input dictionary, keyed
+by peak list. Returns a ranked list of group positions in order of strength of
+match. Option to pass in a tolerance for the match dimension. Option to
+separate groups according to spinSystem assignment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Dict of (NmrPeakList:Int) Int, Nmr.PeakLists,
+Float, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Tuple of (Float, List of Floats (positions), List of Nmr.Peaks)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findSameAssignmentPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findSameAssignmentPeaks</tt><big>(</big><em>peak</em>, <em>peakList=None</em>, <em>onlyFullyAssigned=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findSameAssignmentPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a peak in a peak list (or all peak lists if none is specified)
+with the same assignment as the input peak, if it exists. Option to
+specifiy that the funtion only works for fully assigned peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.PeakList</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findShiftDistPeakMatches">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findShiftDistPeakMatches</tt><big>(</big><em>peak</em>, <em>peakList</em>, <em>threshold</em>, <em>scaleFactorDict=None</em>, <em>considerAliased=True</em>, <em>dimMapping=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findShiftDistPeakMatches" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find peaks within a given shift distance threshold of a peak and</dt>
+<dd>rank them by distance. A different threshold is uesd for each peak
+dim accoding to a dictonary of scale factors keyed by isotope.
+Option to specify dim mapping for source to target dims
+(starts at 0)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Nmr.Peak, Nmr.PeakList, Floats (threshold),</dt>
+<dd>Dict of ExpdimRef.isotopeCode:Float, Dict of Int:Int</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-Lists [Float, Nmr.Peak] - (distance, peak)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.findSymmetryPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">findSymmetryPeaks</tt><big>(</big><em>peak</em>, <em>tolerances=None</em>, <em>peakLists=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.findSymmetryPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the symmetry related transpose peaks (e.g. NOE return) </dt>
+<dd>within tolerances given an input peak.
+Option to search a given set of peak lists the
+default is otherwise the input peaks list.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peak
+.. describe:: Output</p>
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.fitPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">fitPeaks</tt><big>(</big><em>peaks</em>, <em>fitMethod</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.fitPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit peaks using the specified fitMethod.
+Input: peaks, all assumed to be from the same peakList.</p>
+<blockquote>
+fitMethod (String)</blockquote>
+<p>Output: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getAliasedPeakDimPositions">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getAliasedPeakDimPositions</tt><big>(</big><em>peakDim</em>, <em>shiftRanges</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getAliasedPeakDimPositions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Give all the aliased/unaliased positions of a peakDim either in a</dt>
+<dd>specified shift range or the full range for the dimension type.
+Units for the shift ranges are ppm. Note this function uses the
+actual spectrum locations, rather than coupling center. Use the
+AssignmentBasic version to consider the center of multiplets.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, List of (Tuples of Floats (MinShift,MaxShift) ) 
+.. describe:: Output</p>
+<p>List of Floats (Nmr.PeakDim.positions)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getClosestPeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getClosestPeak</tt><big>(</big><em>peak</em>, <em>peaks</em>, <em>tolerances</em>, <em>dimMapping=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getClosestPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the closest peak to the input peak from a list of peaks.
+The peak dimensions are weighted according to input tolerances.
+Optional dict can be passed in to say how peak dims map together (list
+indices start at 0).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Nmr.Peaks, List of Floats, Dict of Int:Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getDataDimMapping">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getDataDimMapping</tt><big>(</big><em>dataSource</em>, <em>targetDataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getDataDimMapping" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a mapping of the mapping of the dimensions of one</dt>
+<dd>spectrum onto another, where they match.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Nmr.DataSource
+.. describe:: Output</p>
+<p>Dict of Int:Int (DataDim.dim:DataDim.dim)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getDataDimRefMapping">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getDataDimRefMapping</tt><big>(</big><em>dataSource</em>, <em>targetDataSource</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getDataDimRefMapping" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a mapping of the dataDimRefs for a data source to the equivalent</dt>
+<dd>dataDimRefs in a target data source. Assumes spectra with same types
+and number of dims.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Nmr.DataSource
+.. describe:: Output</p>
+<p>Dict of Nmr.DataDimRef:Nmr.DataDimRef</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getDiagonalExclusion">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getDiagonalExclusion</tt><big>(</big><em>dataDim1</em>, <em>dataDim2</em>, <em>exclusion</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getDiagonalExclusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the diagonal exclusion for (dataDim1, dataDim2)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AbstractDataDim, Nmr.AbstractDataDim
+.. describe:: Output</p>
+<dl class="docutils">
+<dt>The diagonal exclusion as a 5-tuple:</dt>
+<dd>(dim1, dim2, dim1 scale, dim2 scale, dim1 to dim2 translation)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getDiagonalExclusions">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getDiagonalExclusions</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getDiagonalExclusions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the diagonal exclusions for a given spectrum (used in C world).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource
+.. describe:: Output</p>
+<dl class="docutils">
+<dt>List of diagonal exclusions, each is a 5-tuple:</dt>
+<dd>(dim1, dim2, dim1 scale, dim2 scale, dim1 to dim2 translation)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getExclusionInfo">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getExclusionInfo</tt><big>(</big><em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getExclusionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the exclusion information for dataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AbstractDataDim
+.. describe:: Output</p>
+<dl class="docutils">
+<dt>The exclusion information as a 2-tuple:</dt>
+<dd>(scale, translation)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getIsotopeWeightedTolerances">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getIsotopeWeightedTolerances</tt><big>(</big><em>peak</em>, <em>tolerance</em>, <em>scaleFactorDict=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getIsotopeWeightedTolerances" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Weight a shift distance tolerance according to the isotopes</dt>
+<dd>that correspond to a peak dimension, with the option to
+pass in the isotope scale factors.
+Also returns scale factors used for each dimension.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak,  Float (tolerance), Dict of Resonance.isotopeCode:Float (isotope: scale factor)
+.. describe:: Output</p>
+<p>List of Floats (tolerences), List of Floats (scale factors)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakAnnotation</tt><big>(</big><em>peak</em>, <em>noPeakAnnotationChar=''</em>, <em>noPeakDimAnnotationChar=''</em>, <em>joinChar=''</em>, <em>doPeakDims=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get annotation text for the peak.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.Peak, String, String, String</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakDimPosition">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakDimPosition</tt><big>(</big><em>peakDim</em>, <em>toUnit='point'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakDimPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the position of peak dimension in specified units</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Word (ShiftList.unit)
+.. describe:: Output</p>
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakDimPpm">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakDimPpm</tt><big>(</big><em>peakDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakDimPpm" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Often depricated given peakDim.value</strong> Get the position of a peak dimension in PPM</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim
+.. describe:: Output</p>
+<p>Float (ppm)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakHeight">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakHeight</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakHeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives a peak&#8217;s height</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>Float (Nmr.PeakIntensity.value)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakIntensity">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakIntensity</tt><big>(</big><em>peak</em>, <em>intensityType</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives a peak&#8217;s intensity value according to the input intensity type</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>Float (Nmr.PeakIntensity.value)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakMatchRegion">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakMatchRegion</tt><big>(</big><em>peak</em>, <em>tolerances</em>, <em>considerAliased=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakMatchRegion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a region (list of min max bound for each dimension) around a</dt>
+<dd>peak position with bounds set by input tolerances. The region will
+be twice the tolerance width and centered on the peakDim position.
+Option to also consider aliased/unaliased positions</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Floats (tolerances for each Nmr.PeakDim), Boolean
+.. describe:: Output</p>
+<p>List of List of (Float, Float)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeakVolume">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeakVolume</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeakVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives a peak&#8217;s volume</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>Float (Nmr.PeakIntensity.value)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getPeaksOverlapScore">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getPeaksOverlapScore</tt><big>(</big><em>peakA</em>, <em>peakB</em>, <em>tolerances=None</em>, <em>considerAliased=False</em>, <em>dimMapping=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getPeaksOverlapScore" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a score for how well overlapped two peaks are. Scores for each peak dimension are normalised with respect to</dt>
+<dd>input dimension tolerances (often DataDim assignment tolerance)
+Default tolerances are the assignment tolerances for each dimension
+Option to score peaks when there may be an aliasing mismatch.
+Optional dict can be passed in to say how peak dims map together (list
+indices start at 0).</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Nmr.Peak, List of Floats (tolerances for each Nmr.PeakDim), Boolean, Dict of Int:Int
+.. describe:: Output</p>
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.getSpinSystemLinksLabel">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">getSpinSystemLinksLabel</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.getSpinSystemLinksLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a setring describing the spin system connectivities of a peak.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>Line</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.isPeakInRegion">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">isPeakInRegion</tt><big>(</big><em>peak</em>, <em>region</em>, <em>acceptAlias=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.isPeakInRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether a peak is within a given region optionally considering aliasing</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of List of Floats (min,max poitions), Boolean
+.. describe:: Output</p>
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.makeIntermediatePeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">makeIntermediatePeak</tt><big>(</big><em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.makeIntermediatePeak" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a peak which is intermediate in position to</dt>
+<dd>the input peaks</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.makePeakAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">makePeakAnnotation</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.makePeakAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Sets the annotation for a peak that indicates peak molSystem, merit and details</dt>
+<dd>(not the annotation of peakDims)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.makePeakListFromShifts">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">makePeakListFromShifts</tt><big>(</big><em>spectrum</em>, <em>useUnassigned=True</em>, <em>progressBar=None</em>, <em>shiftList=None</em>, <em>molSystem=None</em>, <em>bondLimit=6</em>, <em>residueLimit=1</em>, <em>labelling=None</em>, <em>labellingThreshold=0.10000000000000001</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.makePeakListFromShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an arteficial peak list using shift intersections from a shift list
+Boolean option to consider only shifts with atom assigned resonances. Option
+to filter on a specific molSystem. Option to limit through-space transfers to a
+limited number of bonds and a given residue range.
+Optional labelling scheme/mixture and threshold to filter according to isotopomers.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Boolean, memops.gui.ProgressBar, Nmr.ShiftList
+MolSystem.MolSystem, Int, 2-Tuple of Ints,
+ChemComLabel.LabelingScheme or True (automatic from experiment MolLabel),
+Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.makeTransposePeakList">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">makeTransposePeakList</tt><big>(</big><em>peakList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.makeTransposePeakList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a transpose peak list, where equivalent dimension positions are swapped,</dt>
+<dd>using peak positions form an existing peak list. The new peak list is created 
+in the same spectrum as the input. Assignments will be copied, and this will
+not affect the shift values.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakList
+.. describe:: Output</p>
+<p>ccp.nmr.Nmr.PeakList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.mergePeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">mergePeaks</tt><big>(</big><em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.mergePeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge two peaks together. * Function needs work/checking * Not really used in Analysis currently</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks
+.. describe:: Output</p>
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.movePeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">movePeak</tt><big>(</big><em>peak</em>, <em>posn</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.movePeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a peak to a given position. Automatically calculates any peak aliasing</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Floats (Nmr.PeakDim.postion in points)
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.pickPeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">pickPeak</tt><big>(</big><em>peakList</em>, <em>position</em>, <em>unit='point'</em>, <em>doFit=True</em>, <em>figOfMerit=1.0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.pickPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pick a peak at a given position in given units in a peak list.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, List of Floats (Nmr.PeakDim.positions), Word (Nmr.ShiftList.unit), Boolean
+.. describe:: Output</p>
+<p>Nmr.Peak</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.propagatePeakUnaliasing">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">propagatePeakUnaliasing</tt><big>(</big><em>refPeak</em>, <em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.propagatePeakUnaliasing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Gives the same positional unaliasing (as the input reference peak)</dt>
+<dd>to a group of peaks.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Nmr.Peaks
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.refreshPeakAnnotations">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">refreshPeakAnnotations</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.refreshPeakAnnotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refreshes all of the peak and peakDim annotations for all peaks in a project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.removePeakFromSelected">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">removePeakFromSelected</tt><big>(</big><em>peak</em>, <em>parent=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.removePeakFromSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a peak to the GUI current peak selection</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Tkinter.widget 
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.removePeaksAssignment">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">removePeaksAssignment</tt><big>(</big><em>peaks</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.removePeaksAssignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all peak dimension contribs for a list of peaks</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.searchPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">searchPeaks</tt><big>(</big><em>peakLists</em>, <em>region</em>, <em>parent=None</em>, <em>thickness=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.searchPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find existing peaks within a given region of a peak list. Add peaks to the
+current GUI selection. Thickness (units: points) can be specified for
+orthogonal dimensions to include extra planes (must be of length ndim or is
+ignored for a given peakList).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList, List of List of Floats (min,max positions), &#8216;w&#8217;idget, List of Floats</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setManualPeakIntensity">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setManualPeakIntensity</tt><big>(</big><em>peak</em>, <em>value</em>, <em>intensityType='height'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setManualPeakIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually define a peaks volume/height</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Float (Nmr.PeakIntensity.value), String (Nmr.PeakIntensity.intensityType)
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setPeakDimNumAliasing">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setPeakDimNumAliasing</tt><big>(</big><em>peakDim</em>, <em>numAliasing</em>, <em>doWarning=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setPeakDimNumAliasing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Set the number of peakDim aliasings to set a peakDim position and</dt>
+<dd>put it at its non-folded, correct ppm</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDim, Integer (peakDim.numAliasing) 
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setPeakPosition">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setPeakPosition</tt><big>(</big><em>peak</em>, <em>position</em>, <em>tile</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setPeakPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the position of a peak and its aliasing tile</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, List of Floats (Nmr.PeakDim.position), List of Ints (Nmr.PeakDim.numAliasing)
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeak</tt><big>(</big><em>peak</em>, <em>doFit=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise reference data dimensions, peak position and intensities for a new peak.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak (new)
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakCoupling</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup the underlying real peakDim positional values for MQ spectra etc.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakDataDimRef">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakDataDimRef</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakDataDimRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives a peak a default data dim reference if it has none</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak 
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakFit">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakFit</tt><big>(</big><em>peak</em>, <em>fitMethod=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakFit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit a newly created Nmr.Peak to a position in the spectral data specified by its dataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak (new)
+Optionally String describing the fitMethod</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakHeight">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakHeight</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakHeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine a peaks height from the spectral data specified by its dataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakLinewidth">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakLinewidth</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakLinewidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit linewidth of Nmr.Peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.setupPeakVolume">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">setupPeakVolume</tt><big>(</big><em>peak</em>, <em>volumeMethod=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.setupPeakVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine a peaks volume from the spectral data specified by its dataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.snapPeak">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">snapPeak</tt><big>(</big><em>peak</em>, <em>doFit=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.snapPeak" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Snap peak to the local maximum</dt>
+<dd>(optionally do a fit for the center point)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Boolean
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.snapPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">snapPeaks</tt><big>(</big><em>peaks</em>, <em>doFit=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.snapPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Snap peaks to the local maximum</dt>
+<dd>(optionally do a fit for the center point)</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Boolean
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.structurePredictNoePeakList">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">structurePredictNoePeakList</tt><big>(</big><em>structure</em>, <em>spectrum</em>, <em>distThreshold=5.0</em>, <em>progressBar=None</em>, <em>labelling=None</em>, <em>labellingThreshold=0.10000000000000001</em>, <em>model=None</em>, <em>minHeight=None</em>, <em>shiftList=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.structurePredictNoePeakList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the positions of NOESY peaks given a shift list and a structure
+ensemble. Produces a peak list which peaks that would represent distances less
+than a given threshold. Optional labelling scheme/mixture to filter according
+to isotopomers. Optional structure model to use in ensemble, otherwise all
+models are used -  in this case the average distance must be bwlow threshold.
+Option to specify a minumum hight value so that peaks are not picked below a
+threshold.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolStructure.StructureEnsemble, Nmr.DataSource, Float, ProgressBar (Tk widget),
+ChemCompLabel.LabelingScheme or rue (automatic from experiment MolLabel),
+Float, MolStructure.Model, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.translateSpectrumUsingPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">translateSpectrumUsingPeaks</tt><big>(</big><em>referencePeak</em>, <em>translatePeak</em>, <em>dimMapping</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.translateSpectrumUsingPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Translate spectrum referencing using a translatePeak from that</dt>
+<dd>spectrum and a referencePeak from another spectrum.  Use a dimMapping
+to specify what dimensions in the translate spectrum are mapped
+to what dimensions in the reference spectrum, and only these
+dimensions are translated.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.Peak, ccp.nmr.Nmr.Peak, dict: int-&gt;int
+.. describe:: Output</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.PeakBasic.uniteResonancePeakPositions">
+<tt class="descclassname">ccpnmr.analysis.core.PeakBasic.</tt><tt class="descname">uniteResonancePeakPositions</tt><big>(</big><em>peak</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.PeakBasic.uniteResonancePeakPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coordinate all peaks in the peak list of the input peak so that
+all peak dimensions that are assigned to the same resonances as the 
+input peak have the same peak dimension position.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.Peak
+.. describe:: Output</p>
+<p>ccp.nmr.Nmr.Peaks</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MoleculeBasic.html"
+                        title="previous chapter">MoleculeBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="PrintBasic.html"
+                        title="next chapter">PrintBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/PeakBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PrintBasic.html" title="PrintBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="MoleculeBasic.html" title="MoleculeBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

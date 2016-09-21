@@ -1,0 +1,137 @@
+==============================
+Molecule : Residue Information
+==============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Residue Assignment Information**
+
+This popup is designed to give an alternative view of residue assignment
+status to the `Atom Browser`_. The idea is that the user selects a particular
+molecular chain from the upper-left pulldown menu and then a *type* of residue
+from that chain in the adjacent pulldown. The left hand table then shows all
+the residues of that type within the selected chain's sequence.
+
+The left hand table lists residues of the selected type in the middle column.
+The first and last columns show the previous and next residue in the sequence
+for each central residue, thus showing a little of the sequence context for
+the selected kind of residue. If a row of this table is clicked, the central
+"i" residue is selected and the assignments are displayed in a 3D structural
+view in the right hand panel.
+
+The right hand panel contains a structural display for the kind of residue
+selected, using *idealised* coordinates; not coordinates from a particular
+structure. With the "Show Assignment" option selected, this 3D view has the
+chemical shifts of the assigned atoms within the selected residue superimposed
+in the view. The chemical shifts are listed after the name of each atom, but
+naturally only if it has a resonance assignment in the selected shift list.
+
+It should be noted that where atoms are deemed to be equivalent, like the
+three hydrogens in a fast rotating methyl atom set, the same chemical shift
+values will be used for all of the atoms within the set, although strictly
+speaking the value only really applies to the set as a whole. Also, for
+assignments that are non-stereospecific, e.g. there may be an assignment to
+Ser HBa which doesn't commit to either HB2 or HB3 specifically, the display
+will show both possible chemical shift values (should they exist) for a given
+atom. For example, a Ser HB2 atom may be labeled as "HB" 3.72/3.85" because it
+potentially relates to either the "HBa" resonance at 3.72 ppm or the "HBb"
+resonance at 3.85 ppm.
+
+**3D View Controls**
+
+To move and rotate the three-dimensional residue display the following
+keyboard controls may be used:
+
+* Rotate: Arrow keys
+
+* Zoom: Page Up & Page Down keys
+
+* Translate: Arrow keys + Control key
+
+Or altenatively the following mouse controls:
+
+* Rotate: Middle button click & drag
+
+* Zoom: Mouse wheel or middle button click + Shift key & drag up/down
+
+* Translate: Middle button click & drag + Control key
+
+_`Atom Browser`: BrowseAtomsPopup.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **Molecule Chain**: Selects which molecular chain to select and show residues from
+
+|pulldown| **Ccp Residue Code**: Selects which kind of residue to display sequence and assignment information for
+
+|pulldown| **Shift List**: Selects which shiftlist to get chemical shift values from
+
+|button| **Print**: Print the three-dimensional coordinate display to a PostScript, EPS or PDF file
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+None Information
+~~~~~~~~~~~~~~~~
+
+
+===========  ================================================================================================
+**Table 1**
+-------------------------------------------------------------------------------------------------------------
+      *i-1*  Identity of the previous residue in the sequence 
+        *i*  Locations of the selected kind of residue, considering the selected molecular chain 
+      *i+1*  Identity of the next residue in the sequence 
+===========  ================================================================================================
+
+
+
+Atom Information & Idealised Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+|check| **CheckButton**: Whether to show chemical shifts of assigned atoms
+
+***None***: How many residues of the selected kind are assigned out of the total number available
+

@@ -1,0 +1,908 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MoleculeBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="PeakBasic" href="PeakBasic.html" />
+    <link rel="prev" title="MergeObjects" href="MergeObjects.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PeakBasic.html" title="PeakBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="MergeObjects.html" title="MergeObjects"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.MoleculeBasic">
+<span id="moleculebasic"></span><h1>MoleculeBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.MoleculeBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.areAtomsBound">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">areAtomsBound</tt><big>(</big><em>atom1</em>, <em>atom2</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.areAtomsBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dertemine whether two atoms are bonded together
+.. describe:: Input</p>
+<p>MolSystem.Atom, MolSystem.Atom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.areAtomsTocsyLinked">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">areAtomsTocsyLinked</tt><big>(</big><em>atom1</em>, <em>atom2</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.areAtomsTocsyLinked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if two atoms have a connectivity that may be observable in a TOCSY experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Atom, MolSystem.atom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.areResonancesBound">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">areResonancesBound</tt><big>(</big><em>resonance1</em>, <em>resonance2</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.areResonancesBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether two resonances are assigned to directly bonded atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.copyMolecule">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">copyMolecule</tt><big>(</big><em>molecule</em>, <em>newName=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.copyMolecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new molecule based upon the sequence of an existing ome
+.. describe:: Input</p>
+<p>Molecule.Molecule</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Molecule.Molecule</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.duplicateResidueAssignments">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">duplicateResidueAssignments</tt><big>(</big><em>residueA</em>, <em>residueB</em>, <em>experimentChains=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.duplicateResidueAssignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign residueB to an equivalent set of resonances as residueA
+Optional dictionary, keyed by experiment to specifiy which chain (should be parent of residueA
+or residueB or None - for both) an experiment&#8217;s peak assignments should go with.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, MolSystem.Residue, Dict of Nmr.Experiment:MolSystem.Chain (or None)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.dynamicAlign">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">dynamicAlign</tt><big>(</big><em>seq1</em>, <em>seq2</em>, <em>matrix</em>, <em>inspen=2</em>, <em>extpen=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.dynamicAlign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aligns two sequence strings (of one letter codes) - results are gapped with &#8216;-&#8216;
+.. describe:: Input</p>
+<p>String, String, Dict of Dicts (homology score matrix), Int, Int, Int, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String, String (aligned &amp; gapped sequence strings)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.findBoundResonances">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">findBoundResonances</tt><big>(</big><em>resonance</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.findBoundResonances" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find any resonances which are assigned to atoms covalently bound</dt>
+<dd>to the assigned atoms of the input resonance</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Resonances</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.findMatchingChain">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">findMatchingChain</tt><big>(</big><em>molSystem</em>, <em>ccpCodes</em>, <em>excludeChains=None</em>, <em>molTypes=None</em>, <em>doWarning=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.findMatchingChain" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><ul class="first">
+<li><ul class="first">
+<li><dl class="first docutils">
+<dt>Deprecated in light of findMathcingChains() * * * </dt>
+<dd><p class="first last">Find the mol system chain that best matches the input ccpCodes
+(like three letter codes). Useful for trying to match structures
+to existing molecular data. Optional argument to specify which
+chains cannot be matched.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>MolSystem.MolSystem, List of Strings (MolSystem.MolResidue.ccpCodes),</dt>
+<dd>List of MolSystem.Chains</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Tuple of (MolSystem.Chain, Int (index of first matching ccpCode),</dt>
+<dd>Int (first matching MolSystem.Residue.seqId))</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.findMatchingChains">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">findMatchingChains</tt><big>(</big><em>molSystem</em>, <em>ccpCodes</em>, <em>excludeChains=None</em>, <em>molTypes=None</em>, <em>doWarning=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.findMatchingChains" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the mol system chains that best match the input ccpCodes</dt>
+<dd>(like three letter codes). Useful for trying to match structures
+to existing molecular data. Optional argument to specify which
+chains cannot be matched.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>MolSystem.MolSystem, List of Strings (MolSystem.MolResidue.ccpCodes),</dt>
+<dd>List of MolSystem.Chains</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Tuple of (MolSystem.Chain, Int (index of first matching ccpCode),</dt>
+<dd>Int (first matching MolSystem.Residue.seqId))</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getAtomsTorsion">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getAtomsTorsion</tt><big>(</big><em>atoms</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getAtomsTorsion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the chemical torsion object equivalent</dt>
+<dd>to an ordered input list of four atoms</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>4-List of MolSystem.Atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>ChemComp.ChemTorsion</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getBoundAtoms">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getBoundAtoms</tt><big>(</big><em>atom</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getBoundAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of atoms bound to a given atom..
+.. describe:: Input</p>
+<p>MolSystem.Atom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of MolSystem.Atoms</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getChainResidueMapping">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getChainResidueMapping</tt><big>(</big><em>chainA</em>, <em>chainB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getChainResidueMapping" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find the corresponding pairs of residues in two sequence similar chains.</dt>
+<dd>Matches independent chain fragments, which can be of different molTypes</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Chain, MolSystem.Chain</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of List of [MolSystem.Residue or None]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getChemAtomNmrRef">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getChemAtomNmrRef</tt><big>(</big><em>project</em>, <em>atomName</em>, <em>ccpCode</em>, <em>molType='protein'</em>, <em>sourceName='BMRB'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getChemAtomNmrRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve an NMR chemical shift reference atom record</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.Project, Word (ChemAtom.name), Word (ChemComp.ccpCode),
+Word, (chemComp.molType), Word</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getChemCompOverview">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getChemCompOverview</tt><big>(</big><em>molType</em>, <em>project=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getChemCompOverview" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a dictionary containing details of all available chemical compounds</dt>
+<dd>for a given moleucle type. Project can be input to search for loaded,
+but non standard chem comps.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Word (Molecule.MolResidue.MolType), Implementation.Project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<dl class="docutils">
+<dt>Dict of ChemComp.ccpCode:[Word, Word, Line, Word]</dt>
+<dd>(1-letter Code, 3-letter Code, name, mol formula)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getChemicalShiftBounds">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getChemicalShiftBounds</tt><big>(</big><em>chemAtom</em>, <em>threshold=0.001</em>, <em>sourceName='BMRB'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getChemicalShiftBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the min and max chemical shifts for a
+given atom type observed in the databases</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ChemComp.ChemAtom, Float, Word</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getLinkedResidue">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getLinkedResidue</tt><big>(</big><em>residue</em>, <em>linkCode='prev'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getLinkedResidue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Find a residue, if it exists, that is linked to the</dt>
+<dd>input residue by a given type of molResidue link.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getMolTypeCcpCodes">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getMolTypeCcpCodes</tt><big>(</big><em>molType='all'</em>, <em>project=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getMolTypeCcpCodes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Gives ccpCodes for chemComps according to molecule type: e.g. DNA</dt>
+<dd>Project can be input to search for non-standard types.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.Project, String (ChemComp.molType or &#8216;all&#8217;)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Words (ChemComp.CcpCodes)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getNumConnectingBonds">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getNumConnectingBonds</tt><big>(</big><em>atom1</em>, <em>atom2</em>, <em>limit=5</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getNumConnectingBonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the minimum number of binds that connect two atoms.
+Stops at a specified limit (and returns None if not within it)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Atom, MolSystem.atom, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Int</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getRandomCoilShift">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getRandomCoilShift</tt><big>(</big><em>chemAtom</em>, <em>context=None</em>, <em>sourceName='BMRB'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getRandomCoilShift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the random coil chemical shift value of a chemAtom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ChemComp.ChemAtom</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getRandomCoilShiftCorrectionsDict">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getRandomCoilShiftCorrectionsDict</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getRandomCoilShiftCorrectionsDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Citation</p>
+<p>Schwarzinger, S., Kroon, G. J. A., Foss, T. R., Chung, J., Wright, P. E., Dyson, H. J.
+&#8220;Sequence-Dependent Correlation of Random Coil NMR Chemical Shifts&#8221;, 
+J. Am. Chem. Soc. 123, 2970-2978 (2001)</p>
+<p>Values obtained from a GGXGG sequence pentapeptide.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getResidueCode">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getResidueCode</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getResidueCode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get a text code for a residue/molResidue/resonanceGroup,</dt>
+<dd>defaults to the ccpCode if a custom code is not present
+in userResidueCodesDict</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getResidueMapping">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getResidueMapping</tt><big>(</big><em>residue</em>, <em>aromaticsEquivalent=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getResidueMapping" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Gives the Analysis.ResidueMapping for a residue</dt>
+<dd>Makes a new one with new AtomSetsMappings if not exists
+Makes a ChainMapping too if needed.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.ResidueMapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getResidueObservableAtoms">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getResidueObservableAtoms</tt><big>(</big><em>residue</em>, <em>refExperiment=None</em>, <em>labelling=None</em>, <em>minFraction=0.10000000000000001</em>, <em>jCouplingBonds=(1</em>, <em>2</em>, <em>3)</em>, <em>usePermissiveShifts=False</em>, <em>chemElements=('H'</em>, <em>'C'</em>, <em>'N'</em>, <em>'F'</em>, <em>'P')</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getResidueObservableAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine which atoms of a chem comp varient would give rise to
+observable resonances considering a given reference experiment
+and/or an isotope labelling scheme. Can specify minimum fraction of
+an isotope to consider something observable and the chemical elements which
+you are observing. Boolean option to match database min and max
+chemical shift bounds to atom sites, rather than randon coil shift
+values (default).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, NmrExpPrototype.RefExperiment,
+ChemCompLabel.LabelingScheme or LabeledMolecule.LabeledMixture,
+Float, Boolean, List of Words</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of ChemComp.ChemAtoms</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getSequenceResidueMapping">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getSequenceResidueMapping</tt><big>(</big><em>chain</em>, <em>sequence</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getSequenceResidueMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Match a sequence of residue ccpCodes to an existing chain and calculate the alignment score.
+.. describe:: Input</p>
+<p>MolSystem.Chain, List of Words (MolSystem.Residue.ccpCodes)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-List of [Int or None, MolSystem.Residue or None], Float (score)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getUnicodeAtomName">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getUnicodeAtomName</tt><big>(</big><em>name</em>, <em>elementSymbol</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getUnicodeAtomName" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a unicode string for a protein atom name, i.e.</dt>
+<dd>including any greek characters</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Word, Word (ChemElement.symbol)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Unicode Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.getUnicodeGreek">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">getUnicodeGreek</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.getUnicodeGreek" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>{&#8216;a&#8217;:u&#8217;u03B1&#8217;,&#8217;b&#8217;:u&#8217;u03B2&#8217;,&#8217;g&#8217;:u&#8217;u03B3&#8217;,&#8217;d&#8217;:u&#8217;u03B4&#8217;,&#8217;e&#8217;:u&#8217;u03B5&#8217;,</dt>
+<dd>&#8216;z&#8217;:u&#8217;u03B6&#8217;,&#8217;h&#8217;:u&#8217;u03B7&#8217;,&#8217;q&#8217;:u&#8217;u03B8&#8217;,&#8217;i&#8217;:u&#8217;u03B9&#8217;,&#8217;k&#8217;:u&#8217;u03BA&#8217;,
+&#8216;l&#8217;:u&#8217;u03BB&#8217;,&#8217;m&#8217;:u&#8217;u03BC&#8217;,&#8217;n&#8217;:u&#8217;u03BD&#8217;,&#8217;x&#8217;:u&#8217;u03BE&#8217;,&#8217;o&#8217;:u&#8217;u03BF&#8217;,
+&#8216;p&#8217;:u&#8217;u03C0&#8217;,&#8217;r&#8217;:u&#8217;u03C1&#8217;,&#8217;j&#8217;:u&#8217;u03C2&#8217;,&#8217;s&#8217;:u&#8217;u03C3&#8217;,&#8217;t&#8217;:u&#8217;u03C4&#8217;, # j : Other sigma
+&#8216;u&#8217;:u&#8217;u03C5&#8217;,&#8217;f&#8217;:u&#8217;u03C6&#8217;,&#8217;c&#8217;:u&#8217;u03C7&#8217;,&#8217;y&#8217;:u&#8217;u03C8&#8217;,&#8217;w&#8217;:u&#8217;u03C9&#8217;}</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.greekSortAtomNames">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">greekSortAtomNames</tt><big>(</big><em>dataList</em>, <em>molType='protein'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.greekSortAtomNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts a list of atom names according to greek/sidechain order when letters are latinised
+.. describe:: Input</p>
+<p>List of Strings</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Strings (sorted)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeAtomSet">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeAtomSet</tt><big>(</big><em>guiName</em>, <em>atoms</em>, <em>chemAtomSet</em>, <em>mappingType</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeAtomSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make atomSet and atomSetMapping for equivalent atoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Word (AtomSet.name), List of MolSystem.Atoms,
+ChemComp.ChemAtomSet, Word (AtomSetMapping.mappingType)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.AtomSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeAtomSetMapping">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeAtomSetMapping</tt><big>(</big><em>residueMapping</em>, <em>name</em>, <em>atomSets</em>, <em>chemAtomSet</em>, <em>mappingType</em>, <em>resonances=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeAtomSetMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make atomSetMapping given atomSets and mapping type
+.. describe:: Input</p>
+<dl class="docutils">
+<dt>Analysis.ResidueMapping, Word, MolSystem.Residue,</dt>
+<dd>List of Nmr.AtomSets, ChemComp.ChemAtomSet,
+Word, Word, List of Nmr.Resonances</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.AtomSetMapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeGuiMultiAtomSet">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeGuiMultiAtomSet</tt><big>(</big><em>residue</em>, <em>multiGuiName</em>, <em>guiSetsNames</em>, <em>elementSymbol</em>, <em>mappingType</em>, <em>chemAtomSet</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeGuiMultiAtomSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make atom set mappings for multiple atom set selections
+.. describe:: Input</p>
+<dl class="docutils">
+<dt>MolSystem.Residue, Word (Analysis.AtomSetMapping.name),</dt>
+<dd>List of Words (Analysis.AtomSetMapping.names),
+Word, Word, ChemComp.ChemAtomSet</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.AtomSetMapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeGuiName">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeGuiName</tt><big>(</big><em>name</em>, <em>elementSymbol</em>, <em>molType</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeGuiName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atom or atomSet name into name for gui: e.g H becomes Hn
+.. describe:: Input</p>
+<p>Word (Nmr.AtomSet.name), Word, Word</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeMolSystemLink">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeMolSystemLink</tt><big>(</big><em>residueA</em>, <em>residueB</em>, <em>linkEndA</em>, <em>linkEndB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeMolSystemLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a molSystemLink given two residues and the linkEnds to be joined
+.. describe:: Input</p>
+<p>MolSystem.Residue, MolSystem.Residue, ChemComp.LinkEnd, ChemComp.LinkEnd</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.MolSystemLink</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeNonStereoName">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeNonStereoName</tt><big>(</big><em>molType</em>, <em>name</em>, <em>n=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeNonStereoName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a sterospecific atom name into a non-stereospecific one for a GUI
+.. describe:: Input</p>
+<p>Word, Int (naming offset from start of alphabet)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSets">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeResidueAtomSets</tt><big>(</big><em>residue</em>, <em>aromaticsEquivalent=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make all atomSets and atomSetMappings for a given residue</dt>
+<dd>Aromatic Phe, Tyr (Hd1,Hd2), (He1,He2) can be made into 
+single equivalent atom sets due to rotation.</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSetsEquivalent">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeResidueAtomSetsEquivalent</tt><big>(</big><em>residue</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSetsEquivalent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Remake a residue&#8217;s atom sets if they are found to be equivalent: e.g.</dt>
+<dd>if an aromatic ring rotates quickly on the NMR timescale</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSetsNonEquivalent">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeResidueAtomSetsNonEquivalent</tt><big>(</big><em>residue</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeResidueAtomSetsNonEquivalent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Remake a residue&#8217;s atom sets if they are found to be non-equivalent: e.g.</dt>
+<dd>if an aromatic ring does not rotate quickly on the NMR timescale</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.makeResidueLocTag">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">makeResidueLocTag</tt><big>(</big><em>residue</em>, <em>chemAtoms</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.makeResidueLocTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make unique identifier for a given residue type in a given chain location
+.. describe:: Input</p>
+<p>MolSystem.Residue, List of ChemCmp.chemAtoms</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.moveMolSystemChain">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">moveMolSystemChain</tt><big>(</big><em>chain</em>, <em>molSystem</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.moveMolSystemChain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves a chain from one molSystem to another
+.. describe:: Input</p>
+<p>MolSystem.Chain, MolSystem.MolSystem</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.newMolSystem">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">newMolSystem</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.newMolSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a new molSystem for a project with a unique code.
+.. describe:: Input</p>
+<p>Implementation.Project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.MolSystem</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.sequenceAlign">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">sequenceAlign</tt><big>(</big><em>seq1</em>, <em>seq2</em>, <em>matrix</em>, <em>inspen=2</em>, <em>extpen=1</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.sequenceAlign" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Aligns two sequence strings (of one letter codes)</dt>
+<dd><blockquote class="first">
+<ul class="simple">
+<li>results are gapped with &#8216;-&#8216;; first tries an exact substring match,</li>
+</ul>
+</blockquote>
+<p class="last">if that failts it then uses dynamicAlign</p>
+</dd>
+</dl>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>String, String, Dict of Dicts (homology score matrix), Int, Int, Int, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String, String (aligned &amp; gapped sequence strings)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.transferChainAssignments">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">transferChainAssignments</tt><big>(</big><em>chainA</em>, <em>chainB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.transferChainAssignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer any atomic assignments from one chain to another where possible.
+.. describe:: Input</p>
+<p>MolSystem.Chain, MolSystem.Chain</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MoleculeBasic.transferResidueAssignments">
+<tt class="descclassname">ccpnmr.analysis.core.MoleculeBasic.</tt><tt class="descname">transferResidueAssignments</tt><big>(</big><em>residueA</em>, <em>residueB</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MoleculeBasic.transferResidueAssignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move any atomic assignments from one residue to another where possible.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.Residue, MolSystem.Residue</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MergeObjects.html"
+                        title="previous chapter">MergeObjects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="PeakBasic.html"
+                        title="next chapter">PeakBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/MoleculeBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PeakBasic.html" title="PeakBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="MergeObjects.html" title="MergeObjects"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

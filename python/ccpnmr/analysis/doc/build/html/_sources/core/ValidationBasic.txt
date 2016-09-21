@@ -1,0 +1,7 @@
+===============
+ValidationBasic
+===============
+
+.. automodule:: ccpnmr.analysis.core.ValidationBasic
+   :members:
+

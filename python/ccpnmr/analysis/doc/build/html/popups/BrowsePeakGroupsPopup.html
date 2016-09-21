@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Peak Groups &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="prev" title="Add Peak" href="EditPeakPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Molecule.html" title="Molecule"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakPopup.html" title="Add Peak"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="peak-groups">
+<h1>Peak Groups<a class="headerlink" href="#peak-groups" title="Permalink to this headline">¶</a></h1>
+<p><strong>Display Groups of Peaks Linked by a Root Assignment</strong></p>
+<p>This popup window is used to display the results of operations in Analysis that
+generate grouped peaks, usually linked by virtue of a common &#8216;root&#8217; assignment.
+For example a selected set of peaks may be macthed to other peaks with
+similar positions in a spectrum dimension, where each group corresponds
+to a separate C-H or N-H position. For example the right-click
+window menu option &#8220;Locate Peaks::Match multiple peaks&#8221; generates
+such groupings to find rows or columns of peaks that share chemical shifts.</p>
+<p>Whatever operation generated the groups, they are listed in ranked order in the
+table; best scoring at the top. The number of peaks in the group and any common
+assigment and position is also listed. The idea is that the groups are candidates
+for some searh or macthing process that the user triggered. The best scoring
+groups may be used to control the spectrum window display, thus displaying any
+peak matches, by using [Display Groups in Strips] after selecting  an approprate
+window. This system is often used for NOESY experiments where resonances that are
+close in space share common sets of peak positions; they are close to the same
+set of other resonances.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="matched-peak-groups">
+<h3>Matched Peak Groups<a class="headerlink" href="#matched-peak-groups" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Rank</em></td>
+<td>The ranking of the peak group, comparing its score with others</td>
+</tr>
+<tr><td><em>Score</em></td>
+<td>The match score of the peak group</td>
+</tr>
+<tr><td><em>Num peaks</em></td>
+<td>Number of peaks within the matched peak group</td>
+</tr>
+<tr><td><em>Root Assignment</em></td>
+<td>The root (usually amide) assignment, common to peaks in a group</td>
+</tr>
+<tr><td><em>F1 position</em></td>
+<td>Average location of the group in the F1 dimension</td>
+</tr>
+<tr><td><em>F2 position</em></td>
+<td>Average location of the group in the F2 dimension</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Groups</strong>: Remove the selected peak groups from the table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Rulers</strong>: Show 1D positional ruler lines for the selected groups</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Rulers</strong>: Remove any ruler lines previously added for peak group</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Display Groups In Strips</strong>: Display selected peak groups within strips of selected window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Target window</strong>: Selects the spectrum window in which to display strips &amp; ruler lines</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Peak Groups</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#matched-peak-groups">Matched Peak Groups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditPeakPopup.html"
+                        title="previous chapter">Add Peak</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/Molecule.html"
+                        title="next chapter">Molecule</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/BrowsePeakGroupsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Molecule.html" title="Molecule"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakPopup.html" title="Add Peak"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

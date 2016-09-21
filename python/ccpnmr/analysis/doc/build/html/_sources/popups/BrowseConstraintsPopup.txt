@@ -1,0 +1,435 @@
+=====================================
+Structure : Restraints and Violations
+=====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Display Structure Restraint and Restraint Violation Data**
+
+This popup window is used to manage and display structural restraints. Mostly
+such restraints are derived from NMR data and are applied during a structure
+calculation to restrict molecular conformations to those which are consistent
+with the observed data. Many kinds of NMR data can be used to generate
+restraints and the restraints themselves are of different types. This
+system will display tables for any kind or restraint described in the CCPN
+data model, but the most common kind of restraints are for distances and
+dihedral (torsion) angles.
+
+This system is used for viewing and managing restraint information on a large
+scale, it is not used directly for the initial generation of the restraints
+themselves. Structural restraints may be imported into CCPN via the
+FormatConverter_ or they may be created with various various dedicated
+components available in CCPN software. For example distance restraints may be
+made via the `Make Distance Restraints`_ (using through space experiments like
+NOESY) and `Make H Bond Restraints`_ options. Dihedral angle restraints can be
+made from chemical shift information using DANGLE_ and from scalar couplings
+using the `3J H-Ha Coupling`_ option.
+
+**Restraint Sets**
+
+The first "Restraint Sets" tabs lists all of the sets into which the restraint
+lists of the project are grouped into. The table indicates how many restraint
+and violation lists are in the set as well as an indication of the number of
+"fixed" resonance assignments that have been frozen in the set. Restraint sets
+may be deleted here, but are created elsewhere; when restraint lists are
+created they can be put into a new or existing set.
+
+Within CCPN, restraints are stored in restraint lists which group together
+restraints of the same type (i.e. angle and distance restraints cannot be
+mixed in a list). Restraint lists are further grouped together into restraint
+sets. A restraint set often represents all of the restraint lists that will be
+used together at the same time during a structure calculation. However, this
+grouping is slightly more subtle because a restraint set has important
+consequences with regards to NMR resonance assignment. In essence, a restraint
+set takes a fixed snapshot of the resonance assignment status at the time the
+restraints were made. Consequently, if atomic assignments change after
+restraints are generated the restraints will remain linked to the original
+atoms. This is helpful to the user because it is always possible to know what
+was actually restrained in a structure calculation. The user should however be
+careful when putting new restraints into old restraint sets; if atom
+assignments have changed then even the new restraints (actually between NMR
+resonances) will still restrain the old atom assignments. Thus it is good
+practice to always make a new restraint set if assignments have changed.
+
+**Restraint Lists**
+
+The second "Restraint Lists" tab displays all of the restraint lists that are
+available in the selected restraint set. The restraint set may be selected in
+the pulldown menu above the tabs. Generally this table is used to give an
+overview of the restraint lists but several high-level functions are
+accessible via the buttons below the table. As described above, the actual
+restraint generation takes place elsewhere in dedicated systems.
+
+Restraint lists my be deleted and merged/combined together into a single list
+(if they are of the same type). It is notable that restraint lists may  also
+be split. Currently there are two means of doing this, the first is to [Split
+Ambig/Unambig] which separates a distance restraint list into two, where one
+list contains only restraints that are equivalent to a single assignment (only
+two linked atoms or prochiral sets) and the other list has restraints that
+represent multiple, ambiguous assignments. The [Split Violated] function is
+helpful during violation analyses, which aim to determine which restraints are
+incompatible (e.g. mistaken assignment, minor conformation or artifact) with a
+structural model. This will separate out a list of those restraints that are
+violated in a structure (beyond the restraint bounds) for further inspection.
+
+**Restraints**
+
+The third "Restraints" tab allows the user to view all of the individual
+restraints within a restraint list, selected via the left hand "Restraint
+List" pulldown. If any structure violation analyses have been performed on the
+list the user can select from the "Violation List" pulldown. Any restraints
+that  were violated in the structural analysis will be coloured; red, orange
+or yellow depending on severity. Also where violations are recorded the
+columns for "Mean Viol"; average violation amount over a structure ensemble,
+and "Viol Fraction"; the proportion of an ensemble's models that were violated,
+are filled.
+
+Selecting from the "Structure" pulldown menu allows geometric information to
+be extracted from a structure ensemble, so that it may be compared with the
+values that are being restrained. Accordingly, if a structure violation
+analysis is performed using [Calculate Violations] then it is the selected
+structure that is compared with the restraints to find inconsistencies. Also,
+selecting as structure allows the "Struc Value" column to be filled with the
+value calculated from the resonance locations in the structure. Here   the kind
+of value naturally differs according to which type of restraint  list is
+displayed.
+
+The "Value Method" pulldown menu is notable for distance restraints because it
+allows the user to switch between "NOE sum" and "Minimum" options. These are
+relevant because a restraint, which restrains pairs of resonances, may link
+groups that contain multiple atoms (e.g. a methyl group). With multiple atoms
+at the end of a distance restraint there is flexibility about how the distance
+is defined. The "Minimum" method to measuring distances simply records the
+shortest distance between any pair of atoms from either side of the restraint
+(e.g. the closes atoms in two methyls). The "NOE sum" method uses r^-6
+distance summation to give a value that represents what the equivalent NOE
+estimated distance would be if a signal were recorded between the two atom
+groups. For example, if a restraint is to a methyl group all three methyl
+atoms will contribute to increase the intensity of an NOE signal, so the
+distance will appear to *shorter* than the single atom equivalent. Hence it is
+this shorter distance that will come from the NMR data and appear in the
+restraint, and thus the shorter distance that should be used in violation
+analyses. The get the "NOE sum" distance the pairs of atom distances
+are first converted into a kind of 'NOE intensity' (r^-6), these are added
+together to give the total 'NOE intensity', which is then converted back
+into a distance.
+
+In the main restraints table the restrains are listed as coloured rows, but
+there will often be grey rows present. A grey row represents an alternative
+set of restrained resonances (e.g. a different pair of atoms) but relates to
+the same restrained value. The main coloured row for a restraint and the grey
+alternatives are both referred to as the "items" for the restraint. Hence at
+the bottom there is the [Delete Items] button to remove specific restraint
+alternatives. In this regard there is no difference between the first green
+item and the other possibilities; it is fairly arbitrary which item comes
+first. Naturally deleting all of the items (possibilities) in a restraint
+removes the whole restraint. Although the first item is often coloured green
+it may have other colours indicating a structural violation. A restraint with
+more than one item may reflect either a genuine signal overlap, e.g. an NOE
+peak is caused by two or more close atom pairs that have similar chemical
+shifts and cannot be separated, or ambiguous trial assignments that come from
+speculatively matching chemical shifts to spectrum peaks.
+
+The various functions below the table allow restraints to be managed but the
+restrained resonances, and the parameter values they relate, to come from
+specialised restraint generation systems. In general the restraint information
+is derived from NMR experimentation and not adjusted by hand, Several functions
+allow the user to link between the restraints and any spectrum peaks that they
+are derived from. This can be done after selecting restraints with [Show
+Peaks] or after selecting peaks with [Show Restraints For Selected Peaks].
+There are also functions to coordinate assignments between the restraints and
+peaks. How this is done in practice tends to vary with personal preference,
+but it is possible to both refresh a restraint according to the latest peak
+assignment with [Update Assignment From Peak] or refresh the peaks according
+to the restraints (e.g. after an ARIA or CYANA run that removes restraint
+ambiguity) with [Update Peak Assignments].
+
+**Violation Lists**
+
+The forth "Violation Lists" tab gives details of all of the violation analyses
+that have been recorded in the project. Strictly speaking, each violation list
+can contain results from several analyses but this is usually not the case in
+normal Analysis operation. The individual violation records are presented in
+the last "Violations" tab, and also  affect the violation data presented in
+the "Restraints" table. Violation lists may be calculated, given a structure
+and a restraint list, inside Analysis using [Calculate Violations] in the
+"Restraints" tab, or they may be imported from external programs like ARIA.
+
+A violation list is a grouping of violation entities, and these record an
+inconsistency between the restrained values of a restraint and what is
+actually observed in a structure (or ensemble). Essentially this means a
+structural value is outside the bonds of the restraint. Clicking on a
+violation list in the upper table will fill the lower table with an overview
+of the structure models that were used in the restraint violation analysis
+(usually just a single ensemble).
+
+**Violations**
+
+The last tab lists all of the violation items that were recorded in a
+selected violation list. This table will present some of the same information
+as the "Restraints" tab, if a violation list is selected there. The data is
+merely presented in a different way. Selecting a specific row in the table
+allows the user to [Show Restraint], to view the restraint that was violated
+in the "Restraints" tab. Other functions allow the user to jump to the peak,
+that gave rise to the restraint, which may be the underlying source of the
+problem.
+
+**Caveats & Tips**
+
+Having large restraint sets in a CCPN project can make loading the CCPN data
+into Analysis slow, and takes up more memory. Thus it is advisable to delete
+any restraint sets that are no longer in use,
+
+If the restraint table is slow to update, consider switching off any structure
+selection. Extracting values from large structure ensembles can take a
+noticeable amount of time.
+
+The [Calculate Violations] function will not work until a Structure is
+selected.
+
+Although the CCPN violation analysis tries to do a good job it can never be
+exactly the same as analyses performed during a structure calculation. Most of
+the reason for this is due to the stereo-specific resolution of prochiral
+atoms. For example, Analysis can only determine which of HBa or HBb atoms
+actually goes with the HB2 or HB3 sites by taking a poll (based on minimising
+violation) after the structure calculation is complete, and this prochiral
+resolution may differ from what actually occurred in the calculation
+(minimising energy).
+
+.. _FormatConverter: FormatConverter.html
+.. _`Make Distance Restraints`: CalcDistConstraintsPopup.html
+.. _`Make H Bond Restraints`: MakeHbondRestraintsPopup.html
+.. _DANGLE: DangleGui.html
+.. _`3J H-Ha Coupling`: CalcHnHaCouplingPopup.html
+
+
+
+Main Panel
+==========
+
+|pulldown| **Restraint Set**: Which set of restraints is currently active in the popup;
+a grouping for restraint and violation lists
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Restraint Sets
+==============
+
+*Documentation missing*
+
+======================  ==============================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------
+                   *#*  Serial number of restraint set 
+     *Restraint Lists*  Number of restraint lists, of all types, in the set 
+     *Violation Lists*  Number of violation lists in the set 
+    *Fixed Resonances*  Number of resonances (fixed in assignment) used to describe restraints in the set 
+     *Fixed Atom Sets*  Number of atom groups (fix in assignment) used in the set's restraints 
+*Fixed Resonance Sets*  Number of fixed resonance to atom set assignments 
+        *Chain States*  Number of alternate chain conformations explicitly covered 
+======================  ==============================================================================================
+
+
+
+|button| **Import**: **Disabled option**, import restraints from file. Use FormatConverter
+
+|button| **Delete**: Delete the selected restraint set with all its restraints and violations
+
+Restraint Lists
+===============
+
+*Documentation missing*
+
+=============  ==================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------
+          *#*  The restraint list serial number, within its containing restraint set 
+       *Type*  The restraint list type; distance, dihedral, h-bond etc. 
+       *Name*  The human name to identify the restraint list  *(Editable)*
+ *Restraints*  The number of individual restraints in the list 
+*Experiments*  The NMR experiments used to derive the restraints 
+    *Details*  User editable textual comment for the list  *(Editable)*
+       *Unit*  The units of the restrained quantity 
+=============  ==================================================================================
+
+
+
+|button| **Show Restraints**: Show a table of individual restraints for the selected restraint list
+
+|button| **Export ARIA list**: Export the selected restraint list (if distance type) as a CNS .tbl file for ARIA v1
+
+|button| **Create Equiv. Peaks**: Make peaks equivalent to restraints. Requires that the restraints were initially made in CCPN
+
+|button| **Delete Selected Lists**: Delete the selected restraint lists
+
+|button| **Merge Lists**: Merge the selected restraint lists into a single list (if the same type)
+
+|button| **Split Ambig/Unambig**: Split the last selected restraint list into two new lists; one which has ambiguous (excluding prochiral ambiguity) atom restraints and one which does not
+
+|button| **Split Violated**: Split the last selected restraint list into two new lists; one with violated restraints, one with non-violated
+
+Restraints
+==========
+
+*Documentation missing*
+
+|pulldown| **Restraint List**: Select the specific list to display restraints for; number:type:name
+
+|pulldown| **Violation List**: Select which violation list, if any, to display restraint violations from
+
+|pulldown| **Structure**: Select which loaded structure to use for restraint value comparison
+
+|pulldown| **Value Method**: Select how values are generated from a structure: "NOE sum" is used where
+ambiguous distance restraint options all contribute NOE peak intensity
+
+===============  ===============================================================================================================
+**Table 3**
+--------------------------------------------------------------------------------------------------------------------------------
+            *#*  Serial number of restraint & any ambiguous item (restraint:item) 
+   *Resonances*  The name of the resonances restrained (fixed within the restraint set) 
+        *Value*  The target or best value for the restraint, e.g. optimum distance 
+  *Upper Limit*  The lower bound value for the restraint 
+  *Lower Limit*  The upper bound value for the restraint 
+        *Error*  An error value for the restraint, often just the with between bounds 
+        *Peaks*  The number of CCPN peaks used to derive the restraint information 
+    *Mean Viol*  The average value of a violation over a structure ensemble 
+*Viol Fraction*  The fraction of a structure ensemble's conformations (models) violated by the restraint 
+  *Struc Value*  The value of the data being restrained in the selected structure ensemble 
+   *Orig. Data*  The data value used to derive the restraint e.g. relative peak intensity 
+       *Weight*  The relative strength weighing of the restraint (not used by all structure calculation protocols)  
+      *Details*  User-editable textual comment for the restraint  *(Editable)*
+        *Items*  The number of ambiguous or alternative possibilities on the restraint 
+===============  ===============================================================================================================
+
+
+
+|button| **Delete Items**: Delete the selected restraint items; assignment possibility not necessarily whole restraint
+
+|button| **Delete Restraints**: Delete all (whole) restraints for selected items, even where only one item of an ambiguous restraint is selected
+
+|button| **Show Restraints for Selected Peaks**: If present in the table, highlight the rows of the restraints derived from peaks selected in spectrum windows
+
+|button| **Update Assignment From Peak**: Update the items (assignment possibilities) for a restraint from any linked CCPN peak
+
+|button| **Show Peaks**: Show a table of peaks from which the selected restraints were derived
+
+|button| **Show Selected On Structure**: Show the connections of the selected restraints on a graphical structure display
+
+|button| **Assign Peak**: Assign the peak from which a restraint is derived
+
+|button| **Show Violations**: Show a table of individual violation records for selected list
+
+|button| **Calculate Violations**: Calculate restraint violation records for restraints using selected structure
+
+|button| **Export ARIA List**: Export the restraints as a CNS .tbl file for ARIA v1
+
+|button| **Delete List**: Delete the entire restraint list currently on display
+
+|button| **Setup Resonances**: For imported restraints add any possible CCPN resonance links
+
+|button| **Merge Duplicates**: Merge any restraints that represent the same atoms pairings together, e.g. from reciprocating return NOE peaks
+
+|button| **Update Peak Assignments**: Update the assignments of any linked CCPN peaks according to the current restraint items
+
+Violations Lists
+================
+
+*Documentation missing*
+
+============  ==========================================================================
+**Table 4**
+----------------------------------------------------------------------------------------
+         *#*  The serial number of the violation list 
+*Violations*  The number of violation records in the list 
+*Structures*  The number of structural models used in violation calculation 
+   *Details*  User-editable textual comment for violation list 
+============  ==========================================================================
+
+
+
+|button| **Show Violations**: Show a table of individual violation entries for the selected list
+
+|button| **Delete Lists**: Delete the selected violation lists
+
+Structures Analysed
+~~~~~~~~~~~~~~~~~~~
+
+
+============  ===================================================================================
+**Table 5**
+-------------------------------------------------------------------------------------------------
+         *#*  Number of structure ensemble used in violation analysis 
+    *Models*  The number of the conformational models used in the violation analysis 
+    *Chains*  The molecular chains present in the structure 
+*Generation*  Any structure generation group to which the structure belongs 
+============  ===================================================================================
+
+
+
+Violations
+==========
+
+*Documentation missing*
+
+|pulldown| **Violation List**: Select which violation list to show violation items for
+
+=================  =============================================================================
+**Table 6**
+------------------------------------------------------------------------------------------------
+*Restraints List*  The restraint list that the violations were calculated for 
+      *Restraint*  The restraint that was analysed in terms of value & bounds 
+         *Amount*  The amount violated; difference from the nearest restraint bound 
+     *% Violated*  The % of conformational models violated in structure 
+           *Type*  The type of the restraint analysed; distance, dihedral etc. 
+          *Peaks*  The number of peaks used to derive the constraint 
+     *Calc Value*  The structure-derived value use to calculate the violation 
+    *Value Error*  The error in the violation amount 
+=================  =============================================================================
+
+
+
+|button| **Assign Peak**: *Documentation missing*
+
+|button| **Show Peaks**: *Documentation missing*
+
+|button| **Show Restraint**: *Documentation missing*
+

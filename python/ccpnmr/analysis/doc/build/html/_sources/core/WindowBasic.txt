@@ -1,0 +1,7 @@
+===========
+WindowBasic
+===========
+
+.. automodule:: ccpnmr.analysis.core.WindowBasic
+   :members:
+

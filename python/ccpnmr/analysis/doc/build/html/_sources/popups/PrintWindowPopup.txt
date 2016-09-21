@@ -1,0 +1,247 @@
+=====================
+Window : Print Window
+=====================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Print Window to Output File**
+
+The purpose of this dialog is to allow the saving of the drawing of
+one of the spectrum windows to a file, in one of the following formats:
+PostScript (PS), Encapsulated PostScript (EPS) or Portable Document
+Format (PDF).
+
+The one window that is being printed out is specified at the top.
+There are four tabs.  The first one, Options, is the most important.
+In particular, it is used to specify the File name.  At its simplest
+to print out a window you just need to specify the File name, and
+then click "Save Print File".  But it is likely you will at the very
+least want to change some of the settings in the Options tab.
+
+You can specify a Title and a label for the X axis and/or Y axis.
+
+This tab is also used to specify the Paper size (default A4), the
+Orientation of the paper (default Portrait), whether the printout
+is Color or Black and white (the Style, default Color), and what
+the Format is (PS, EPS or PDF, default PS).
+
+The ticks for the rulers can be chosen to be Inside or Outside the
+main frame and can be in any combination of the Top, Bottom, Left
+or Right side of the main frame.  The Tick Font includes the option
+of not printing the tick labels at all.  The Tick spacing between
+the major and minor ticks can be set automatically (so the program
+determines it) or manually.  For the latter the user has to specify
+the Major and Minor spacings in terms of the unit of the display
+(normally ppm), and also the number of decimal places for the Tick
+labels.
+
+How the main frame fits into the paper is determined by the Scaling
+option.  The Percentage option just means that the main frame is
+scaled by that amount relative to the biggest size it could be and
+still fit on the paper.  The remaining options are if you want to
+specify the cms or inches per unit (normally ppm), or the inverse
+of these.  In this case it could be the case that the main frame
+actually exceeds the size of the paper.
+
+You can also include the Time and Date and/or the File Name in the
+printout, and you can specify the font used for this.  The same
+font is used for the Title and X and Y axis labels, except that
+the Title font is 6 pts bigger.
+
+Finally, you can also set the linewidth, in points (the default is 0.1).
+
+The other three tabs provide fine tuning of what is output.  In many
+cases they can be ignored.
+
+The Spectra tab lets you choose settings for which of the window's
+spectra are drawn, in terms of both the positive and negative contours.
+This is independent of what is actually drawn on the screen.  But you
+need to check the "Use below settings when printing" checkbutton if you
+want the values specified here to be used rather than the screen settings.
+The values in the table are initially set to be the screen values but
+afterwards can only be changed manually.  Clicking on the "Reset Selected"
+button changes the values in the table to the current screen ones.
+
+The Peak Lists tab is similar, except it applies to the peak lists in
+the window rather than the spectra.  Again, if you want the values in
+the table to be used then you need to check the "Use below settings
+when printing" checkbutton.
+
+The Region tab is for specifying the region for the x, y and orthogonal
+axes, if you do not want to use the regions as seen in the window on the
+screen.  Again, you have to check "Use override region when printing"
+checkbutton to actually have the values in the table be used in the
+printout.  By default, the override region is set to the current
+window region if it is not set already, otherwise it is left to the
+previous value unless you click the "Set Region from Window" or the
+"Set Width from Window" or the "Set Center from Window" buttons.
+And the override region can be specified either using the min and max
+values of the region, or the center and width.
+
+
+Main Panel
+==========
+
+|pulldown| **Window**: The window that will be printed out
+
+|button| **Save Print File**: Save the printout to the specified file
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Options
+=======
+
+Optional settings for spectra
+
+
+|button| **File**: Select location to save print file
+
+|entry| **File entry**: Location where file is saved on disk
+
+|entry| **Title**: Title of the printout, displayed at top
+
+|entry| **X axis label**: X axis label for the printout
+
+|entry| **Y axis label**: Y axis label for the printout
+
+|pulldown| **Paper size**: The paper size for the printout
+
+|pulldown| **Orientation**: Whether the paper should be set in Portrait or Landscape mode
+
+|pulldown| **Style**: Whether the printout should be in colour or black and white
+
+|pulldown| **Format**: Whether to save as PS, EPS or PDF
+
+|pulldown| **Tick Location**: Whether the tick marks appear on the inside or outside of the frame
+
+|check| |check| **Tick Placement**: Whether the tick marks appear on the top and/or bottom and/or left and/or right
+
+
+
+
+
+**Tick Font**: The font used for the tick mark labels
+
+|pulldown| **Tick Spacing**: Whether the program should automatically calculate the major/minor tick spacings and how many decimal places are used for the ticks, or whether the these are specified manually
+
+|pulldown| **Tick Length**: Whether the program should automatically calculate the major/minor tick lengths, or whether the these are specified manually
+
+|pulldown| **Scaling**: Whether the plot should be scaled as a percentage of the maximum size that would fit on the paper, or instead should be specified by the number of cms or inches per unit
+
+Scale: *None*: The percentage of the maximum size that would fit on the paper that the plot is scaled by
+
+
+|check| **Time and Date**: Whether the time and date should be included in the printout
+
+|check| **File Name**: Whether the file name should be included in the printout
+
+**Using Font**: The font used for the border texts
+
+|float| **0.1**: Line width for drawing
+
+Spectra
+=======
+
+Optional settings for peak lists
+
+|check| **Use below settings when printing**: Use below settings when printing instead of the window values
+
+|button| **Reset Selected**: Change the settings of the selected spectra back to their window values
+
+=====================  ==========================================================
+**Table 1**
+---------------------------------------------------------------------------------
+           *Spectrum*  Spectrum in window 
+*Pos. Contours Drawn*  Whether the positive contours should be drawn  *(Editable)*
+*Neg. Contours Drawn*  Whether the negative contours should be drawn  *(Editable)*
+=====================  ==========================================================
+
+
+
+Peak Lists
+==========
+
+Optional settings for the region
+
+|check| **Use below settings when printing**: Use below settings when printing instead of the window values
+
+|button| **Reset Selected**: Change the settings of the selected peak lists back to their window values
+
+===============  =======================
+**Table 2**
+----------------------------------------
+    *Peak List*  *Documentation missing* 
+*Symbols Drawn*  *Documentation missing*  *(Editable)*
+    *Peak Font*  *Documentation missing*  *(Editable)*
+===============  =======================
+
+
+
+Region
+======
+
+*Documentation missing*
+
+|check| **Use override region when printing**: Use the specified override region when printing rather than the window values
+
+
+|radio| **Use Min and Max**: Use min and max to specify override region
+
+|radio| **Use Center and Width**: Use center and width to specify override region
+
+|button| **Set Region from Window**: Set the override region to be the current window region
+
+|button| **Set Center from Window**: Set the center of the override region to be the center of the current window region
+
+|button| **Set Width from Window**: Set the width of the override region to be the width of the current window region
+
+===========================  =======================
+**Table 3**
+----------------------------------------------------
+                     *Axis*  *Documentation missing* 
+            *Region Number*  *Documentation missing* 
+*Override Region Min (ppm)*  *Documentation missing*  *(Editable)*
+*Override Region Max (ppm)*  *Documentation missing*  *(Editable)*
+===========================  =======================
+
+
+

@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure : Structure Viewer &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Structure : Make Distance Restraints" href="CalcDistConstraintsPopup.html" />
+    <link rel="prev" title="Structure : Structures" href="EditStructuresPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcDistConstraintsPopup.html" title="Structure : Make Distance Restraints"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditStructuresPopup.html" title="Structure : Structures"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure-structure-viewer">
+<h1>Structure : Structure Viewer<a class="headerlink" href="#structure-structure-viewer" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Simple Graphical Display for Macromolecule 3D Coordinates</strong></p>
+<p>CcpNmr Analysis contains a simple 3D structure viewing module which is used to
+display NMR derived information on macromolecular coordinates. For example
+this viewer can be used to display alternative possibilities for NOE
+assignments as dashed lines that connect different parts of a molecular
+structure. The structural model may be moved and rotated by various means
+listed below. Also, specific atoms may be selected and de-selected in the
+display by left clicking.</p>
+<p>The structures that may be displayed with this system are loaded in to the
+CCPN project via the main <a class="reference external" href="EditStructuresPopup.html">Structures</a> popup window. A structure is chosen for
+display by selecting from the &#8220;MolSystem&#8221;, &#8220;Ensemble&#8221; and &#8220;Model&#8221; pulldown
+menus, i.e. at present only one conformational model is displayed at a time.</p>
+<p>The &#8220;Peak List&#8221; selection is used in combination with the [Show Peaks] button
+at the bottom, which brings up a table listing all of the peaks, within the
+selected peak list, that relate to that atoms chosen (left mouse click) in the
+structural view.</p>
+<p>Much of the NMR-derived information that is presented in the graphical display
+will be controlled via separate popups, for example the [Show On Structure]
+button of the <a class="reference external" href="EditAssignmentPopup.html">Assignment Panel</a> or [Show Selected On Structure] in the
+<a class="reference external" href="BrowseConstraintsPopup.html">Restraints and Violations</a> popup. Nonetheless, some data can be added to the
+display via the viewer directly; ensemble RMSDs and other validation parameters
+can be superimposed as coloured spheres of various sizes.</p>
+<p><strong>View Controls</strong></p>
+<p>To move and rotate the three-dimensional coordinate display the following
+keyboard controls may be used:</p>
+<ul class="simple">
+<li>Rotate: Arrow keys</li>
+<li>Zoom: Page Up &amp; Page Down keys</li>
+<li>Translate: Arrow keys + Control key</li>
+</ul>
+<p>Or alternatively the following mouse controls:</p>
+<ul class="simple">
+<li>Rotate: Middle button click &amp; drag</li>
+<li>Zoom: Mouse wheel or middle button click + Shift key &amp; drag up/down</li>
+<li>Translate: Middle button click &amp; drag + Control key</li>
+</ul>
+<p>Also an options menu appears when the right mouse button is clicked
+and the left mouse button is used to select and de-select atoms in
+the current model view.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>MolSystem</strong>: Selects which molecular system to select a structure for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: Selects which structure ensemble to display, for the specified molecular system</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Model</strong>: Selects which conformational model of the selected structure/ensemble to display</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: When using the &#8220;Show Peak&#8221; option, sets which peak list is used to display atom connectivities</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Dist Method</strong>: Where the distances between sets of atoms are displayed, sets whether to use the NOE equivalent (sum r^-6 intensities) or minimum distance</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reset</strong>: Remove all highlights and connections from the structure display</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>RMSDs</strong>: For an ensemble, calculate the per-atom coordinate root mean square deviations and adjust atom size and colours accordingly</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Display Params</strong>: Display the selected structural parameters on the structure, adjusting atom labels, size and colours accordingly</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which structural parameters, from those calculated, to display on the structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: In the stated peak list, display peak assignment connectivities between the highlighted atoms (left click to select atoms in the display)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure : Structure Viewer</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditStructuresPopup.html"
+                        title="previous chapter">Structure : Structures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CalcDistConstraintsPopup.html"
+                        title="next chapter">Structure : Make Distance Restraints</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewStructurePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcDistConstraintsPopup.html" title="Structure : Make Distance Restraints"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditStructuresPopup.html" title="Structure : Structures"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

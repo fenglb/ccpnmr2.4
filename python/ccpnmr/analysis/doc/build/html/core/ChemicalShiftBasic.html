@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ChemicalShiftBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="ConstraintBasic" href="ConstraintBasic.html" />
+    <link rel="prev" title="AssignmentBasic" href="AssignmentBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ConstraintBasic.html" title="ConstraintBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="AssignmentBasic.html" title="AssignmentBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.ChemicalShiftBasic">
+<span id="chemicalshiftbasic"></span><h1>ChemicalShiftBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.ChemicalShiftBasic" title="Permalink to this headline">¶</a></h1>
+<p>======================COPYRIGHT/LICENSE START==========================</p>
+<p>ChemicalShiftBasic.py: Part of the CcpNmr Analysis program</p>
+<p>Copyright (C) 2003-2010 Wayne Boucher and Tim Stevens (University of Cambridge)</p>
+<hr class="docutils" />
+<p>The CCPN license can be found in ../../../../license/CCPN.license.</p>
+<p>======================COPYRIGHT/LICENSE END============================</p>
+<p>for further information, please contact :</p>
+<ul class="simple">
+<li>CCPN website (<a class="reference external" href="http://www.ccpn.ac.uk/">http://www.ccpn.ac.uk/</a>)</li>
+<li>email: <a class="reference external" href="mailto:ccpn&#37;&#52;&#48;bioc&#46;cam&#46;ac&#46;uk">ccpn<span>&#64;</span>bioc<span>&#46;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a></li>
+<li>contact the authors: <a class="reference external" href="mailto:wb104&#37;&#52;&#48;bioc&#46;cam&#46;ac&#46;uk">wb104<span>&#64;</span>bioc<span>&#46;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a>, <a class="reference external" href="mailto:tjs23&#37;&#52;&#48;cam&#46;ac&#46;uk">tjs23<span>&#64;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a></li>
+</ul>
+<hr class="docutils" />
+<p>If you are using this software for academic purposes, we suggest
+quoting the following references:</p>
+<p>===========================REFERENCE START=============================
+R. Fogh, J. Ionides, E. Ulrich, W. Boucher, W. Vranken, J.P. Linge, M.
+Habeck, W. Rieping, T.N. Bhat, J. Westbrook, K. Henrick, G. Gilliland,
+H. Berman, J. Thornton, M. Nilges, J. Markley and E. Laue (2002). The
+CCPN project: An interim report on a data model for the NMR community
+(Progress report). Nature Struct. Biol. 9, 416-418.</p>
+<p>Wim F. Vranken, Wayne Boucher, Tim J. Stevens, Rasmus
+H. Fogh, Anne Pajon, Miguel Llinas, Eldon L. Ulrich, John L. Markley, John
+Ionides and Ernest D. Laue (2005). The CCPN Data Model for NMR Spectroscopy:
+Development of a Software Pipeline. Proteins 59, 687 - 696.</p>
+<p>===========================REFERENCE END===============================</p>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.ChemicalShiftBasic.makeRandomCoilShiftList">
+<tt class="descclassname">ccpnmr.analysis.core.ChemicalShiftBasic.</tt><tt class="descname">makeRandomCoilShiftList</tt><big>(</big><em>molSystems</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.ChemicalShiftBasic.makeRandomCoilShiftList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a synthetic chemical shift list using random coil values,
+adjusting protein backbone values for sequence where approprate.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>MolSystem.MolSystem</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.ShiftList</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="AssignmentBasic.html"
+                        title="previous chapter">AssignmentBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ConstraintBasic.html"
+                        title="next chapter">ConstraintBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/ChemicalShiftBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ConstraintBasic.html" title="ConstraintBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="AssignmentBasic.html" title="AssignmentBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+=============
+Filter Clouds
+=============
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+|entry| **testHistone\d+.pdb**: *Documentation missing*
+
+|pulldown| **Comparison structure**: *Documentation missing*
+
+|float| **2.0**: *Documentation missing*
+
+|pulldown| **RMSD Atom Types**: *Documentation missing*
+
+==============  =======================
+**Table 1**
+---------------------------------------
+           *#*  *Documentation missing* 
+   *File name*  *Documentation missing* 
+*RMSD to mean*  *Documentation missing* 
+==============  =======================
+
+
+
+|button| **Load Clouds**: *Documentation missing*
+
+|button| **Align Clouds**: *Documentation missing*
+
+|button| **Calc RMSD**: *Documentation missing*
+
+|button| **Make Cloud from structure**: *Documentation missing*
+
+|button| **Remove**: *Documentation missing*
+
+|button| **Remove bad**: *Documentation missing*
+

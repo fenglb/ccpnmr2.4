@@ -1,0 +1,181 @@
+==========
+ARIA Setup
+==========
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+
+
+Main Panel
+==========
+
+
+
+|pulldown| **Run Number**: Selects which calculation job or "run" is currently being viewed or edited
+
+|button| **New Run**: Make a setup for a new calculation run
+
+|button| **Copy Run**: Make a new calculation run by copying the current one
+
+|button| **Delete Run**: Delete the current calculation run settings
+
+Input Data
+==========
+
+*Documentation missing*
+
+|pulldown| **Molecular System**: Selects which molecular system the calculation will be run on
+
+|pulldown| **Chain Selection**: Selects which particular chains to consider form the selected molecular system
+
+|entry| **Run Details**: User-editable textual comment for the current calculation
+
+Peak Lists
+==========
+
+*Documentation missing*
+
+============  =========================================================================
+**Table 1**
+---------------------------------------------------------------------------------------
+         *#*  Row number 
+*Experiment*  The name of the experiment that contains the input peak list 
+  *Spectrum*  The name of the spectrum that contains the input peak list 
+    *Serial*  The serial number of the input peak list within its spectrum 
+     *Peaks*  The number of peaks in the peak list 
+============  =========================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected peak list from consideration (does not delete the data)
+
+|button| **Add Peak List**: Add the selected peak list as calculation input
+
+|pulldown| ***None***: Selects a peak list which may be added as calculation input
+
+Restraint Lists
+===============
+
+*Documentation missing*
+
+================  ==================================================================================
+**Table 2**
+----------------------------------------------------------------------------------------------------
+             *#*  Row number 
+*Restraint Type*  The type of restraints in the input restraint list 
+ *Restraint Set*  The restraint set that contains the input restraint list 
+        *Serial*  The serial number of the input restraintlist within its restraint set 
+     *List Name*  The textual name of the input restraint list 
+    *Restraints*  The number of restraints in the input restraint list 
+================  ==================================================================================
+
+
+
+|button| **Remove Selected**: Remove the selected restraint list from consideration (does not delete the data)
+
+|button| **Add Restraint List**: Add the selected restraint list as calculation input
+
+|pulldown| ***None***: Selects a restraint list which may be added as calculation input
+
+Run Settings
+============
+
+*Documentation missing*
+
+|entry| **aria**: *Documentation missing*
+
+|entry| **CNS Executable**: *Documentation missing*
+
+|button| **Select File**: *Documentation missing*
+
+|entry| **Working Directory**: *Documentation missing*
+
+|button| **Select File**: *Documentation missing*
+
+|entry| **Temporary Directory**: *Documentation missing*
+
+|button| **Select File**: *Documentation missing*
+
+===================  =======================
+**Table 3**
+--------------------------------------------
+         *PeakList*  *Documentation missing* 
+ *Filter Violated?*  *Documentation missing*  *(Editable)*
+*Keep Assignments?*  *Documentation missing*  *(Editable)*
+       *Shift List*  *Documentation missing* 
+===================  =======================
+
+
+
+=====================  =======================
+**Table 4**
+----------------------------------------------
+    *Constraint List*  *Documentation missing* 
+               *Name*  *Documentation missing* 
+   *Filter Violated?*  *Documentation missing*  *(Editable)*
+*Ambiguous Protocol?*  *Documentation missing*  *(Editable)*
+=====================  =======================
+
+
+
+Output Data
+===========
+
+*Documentation missing*
+
+============  =============================================================================
+**Table 5**
+-------------------------------------------------------------------------------------------
+ *Data Type*  The kind of data output by the calculation 
+         *#*  the serial number of the output data, within the calculation run 
+      *Name*  The name of the output data 
+ *CCPN Data*  The identity of any CPN objects that are lined to/as output data 
+*Parameters*  Any parameters which relate to the output data 
+    *Weight*  Any fractional weighting that was applied to the output data 
+============  =============================================================================
+
+
+
+|button| **ARIA Project File**: *Documentation missing*
+
+|button| **Launch ARIA GUI**: *Documentation missing*
+
+|button| **Setup Project**: *Documentation missing*
+
+|button| **Submit to CcpnGrid**: *Documentation missing*
+

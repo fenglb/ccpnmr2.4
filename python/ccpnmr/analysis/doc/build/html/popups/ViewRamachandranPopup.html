@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chart : Ramachandran Plot &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Chart" href="../menu/Chart.html" />
+    <link rel="next" title="Macro" href="../menu/Macro.html" />
+    <link rel="prev" title="Chart : Residue Interaction Matrix" href="ViewNoeMatrix.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Macro.html" title="Macro"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ViewNoeMatrix.html" title="Chart : Residue Interaction Matrix"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" accesskey="U">Chart</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chart-ramachandran-plot">
+<h1>Chart : Ramachandran Plot<a class="headerlink" href="#chart-ramachandran-plot" title="Permalink to this headline">¶</a></h1>
+<p><strong>Display Protein Backbone Phi &amp; Psi Angles</strong></p>
+<p>This graphical display allow the user to display phi and psi protein backbone
+dihedral angles on a Ramachandran plot that indicates the likelihood (database
+abundance) of those angles. This can be used as a form of structure quality
+control to detect residues in a calculated three dimensional structure that
+are distorted away from regular protein-like conformations. Although a few
+atypical angles may truly occur in a given protein structure the presence of
+many unusual angles and abnormal distributions of angles over a structure
+ensemble with many models may indicate a poor quality structure.</p>
+<p>With this popup window the user selects a molecular system and then a
+structure ensemble that relates to that system. Th e user can choose to display
+dihedral angle information for all models (conformations) in the structure ensemble
+or just one model, by changing the &#8220;Model&#8221; pulldown menu. The user can control which
+residues are considered by selecting either a particular type of residue via
+&#8220;Ccp Code&#8221; or a specific residue in the sequence. Other options control how the
+phi &amp; psi angle information is presented on screen. The &#8220;Labels&#8221; options
+control which angle spots on the Ramachandran chart have residue sequence number and
+type displayed; by default only the &#8220;disallowed&#8221; angles in unusual (white) regions of the
+plot are labelled. The &#8220;Spot Size&#8221; dictates how large the angle markers are and
+the &#8220;Colours&#8221; is a colour scheme to differentiate the different models
+from within the selected ensemble.</p>
+<p>The [Previous Residue] and [Next Residue] buttons allow the user to quickly
+scan though all of the residues in the structure, to check for
+unusual/disallowed backbone angles or unlikely distributions of within the
+ensemble. In the Ramachandran matrix plot the wite areas represent phi &amp; psi
+angle combinations that are very unusual and thus usually indicative of a poor
+structure at that point. The grey and red areas represent the more common, and
+thus more expected, angle combinations. The more red the colour of a square
+the greater the likelihood of the phi &amp; psi angles. It should be noted that
+when displaying angle points for only a single residue or residue type, the
+Ramachandran chart in the background is at  residue-specific version, i.e. it
+shows angle likelihoods for only that one kind of residue. This is particularly
+important for Pro and Gly residues that have notably different distributions
+(and hence angle expectations) to other residues.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>MolSystem</strong>: Selects which molecular system to display data for; from which a structure is selected</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Structure</strong>: Selects which structure ensemble to display phi/psi backbone angle data for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Model</strong>: Selects which conformational model(s), from the structure ensemble, to display data for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Labels</strong>: Sets which phi/psi points carry residue labels, e.g. according to whether values are &#8220;disallowed&#8221; (very uncommon)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ccp Code</strong>: Allows the phi/psi points to be restricted to only those from a particular residue type</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue</strong>: Allows the display of phi/psi points from only a single residue</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Spot Size</strong>: Sets how large to display the circles that indicate the phi/psi points</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Colours</strong>: Selects which colour scheme to use to distinguish phi/psi points from different conformational models</p>
+<p>Scrollbar: :</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous Residue</strong>: Show phi/spi spots for the previous residue in the sequence; when there is no current residue, starts fron the first in sequence there is data for</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Residue</strong>: Show phi/spi spots for the next residue in the sequence; when there is no current residue, starts fron the first in sequence there is data for</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chart : Ramachandran Plot</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ViewNoeMatrix.html"
+                        title="previous chapter">Chart : Residue Interaction Matrix</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/Macro.html"
+                        title="next chapter">Macro</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewRamachandranPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/Macro.html" title="Macro"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ViewNoeMatrix.html" title="Chart : Residue Interaction Matrix"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" >Chart</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

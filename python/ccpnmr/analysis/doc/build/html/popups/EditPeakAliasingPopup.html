@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edit Peak Aliasing &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Add Peak" href="EditPeakPopup.html" />
+    <link rel="prev" title="Peak : Draw Parameters" href="EditPeakDrawParamsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakPopup.html" title="Add Peak"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakDrawParamsPopup.html" title="Peak : Draw Parameters"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edit-peak-aliasing">
+<h1>Edit Peak Aliasing<a class="headerlink" href="#edit-peak-aliasing" title="Permalink to this headline">¶</a></h1>
+<p><strong>Move Aliased Peaks to Their Underlying Resonance Position</strong></p>
+<p>This popup window is used to move aliased &#8216;ghost&#8217; peaks to their real
+underlying resonance locations by adding or subtracting a whole number of
+spectrum widths to the position in one or more peak dimensions. This is used
+when a resonance, that causes a peak, lies outside the normal recorded bounds
+of the spectrum but the peak nonetheless still appears within the spectrum, as
+an aliased signal that re-appears as if wrapped back onto the opposite side of
+the spectrum.</p>
+<p>The minimum and maximum aliased frequency values for a spectrum dimension, as
+edited in the &#8220;Referencing&#8221; table of the main <a class="reference external" href="EditSpectrumPopup.html">Spectra</a> popup, may be set
+extend the contour display beyond the normal sweep width (ppm range) of the
+spectrum and thus cover the real ppm position of peaks that have been
+unaliased. In such instances the contours are extended by tiling; one or more
+copies of the contours (not mirror image) are made and placed sequentially
+next to the normal, fundamental region. If a peak is unaliased to a position
+outside the displayed spectrum limits then the contour display will naturally
+be extended to cover the new peak position; all peaks will be visible within
+the spectrum by default. However, the user may at any time reset the minimum
+and maximum aliased frequency for a spectrum display (see the <a class="reference external" href="EditSpectrumPopup.html">Spectra</a> popup);
+deleting all values will reset bounds to the original sweep with, but any
+values may be chosen, within reason.</p>
+<p>A peak can be moved to the unaliased position of its underlying resonances by
+editing the &#8220;Num. Aliasing&#8221; column of this popup; double-clicking and typing in
+the appropriate number. When this number is changed for a peak dimension the peak
+will be instantly moved to its new location. An aliasing value of zero means that
+the peak lies within the sweep width of the spectrum. For a ppm scale having a
+positive aliasing value will <em>reduce</em> the ppm value, placing the peak a number of
+spectrum widths above or to the right of the spectrum bounds. Likewise a negative
+aliasing value will place a peak at a higher ppm value; below or to the left.
+Often aliasing values will be 1 or -1, where a peak has just fallen off the edge
+of a spectrum. For example a glycine amide nitrogen really at 100 ppm may be just
+outside the top of a 15N HSQC and be wrapped back into the bottom to appear as a
+peak at around 135 ppm, which means that the aliasing value should be set to 1,
+moving the peaks position up by a sweep with of 35 ppm, from 135 ppm to 100 ppm.
+The sign of the aliasing number may seem to be backwards, but it is perhaps the
+ppm scale that is &#8216;backwards&#8217;. More complex aliasing is often seen in 3D 13C
+spectra where the 13C axis can be folded (wrapped) to reduce the sweep width that
+needs to be recorded, but still avoiding peak overlap because of the way shifts
+correlate. For example a 13C HSQC NOESY may be recorded with a sweep with that
+covers the CA, CB range 25-75 ppm but aliased methyl carbons below 25 ppm and
+aromatic carbons between 110 ppm and 140 ppm will be present; the methyls will
+have aliasing values of 1, and the aromatics -1 or -2.</p>
+<p>It should be noted that picking peaks in the tiled copies of a contour display,
+i.e. outside the sweep width, will automatically set the aliasing value for the
+peak to reflect the displayed chemical shift value. Thus, the user does not need
+to explicitly unalias the peak position. Any peaks that are moved by virtue of
+being unaliased will have their contribution to the chemical shifts, of any
+assigned resonances, adjusted automatically. Chemical shift values are always
+calculated using the underlying resonance positions, not the apparent peak
+position. Also, if it is known that many peaks share the same aliasing values,
+i.e. are in the same sweep width tile, then the user can propagate the aliasing
+value from one peak to many others in a single step via the right-click window
+menu; &#8220;Peak::Unaliasing propagate&#8221;.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="peak-dimension-positions">
+<h3>Peak Dimension Positions<a class="headerlink" href="#peak-dimension-positions" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Dimension</em></td>
+<td>The peak/spectrum dimension number</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The kind of isotope measured in the dimension</td>
+</tr>
+<tr><td><em>ppm</em></td>
+<td>The position of the peak in this dimension, in units of ppm</td>
+</tr>
+<tr><td><em>Hz</em></td>
+<td>The frequency position of the peak in this dimension, in units of Hz</td>
+</tr>
+<tr><td><em>Points</em></td>
+<td>The data point position (in the spectrum matrix) of the peak in this dimension</td>
+</tr>
+<tr><td><em>Num. Aliasing</em></td>
+<td>Sets the number of spectrum sweep withs to add to the peak dimension position to locate it at its real ppm value. Note an aliasing of &#8220;1&#8221; moves a peak to a lower ppm  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Annotation</em></td>
+<td>The assignment annotation for the peak dimension</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Edit Peak Aliasing</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#peak-dimension-positions">Peak Dimension Positions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditPeakDrawParamsPopup.html"
+                        title="previous chapter">Peak : Draw Parameters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditPeakPopup.html"
+                        title="next chapter">Add Peak</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditPeakAliasingPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakPopup.html" title="Add Peak"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditPeakDrawParamsPopup.html" title="Peak : Draw Parameters"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

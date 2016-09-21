@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CouplingBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="DataAnalysisBasic" href="DataAnalysisBasic.html" />
+    <link rel="prev" title="ConstraintBasic" href="ConstraintBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DataAnalysisBasic.html" title="DataAnalysisBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ConstraintBasic.html" title="ConstraintBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.CouplingBasic">
+<span id="couplingbasic"></span><h1>CouplingBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.CouplingBasic" title="Permalink to this headline">¶</a></h1>
+<p>======================COPYRIGHT/LICENSE START==========================</p>
+<p>CouplingBasic.py: Part of the CcpNmr Analysis program</p>
+<p>Copyright (C) 2003-2010 Wayne Boucher and Tim Stevens (University of Cambridge)</p>
+<hr class="docutils" />
+<p>The CCPN license can be found in ../../../../license/CCPN.license.</p>
+<p>======================COPYRIGHT/LICENSE END============================</p>
+<p>for further information, please contact :</p>
+<ul class="simple">
+<li>CCPN website (<a class="reference external" href="http://www.ccpn.ac.uk/">http://www.ccpn.ac.uk/</a>)</li>
+<li>email: <a class="reference external" href="mailto:ccpn&#37;&#52;&#48;bioc&#46;cam&#46;ac&#46;uk">ccpn<span>&#64;</span>bioc<span>&#46;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a></li>
+<li>contact the authors: <a class="reference external" href="mailto:wb104&#37;&#52;&#48;bioc&#46;cam&#46;ac&#46;uk">wb104<span>&#64;</span>bioc<span>&#46;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a>, <a class="reference external" href="mailto:tjs23&#37;&#52;&#48;cam&#46;ac&#46;uk">tjs23<span>&#64;</span>cam<span>&#46;</span>ac<span>&#46;</span>uk</a></li>
+</ul>
+<hr class="docutils" />
+<p>If you are using this software for academic purposes, we suggest
+quoting the following references:</p>
+<p>===========================REFERENCE START=============================
+R. Fogh, J. Ionides, E. Ulrich, W. Boucher, W. Vranken, J.P. Linge, M.
+Habeck, W. Rieping, T.N. Bhat, J. Westbrook, K. Henrick, G. Gilliland,
+H. Berman, J. Thornton, M. Nilges, J. Markley and E. Laue (2002). The
+CCPN project: An interim report on a data model for the NMR community
+(Progress report). Nature Struct. Biol. 9, 416-418.</p>
+<p>Wim F. Vranken, Wayne Boucher, Tim J. Stevens, Rasmus
+H. Fogh, Anne Pajon, Miguel Llinas, Eldon L. Ulrich, John L. Markley, John
+Ionides and Ernest D. Laue (2005). The CCPN Data Model for NMR Spectroscopy:
+Development of a Software Pipeline. Proteins 59, 687 - 696.</p>
+<p>===========================REFERENCE END===============================</p>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.assignPeakDimComponentCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">assignPeakDimComponentCoupling</tt><big>(</big><em>component</em>, <em>jCoupling</em>, <em>tolerance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.assignPeakDimComponentCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a jCoupling to a peakDim component for a splitting.
+Any coupling value will be updated by CouplingBasic notifiers.
+JCoupling can be None to remove assignment.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimComponent, ccp.nmr.Nmr.JCoupling, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimContribN</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.assignPeakDimComponentResonance">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">assignPeakDimComponentResonance</tt><big>(</big><em>component</em>, <em>resonance</em>, <em>tolerance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.assignPeakDimComponentResonance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a chemical shift to a peakDim component
+(e.g. reduced dimensionality)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimComponent, ccp.nmr.Nmr.Resonance, Float</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimContrib</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.assignPrimaryClusterCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">assignPrimaryClusterCoupling</tt><big>(</big><em>cluster</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.assignPrimaryClusterCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign the couplings of a peak cluster to any main resonance pair.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakCluster</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.JCoupling</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.averageJCouplingValue">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">averageJCouplingValue</tt><big>(</big><em>jCoupling</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.averageJCouplingValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recalculate a J-coupling value based upon the peakDimComponents
+to which it may be assigned via resonances. Sets any peak and
+peakDim links.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.JCoupling</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.calculateKarplusCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">calculateKarplusCoupling</tt><big>(</big><em>angle</em>, <em>couplingConstantTriple</em>, <em>angleOffset=0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.calculateKarplusCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Karplus coupling, given angle, coupling constant and optional angle offset.
+Coupling = c0 + c1*cos(angle+angleOffset) + c2*cos(angle+angleOffset)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>angle in radians, (c0, c1, c2) tuple, angle offset in radians</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>coupling</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.calculateKarplusCouplings">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">calculateKarplusCouplings</tt><big>(</big><em>angle</em>, <em>couplingConstants</em>, <em>angleOffsets</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.calculateKarplusCouplings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Karplus couplings, given angle, coupling constants, angle offset.
+Coupling = c0 + c1*cos(angle+angleOffset) + c2*cos(angle+angleOffset)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>angle in radians, list of (c0, c1, c2) tuples, list of angle offsets in radians</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>list of couplings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.couplingNotifiers">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">couplingNotifiers</tt><big>(</big><em>notifyFunc</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.couplingNotifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to setup automatic curation when couplings ans peak
+clusters change</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Function (to issue notification)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.deleteCluster">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">deleteCluster</tt><big>(</big><em>cluster</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.deleteCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the input peak cluster and any associated peakDimComponents
+that record the coupling contributions.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.findMatchingCouplings">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">findMatchingCouplings</tt><big>(</big><em>component</em>, <em>tolerance=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.findMatchingCouplings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the J couplings that match the splitting of a 
+peakDimComponent, within the set tolerances</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimComponent</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of 2-Tupe of (Float (delta), ccp.nmr.Nmr.JCoupling)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getClusterCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getClusterCoupling</tt><big>(</big><em>peakCluster</em>, <em>dim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getClusterCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the coupling value in Hz for the peaks of an input peak cluster
+along the dimension corresponding to the input dimension number.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster, Int (Nmr.DataDim.dim)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float (coupling value in Hz)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCoupledExpDims">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCoupledExpDims</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCoupledExpDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the dimensions (ExpDims) of an experiment which carry couplings.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ExpDims</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCouplingAnnotations">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCouplingAnnotations</tt><big>(</big><em>cluster</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCouplingAnnotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a text string representing the assignment 
+status of couplings (in all dimensions)
+represented by a peak cluster</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCouplingAtomResonances">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCouplingAtomResonances</tt><big>(</big><em>nmrProject</em>, <em>residue</em>, <em>atomNames</em>, <em>makeNew=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCouplingAtomResonances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get resonances that correspond to two named atoms in a given residue context
+- could include sequential neighbours. A prerequisite for accessign the Jcoupling
+etc for those atoms.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.NmrProject, MolSystem.Residue, 2-List of Words (MolSystem.Atom.names), Boolean</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Resonance, Nmr.Resonance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCouplingDataDimRef">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCouplingDataDimRef</tt><big>(</big><em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCouplingDataDimRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the reference data dimension of the input data dimension that corresponds
+to a coupling referencing.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataDimRef</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCouplingDimAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCouplingDimAnnotation</tt><big>(</big><em>cluster</em>, <em>dim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCouplingDimAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a text string representing the assignment 
+status of couplings in a specified dimension
+represented by a peak cluster</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster, Int</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getCouplingTolerance">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getCouplingTolerance</tt><big>(</big><em>conponent</em>, <em>dataDimRef</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getCouplingTolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the coupling assignment tolerance (usually Hz)
+for a given data dim.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.FreqDataDim</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getExperimentJCouplingList">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getExperimentJCouplingList</tt><big>(</big><em>experiment</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getExperimentJCouplingList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the J-Coupling list associated with an experiment, making and
+linking a new one if none exists.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Experiment</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.JCouplingList</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getPeakDimComponentSplitting">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getPeakDimComponentSplitting</tt><big>(</big><em>component</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getPeakDimComponentSplitting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the splitting value (usually in Hz, but possibly in ppm)
+for a given peakDim component.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ccp.nmr.Nmr.PeakDimComponent</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getPeakListsPeakClusters">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getPeakListsPeakClusters</tt><big>(</big><em>peakLists</em>, <em>clusterType='multiplet'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getPeakListsPeakClusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find any peak clusters (ordered by serial) that are represented by the input peak lists.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.PeakLists</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.PeakClusters</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getPeaksClusters">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getPeaksClusters</tt><big>(</big><em>peaks</em>, <em>clusterType='multiplet'</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getPeaksClusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the peak clusters that may be represented by the input peaks.
+Cluster type can be set to None to get ant/all clusters</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Word (PeakCluster.clusterType)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getResidueJCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getResidueJCoupling</tt><big>(</big><em>jCouplingList</em>, <em>residue</em>, <em>atomNames</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getResidueJCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the first JCoupling in a jCoupling list that corresponds to the named atoms
+in a given residue. Returns None if there is no match.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.JCouplingList, MolSystem.Residue, 2-List of Words (MolSystem.Atom.names)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.JCoupling</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.getSpectrumMultipletPattern">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">getSpectrumMultipletPattern</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.getSpectrumMultipletPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve any multiplet pattern previously associated with a spectrum</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.makeMultipletPeakCluster">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">makeMultipletPeakCluster</tt><big>(</big><em>peaks</em>, <em>multipletPattern</em>, <em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.makeMultipletPeakCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a peak cluster comprising of the selected peaks.
+The multiplet pattern is a recursive list of sub lists to give an object
+with the same dimensionality as the peak dims. Each element is
+either +1, 0 or -1 to specify the sign or absence of a multiplet
+peak. How to interpret a multiplet pattern is relative to input
+window pane, e.g. if spectrum is rotated. Automatically makes
+coupling expDimRefs when required.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, List of (Lists of)^numDim-1 Ints(-1,0,+1),
+Analysis.SpectrumWindowPane</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.removeCouplingNotifiers">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">removeCouplingNotifiers</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.removeCouplingNotifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the notification calls to automatically update annotations
+couplings andpeak clusters when couplings change.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.setResidueJCoupling">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">setResidueJCoupling</tt><big>(</big><em>jCouplingList</em>, <em>residue</em>, <em>atomNames</em>, <em>value</em>, <em>error=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.setResidueJCoupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value of a JCoupling in a jCoupling list that corresponds to the named atoms.
+Makes a new JCoupling object if none can be found.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.JCouplingList, MolSystem.Residue, 2-List of Words (MolSystem.Atom.names)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.JCoupling</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.setSpectrumMultipletPattern">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">setSpectrumMultipletPattern</tt><big>(</big><em>spectrum</em>, <em>pattern</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.setSpectrumMultipletPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate a give multiplet pattern with a spectrum for later recall.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, String</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.setupCouplingNotifiers">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">setupCouplingNotifiers</tt><big>(</big><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.setupCouplingNotifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the notification calls to automatically update annotations
+couplings andpeak clusters when couplings change.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.updateClusterAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">updateClusterAnnotation</tt><big>(</big><em>cluster</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.updateClusterAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh the main peak cluster annotation (normally carries )</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>String</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.updateClusterAssignments">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">updateClusterAssignments</tt><big>(</big><em>cluster</em>, <em>refPeak=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.updateClusterAssignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise a peak cluster object by enforcing consistent assignments
+across its component peaks and by setting its annotation approprately.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakCluster, Nmr.Peak</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.updateComponentMeasurements">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">updateComponentMeasurements</tt><big>(</big><em>component</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.updateComponentMeasurements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shifts /couplings of resonances assigned to the
+contributions of a particular peak dim component. Needs to be
+set because for a non-main component the bare peak dim position
+is not representative of the true shift, being a linear combination
+of ppm and coupling.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimComponent</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.CouplingBasic.updateContribNPeakDimAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.CouplingBasic.</tt><tt class="descname">updateContribNPeakDimAnnotation</tt><big>(</big><em>contrib</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.CouplingBasic.updateContribNPeakDimAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates annotation string for the peak dimension of a given
+splitting contribution according to its assignment status</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.PeakDimContribN</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Output</tt></dt>
+<dd></dd></dl>
+
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ConstraintBasic.html"
+                        title="previous chapter">ConstraintBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DataAnalysisBasic.html"
+                        title="next chapter">DataAnalysisBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/CouplingBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DataAnalysisBasic.html" title="DataAnalysisBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ConstraintBasic.html" title="ConstraintBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

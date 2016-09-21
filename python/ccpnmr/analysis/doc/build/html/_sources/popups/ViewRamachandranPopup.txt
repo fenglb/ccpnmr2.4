@@ -1,0 +1,112 @@
+=========================
+Chart : Ramachandran Plot
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Display Protein Backbone Phi & Psi Angles**
+
+This graphical display allow the user to display phi and psi protein backbone
+dihedral angles on a Ramachandran plot that indicates the likelihood (database
+abundance) of those angles. This can be used as a form of structure quality
+control to detect residues in a calculated three dimensional structure that
+are distorted away from regular protein-like conformations. Although a few
+atypical angles may truly occur in a given protein structure the presence of
+many unusual angles and abnormal distributions of angles over a structure
+ensemble with many models may indicate a poor quality structure.
+
+With this popup window the user selects a molecular system and then a
+structure ensemble that relates to that system. Th e user can choose to display
+dihedral angle information for all models (conformations) in the structure ensemble
+or just one model, by changing the "Model" pulldown menu. The user can control which
+residues are considered by selecting either a particular type of residue via
+"Ccp Code" or a specific residue in the sequence. Other options control how the
+phi & psi angle information is presented on screen. The "Labels" options
+control which angle spots on the Ramachandran chart have residue sequence number and
+type displayed; by default only the "disallowed" angles in unusual (white) regions of the
+plot are labelled. The "Spot Size" dictates how large the angle markers are and
+the "Colours" is a colour scheme to differentiate the different models
+from within the selected ensemble.
+
+The [Previous Residue] and [Next Residue] buttons allow the user to quickly
+scan though all of the residues in the structure, to check for
+unusual/disallowed backbone angles or unlikely distributions of within the
+ensemble. In the Ramachandran matrix plot the wite areas represent phi & psi
+angle combinations that are very unusual and thus usually indicative of a poor
+structure at that point. The grey and red areas represent the more common, and
+thus more expected, angle combinations. The more red the colour of a square
+the greater the likelihood of the phi & psi angles. It should be noted that
+when displaying angle points for only a single residue or residue type, the
+Ramachandran chart in the background is at  residue-specific version, i.e. it
+shows angle likelihoods for only that one kind of residue. This is particularly
+important for Pro and Gly residues that have notably different distributions
+(and hence angle expectations) to other residues.
+
+
+Main Panel
+==========
+
+|pulldown| **MolSystem**: Selects which molecular system to display data for; from which a structure is selected
+
+|pulldown| **Structure**: Selects which structure ensemble to display phi/psi backbone angle data for
+
+|pulldown| **Model**: Selects which conformational model(s), from the structure ensemble, to display data for
+
+|pulldown| **Labels**: Sets which phi/psi points carry residue labels, e.g. according to whether values are "disallowed" (very uncommon)
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+|pulldown| **Ccp Code**: Allows the phi/psi points to be restricted to only those from a particular residue type
+
+|pulldown| **Residue**: Allows the display of phi/psi points from only a single residue
+
+|pulldown| **Spot Size**: Sets how large to display the circles that indicate the phi/psi points
+
+|pulldown| **Colours**: Selects which colour scheme to use to distinguish phi/psi points from different conformational models
+
+
+Scrollbar: : 
+
+|button| **Previous Residue**: Show phi/spi spots for the previous residue in the sequence; when there is no current residue, starts fron the first in sequence there is data for
+
+|button| **Next Residue**: Show phi/spi spots for the next residue in the sequence; when there is no current residue, starts fron the first in sequence there is data for
+

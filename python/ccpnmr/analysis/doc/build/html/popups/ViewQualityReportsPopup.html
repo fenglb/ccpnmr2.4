@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Quality Reports &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Spin System Type Scores" href="SpinSystemTypeScoresPopup.html" />
+    <link rel="prev" title="Chart : Assignment Graph" href="ViewAssignmentPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypeScoresPopup.html" title="Spin System Type Scores"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ViewAssignmentPopup.html" title="Chart : Assignment Graph"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-quality-reports">
+<h1>Assignment : Quality Reports<a class="headerlink" href="#assignment-quality-reports" title="Permalink to this headline">¶</a></h1>
+<p><strong>Analyses of Potential Errors and Completeness in Assignment</strong></p>
+<p>This popup presents a series of tables that enables the user to get a sense of
+how complete the assignment is within a given project and whether there are
+any assignments which look like they might be mistakes. This system is not
+designed to say that something is definitely missing or definitely a mistake,
+but rather tries to focus attention to any places where there may potentially
+be a problem. Often something that is highlighted in red as &#8220;unusual&#8221; merely
+needs checking, to ensure that the user has a good explanation. The layout
+consists of four tabs, each relating to a different aspect of assignment.</p>
+<p><strong>Atom Assign Status</strong></p>
+<p>The first tab contains various categories of atom, from the selected molecular
+system, like &#8220;backbone&#8221; or &#8220;Lys&#8221; (for amino acid type lysine). Each category
+has an indication of how many, out of the total available for that type, have
+been assigned and what chemical shift range they cover. This kind of
+information is useful to track the assignment progress of a project and to
+give a final summary. By default the table represents the atoms in the whole
+of the selected molecular system, but the user may specify only a subset by
+typing the appropriate chain letters and residue ranges into the &#8220;Residue
+Selection&#8221; field. Only atoms with element type
+&#8220;H&#8221;, &#8220;C&#8221;, &#8220;N&#8221;, &#8220;P&#8221;, &#8220;F&#8221; are considered.</p>
+<p>Explanation of categories, in terms of atom name:</p>
+<ul class="simple">
+<li>(Backbone)N+H: &#8220;H&#8221; or &#8220;N&#8221;</li>
+<li>Backbone+H+HA: &#8220;H&#8221;, &#8220;HA&#8221;, &#8220;HA2&#8221;, &#8220;HA3&#8221;, &#8220;C&#8221;, &#8220;CA&#8221; or &#8220;N&#8221;</li>
+<li>Backbone: &#8220;C&#8221;, &#8220;CA&#8221; or &#8220;N&#8221;</li>
+<li>Side Chain = not (Backbone+H+HA)</li>
+</ul>
+<p><strong>Through-Space Status</strong></p>
+<p>The second tab contains a table that gives the counts of various classes of
+through-space connection, e.g. for NOESY experiments. Counts are given on a
+per-chain and per-residue basis. In this way the user can gauge the
+information density that has been or may be used during structure calculation.
+By default the table shows data for all peak lists that have and experiment
+type that is deemed to be &#8220;through-space&#8221;, like NOESY or solid-state
+dipole-dipole. Data may be displayed for only one of these peak lists by
+selecting from the &#8220;Peak List&#8221; pulldown menu.</p>
+<p><strong>Resonances</strong></p>
+<p>The third table considers all of the resonances that carry chemical shifts in
+a specified shift list. The purpose of this table is to indicate potential
+problems with assignment from the perspective of a resonance, rather than
+peaks, which are covered in the next tab. Three basic category of error
+are highlighted (and appear as red cells):</p>
+<ul class="simple">
+<li>Each resonance is checked for which others it has covalent bond type
+connectivity to, considering both atom assignments and the peak dimensions
+it is assigned to. Typical errors include hydrogens with more than one bound
+partner and carbons with more than four. Often errors are the result or
+(redundant) resonance duplication.</li>
+<li>The chemical shift of the resonance is compared to the known shift
+distribution derived from BioMagResBank data. Outliers are coloured yellow,
+orange or red in the &#8220;Type Score&#8221; column according to how unusual
+the chemical shift is. Even red warnings may actually represent correct
+atomic assignments, but the user should be able to conform the assignment.</li>
+<li>The distribution of peak dimension position information, from which the
+chemical shifts are derived, is used to fill the &#8220;SD&#8221; (standard deviation)
+and &#8220;Max Peak U+0394&#8221; columns. The former gives and indication of the width
+of spread in the shift measurement, and is weighted by spectrum dimension,
+like all shift measurements in Analysis. The later represents the biggest
+difference between the chemical shift value (an average) and peak dimension
+position; and thus is useful for finding outliers, especially where the
+number of measurements is large and the standard deviation is small.</li>
+</ul>
+<p>The user may eliminate rows from the table which do not carry any warnings
+by selecting the &#8220;Show only alerts&#8221; option.</p>
+<p><strong>Peaks</strong></p>
+<p>For a selected peak list, the forth table displays assignment and intensity
+problems on a per-peak basis. Two basic kinds of check are made for each peak:</p>
+<ul class="simple">
+<li>For each peak any resonances assigned to its dimensions are analysed to
+highlight potential errors. Some of the checks mirror those found in the
+&#8220;Resonances&#8221; tab, e.g. looking for inappropriate covalent bond context.
+Checks include: missing assignments, like on one side of a covalent pair
+for an HSQC peak, and seemingly impossible assignments, like having an
+HSQC peak assigned to two resonances from different residues.</li>
+<li>The intensity (height and volume) measures for each peak are compared to the
+average for the whole peak list and significant outliers are highlighted.
+For magnitude comparisons peak heights and volumes are compared in
+log-space, and red cells indicate three standard deviations from the sample
+mean of the logarithm of the intensity. Warnings may indicate the presence
+of problems, like unintentional diagonal peaks, but some very intense or
+very weak peaks may be expected. A check is also made if the peak sign seems
+inappropriate e.g. peaks of opposite sign in a NOESY experiment.</li>
+</ul>
+<p>The user may eliminate rows from the table which do not carry any warnings
+by selecting the &#8220;Show only alerts&#8221; option.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Because the analyses are relatively slow to perform the tables will not
+automatically update every time there is an assignment change. If significant
+changes have been made and the tables need to be updated the user can click
+the [Update Table] button to force a refresh.</p>
+<p>The [Show Peaks] and [Show Resonances] buttons can be used to display all of
+the peaks and resonances, in tabular form, from which the information in the
+selected rows are derived. These options are not available for the first tab.</p>
+<p>Lots of red warnings in the &#8220;Resonances&#8221; tab, especially in in the &#8220;Bound&#8221;
+column, may be an indication of a problem with the specification of one or
+more experiment types, rather than a direct problem with the peak assignments.
+Knowledge of which experimental dimensions represent &#8216;onebond&#8217; transfers, by
+virtue of peak assignment, indicates which atomic assignments are in a
+covalent bond context. The most common mistakes in this regard are the
+incorrect choice of experiment type or an incorrect choice of dimension order
+(i.e. how the real experiment dimensions map to the CCPN reference). Both of
+these problems may be fixed by considering the &#8220;Experiment Types&#8221; tab in the
+<a class="reference external" href="EditExperimentPopup.html">Experiments</a> popup window. Here, most dimension order problems are fixed by
+editing the &#8220;Transfers To Dim&#8221; column in the lower left table, using the
+user&#8217;s knowledge of how the dimensions are connected/correlated.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="atom-assign-status">
+<h2>Atom Assign Status<a class="headerlink" href="#atom-assign-status" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Mol System</strong>: Selects which molecular system (group of chains) to display assignment status information for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list is used as the source of chemical shift information</p>
+<p><img align="bottom" alt="entry" class="align-bottom" src="../_images/entry.png" /> <strong>Residue Selection</strong>: Sets which chain and range of residues to show assignment status for, e.g. &#8220;2-10, 13-77&#8221; or &#8220;A1-99, B20-120&#8221;</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Category</em></td>
+<td>The name of a category into which atoms of the selected chain/residue have been grouped</td>
+</tr>
+<tr><td><em>Available</em></td>
+<td>The total number of atoms (or equivalent sets for methyl groups) that are available for assignment within the category</td>
+</tr>
+<tr><td><em>Assigned</em></td>
+<td>The number of atoms (or equivalence groups) that have actually been assigned within the category</td>
+</tr>
+<tr><td><em>% Assigned</em></td>
+<td>The percentage of available atoms (or equivalence groups) hat have been assigned within the category</td>
+</tr>
+<tr><td><em>Min Shift</em></td>
+<td>The lowest chemical shift value of the assigned atoms within in the category</td>
+</tr>
+<tr><td><em>Mean Shift</em></td>
+<td>The average chemical shift value of the assigned atoms within in the category</td>
+</tr>
+<tr><td><em>Max Shift</em></td>
+<td>The highest chemical shift value of the assigned atoms within in the category</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="through-space-status">
+<h2>Through-Space Status<a class="headerlink" href="#through-space-status" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Mol System</strong>: Selects which molecular system (group of chains) to show through-space connectivity information for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: Selects which through-space peak list(s) to show connectivity information for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Seq Element</em></td>
+<td>The identity of the chain or residue that the data in the row pertains</td>
+</tr>
+<tr><td><em>Total</em></td>
+<td>The total number of though-space connections for the chain/residue in the selected peak list(s)</td>
+</tr>
+<tr><td><em>Intra Residue</em></td>
+<td>The number of connections that lie within a single residue; do not cross between different residues</td>
+</tr>
+<tr><td><em>Inter Residue</em></td>
+<td>The number of connections that cross from one residue to another</td>
+</tr>
+<tr><td><em>Sequential</em></td>
+<td>The number of connections between residues that are sequential neighbours</td>
+</tr>
+<tr><td><em>Short Range</em></td>
+<td>The number of connections between residues that are within four sequence positions of one another</td>
+</tr>
+<tr><td><em>Short Non-seq</em></td>
+<td>The number of connections between residues that are not sequential neighbours but are within four sequence positions of one another</td>
+</tr>
+<tr><td><em>Long Range</em></td>
+<td>The number of connections between residues that are five or more sequence positions apart</td>
+</tr>
+<tr><td><em>Intra Chain</em></td>
+<td>The number of connections that lie within a single molecular chain</td>
+</tr>
+<tr><td><em>Inter Chain</em></td>
+<td>The number of connections that cross between different molecular chains</td>
+</tr>
+<tr><td><em>Contacted Residues</em></td>
+<td>For a given residue, a list of sequence numbers for all other residues that are connected</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="resonances">
+<h2>Resonances<a class="headerlink" href="#resonances" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list to derive chemical shift values from in the resonance analysis</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show only alerts</strong>: Sets whether to show only rows in the table for resonances that carry warnings</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the resonance</td>
+</tr>
+<tr><td><em>Iso.</em></td>
+<td>The nuclear isotope type of the resonance</td>
+</tr>
+<tr><td><em>Resonance</em></td>
+<td>The assignment annotation for the resonance; just its serial number in square brackets if unassigned</td>
+</tr>
+<tr><td><em>Bound</em></td>
+<td>The assignment annotations of all the other resonances that are considered covalently bound; either by virtue of atom assignments or &#8220;onebond&#8221; linked experimental dimensions</td>
+</tr>
+<tr><td><em>BMRB Mean</em></td>
+<td>When atom assigned, the average chemical shift for the atom type given in BioMagResBank data</td>
+</tr>
+<tr><td><em>Random Coil</em></td>
+<td>When atom assigned, the sequence-adjusted random coil chemical shift value for the atom type</td>
+</tr>
+<tr><td><em>Type Score</em></td>
+<td>When atom assigned, a score indicating how well the resonance chemical shift fits with the known distribution of shifts for the atom type</td>
+</tr>
+<tr><td><em>Value</em></td>
+<td>The chemical shift value of the resonance, in the selected shift list</td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>The standard deviation of the chemical shift value; over the peak dimensions to which the resonance is assigned</td>
+</tr>
+<tr><td><em>Max Peak Δ</em></td>
+<td>The maximum difference in the averaged chemical shift value and a peak dimension assigned to the resonance</td>
+</tr>
+<tr><td><em>Dim Contribs</em></td>
+<td>The number of peak dimensions the resonance is assigned to</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="peaks">
+<h2>Peaks<a class="headerlink" href="#peaks" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: Selects which peak list to show peak analyses for</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show only alerts</strong>: Sets whether to show only rows in the table for peaks that carry warnings</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the peak in the selected peak list</td>
+</tr>
+<tr><td><em>Assignment</em></td>
+<td>The resonance assignment annotation of the peak</td>
+</tr>
+<tr><td><em>Assign Errors</em></td>
+<td>Any error that relate to the peak&#8217;s resonance assignment</td>
+</tr>
+<tr><td><em>Location</em></td>
+<td>The position of the peak, in the units of the experimental axes; usually ppm</td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>The integration volume of the peak; colour indicates deviation from the peak list average on a logarithmic scale</td>
+</tr>
+<tr><td><em>Log Vol Dev</em></td>
+<td>The standard deviation of the peak integration volume on a logarithmic scale; highlights strong/weak outliers (which could be genuine)</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>The height intensity of the peak; colour indicates deviation from the peak list average on a logarithmic scale</td>
+</tr>
+<tr><td><em>Log Height Dev</em></td>
+<td>The standard deviation of the height intensity  on a logarithmic scale; highlights strong/weak outliers (which could be genuine) and inappropriate peak sign</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update Table</strong>: Manually update the currently viewed table in light of assignment changes etc.</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of the peaks that relate to the selected rows, either directly or by virtue of assignment (depending on the current table)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Resonances</strong>: Show a table of resonances that relate to the selected rows, either directly or by virtue of assignment (depending on the current table)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Quality Reports</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#atom-assign-status">Atom Assign Status</a></li>
+<li><a class="reference internal" href="#through-space-status">Through-Space Status</a></li>
+<li><a class="reference internal" href="#resonances">Resonances</a></li>
+<li><a class="reference internal" href="#peaks">Peaks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ViewAssignmentPopup.html"
+                        title="previous chapter">Chart : Assignment Graph</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SpinSystemTypeScoresPopup.html"
+                        title="next chapter">Spin System Type Scores</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewQualityReportsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypeScoresPopup.html" title="Spin System Type Scores"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ViewAssignmentPopup.html" title="Chart : Assignment Graph"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

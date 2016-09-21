@@ -1,0 +1,206 @@
+======================================
+Assignment : Automated Seq. Assignment
+======================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Settings
+========
+
+*Documentation missing*
+
+General
+~~~~~~~
+
+
+|pulldown| **Chain**: *Documentation missing*
+
+|pulldown| **Shift List**: *Documentation missing*
+
+|pulldown| **Window**: *Documentation missing*
+
+Peak-Peak Match Tolerances
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|float| **13C (ppm)**: *Documentation missing*
+
+|float| **1H (ppm)**: *Documentation missing*
+
+Peak Lists
+~~~~~~~~~~
+
+
+=================  =======================
+**Table 1**
+------------------------------------------
+       *Spectrum*  *Documentation missing* 
+*Experiment Type*  *Documentation missing* 
+           *Use?*  *Documentation missing*  *(Editable)*
+      *Num Peaks*  *Documentation missing* 
+=================  =======================
+
+
+
+Spin Systems
+============
+
+*Documentation missing*
+
+==========================  =======================
+**Table 2**
+---------------------------------------------------
+                       *#*  *Documentation missing* 
+                 *Residue*  *Documentation missing* 
+*Intra residue resonances*  *Documentation missing* 
+*Inter residue resonances*  *Documentation missing* 
+                *Comments*  *Documentation missing* 
+==========================  =======================
+
+
+
+|button| **Find Resonances From Peaks**: *Documentation missing*
+
+|button| **Show Peaks**: *Documentation missing*
+
+|button| **Go To Root Location**: *Documentation missing*
+
+Automation
+==========
+
+*Documentation missing*
+
+CcpNmr Nexus
+~~~~~~~~~~~~
+
+
+|float| **0.1**: *Documentation missing*
+
+|check| **Use existing assignments?**: *Documentation missing*
+
+|button| **Run Nexus**: *Documentation missing*
+
+|float| **0.04**: *Documentation missing*
+
+|pulldown| **Number of iterations**: *Documentation missing*
+
+MARS
+~~~~
+
+
+Score Graph
+===========
+
+*Documentation missing*
+
+
+
+
+
+Predictions
+===========
+
+*Documentation missing*
+
+|check| **Show only problem regions**: *Documentation missing*
+
+|pulldown| **Prediction Method**: *Documentation missing*
+
+=============================  =======================
+**Table 3**
+------------------------------------------------------
+                    *Residue*  *Documentation missing* 
+       *Assigned Spin System*  *Documentation missing* 
+      *Confirmed Spin System*  *Documentation missing*  *(Editable)*
+           *Prediction Score*  *Documentation missing* 
+  *Best Matching Spin System*  *Documentation missing* 
+*1st Alternative Spin System*  *Documentation missing* 
+*2nd Alternative Spin System*  *Documentation missing* 
+=============================  =======================
+
+
+
+|button| **Clear Confirmation**: *Documentation missing*
+
+|button| **Confirm Selected**: *Documentation missing*
+
+|button| **Confirm Above Score Threshold**: *Documentation missing*
+
+|float| **0.75**: *Documentation missing*
+
+|button| **Commit Assignments**: *Documentation missing*
+
+|button| **Assign Tentatively**: *Documentation missing*
+
+|button| **Strip Selected Using**: *Documentation missing*
+
+|pulldown| ***None***: *Documentation missing*
+
+Instructions
+============
+
+*Documentation missing*
+
+Basic Instructions
+~~~~~~~~~~~~~~~~~~
+
+
+
+Scrollbar: : 
+
+Comparison
+==========
+
+*Documentation missing*
+
+|pulldown| **X Axis**: *Documentation missing*
+
+|pulldown| **Y Axis**: *Documentation missing*
+
+
+

@@ -1,0 +1,115 @@
+=======================================
+Structure : Predict Secondary Structure
+=======================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Predict Protein Secondary Structure**
+
+This popup window is designed to allow the prediction of secondary structure
+for a protein chain given chemical shifts, using the (external) program D2D.
+
+The Options to select are the Chain and the Shift List, for which the
+prediction is then made.
+
+The Secondary Structure Predictions table lists the residues in the chain.
+For each residue the residue number, residue type and current secondary
+structure set for that residue is given.  The remaining columns are for
+the predictions made by D2D, and of course are only filled in once D2D
+is run.  The predicted secondary structure is listed first, followed by
+the probability of that residue being Helix, Beta, Coil or PPII (the
+predicted secondary structure will be specified by the maximum of these).
+
+To run the prediction click on the "Run D2D Prediction!" button.  This
+does not store this information in the project.  To do that you have to
+click on the "Commit Predicted Secondary Structure" button.
+
+**Caveats & Tips**
+
+The predicted secondary structure cell is coloured red if the prediction
+is unreliable.  Unreliable predictions are not stored with the "Commit"
+button but all reliable ones are.  If you need to edit the secondary
+structure for a residue then use the Secondary Structure Chart:
+
+.. _Secondary Structure Chart: SecStructureGraphPopup.html
+
+**References**
+
+The D2D programme:
+
+http://www-vendruscolo.ch.cam.ac.uk/d2D/index.php
+
+*C. Camilloni, A. De Simone, W. Vranken and M. Vendruscolo.
+Determination of Secondary Structure Populations in Disordered States of Proteins using NMR Chemical Shifts.
+Biochemistry 2012, 51: 2224-2231
+
+
+Main Panel
+==========
+
+Options
+~~~~~~~
+
+
+|pulldown| **Chain**: Choose the molecular system chain to make predictions for
+
+|pulldown| **Shift List**: Select the shift list to take input chemical shifts from
+
+Secondary Structure Predictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+==============  ====================================================
+**Table 1**
+--------------------------------------------------------------------
+     *Res Num*  Residue number in chain 
+    *Res Type*  Residue type code 
+  *Current SS*  Current stored secondary structure code 
+*Predicted SS*  Predicted secondary structure code 
+       *Helix*  Probability residue is Helix 
+        *Beta*  Probability residue is Beta 
+        *Coil*  Probability residue is Coil 
+        *PPII*  Probability residue is PPII 
+==============  ====================================================
+
+
+
+|button| **Run D2D Prediction!**: Run the D2D method to predict secondary structure
+
+|button| **Commit Predicted Secondary Structure**: Store the secondary structure predictions in the CCPN project
+

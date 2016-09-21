@@ -1,0 +1,7 @@
+===============
+ConstraintBasic
+===============
+
+.. automodule:: ccpnmr.analysis.core.ConstraintBasic
+   :members:
+

@@ -1,0 +1,7 @@
+=============
+MoleculeBasic
+=============
+
+.. automodule:: ccpnmr.analysis.core.MoleculeBasic
+   :members:
+

@@ -1,0 +1,256 @@
+===================
+Peak : Peak Finding
+===================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+** Peak Settings and Non-Interactive Peak Finding **
+
+The purpose of this dialog is to allow the user to select settings for
+finding and integrating peaks, and also to be able to find peaks in an
+arbitrary region that is specified in a table rather than via a spectrum
+window.
+
+** Find Parameters tab **
+
+This can be used to specify how peak finding works.
+
+First of all, you can search for just positive peaks, just negative
+peaks or both, and the default is that it is just positive peaks.
+However, this is further filtered by what the contour levels are.
+If there are no positive contour levels for a given spectrum then
+positive peaks are not found even if this dialog says they can be,
+and similarly if there are no negative contour levels for a given
+spectrum then negative peaks are not found even if this dialog says
+they can be.
+
+The peak finding algorithm looks for local extrema (maximum for
+positive peaks and minima for negative peaks).  But on a grid there
+are various ways to define what you mean by an extremum.  Suppose
+you are trying to determine if point p is a maximum (similar
+considerations apply for minimum).  You would want the intensity
+at all nearby points to be less than or equal to the intensity at p.
+You can just check points that are just +- one point from p in each
+dimension, or you can also check "diagonal" points.  For
+example, if you are looking at point p = (x, y) in 2D, then the
+former would mean checking the four points (x-1, y), (x+1, y)
+(x, y-1) and (x, y+1), whereas for the latter you would also have
+to check (x-1, y-1), (x-1, y+1), (x+1, y-1) and (x+1, y+1).  In
+N dimensions the "diagonal" method involves checking 3^N-1 points
+whereas the "non-diagonal" method involves checking only 2N points.
+In general the "non-diagonal" method is probably the one to use,
+and it is the default.
+
+Peaks are only found above (for positive peaks) or below (for negative
+peaks) some threshold.  By default this is determined by the contour level
+for the spectrum.  For positive peaks the threshold is the minimum
+positive contour level, and for negative peaks the threshold is the
+maximum negative contour level.  However these levels can be scaled up
+(or down) using the "Scale relative to contour levels" option (default
+value 1).  For example, if you have drawn the contour levels low to
+show a bit of noise, but do not want the noise picked as peaks, then
+you could select a scale of 2 (or whatever) to increase the threshold.
+
+The "Exclusion buffer around peaks" is so that in crowded regions you
+do not get too many peaks near one location.  By default the exclusion
+buffer is 1 point in each dimension, but this can be increased to make
+the algorithm find fewer peaks.
+
+By default the peak finding only looks at the orthogonal region that
+is displayed in the given window where peak finding is taking place.
+Sometimes it looks like a peak should be found because in x, y you
+can see an extremum, but unless it is also an extremum in the orthogonal
+dimensions it is not picked.  You can widen out the points being
+examined in the orthogonal dimensions by using the "Extra thickness in
+orthogonal dims" option, which is specified in points.
+
+The "Minimum drop factor" is by what factor the intensity needs to drop
+from its extreme value for there to be considered to be a peak.  This
+could help remove sinc wiggle peaks, for example.  The default is that
+the drop factor is 0, which in effect means that there is no condition.
+
+The "Volume method" is what is used to estimate the volume of peaks that
+are found.  The default is "box sum", which just looks at a fixed size
+box around the peak centre and sums the intensities in that.  The size
+of the box is set in the table in the Spectrum Widths tab.  The
+"truncated box sum" is the same as "box sum" except that the summing
+stops in a given direction when (if) the intensities start increasing.
+The "parabolic" fit fits a quadratic equation in each dimension to the
+intensity at the peak centre and ad +- 1 points and then uses the
+equivalent Gaussian fit to estimate the volume.
+
+** Spectrum Widths **
+
+This can be used to specify minimum linewidths (in Hz) for there to be
+considered a peak to exist in the peak finding algorithm.  It is also
+where the Boxwidth for each dimension in each spectrum is specified.
+
+** Diagonal Exclusions **
+
+This can be used to exclude peaks from being found in regions near
+the diagonal (so in homonuclear experiments).  The exclusion region
+is specified in ppm and is independent of spectrum.
+
+** Region Peak Find **
+
+This can be used to find peaks non-interactively (so not having to
+control shift drag inside a spectrum window).  The region being
+analysed is specified in the table.  There are two types of conditions
+that can be specified, "include" for regions that should be included
+and "exclude" for regions that should be excluded.  The regions are
+specified in ppm.
+
+The "Whole Region" button will set the selected row in the table to be
+the entire fundamental region of the spectrum.
+
+The "Add Region" button adds an extra row to the table, and the "Delete
+Region" button removes the selected row.
+
+The "Adjust Params" button goes to the Find Parameters tab.
+
+The "Find Peaks!" button does the peak finding.
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Find Parameters
+===============
+
+*Documentation missing*
+
+Extrema to search for
+~~~~~~~~~~~~~~~~~~~~~
+
+
+|radio| |radio| ***None***: Sets whether peak picking within spectra find intensity maxima, minima or both maxima and minima
+
+|radio| **positive and negative**: *Documentation missing*
+
+|radio| **positive only**: *Documentation missing*
+
+|radio| **negative only**: *Documentation missing*
+
+Nearby points to check
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+|radio| |radio| ***None***: Sets how permissive the peak picking in when searching for intensity extrema; by adding extra points to the selected search region
+
+|radio| **+-1 in at most one dim**: *Documentation missing*
+
+|radio| **+-1 allowed in any dim**: *Documentation missing*
+
+Other parameters
+~~~~~~~~~~~~~~~~
+
+
+|float| **Scale relative to contour levels**: Threshold above which peaks are picked, relative to the lowest displayed contour; 1.0 means picking exactly what is visible
+
+|int| **Exclusion buffer around peaks (in points)**: The size of the no-pick region, in data points, around existing picked peaks; eliminates duplicate picking
+
+|int| **Extra thickness in orthogonal dims (in points)**: Sets whether to consider any additional planes (Z dimension) when calculating peak volume integrals
+
+|float| **Minimum drop factor (0.0-1.0)**: *Documentation missing*
+
+|pulldown| **Volume method**: Selects which method to use to calculate peak volume integrals when peaks are picked; box sizes are specified in "Spectrum Widths"
+
+Spectrum Widths
+===============
+
+*Documentation missing*
+
+|pulldown| **Spectrum**: The spectrum which determines the widths being shown
+
+========================  ================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------
+             *Dimension*  The number of the spectrum dimension to which the settings apply 
+               *Isotope*  The nuclear isotope measures in the spectrum dimension 
+*Minimum Linewidth (Hz)*  The smallest value for the linewidth of a peak for it to be picked  *(Editable)*
+              *Boxwidth*  The size of the spectrum region to perform the volume integral over  *(Editable)*
+========================  ================================================================================
+
+
+
+Diagonal Exclusions
+===================
+
+*Documentation missing*
+
+==========================  ===================================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------------------------------------
+                 *Isotope*  The isotope as measures on the axis of a spectrum window 
+*Diagonal Exclusion (ppm)*  The distance from the homonuclear diagonal line within which no peak picking can occur  *(Editable)*
+==========================  ===================================================================================================
+
+
+
+Region Peak Find
+================
+
+*Documentation missing*
+
+|pulldown| **Peak List**: Selects which peak list to perform region-wide peak picking for
+
+===========  =======================
+**Table 3**
+------------------------------------
+*Condition*  *Documentation missing* 
+===========  =======================
+
+
+
+|button| **Whole Region**: Sets the currently selected region row to cover the whole spectrum
+
+|button| **Add Region**: Add a new region row, which may them be set for exclusion or inclusion when peak picking large areas
+
+|button| **Delete Region**: Remove the selected region specification
+
+|button| **Adjust Params**: Go to the panel for setting the parameters that control how peaks extrema are picked
+
+|button| **Find Peaks!**: Using the stated regions and parameters, perform region-wide peak picking
+

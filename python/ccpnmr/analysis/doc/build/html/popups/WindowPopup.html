@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>window1 &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Window" href="../menu/Window.html" />
+    <link rel="next" title="WindowMenus" href="../menu/WindowMenus.html" />
+    <link rel="prev" title="Window : Marks and Rulers" href="EditMarksPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/WindowMenus.html" title="WindowMenus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMarksPopup.html" title="Window : Marks and Rulers"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" accesskey="U">Window</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="window1">
+<h1>window1<a class="headerlink" href="#window1" title="Permalink to this headline">¶</a></h1>
+<p><strong>Spectrum Window Contour Display</strong></p>
+<p>The spectrum display in Analysis displays NMR spectra of arbitrary
+dimensionality and allows the user to identify signal peaks and assign them
+to atomic resonances. A CCPN project may contain as many spectrum windows as
+memory allows with whichever axis types the user requires.</p>
+<p>Simple 1-dimensional spectra are displayed as intensity graphs, but higher
+dimensionality spectra are displayed as contour plots. A contour plot
+represents the intensities in the plane of an NMR spectrum and each contour
+line represents points of equal data value (height). For a 2-dimensional
+spectrum there is only one displayable spectrum plane, but for 3D and higher
+there are many planes, which can be imagined as being stacked on top of one
+another along depth axes. The user can navigate to view any  position in a
+spectrum by changing the region of the plane displayed in the screen and
+independently adjust what the current depth position is. Also, in windows with
+depth axes Analysis has the ability to display several planes at once in a
+specified depth region, i.e. a given thickness. A spectrum window always has
+the same kind of spectrum dimensions (e.g. in terms of isotope) represented
+by the on-screen (X,Y) and depth (Z) axes. If an alternative, orthogonal view
+is required, for example to show different NMR axes in the plane of the
+screen then a new window must be made. However, if the user  simply wishes to
+swap spectrum data axes that have the <em>same</em> kind of isotope then this can be
+done without having to make a new window; the mapping of spectra into windows
+can be adjusted via the &#8220;Spectrum &amp; Peak List Mappings&#8221; section of the main
+<a class="reference external" href="EditWindowPopup.html">Windows</a> option.</p>
+<p>There are three basic components to a spectrum window popup: there is the
+main graphical spectrum display with axes and scrollbars, which may be
+sub-divided into several strips/panels; a toolbar of buttons at the top,
+which control what is displayed in the window; and also a menu accessible
+with a right mouse click over the main display, which has a large amount of
+important functionality.</p>
+<p><strong>Top Toolbar</strong></p>
+<p>The toolbar of buttons above the main spectrum display area allows the user
+to control various aspects of what is displayed. After clicking on one of the
+top buttons an extra panel will appear to give access to further options, and
+clicking on the same top button again will make the options panel disappear.</p>
+<p><em>Spectra</em></p>
+<p>The [Spectra] option allows the user to toggle individual spectra within the
+main display on or off. The spectra that can be displayed are naturally
+those that have the right kinds of isotopes on their axes for the spectrum
+window. Although, a spectrum may be displayed at least the X &amp; Y axes match,
+i.e. a 2D spectrum can be displayed in the X-Y plane of a 3D window. Spectra
+may be prevented from appearing within this toolbar, to avoid overcrowding,
+by changing the &#8220;Spectrum In Toolbar&#8221; column within the &#8220;Spectrum &amp; Peak List
+Mappings&#8221; section of the main <a class="reference external" href="EditWindowPopup.html">Windows</a> option.</p>
+<p>Spectra may also be toggled on an off using keyboard shortcuts, which are set
+in the main <a class="reference external" href="EditSpectrumPopup.html">Spectra</a> display options. Also, the order in which spectra
+are drawn is reflected in the order that they appear in the top panel;
+this is set via the &#8220;Rank&#8221; of the <a class="reference external" href="EditSpectrumPopup.html">Spectra</a> display options.</p>
+<p><em>Contours</em></p>
+<p>The [Contours] option allows the user to adjust the contour base level (green
+arrows), the number of contour lines and flip between positive and negative
+levels. These settings will be applied to <em>all of the visible spectra</em> in
+the window. Hence, it is common for the user to toggle certain spectra off
+first if they should not be affected. These contour settings are fairly
+simple, but more detailed control of contours is given by the [More..]
+button which opens the main <a class="reference external" href="EditContourLevelsPopup.html">Spectrum Contour Levels</a> popup.</p>
+<p><em>Peaks</em></p>
+<p>The [Peaks] option allows the user to control which peak lists, in terms of
+the peak markers and annotations, will be visible in the main graphical
+display. The user simply clicks on the button of a peak list to turn it on or
+off. By default the &#8220;Multi-list&#8221; option is set so that any number of peak
+list will be displayed, otherwise the user can uncheck this so that only one
+peak list is shown at a time. Having only one peak list shown is useful to
+avoid picking peaks in the wrong spectra; peaks will only be picked in
+displayed peak lists.</p>
+<p>It should be noted that when a spectrum has more than one peak list only one
+of these will be active; the active peak list is the one that the user can
+select in the spectrum and the one newly picked signal maxima are placed in.
+To change the active peak list for a spectrum and how peak lists are shown
+(symbol type and colour) the user should edit the main <a class="reference external" href="EditPeakListsPopup.html">Peak Lists</a> table.</p>
+<p><em>Strips</em></p>
+<p>The [Strips] option controls how the graphical spectrum display is
+sub-divided. These sub-divisions are called &#8220;strips&#8221; and allow the user to
+have different panels in the window showing different regions on the spectra.
+All strips will be tied together along one axis; with vertical strips the
+Y-axis is the same for all sub-divisions, and for horizontal strips the
+X-axis is common. Strips can be added and removed by the user, although
+many systems in Analysis will automatically curate strips (e.g, for protein
+sequence assignment). The strips&#8217; panel also indicates which
+strip in the window is deemed to be active (its button will be green);
+it is the active strip that can be moved with the green arrow and is
+the target of any navigation options into the window.</p>
+<p>Spectrum windows in Analysis have another way of defining sub-divisions which
+are called &#8220;separators&#8221;. These are distinct from strips and are not generally
+administered from the toolbar (except the ability to remove them all). A
+separator is a sub-division that goes at right angles to the main strip
+divisions and serves to split the axis which is not affected by the strips.
+For example a window with vertical strips can have horizontal separators
+which split the Y-axis into separate regions to display separate PPM ranges
+(e.g. CA, CB, C&#8217;). Separators may be added via the right mouse <a class="reference external" href="../menu/WindowMenus.html">Window
+Menu</a>.</p>
+<p><em>Coordinate Location</em></p>
+<p>The last button in the top toolbar displays the current location of the mouse
+cursor for the window. Clicking on the button  opens the <a class="reference external" href="GetCenterCoordsPopup.html">Center
+coordinates</a> panel which  allows the user to specify a particular location
+for the center of the window view and also allows the cursor location to be
+displayed in Hz units, rather than PPM.</p>
+<p><strong>Spectrum Display Area</strong></p>
+<p>The main graphical display area is where spectrum lines, contours and peak
+markers are displayed. At the edge of the area are tick axes with numbers
+indicating the display region (usually in PPM). The display region may be
+changed by using the scrollbars or the various mouse controls listed below.
+Note that the scrollbars may be removed to save space using the right mouse
+<a class="reference external" href="../menu/WindowMenus.html">Window Menu</a>.  The box at the bottom right corner where the tick axes meet
+shows the position of the current view, according to zoom level and
+position, relative to the maximum possible extent of the window axes.</p>
+<p>For 3D and higher dimensionality windows there will be extra scrollbars at
+the bottom representing the depth axes. The current position of these is
+displayed to the left of the scrollbar, and this may be set by typing in the
+entry box. These depth (or &#8220;orthogonal&#8221;) scrollbars are different to the X-Y
+scrollbars because they also control the thickness of the depth view (i.e.
+the number of planes deep to show contours for). To change the thickness of a
+view the left or right edge of the depth slider can be expanded or shrunk
+using the middle mouse button.</p>
+<p><em>Window Navigation</em></p>
+<p>The cursor may change the region of the spectrum (or spectra) displayed in
+the graphical area by using both keyboard and mouse controls that allow the
+view to pan, zoom and change orthogonal depth position. These controls are
+summarised as follows, noting that the middle mouse button is specialised
+for these functions:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Pan Window:</th><td class="field-body">Arrow keys
+Middle-click + drag</td>
+</tr>
+<tr class="field"><th class="field-name">Zoom In/Out:</th><td class="field-body">&lt;PageDown&gt;/&lt;PageDown&gt;
+Scroll wheel forward/back
+&lt;Shift&gt; + Middle-click + drag up/down</td>
+</tr>
+<tr class="field"><th class="field-name">Zoom To Region:</th><td class="field-body">&lt;Control&gt; + Middle-click + drag region</td>
+</tr>
+<tr class="field"><th class="field-name">Depth Scroll:</th><td class="field-body">&lt;Control&gt; + scroll wheel forward/back
+&lt;Shift&gt; + scroll wheel forward/back</td>
+</tr>
+</tbody>
+</table>
+<p><em>Peak Picking</em></p>
+<p>The intensity maxima and minima in NMR spectra which represent the locations
+of resonance signals may be marked as being a peak, i.e. &#8220;picked&#8221;. Picked
+peaks are marked with crosses at their centre and carry an assignment
+annotation to indicate the resonances from which the peak derives. For an
+unassigned peak this annotation will just be dashes (one for each spectrum
+dimension).</p>
+<p>Spectrum peaks may be picked in three basic ways in Analysis: by specifying
+an exact peak location with the mouse, by dragging a rectangular peak-find
+region with the mouse to find extrema, and by using the &#8220;Region Peak Find&#8221;
+functionality of the <a class="reference external" href="EditPeakFindParamsPopup.html">Peak Finding</a> section to find extrema in a large
+spectrum region. In all cases newly picked peaks are placed in the active
+peak list for a given spectrum (set in the <cite>Peak Lists</cite> popup). The mouse
+and keyboard controls used to pick peaks are listed below, noting that the
+&lt;Control&gt; key and left mouse button are specialised for this purpose:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">Pick Peak at Mouse Position:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;Control&gt; + left-click</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Peak Peaks in Region:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;Control&gt; + &lt;shift&gt; + left-click &amp; drag</td>
+</tr>
+</tbody>
+</table>
+<p>It should be noted that when peaks are picked all visible spectra are
+considered for picking, but only if their active peak list is toggled on (via
+the top tab). By default, if an exact peak position is specified then new
+peaks will be picked in all visible spectra. Similarly, when dragging a box
+to find intensity minima/maxima in a region, peaks are picked for the extrema
+found in all visible spectra. If the user wants to avoid picking peaks in
+specific spectra then a spectrum can be toggled off in the top panel, or the
+active peak list for the spectrum can be toggled off (leaving any contours
+visible). For the region search peaks will be located according to the &#8220;Find
+Parameters&#8221; set in the <a class="reference external" href="EditPeakFindParamsPopup.html">Peak Finding</a> popup; by default extrema are only
+found above the same threshold that contours are displayed for.</p>
+<p>Note that if a spectrum is tiled so that its contours are visible outside the
+normal bounds any peak picked in a tiled region will be picked at the
+apparent PPM value; the peak is recorded internally at the equivalent
+position inside the spectrum, but its position is automatically &#8220;unaliased&#8221;
+to move it outside the spectrum width. Here the underlying, aliased peak
+inside the spectrum width will also be displayed, albeit with a dashed cross.</p>
+<p><em>Peak Selection</em></p>
+<p>Specific visible peaks may be selected to that specific operations may be
+performed on them (assign, delete...). Peaks that have been selected are
+displayed with a solid box around their marker crosses. Peaks can be selected
+in several different spectra and in several different windows, even if the
+peak locations are not currently visible; so caution should be used when
+deleting peaks. Beak selections can be defined and added to according to the
+mouse controls listed below, noting common use of the left mouse button.
+Also, a number of operations may be performed on the selected peak(s) by
+using keyboard shortcuts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">Select Single Peak:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">Left-click at center</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Select Several Peaks:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">Left-click &amp; drag box over peaks</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Add Single Peak To Selection:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;Shift&gt; + Left-click</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Add Several Peaks To Selection:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;Shift&gt; + Left-click &amp; drag box over peaks</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Clear Peak Selection:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">Left-click in a region without peaks</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Move Selected Peak:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;p&gt; + drag mouse</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Re-center Selected Peaks:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;P&gt;</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Assign Peak Under Mouse:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;a&gt; (opens <cite>Assignment Panel</cite>)</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Show Selected Peaks Table:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;s&gt; (opens <cite>Selected Peaks</cite>)</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Delete Selected Peaks:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;Delete&gt;</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Move Selected Peaks Label:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">&lt;q&gt; + drag mouse</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the keyboard shortcuts listed are the default settings
+and could actually be different. All keyboard shortcuts are listed
+(and can be changed) in the &#8220;Macros&#8221; section of the <a class="reference external" href="EditProfilesPopup.html">User Options</a>
+popup.</p>
+<p><em>Marker Lines &amp; Rulers</em></p>
+<p>The user may place dashed, multi-dimensional marker lines (i.e. a big cross)
+at the current mouse location using &lt;m&gt;. Also a 1-dimensional dashed ruler
+line may be placed at the mouse location using &lt;h&gt; for a horizontal line and
+&lt;v&gt; for a vertical line. Any multi-dimensional mark that is suitably close to
+a peak will automatically lock on to the exact peak location. The &lt;n&gt; key is
+used to remove all marks and rulers.</p>
+<p>For a detailed description of marker lines and rulers and their various
+options see the <a class="reference external" href="EditMarksPopup.html">Marks and Rulers</a> documentation.</p>
+<p><em>1D Traces</em></p>
+<p>An spectrum window can additionally carry a number of 1-dimensional (i.e.
+intensity graph) slice traces, which show a cross section through the
+displayed spectra at the current mouse location. Such slice traces may be
+added via the right mouse menu &#8220;Window&#8221; option, selection either crosshair
+traces that are superimposed in the main graphical display or side traces
+that are shown as extra panels to the side of the window.</p>
+<p><strong>Right Mouse Menu</strong></p>
+<p>The right mouse button, when pressed over the graphical display area, will
+open up a menu that allow the user to perform various operations. These
+functions are sub-divided into  the main categories listed below. For more
+detailed descriptions see the <a class="reference external" href="../menu/WindowMenus.html">Window Menu</a> section.</p>
+<p><em>Assign</em></p>
+<p>These options control the assignment of the selected peak or peaks to
+resonances and spin systems (intra residue groups). For example the user can
+assign a peak, propagate (spread) assignments over several peaks, remove
+assignments etc.</p>
+<p><em>Peak</em></p>
+<p>These options relate to general operations performed on peaks, including
+deletion, setting aliasing, setting details and arranging labels. Many of
+these functions have keyboard shortcuts (see &#8220;Macros&#8221; section of the <a class="reference external" href="EditProfilesPopup.html">User
+Options</a>).</p>
+<p><em>Locate Peaks</em></p>
+<p>These functions are used to find the selected peaks in the spectrum window or
+use the locations of peaks to navigate to matching peaks (or equivalent
+positions). Some of these options include navigation to other windows.</p>
+<p><em>View</em></p>
+<p>The view functions control the current spectrum region being
+displayed and the contour levels.</p>
+<p><em>Navigate</em></p>
+<p>The navigation options allow the user to locate equivalent positions in other
+spectrum windows based upon the mouse location. Such locations are found in
+windows that have at least some of the same kinds of axes as the current
+window. For example the user may navigate from a 2D HN window displaying an
+HSQC spectrum to the equivalent HN (amide) position in a 3D window.</p>
+<p><em>Strip</em></p>
+<p>These options are used to control strips and separators; the two kinds
+of spectrum window sub-division.</p>
+<p><em>Markers</em></p>
+<p>The marker options control the presence of dashed position marker lines;
+both  multi-dimensional markers and 1-dimensional rulers.</p>
+<p><em>Window</em></p>
+<p>This section provides various general functions for the spectrum window which
+include: making a duplicate &#8220;clone&#8221; of a window, printing a window to file
+(e.g. PDF) and controlling the 1D slice traces.</p>
+<p><em>Macros</em></p>
+<p>This menu contains lists any Python macro scripts that have been added to
+Analysis (see <a class="reference external" href="EditProfilesPopup.html">User Options</a>) to operate in the context of a spectrum
+window.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Spectra</strong>: Opens a panel toggle the display of individual spectra on or off</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Contours</strong>: Opens a panel to change contour levels for the currently displayed spectra</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Peaks</strong>: Opens a panel toggle the display of individual peak lists (cross marks and annotations) on or off</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strips</strong>: Opens a panel to control the number, order and orientation of strips (parallel window sub-divisions)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>8.663, 104.16 (1H,15N)</strong>: The current cursor location for the window axes, click to center the view or change cursor position units</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">window1</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMarksPopup.html"
+                        title="previous chapter">Window : Marks and Rulers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../menu/WindowMenus.html"
+                        title="next chapter">WindowMenus</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/WindowPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../menu/WindowMenus.html" title="WindowMenus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMarksPopup.html" title="Window : Marks and Rulers"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Window.html" >Window</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

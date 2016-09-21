@@ -1,0 +1,295 @@
+================
+Window : Windows
+================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Edit Spectrum Window Parameters**
+
+This popup window controls all of the settings that relate to the spectrum
+display windows used in Analysis. All of the spectrum windows within the
+project are listed and all of the details which control how they show spectra
+and peak lists are given, and in many cases the parameters can be edited. The
+settings available in this popup are often also, and sometimes more commonly,
+manipulated elsewhere. For example, the toggle buttons at the top of spectrum
+windows are usually used to control spectrum and peak list visibility.
+However, this popup window provides an authoritative list of all relevant
+settings, including a few that are not accessible from elsewhere.
+
+The layout of the popup is divided into three tabs; the first lists the main
+properties of the spectrum windows and their axis, the second controls how
+spectra and peak lists are mapped into the windows and displayed, and the
+third allows the user to group windows together so that different sets may be
+reserved for different kinds of operation.
+
+**Windows & Axes**
+
+The first tab is divided into two sections. The upper table lists the spectrum
+windows which have been defined in the current CCPN project or, if the "Active
+windows" options is set, those in the active window group. The settings given
+in the table, which may all be edited, relate to general properties that
+govern the whole window display. Typically user may change the name of a
+window and adjust the aspect ratio; all spectrum window displays in Analysis
+preserve aspect ratio when zooming, so peaks remain the same aesthetic shape.
+The crosshair trace settings control whether a 1D intensity slice is
+superimposed upon the cursor location, although this is normally toggled on or
+off via the right-click mouse menu of the particular spectrum window. For both
+the spectrum traces that appear at the crosshair location and those that may
+be added to side panels (at the window's edge) the "Slice Range" column
+dictates the scale that is used to show the intensity axis. In normal
+operation the user controls this with the <PgUp> and <PgDn> keys, rather than
+via this table. The last two columns of the table indicate whether strip
+numbers and Z axis positions are superimposed on the spectrum display (in the
+corners).
+
+The lower table lists the kinds of axes are present in the selected window;
+the selected row in the upper table. Here the user can control whether a
+scrollbar to move window contents appears or not, e.g. to save some screen
+space. The "Panel Type" column is used to make sub-groups of window axes that
+otherwise have the same isotope type. The panel type definitions are set
+elsewhere, in the Axes_ popup. The panel type is only relevant for dictating
+where 1D ruler lines go in different windows; a ruler is only displayed on
+axes with the same panel type, thus the user can distinguish amide 1H axes
+(panel type "H1") and other 1H axes (panel type "H2"). The last two columns
+adjust the depth and presence of the "Side Trace". When visible, a side trace
+shows a 1D intensity graph at the edge of the window axis. Naturally, this
+only applies for the X & Y screen dimensions.
+
+**Spectrum & Peak List Mappings**
+
+The second tab controls how spectra and peak lists are displayed within the
+spectrum window selected at the top. It should be noted that spectrum contour levels and
+colours are set elsewhere, via the main Spectra_ popup. Likewise, the peak
+list symbols and colours are changed in the `Peak Lists`_ popup. These
+peaklist and spectrum settings are set on a project-wide basis, and thus are
+not set for an individual display window.
+
+The upper table lists all of the spectra that may be displayed in the selected
+spectrum window. Here the user can control: whether a spectrum is listed in
+the  toolbar at the top of the window, where spectra are switched on and off;
+whether the positive contours are drawn; whether the negative contours are
+drawn; and whether the 1D intensity slices, when used, include the spectrum.
+The last "Dim. Mapping" column is important if the user wishes to change how
+the data dimensions of a spectrum are mapped to the X, y & Z axes of the
+spectrum window, especially given that Analysis cannot always guess this
+correctly when there are two axis with the same isotope type. If, for example,
+the user has a 3D HC_cH.TOCSY spectrum and the first 1H data dimension (from
+the spectrum file) is displayed on the X axis, when it should really be on the
+Z axis, then the user clicks on the "Dim. Mapping" column. In the resulting
+mini-popup, changing the "Dimension 1" pulldown menu from "x" to "z1" will
+correct the axis mapping and effectively rotate the spectrum data as far as
+the window view is concerned. It should be noted that multiple windows may
+need to be adjusted in this way for any given spectrum; only the user can
+really decide what is correct, especially where data axes have been swapped.
+
+The lower "Mapped Peak Lists" table shows all of the peak lists that may be
+displayed in the selected spectrum window. In the display sense, a peak list
+consists of a list of peak symbols (i.e. positioned crosses) and assignment
+annotations. The two columns of the table that can be edited dictate whether a
+peak list's peak symbols and annotations are drawn, thus giving total control.
+However, these settings are usually controlled via the toolbar at the top of a
+spectrum window, and normally the peak symbols and textual annotations are both
+switched on or off at the same time.
+
+**Window Groups**
+
+Defining window groups is a mechanism by which different selections of
+spectrum windows may be made so that only some are visible at the same time.
+There will only be one active group of spectrum windows at a given time, and
+only those in this active group can be opened and will be shown in the main
+Analysis menu. The user can create as many named window groupings as is
+required and can add any window to any group. Clicking on a group in the upper
+table lists all of the windows in the project and whether they are included in
+the selected group or not. To add a window to a group, or remove it from a
+group, the user simply toggles the "In Group?" column. The selected group may
+be set as the active one by clicking on the central [Make Active] button.
+
+.. _Axes: EditAxisPanelPopup.html
+.. _Spectra: EditSpectrumPopup.html
+.. _`Peak Lists`: EditPeakListsPopup.html
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Windows & Axes
+==============
+
+Shows a table of spectrum contour windows and details of their axes
+
+
+|radio| **All windows**: For the below table, show all of the spectrum windows in the current project, irrespective of the active group
+
+|radio| **Active windows**: For the below table, show only spectrum windows that are in the currently active window group
+
+Edit Windows
+~~~~~~~~~~~~
+
+
+=======================  =========================================================================================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    *#*  Row number 
+                 *Name*  Short textual name to identify the window  *(Editable)*
+         *Aspect Ratio*  The screen (X-Y) pixel:unit aspect ratio of the window, defaults according to isotope; "8.0" means Y axis shows 8.0 units for every 1.0 on X  *(Editable)*
+    *X Crosshair Trace*  Whether to show a 1D slice of the specta at the cursor position, along the horizontal screen axis  *(Editable)*
+    *Y Crosshair Trace*  Whether to show a 1D slice of the specta at the cursor position, along the vertical screen axis  *(Editable)*
+*Slice Intensity Range*  The upper and lower intensity bounds for the 1D cursor slice display; used to scale the magnitude of the drawn amplitude  *(Editable)*
+        *Strip Numbers*  Whether to display strip numbers, in the upper left of each window subdivision  *(Editable)*
+    *Strip Z Locations*  Whether to display the Z-axis positions of each window strip, in the lower left corner of each window subdivision  *(Editable)*
+=======================  =========================================================================================================================================================
+
+
+
+|button| **Open**: Open and display the selected spectrum window
+
+|button| **Create New**: Open a tool to create a new spectrum window; specifying names and axes etc. 
+
+|button| **Clone**: Make a copy of the currently selected window, which may then be independently manipulated
+
+|button| **Delete**: Delete the currently selected spectrum window; does not affect the loaded spectra
+
+Window Axes
+~~~~~~~~~~~
+
+
+====================  ==============================================================================================================================================
+**Table 2**
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        *Axis Label*  A short label for identifying the axis within its window, e.g. "x", "y", "z1", "z2" 
+         *Axis Type*  A name for the kind of thing represented along this axis; usually serves to subdivide frequency axes into different isotope types 
+        *Panel Type*  For a given kind of axis, which sub-type is currently set; used to differentiate axes with the same isotope   *(Editable)*
+ *Scrollbar Visible*  Whether the scrollbar, which shifts the spectrum view position, is displayed for the window axis  *(Editable)*
+*Side Trace Visible*  For an X or Y axis, whether a 1D slice trace (at the cursor position) is displayed alongside the main contour display  *(Editable)*
+ *Side Trace Height*  For an X or Y axis, sets the number of pixels use for the amplitude display of 1D slice traces (using cursor position)  *(Editable)*
+====================  ==============================================================================================================================================
+
+
+
+|button| **New Axis**: For the currently selected spectrum window, add a new axis
+
+Spectrum & Peak List Mappings
+=============================
+
+Sets how spectra & peak lists are drawn in contour windows, including axis mappings; note colours are set elsewhere in peak list & spectrum tables
+
+|pulldown| **Spectrum Window**: Selects the spectrum window to display the mappable spectra & peak lists for
+
+Mapped Spectra
+~~~~~~~~~~~~~~
+
+
+=======================  ================================================================================================================================================================
+**Table 3**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           *Experiment*  The name of the experiment record for the window-mappable spectrum 
+             *Spectrum*  The name of the window-mappable spectrum 
+  *Spectrum In Toolbar*  Whether the spectrum appears with its own toggle button in the toolbar at the top of the spectrum window  *(Editable)*
+*Pos. Contours Visible*  Whether the positive contour levels are shown in the window for the spectrum  *(Editable)*
+*Neg. Contours Visible*  Whether the negative contour levels are shown in the window for the spectrum  *(Editable)*
+        *Slice Visible*  Whether 1D slices are visible for the spectrum, if any slice displays are active for the window  *(Editable)*
+         *Dim. Mapping*  Sets how the spectrum dimensions map to corresponding window axes; for a given kind, enables swapping of spectrum dimensions relative to the window  *(Editable)*
+=======================  ================================================================================================================================================================
+
+
+
+|button| **Edit Spectra**: Opens a table allowing editing of per-spectrum (rather than window) parameters
+
+Mapped Peak Lists
+~~~~~~~~~~~~~~~~~
+
+
+===================  ================================================================================================================================================
+**Table 4**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       *Experiment*  The name of the experiment record for the window-mappable peak list 
+         *Spectrum*  The name of the window-mappable spectrum that contains the peak list 
+        *Peak list*  The serial number of the peak list, which is displayable in the spectrum window 
+    *Symbol Drawn?*  Whether the peak crosses/symbols are drawn for the peak list in the selected window; to indicate the position of extrema/resonances  *(Editable)*
+*Annotation Drawn?*  Whether the peak annotation texts are drawn for the peak list in the selected window  *(Editable)*
+===================  ================================================================================================================================================
+
+
+
+|button| **Edit Peak List**: Show a table of the peaks within the selected peak list
+
+Window Groups
+=============
+
+Allows spectrum windows to be grouped into sets so that only some are displayed at a given time
+
+Window Groups
+~~~~~~~~~~~~~
+
+
+===================  =============================================================
+**Table 5**
+----------------------------------------------------------------------------------
+                *#*  Row number 
+            *Group*  The name for the group of spectrum windows  *(Editable)*
+*Number of windows*  The number of windows contained within the group 
+===================  =============================================================
+
+
+
+|button| **Make Active**: Sets the selected window group as the active one; only windows within this group will be displayable (in menus etc.)
+
+|button| **New Group**: Make a new grouping of spectrum windows, which can be used to quickly swap between different displayed sets
+
+|button| **Delete Selected**: Delete the selected grouping from the CCPN project; does not otherwise affect the contained windows
+
+Group Membership
+~~~~~~~~~~~~~~~~
+
+
+===========  ==============================================================================================================
+**Table 6**
+---------------------------------------------------------------------------------------------------------------------------
+        *#*  Row number 
+   *Window*  The name of the spectrum window, which may or may not be in the selected group  *(Editable)*
+*In Group?*  Whether the spectrum window is part of the selected grouping; can be toggled to include & exclude  *(Editable)*
+===========  ==============================================================================================================
+
+
+

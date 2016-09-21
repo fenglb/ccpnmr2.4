@@ -1,0 +1,143 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MergeObjects &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="next" title="MoleculeBasic" href="MoleculeBasic.html" />
+    <link rel="prev" title="MarkBasic" href="MarkBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MoleculeBasic.html" title="MoleculeBasic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="MarkBasic.html" title="MarkBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.MergeObjects">
+<span id="mergeobjects"></span><h1>MergeObjects<a class="headerlink" href="#module-ccpnmr.analysis.core.MergeObjects" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.MergeObjects.mergeObjects">
+<tt class="descclassname">ccpnmr.analysis.core.MergeObjects.</tt><tt class="descname">mergeObjects</tt><big>(</big><em>sourceObj</em>, <em>targetObj</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.MergeObjects.mergeObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges sourceObj into targetObj, deleting sourceObj.
+Attributes and links from sourceObj are added to targetObj
+provided 1) that they are not there already, and  
+2) that there is room.</p>
+<p>WARNING this function bypasses the API. 
+WARNING This function just might leave the data in an illegal state
+The function performs a number of checks for each individual change.
+If a check fails, the latest change is undone before the error exit,
+in an attempt to leave the data in a state that is legal. Note that only
+the latest change is undone - in case of error the data state will not be
+brought back to the state from before the execution of the command.
+Note that sourceObj is likely to be in an illegal state during execution,
+so that an error may well leave sourceObj in an illegal state. If this happens,
+deleting sourceObj may bring the data back to a legal state, and is unlikely 
+to cause further problems.
+In spite of the checks, some objects (not limited to sourceObj and targetObj)
+may be left in an illegal state, even if no error is raised.
+It is recommended to use this function with caution, 
+and to run checkAllValid after it has been used.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MarkBasic.html"
+                        title="previous chapter">MarkBasic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MoleculeBasic.html"
+                        title="next chapter">MoleculeBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/MergeObjects.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MoleculeBasic.html" title="MoleculeBasic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="MarkBasic.html" title="MarkBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

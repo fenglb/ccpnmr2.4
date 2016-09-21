@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Pick &amp; Assign From Roots &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Protein Sequence Assignment" href="LinkSeqSpinSystemsPopup.html" />
+    <link rel="prev" title="Assignment : Initialise Root Resonances" href="InitRootAssignmentsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LinkSeqSpinSystemsPopup.html" title="Assignment : Protein Sequence Assignment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="InitRootAssignmentsPopup.html" title="Assignment : Initialise Root Resonances"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-pick-assign-from-roots">
+<h1>Assignment : Pick &amp; Assign From Roots<a class="headerlink" href="#assignment-pick-assign-from-roots" title="Permalink to this headline">¶</a></h1>
+<p><strong>Pick and Assign Peaks Based on Locations in Root Spectra</strong></p>
+<p>This popup window is designed to help in the early stages of peak picking and
+resonance assignment. The main idea is that certain &#8220;root&#8221; spectra, typically
+an HNCO or 15N HSQC, with initialised peak lists are used as a basis for
+locating and assigning peaks in other spectra that overlap in the relevant
+dimensions. For example you may use the amide peak positions in a 15N HSQC
+spectrum to pick peaks in restricted regions of a 3D HNCACB spectrum and copy
+amide resonance assignments to the amide dimensions of the 3D spectrum where
+they overlap with the HSQC peaks.</p>
+<p>Often the root spectrum, that is the source of peak position and assignment
+information, will only be assigned in an anonymous way; the peaks will have
+spin system and resonance numbers (e.g. &#8220;{7}[4][5]&#8221;) and not link to any
+particular residues or atoms. For this tool it doesn&#8217;t matter whether the root
+peaks carry full assignments or not, all that is important is that there are
+some peaks to specify locations and some form of assignment to copy. The
+easiest way to setup initial assignments on a root spectrum, after picking
+some peaks, is to use the <a class="reference external" href="InitRootAssignmentsPopup.html">Initialise Root Resonances</a> option.</p>
+<p>In normal operation the user chooses a peak list to act as the the source of
+the root assignments and positions, and maybe a spectrum window to view those
+peaks in. Next the assignable spectra that are to be the target for peak
+picking and/or assignment are chosen. Firstly, the user adds and removes
+spectrum windows to the &#8220;Target Windows&#8221; list, the spectra to be operated on
+are then selected from those that are visible in these windows. By selecting
+different kinds of window different kinds of spectra may be operated on, so
+for example the user could both work with HCN spectra and HHN spectra with the
+same HSQC root. This tool is largely visual and it is important to be able to
+see the locations that are bing considered (e.g. amide), hence the user is
+only presented with assignable spectra that can potentially be seen. The
+&#8220;Assignable Spectra&#8221; section is filled with the spectra for the target
+windows that may be assigned, and the user double-clicks in the &#8220;Active?&#8221;
+to set whether the individual spectra should be operated on or not (for
+peak picking and assignment).</p>
+<p>One windows and spectra are setup is is advisable to consider the &#8220;Tolerances&#8221;
+tab that controls how wide a search region is used to pick and assign peaks
+relative to the positions of the reference, root peaks. The user can also
+setup exclusions to avoid picking peaks near the water signal (e.g. in 15N
+HSQC-NOESY) or homonuclear diagonal.</p>
+<p>The last &#8220;Link Peaks&#8221; tab is the one that remains active while the user is
+actually running the the peak picking and assignment functions. Here, the main
+table lists all of the peaks in the root peak list that are used for position
+and assignment references. Clicking on a row in this table, assuming the
+relevant navigations are checked above, will cause the location of any root
+and target spectrum windows to move in order to show the root (e.g. amide)
+location for the selected row. Even if peaks are not peaked or assigned this
+tool may be used for efficient coordination in window. Typically clicking  on
+an HSQC peak will present an amide position in 3D target windows, locating the
+X and Z axes, so that the user can see the column of peaks that may be
+picked/assigned.</p>
+<p>For a single selected root location, the user may transfer assignments or pick
+peaks <em>and</em> transfer assignments, by clicking the appropriate buttons in the
+&#8220;Pick &amp; Assign Functions&#8221; section. This is one-by-one way of working is the
+safest because the user is presented will the spectra for each location and
+will be able to view the result of the peak picking and assignment. The
+equivalent &#8220;Process-all Functions&#8221; will work though all root locations in the
+table picking and assigning peaks en masse, according to the set tolerances,
+in a quick but less controlled manner.</p>
+<p>The &#8220;Assign Non-root Resonances&#8221; options are present so that you can give a
+starting assignment to the assigned spectra in the dimension that does not
+match the root location. For example, you could add 13C resonances to an
+HNcoCA spectrum or 1H resonances to the indirect dimension 1H dimension of a
+15N HSQC-TOCSY. These &#8220;non-root&#8221; resonance numbers will all be new and unique,
+thus this operation should only be used for types of experiment where the is
+one peak for each non-root resonance. For example HNcoCA has one peak per CA
+resonance by HNCA usually has two, so the function is only recommended for the
+former.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>This tool can be operated in two slightly different ways, according to the
+preference of the user and the quality of the spectra. The &#8220;Process-all&#8221;
+functions can be used to start with, given fairly strict tolerances, but the
+user should then go through each root position checking for and tidying up
+mistakes (picking noise &amp; artefacts for example). Alternatively the root
+locations could be picked and assigned one-by-one so the user can spot
+problems as they occur.</p>
+<p>Although the same tolerances, set via the &#8220;Tolerances&#8221; tab, are used for both
+peak picking and for resonance assignment some peaks that can be picked may
+not be assigned with the same settings. Whereas the peak picking is done
+relative to the root location the assignment, in common with the rest if
+Analysis, is relative to the current chemical shift average and thus may
+differ from the root location. Widening the tolarances a little, or increasing
+the chemical shift weighting of the root spectrum can allow assignments to be
+made if they were previously out of bounds.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="windows-spectra">
+<h2>Windows &amp; Spectra<a class="headerlink" href="#windows-spectra" title="Permalink to this headline">¶</a></h2>
+<p>Selection of source or &#8220;root&#8221; for assignments, the target spectra and which spectrum windows to navigate within</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Root Peak List</strong>: Selects which peak list is considered as the &#8220;root&#8221;; the positions and assignments that will be used to pick/assign related spectra</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Root Window</strong>: Selects which spectrum window is used to navigate to the location of root peak selected in the &#8220;Link Peaks&#8221; table</p>
+<div class="section" id="target-windows">
+<h3>Target Windows<a class="headerlink" href="#target-windows" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Target Window</strong>: Remove the selected target window from consideration, so that it is no longer used for navigation and assignment</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Target Window</strong>: Add the window selected in the adjacent pulldown list as a source of assignable spectra and a target for navigation</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects a spectrum window, from those not already selected, that may be used for assignment/navigation</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the spectrum window</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the  spectrum window used for navigation and providing assignable spectra</td>
+</tr>
+<tr><td><em>Selected Mapping</em></td>
+<td>When there are multiple options, states which axes of the window (X, Y, Z...) correspond to the directly bound &#8220;root&#8221; dimensions  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="assignable-spectra">
+<h3>Assignable Spectra<a class="headerlink" href="#assignable-spectra" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>The &#8220;experiment:spectrum&#8221; name for the spectrum which may be used for peak picking &amp; assignment; must be present in the above windows</td>
+</tr>
+<tr><td><em>Active?</em></td>
+<td>Whether the spectrum is considered active for the processes of peak picking and/or assignment; inactive ones will not be affected  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Assign Non-root dim?</em></td>
+<td>Whether spectrum dimensions that do not map to the root (typically non-amide) may be assigned; common for HNCO, HNH-TOCSY etc.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Experiment Type</em></td>
+<td>The full CCPN experiment type of the spectrum; should be something with an obvious relation to the root peak list</td>
+</tr>
+<tr><td><em>Dimensions</em></td>
+<td>The kinds of isotope (or otherwise) present on the dimensions of the spectrum</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="tolerances">
+<h2>Tolerances<a class="headerlink" href="#tolerances" title="Permalink to this headline">¶</a></h2>
+<p>Settings that relate to assignment and peak picking tolerances when going from &#8220;root&#8221; positions to related spectra</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Root Dim 1</strong>: Sets the upper limit to the dimension 1 assignment tolerance, within which peaks may be picked and assignments made, relative to the root location</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Root Dim 2</strong>: Sets the upper limit to the dimension 2 assignment tolerance, within which peaks may be picked and assignments made, relative to the root location</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>4.95</strong>: Sets the lower bound to the 1H ppm exclusion zone, usually representing a water signal, within which no peaks will be picked or assigned</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>4.95</strong>: Sets the upper bound to the 1H ppm exclusion zone, usually representing a water signal, within which no peaks will be picked or assigned</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>1</strong>: When using multi-dimensional cross marks to indicate peak positions, sets how many marks persist from subsequent peak navigations</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.25</strong>: Sets the width of the exclusion zone around the 1H-1H homonuclear diagonal, within which no peaks will be picked or assigned</p>
+</div>
+<div class="section" id="link-peaks">
+<h2>Link Peaks<a class="headerlink" href="#link-peaks" title="Permalink to this headline">¶</a></h2>
+<p>The main assignment &amp; peak picking functions; using a table of the &#8220;root&#8221; peak that are the source of peak (e.g. amide) positions and assignments.</p>
+<div class="section" id="root-peaks">
+<h3>Root Peaks<a class="headerlink" href="#root-peaks" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Navigate to root</strong>: Sets whether clicking in the root peak table will cause the selected root spectrum window to display the selected peak</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Navigate to targets</strong>: Sets whether clicking in the root peak table will cause the selected navigation window views to move to the selected root position</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Set Non-root Atom Types</strong>: Sets whether for appropriate experiments like HNCO, HNCA, HNHA etc., whether non-root assignment set resonance atom type</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the peak in the root peak list</td>
+</tr>
+<tr><td><em>Assign F1</em></td>
+<td>The assignment of the root peak in the first root dimension, that maps to the (typically) higher dimensionality assignment spectra</td>
+</tr>
+<tr><td><em>Assign F2</em></td>
+<td>The assignment of the root peak in the second root dimension, that maps to the (typically) higher dimensionality assignment spectra</td>
+</tr>
+<tr><td><em>Shift F1</em></td>
+<td>The location of the root peak in the first root dimension; the basis for peak picking and assignment zones</td>
+</tr>
+<tr><td><em>Shift F2</em></td>
+<td>The location of the root peak in the second root dimension; the basis for peak picking and assignment zones</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Root</strong>: If a peak is selected, select the next peak in the table and navigate to that peaks root location</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous Root</strong>: If a peak is selected, select the previous peak in the table and navigate to that peaks root location</p>
+</div>
+<div class="section" id="pick-assign-functions">
+<h3>Pick &amp; Assign Functions<a class="headerlink" href="#pick-assign-functions" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Root Resonances</strong>: Using the selected root peak as the source of assignment, spread assignments to the active spectra, within stated tolerances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Pick &amp; Assign Root Resonances</strong>: Using the selected root peak as the source of assignment and centre of peak pick zone, pick and assign peaks in the active spectra</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Non-root Resonances</strong>: For the spectrum positions that match the selected root peak, add new (separate) non-root resonances to peaks (where missing)</p>
+</div>
+<div class="section" id="process-all-functions">
+<h3>Process-all Functions<a class="headerlink" href="#process-all-functions" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign All Root Resonances</strong>: Using all peaks in the root peak list as an assignment source, spread assignments to the active spectra, within stated tolerances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Pick All &amp; Assign Root Resonances</strong>: Using all peaks in the root peak list as assignment sources and peak pick locations, pick and assign peaks in the active spectra</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign All Non-root  Resonances</strong>: For the spectrum positions that match the all root peaks, add new (separate) non-root resonances to peaks (where missing)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Pick &amp; Assign From Roots</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#windows-spectra">Windows &amp; Spectra</a><ul>
+<li><a class="reference internal" href="#target-windows">Target Windows</a></li>
+<li><a class="reference internal" href="#assignable-spectra">Assignable Spectra</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tolerances">Tolerances</a></li>
+<li><a class="reference internal" href="#link-peaks">Link Peaks</a><ul>
+<li><a class="reference internal" href="#root-peaks">Root Peaks</a></li>
+<li><a class="reference internal" href="#pick-assign-functions">Pick &amp; Assign Functions</a></li>
+<li><a class="reference internal" href="#process-all-functions">Process-all Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="InitRootAssignmentsPopup.html"
+                        title="previous chapter">Assignment : Initialise Root Resonances</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="LinkSeqSpinSystemsPopup.html"
+                        title="next chapter">Assignment : Protein Sequence Assignment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/LinkPeakListsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LinkSeqSpinSystemsPopup.html" title="Assignment : Protein Sequence Assignment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="InitRootAssignmentsPopup.html" title="Assignment : Initialise Root Resonances"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

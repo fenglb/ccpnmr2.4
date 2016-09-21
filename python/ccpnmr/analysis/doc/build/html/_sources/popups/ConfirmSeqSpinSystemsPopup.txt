@@ -1,0 +1,87 @@
+==============================
+Confirm Sequential Spin System
+==============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+|pulldown| **Shift List**: *Documentation missing*
+
+|pulldown| **Sequential Link Type**: *Documentation missing*
+
+Link Atoms
+~~~~~~~~~~
+
+
+
+Predicted Residue Assignments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===================  =======================
+**Table 1**
+--------------------------------------------
+                *#*  *Documentation missing* 
+*Predicted Residue*  *Documentation missing* 
+            *Prob.*  *Documentation missing* 
+            *Links*  *Documentation missing* 
+               *CA*  *Documentation missing* 
+            *CA -1*  *Documentation missing* 
+          *D CA -1*  *Documentation missing* 
+               *CB*  *Documentation missing* 
+            *CB -1*  *Documentation missing* 
+          *D CB -1*  *Documentation missing* 
+===================  =======================
+
+
+
+|button| **Link Selected**: *Documentation missing*
+
+|button| **Link All**: *Documentation missing*
+
+|button| **Commit Assignment**: *Documentation missing*
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

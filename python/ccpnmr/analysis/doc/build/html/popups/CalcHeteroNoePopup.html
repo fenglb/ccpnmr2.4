@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Analysis : Heteronuclear NOE &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Data Analysis" href="../menu/DataAnalysis.html" />
+    <link rel="next" title="Data Analysis : 3J H-Hα Coupling" href="CalcHnHaCouplingPopup.html" />
+    <link rel="prev" title="Data Analysis : Shift Differences" href="CalcShiftDifferencePopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcHnHaCouplingPopup.html" title="Data Analysis : 3J H-Hα Coupling"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CalcShiftDifferencePopup.html" title="Data Analysis : Shift Differences"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" accesskey="U">Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="data-analysis-heteronuclear-noe">
+<h1>Data Analysis : Heteronuclear NOE<a class="headerlink" href="#data-analysis-heteronuclear-noe" title="Permalink to this headline">¶</a></h1>
+<p><strong>Calculate Heteronuclear NOE Values From Peak Intensities</strong></p>
+<p>The purpose of this popup window is to calculate the heteronuclear NOE for
+amide resonances based upon a comparison of the peak intensities in spectra
+that derive from an NOE saturated experiment and an unsaturated (reference)
+experiment. The basic idea of this tool is that three peak lists are chosen,
+two of which are for heteronuclear NOE experiments (H,N axes); unsaturated
+reference and saturated, and one which is the source of assignments and peak
+locations. This last &#8220;Assignment&#8221; peak list may be the same as one of the NOE
+peak lists, but may also be entirely separate.</p>
+<p>The &#8220;Assignment&#8221; peak list is used to specify which peak assignments and
+locations should be used for the calculation of the heteronuclear NOE values,
+and thus can be used to specify only a subset of the resonances for
+measurement. For example, it is common to copy an HQSC peak list for use as
+the &#8220;Assignment&#8221; peak list but remove overlapped and NH2 peaks so that the NOE
+values are only calculated for separated backbone amides. The calculation
+process involves taking each of these assigned peaks and finding peaks with
+the same assignment in the NOE peak lists, or if that fails finding peaks with
+a similar position (within the stated tolerances); new peaks may be picked if
+the &#8220;Pick new peaks?&#8221; option is set.</p>
+<p>The first &#8220;Peak Lists &amp; Settings&#8221; tab allows the user to choose the peak lists
+and various options that will be used in the peak-finding and NOE calculation.
+The &#8220;Peaks&#8221; table allows the peaks from each of the three peak list selections
+to be displayed when one of the &#8220;Show&#8221; buttons is clicked. The [Separate Peak
+Table] function allows these peaks to be displayed in the main, separate <a class="reference external" href="EditPeakListsPopup.html">Peak
+Lists</a> table, which has many more peak manipulation options. The options
+below the table may be used to locate selected peaks within the spectrum
+window displays.</p>
+<p>The second &#8220;Peak Intensity Comparison&#8221; tab is where the heteronuclear NOE
+values are actually calculated. Assuming that two NOE experiment peak lists
+have been chosen and that some of their peaks match the assigned peak
+positions then the peak intensities are extracted and NOE values automatically
+calculated when the tab is opened. Although, a refresh of the table can be
+forced with [Find Matching Peaks] at the bottom</p>
+<p>If pairs of NOE saturated and reference peaks are found then the actual
+heteronuclear NOE value is displayed as the &#8220;Intensity Ratio&#8221; in the last,
+rightmost, column of the table. To store these values as a NOE measurement
+list; so that the data can be saved in the CCPN project without need for
+recalculation, the [Create Hetero NOE List] function can be used. The results
+are then available to view at any time via the <a class="reference external" href="EditMeasurementListsPopup.html">Measurement Lists</a> table.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Erroneous peak intensity comparisons may be removed with the [Remove Pairs]
+function, but its is common to curate the &#8220;Assign&#8221; peak list first and
+avoid tidying afterwards.</p>
+<p>The &#8220;Closeness score&#8221; can be used to find peak positions where the compared
+NOE peaks are unexpectedly far from one another.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="peak-lists-settings">
+<h2>Peak Lists &amp; Settings<a class="headerlink" href="#peak-lists-settings" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ref Peak List</strong>: Selects which peak list is considered the NOE intensity reference (no saturation)</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Sat Peak List</strong>: Selects which peak list is considered as NOE saturated.</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Assignment Peak List</strong>: Selects a peak list with assignments to use as a positional reference</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.02</strong>: 1H ppm tolerance for matching assigned peaks to reference &amp; NOE saturation peaks</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.1</strong>: 15N ppm tolerance for matching assigned peaks to reference &amp; NOE saturation peaks</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Pick new peaks?</strong>: Whether to peak new peaks in reference &amp; NOE saturated lists (at assignment locations)</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Assign peaks?</strong>: Whether to assign peaks in the peaks in the reference &amp; NOE saturation lists, if not already assigned</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Intensity Type</strong>: Whether to consider peak height or volume in the heteronuclear NOE calculation</p>
+<div class="section" id="peaks">
+<h3>Peaks<a class="headerlink" href="#peaks" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Ref Peaks</strong>: Show the selected intensity reference peaks in the below table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Sat Peaks</strong>: Show the selected NOE saturation peaks in the below table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Assign Peaks</strong>: Show the selected assigned peak list in the below table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Separate Peak Table</strong>: Show the displayed peaks in a separate peak table, where assignments etc. may be adjusted</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Spectrum</em></td>
+<td>Experiment:spectrum of peak</td>
+</tr>
+<tr><td><em>List</em></td>
+<td>Peak list number</td>
+</tr>
+<tr><td><em>Peak</em></td>
+<td>Peak serial number</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>Magnitude of spectrum intensity at peak center (interpolated), unless user edited  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>Integral of spectrum intensity around peak location, according to chosen volume method  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Merit</em></td>
+<td>Figure of merit value for peak; zero: &#8220;bad&#8221; one: &#8220;good&#8221;  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>User editable textual comment for peak  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Fit Method</em></td>
+<td>Method used to fit the peak location  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Vol. Method</em></td>
+<td>Method used to calculate the peak volume integral  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Selected</strong>: Use the positions of the selected peaks to specify strip locations in the selected window</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Find Peak</strong>: Locate the currently selected peak in the specified window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Choose the spectrum window for locating peaks or strips</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Found</strong>: Whether to put a cross-mark though peaks found in a given window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Locations</strong>: Use the selected peak positions to specify strip positions in a higher dimensionality window.</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Go To Position</strong>: Use the selected peak position to navigate to a location in a higher dimensionality window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Choose the higher dimensionality spectrum window to use as a navigation &amp; strip target</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Mark Selected</strong>: Put multidimensional cross-marks through selected peaks</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Position Unit</strong>: Choose whether to display peak positions in ppm, Hz or points</p>
+</div>
+</div>
+<div class="section" id="peak-intensity-comparison">
+<h2>Peak Intensity Comparison<a class="headerlink" href="#peak-intensity-comparison" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Sat Peak</em></td>
+<td>Assignment annotation for NOE saturation peak</td>
+</tr>
+<tr><td><em>Ref Peak</em></td>
+<td>Assignment annotation for reference peak (no saturation)</td>
+</tr>
+<tr><td><em>1H shift A</em></td>
+<td>1H chemical shift of NOE saturation peak</td>
+</tr>
+<tr><td><em>1H shift B</em></td>
+<td>1H chemical shift of reference peak</td>
+</tr>
+<tr><td><em>15N shift A</em></td>
+<td>15N chemical shift of NOE saturation peak</td>
+</tr>
+<tr><td><em>15N shift B</em></td>
+<td>15N chemical shift of reference peak</td>
+</tr>
+<tr><td><em>Closeness Score</em></td>
+<td>The separation between compared peaks: square root of the sum of ppm differences squared</td>
+</tr>
+<tr><td><em>Intensity A</em></td>
+<td>The intensity if the NOE saturation peak</td>
+</tr>
+<tr><td><em>Intensity B</em></td>
+<td>The intensity of the reference peak (no saturation)</td>
+</tr>
+<tr><td><em>Intensity Ratio</em></td>
+<td>Ration of peak intensities: saturated over reference</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh Table</strong>: Force a manual update of the table; pair-up NOE saturation and reference peaks according to assigned peak positions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Pairs</strong>: Remove the selected rows of peak pairs</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peak Pair</strong>: Show peaks corresponding to the selected row in a table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create Hetero NOE List</strong>: Save the Heteronuclear NOE values in the CCPN project as a data list</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data Analysis : Heteronuclear NOE</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#peak-lists-settings">Peak Lists &amp; Settings</a><ul>
+<li><a class="reference internal" href="#peaks">Peaks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peak-intensity-comparison">Peak Intensity Comparison</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CalcShiftDifferencePopup.html"
+                        title="previous chapter">Data Analysis : Shift Differences</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CalcHnHaCouplingPopup.html"
+                        title="next chapter">Data Analysis : 3J H-Hα Coupling</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/CalcHeteroNoePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CalcHnHaCouplingPopup.html" title="Data Analysis : 3J H-Hα Coupling"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CalcShiftDifferencePopup.html" title="Data Analysis : Shift Differences"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/DataAnalysis.html" >Data Analysis</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

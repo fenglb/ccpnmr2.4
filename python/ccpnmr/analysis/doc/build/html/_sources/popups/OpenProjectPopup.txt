@@ -1,0 +1,77 @@
+==============
+Project : Open
+==============
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+===========  ==============================
+**Table 1**
+-------------------------------------------
+*Directory*  Name of directory 
+   *Status*  *Documentation missing* 
+===========  ==============================
+
+
+
+|button| **Back**: Go to previous location in history
+
+|button| **Forward**: Go forward in location history
+
+|button| **Up**: Go up one directory level
+
+|button| **Top**: Go to root directory
+
+|button| **Home**: Go to home directory
+
+|button| **New**: Make a new directory
+
+|button| **Refresh**: Refresh directory listing
+
+
+|check| **Show hidden**: Show hidden files beginning with "." etc.
+
+|pulldown| **Dir path**: Directory navigation to current location
+
+|button| **Open**: *Documentation missing*
+
+|button| **Cancel**: Cancel
+

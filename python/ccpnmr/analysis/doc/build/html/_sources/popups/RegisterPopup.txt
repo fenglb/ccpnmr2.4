@@ -1,0 +1,83 @@
+============================
+Project : Register with CCPN
+============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Register User with CCPN**
+
+The purpose of this dialog is to allow the user to register with CCPN.
+This is mainly to allow CCPN to keep track of the number of users,
+which is important for grant applications.  This information is saved
+both in a file on your computer but also in a private CCPN server
+database if your computer is connected to the internet.  (So unfortunately
+you will need to register once for each computer you use.)
+
+The required information: the user name, organisation and email address.
+The other information stored on the CCPN server: the version number, the
+first time and most recent time the server has been notifed.
+
+If you are registered, then the server is notified every time a project is
+opened or saved (if connected to the internet).
+
+Click "Register Now" to register, or "Register Later" not to register.
+
+
+Main Panel
+==========
+
+|check| **I agree to abide by the rules of the CCPN licensing agreement.**: I agree to abide by the rules of the CCPN licensing agreement.
+
+|entry| **Name**: Your Name
+
+|entry| **Organisation**: Your Organisation
+
+|entry| **Email**: Your Email
+
+|button| **Register Now**: Register now
+
+|button| **Read License**: Read License
+
+|button| **Register Later**: Register later
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chart : Assignment Graph &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Chart" href="../menu/Chart.html" />
+    <link rel="next" title="Chart : Chemical Shifts Table" href="ViewChemicalShiftsPopup.html" />
+    <link rel="prev" title="Chart" href="../menu/Chart.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Chart.html" title="Chart"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" accesskey="U">Chart</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chart-assignment-graph">
+<h1>Chart : Assignment Graph<a class="headerlink" href="#chart-assignment-graph" title="Permalink to this headline">¶</a></h1>
+<p><strong>Graphical Display of Assignments and Connections</strong></p>
+<p>This popup window is designed to give a graphical display of the atom sites
+available in a given molecular chain. In this regard an atom site is a
+position along the side chain or scaffold of a residue, like the &#8220;beta&#8221;
+position in  amino acids, or the &#8220;three prime&#8221; position in nucleic acids.
+Accordingly, each atom site represents a carbon or nitrogen atom <em>and</em> any
+bound hydrogens. Representing atom sites rather than individual atoms provides
+an alternative to the <a class="reference external" href="BrowseAtomsPopup.html">Atom Browser</a> with less clutter but still with
+sufficient information to give a clear indication of assignment status, and
+in this particular case, of assignment connectivity between atom sites</p>
+<p>The layout involves two tabs, one on the left contains the actual graphical
+display of the atom sites with assignments, the right &#8220;Options&#8221; tab  specifies
+the details of how to display things; spectrum connections, atom sites and
+residues to include.</p>
+<p>In normal operation the user starts by slecting the appropriate molecular
+chain in the first tab; labelled symbols will appear to display the available
+atom sites. The user then switches to the &#8220;Options&#8221; tab and chooses which
+spectra, atom sites and residue types to display. Moving back to the first tab
+the user will see that the symbols of assigned atom sites are circled, with a
+colour appropriate to the spectrum they are assigned within. Also, if the
+selected spectra contain assignments that link different atom sites the
+graphical display will include lines that connect the atom site symbols. The
+user may use the &#8220;Connection Type&#8221; pulldown menu to display different kinds of
+connectivity lines. By default the displyed connectivity is &#8220;Within 4
+Residues&#8221;. Having more than one set of spectrum massignments and connections
+displayed at the same time is possible, but this may obscure information in
+the chart.</p>
+<p>The background colour of the atom set symbol (a labelled circle) is normally
+determined according to whether there are <em>any resonance assignments</em> to that
+site, considering all spectra; black indicates assigned and grey unassigned.
+If the user chooses an isotope labelling scheme/pattern in the &#8220;Options&#8221; tab,
+then this black/grey indicator is replaced by colours which represent the
+amount of spin-active isotope incorporation at the atom site, according the
+scheme or molecule patterns. The various options in the &#8220;Isotope Labelling&#8221;
+section control which colours to use, whether to use only two colours or a
+gradient, which isotope is considered (e.g. usually 13C or 1H) and what the
+minimum incorporation is for something to be considered as labelled.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Clicking with the left mouse button on any of the atom site symbols for a
+residue will toggle the activation for the whole residue; flipping between the
+greyed-out incative state, that shows no assignments or connections, and the
+fully active state.</p>
+<p>Right click with the mouse over the main chart to save the graphical display
+as a PostScript image, which maye be printed or manipulated in an external
+program.</p>
+<p>The colours of the spectrum toggle buttons in the &#8220;Options&#8221; tab is determined
+by the positive contour colour for the relevant spectrum. If the spectrum uses
+a multicolour scheme the colour used is one from about two thirds of the way
+through the scheme.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update</strong>: Manually trigger a redraw of the main chart, in light of new assignments etc</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="assignment-connections-chart">
+<h2>Assignment &amp; Connections Chart<a class="headerlink" href="#assignment-connections-chart" title="Permalink to this headline">¶</a></h2>
+<p>Shows a chart illustrating selected atom groups for a given sequence, their assignment status and connections between them</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain to display the residue and atom groups for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Connection Type</strong>: Restricts the assignment connection lines to atom groups with particular sequential relationships</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>Allows specification of which atoms, residues and spectrum information to use</p>
+<div class="section" id="spectra">
+<h3>Spectra<a class="headerlink" href="#spectra" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Include predicted peak lists</strong>: Whether to include predicted peak lists in graph</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>*None*</strong>: Toggles individual spectra on and off in tha chart; when set on a spectrum will be used to highlight atom groups assigned and connected in that spectrum</p>
+</div>
+<div class="section" id="atoms-shown">
+<h3>Atoms Shown<a class="headerlink" href="#atoms-shown" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>*None*</strong>: Toggles particular kinds of atom group on and off in the chart (for all residues with that kind of group)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set1 Atoms</strong>: Switches on assignment display and connections for atoms in &#8220;set 1&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set2 Atoms</strong>: Switches on assignment display and connections for atoms in &#8220;set 2&#8221;</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>All atoms</strong>: Switches on assignment display and connections for all atom types</p>
+</div>
+<div class="section" id="residues-shown">
+<h3>Residues shown<a class="headerlink" href="#residues-shown" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>*None*</strong>: Toggles particular kinds of residue on and off in the chart, still observing the above atom site selections; &#8220;off&#8221; residues are merely greyed out not removes</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>All residues</strong>: Set all residue types, and any of the selected atom sites they contain, to be visible in the main chart</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Invert Selection</strong>: Make an inverse residue type selection, so that types that were not visible in the main chart now are, and those that were are now greyed out</p>
+</div>
+<div class="section" id="isotope-labelling">
+<h3>Isotope Labelling<a class="headerlink" href="#isotope-labelling" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Pattern</strong>: If required, selects an isotope labelling scheme to use for colouring the atom site nodes</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.25</strong>: Specifies the minimum fractional spin-active isotopic incorporation for an atom to be considered &#8220;labelled&#8221;</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Labelled Colour</strong>: Selects which colour is use to display the atom site nodes in the main chart if they are unlabelled, according to the stated settings</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotope</strong>: Selects which kind of nuclear isotope atom site colours are derived from using the selected scheme; typically 13C for checking C-C connections</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Colour Gradient</strong>: Whether, for labelled atom sites, to use a colour gradient with various hues to show isotopic incorporation, or otherwise only two colours for labelled &amp; unlabelled</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Unlabelled Colour</strong>: Selects which colour is use to display the atom site nodes in the main chart if they are isotopically labelled, according to the stated settings</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chart : Assignment Graph</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#assignment-connections-chart">Assignment &amp; Connections Chart</a></li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#spectra">Spectra</a></li>
+<li><a class="reference internal" href="#atoms-shown">Atoms Shown</a></li>
+<li><a class="reference internal" href="#residues-shown">Residues shown</a></li>
+<li><a class="reference internal" href="#isotope-labelling">Isotope Labelling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Chart.html"
+                        title="previous chapter">Chart</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewChemicalShiftsPopup.html"
+                        title="next chapter">Chart : Chemical Shifts Table</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/ViewAssignmentPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewChemicalShiftsPopup.html" title="Chart : Chemical Shifts Table"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Chart.html" title="Chart"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Chart.html" >Chart</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

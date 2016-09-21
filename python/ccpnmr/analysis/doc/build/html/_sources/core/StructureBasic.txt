@@ -1,0 +1,7 @@
+==============
+StructureBasic
+==============
+
+.. automodule:: ccpnmr.analysis.core.StructureBasic
+   :members:
+

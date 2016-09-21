@@ -1,0 +1,256 @@
+==============================
+Assignment : NOE Contributions
+==============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Assign Contributions to NOE Peaks Using Structures and Chemical Shifts**
+
+This popup window is designed to assist in the latter stages of assigning NOE
+and other through-space spectra that are used in the generation of
+macromolecular structures. The system uses the matching of chemical shifts to
+peak positions, and a structure if available, to suggest assignments for peaks.
+Guiding structures are used to eliminate assignment possibilities where the
+resonances would be too far apart in space to give a contribution to the
+signal. Such structures may include comparative (homology) models or
+unfinalised structures from part way though the structure generation process,
+for example as produced by ARIA or CYANA programs.
+
+**User Operation**
+
+To operate this tool the user selects a NOESY or other though-space peak list
+that will be assigned. Various options may be chosen, including how assignment
+possibilities are displayed on a graphical structure view and what the
+tolerances are for considering an assignment possibility. The distance
+tolerance is the maximum allowable separation between potential peak dimension
+assignments (connected by a through-space transfer) if a guide structure is
+present. The F1, F2 etc. dimensional isotope tolerances are the maximum
+allowed chemical shift differences for matching a peak position to a resonance
+of known chemical shift. The "Navigation Windows" table allows the user to
+specify which spectrum windows will be used for navigation; to show a selected
+peak's location. This table displays all windows that the peak list may be
+viewed in, and the "Use?" column may be toggled to activate a window for
+navigation.
+
+**Reciprocal Return Peaks**
+
+The active windows can not only display the location of a selected peak, but
+also a series of strips (window sub-divisions) that relate to any reciprocal,
+symmetry related (return) peaks. This is useful for the resolution of
+assignment ambiguity. If a peak is thought to be due to an NOE from resonance
+A to resonance B a reciprocal NOE (from B to A) will usually be present to
+confirm the assignment possibility, assuming the return peak would be visible
+in the spectrum. If strips for return peaks are required the user should
+select the "Strip Return Peaks" option at the top of the settings tab.
+
+**Peak Assignments**
+
+In the "Peak Assignments" tab the top table lists all of the peaks that are
+present in the selected peak list. Clicking on a peak row in this table will
+cause the lower table to be filled with the assignment possibilities for the
+peak. If navigation windows and a guide structure display is active selecting
+a peak in this way will also navigate to the appropriate spot in the spectrum
+and show structural connections.
+
+Peak assignment possibilities in the lower table are, by default, displayed in
+a ranked order according to how close the peak position is to the chemical
+shifts and how distant in space the relevant atoms are in any guide structure.
+The chemical shift differences are weighted by the per-dimension tolerances so
+that values from dissimilar isotopes may be combined. A peak assignment is
+made by selecting the specific row for the resonances you wish to assign to
+the selected peak and clicking [Assign Selected]. An individual dimension
+assignment may be removed by clicking on the appropriate cell in the "Possible
+Assignments" table and clicking [Delete Assignment], or all assignments for
+the peak may be cleared with [Delete All Assignments].
+
+The [Predict Peaks] function is designed to show you where the listed
+assignment possibilities would make peaks in the spectrum, given their
+recorded chemical shifts. This option makes synthetic peak crosses to show
+where on the spectrum the resonance intersections would be, and if possible
+what structural distance they represent. From these the user may be able to
+make a better judgement of which possibilities are likely to cause a peak.
+Such synthetic peaks are made in an entirely separate peak list to the main
+one, and their list may be deleted at any time without adverse effect.
+
+**Caveats and Tips**
+
+The "Strip Return Peaks" option will override any existing strips within the
+selected spectrum windows. If the windows should not be affected in this way
+the option should be switched off.
+
+The "Tol. Weighted Combined Delta" value in the lower table is a weighted
+chemical shift distance (structure distance is not included) that can be used
+an assignment criterion, as long as your shift tolerances are set
+appropriately. The actual calculation is to take the shift difference for each
+dimension and divide by the tolerance for that dimension (normalise to be <=
+1.0). All dimensions are then combined by taking the square root of the sum of
+squares, i.e. to give a "shift distance". The maximum value will be the square
+root of the number of dimensions.
+
+It should be noted that the [Assign Whole Peak List] will assign all of the
+possibilities, as listed in the lower table, for all the peaks in the entire
+peak list. Hence, when using this function it is recommended that suitably
+narrow distance and chemical shift tolerances are set.
+
+The chemical shift list that is used for matching resonances to peak positions
+is the one set on the experiment record for the selected peak list.
+
+The experiment record of a peak list must be set as a through-space type (e.g.
+NOESY) for it to be considered.
+
+This system will work with non-NOESY though-space experiments such as spin
+diffusion types used for solid-state samples. However, at present assignment
+contribution fractions are only calculated using the Intensity^(1/6) summation
+appropriate for NOE experiments.
+
+This system takes no account of missing assignments; resonances that may cause
+a peak but do not have a known chemical shift.
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak List & Display Settings
+============================
+
+Sets the parameters required for matching peaks to NOE assignments, including which peak list and structure to use
+
+|pulldown| **NOE Peak List**: Selects which NOE peak list will be considered for the matching of close resonances; in terms of both shift and distance)
+
+|pulldown| **Structure Display**: Selects which kind of assignment possibilities, for a peak, to display on a graphical structure display
+
+|pulldown| **Structure**: Selects which structure ensemble will be used for calculating atomic distances within the graphical structure display
+
+|check| **Aliased Possible**: Sets whether the peaks could be caused by aliased resonances; not at their real ppm value, but a whole number of sweep widths away
+
+|check| **Focus Structure**: Sets whether to rotate the graphical structure display to focus on the current assignment possibilities
+
+|check| **Mark Peak**: Sets whether to mark the selected peak position, as displayed in the selected navigation windows
+
+Tolerances
+~~~~~~~~~~
+
+
+|float| **8.0**: Sets the upper limit for structural distance, below which pairs of close atom sites may be considered for assignment
+
+Navigation Windows
+~~~~~~~~~~~~~~~~~~
+
+
+===========  =======================================================================================================================================
+**Table 1**
+----------------------------------------------------------------------------------------------------------------------------------------------------
+        *#*  The serial number of the spectrum window, which may be used to navigate to NOE peak locations 
+     *Name*  The name of the spectrum window, which may be used to navigate to NOE peak locations 
+     *Use?*  Sets whether to use the spectrum window for navigation, if so its view will be moved to display the selected peak location  *(Editable)*
+===========  =======================================================================================================================================
+
+
+
+Peak Assignments
+================
+
+A table of the peaks that NOE assignments are considered for, and their structure & shift filtered assignment possibilities
+
+NOE Peaks
+~~~~~~~~~
+
+
+============  =================================================================================================================
+**Table 2**
+-------------------------------------------------------------------------------------------------------------------------------
+         *#*  The serial number of the peak in its peak list 
+  *Position*  The position of the peak in all of its dimensions 
+*Assignment*  The current resonance assignment annotation of the peak 
+   *Details*  A textual description of the peak; can be set from the main peak tables, e.g. to mark violated peaks 
+    *Height*  The height intensity of the peak; usually from the spectrum data matrix,but possibly set manually 
+    *Volume*  The volume integral of the peak; calculated using the method stated in the peak list table 
+============  =================================================================================================================
+
+
+
+|button| **Previous Peak**: Selects the previous peak in the table and display NOE assignment possibilities; causes navigation within spectrum windows if this is set
+
+|button| **Selected Peak**: Selects a peak in the table based upon the peak currently selected in spectrum windows; uses the first if many are selected
+
+|button| **Next Peak**: Selects the next peak in the table and display NOE assignment possibilities; causes navigation within spectrum windows if this is set
+
+|button| **Find Reciprocal Peaks**: Display strips for possible (symmetry related) NOE reciprocating return peaks, e.g. for an A-B peak look for possible B-A peaks.
+
+Possible Assignments
+~~~~~~~~~~~~~~~~~~~~
+
+
+==========================  =======================
+**Table 3**
+---------------------------------------------------
+                       *#*  *Documentation missing* 
+                *Reson F1*  *Documentation missing* 
+                *Reson F2*  *Documentation missing* 
+                *Reson F3*  *Documentation missing* 
+                *Reson F4*  *Documentation missing* 
+                   *Dist.*  *Documentation missing* 
+*Tol. Weighted Combined Δ*  *Documentation missing* 
+                     *ΔF1*  *Documentation missing* 
+                     *ΔF2*  *Documentation missing* 
+                     *ΔF3*  *Documentation missing* 
+                     *ΔF4*  *Documentation missing* 
+   *Contrib Frac.Shift F1*  *Documentation missing* 
+                *Shift F2*  *Documentation missing* 
+                *Shift F3*  *Documentation missing* 
+                *Shift F4*  *Documentation missing* 
+==========================  =======================
+
+
+
+|button| **Assign Selected**: Assign the peak to the individual resonance+dimension possibility selected in the above table
+
+|button| **Delete Assignment**: Remove the assignment of the individual resonance+dimension possibility selected in the above table
+
+|button| **Delete All Assignments**: Delete all resonance assignment for all dimensions of the selected peak
+
+|button| **Predict Peaks**: Make simulated peaks (in a separate, temporary peak list) at the locations of the displayed resonance intersections
+
+|button| **Assign Whole Peak List**: Assign all the peaks in the selected peak list to all of their NOE assignment possibilities; only useful if strict tolerances are set
+

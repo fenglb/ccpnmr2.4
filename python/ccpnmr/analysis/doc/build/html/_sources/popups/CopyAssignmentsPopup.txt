@@ -1,0 +1,260 @@
+=============================
+Assignment : Copy Assignments
+=============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Copy Resonance Assignments to Different Peak Lists or Molecules**
+
+This popup has two separate but related purposes: firstly, to transfer
+resonance assignments from one peak list to another peak list where the peaks
+are in similar, but not identical, positions; secondly, to move or duplicate
+resonances that are assigned to atoms in one molecular chain to another of
+similar sequence.
+
+**Copying Assignments Between Peak Lists**
+
+The general idea of the first tab is to select two peak lists, one of which
+acts as the "source" where resonance assignments are copied from and another
+to act as the "target" where assignments are copied to. In general both the
+source and targets peak lists will be from experiments with the same number
+and kinds of axis. However, it is also possible to copy assignments *to* a
+target peak list that is of *lower* dimensionality than the source. For
+example you can copy 3D 15N HSQC-NOESY (H,N,H dimensions) assignments to
+15N-HSQC (H,N dimensions) or 2D NOESY (H,H dimensions), and in these cases
+only resonance assignments that go on dimensions common to source and target
+will be transferred.
+
+The "Source Peaks" table lists all the peaks that assignments may be copied
+from, together with an indication the number of peaks that are close and the
+one that is closest. The "Target Peaks" table is updated for an individual
+source peak when you click on a row of the "Source Peaks" table; to show you
+details of all the peaks that match in terms of position.
+
+The matching of peak positions is made according to a chemical shift distance
+measure and only possibilities that lie within the distance threshold are
+considered. The chemical shift distance is calculated by taking the difference
+in peak positions for each dimension, dividing each difference by the scale
+factor for the isotope that appears on that dimension, squaring the
+differences and taking the square root of their summation. The isotope scale
+factors, which you can set in the interface mean that differences in
+dissimilar dimensions can be compared. By default the distances can be thought
+of in terms as the "1H" equivalent.
+
+If suitable matches are found, resonance assignments are copied between peaks
+either on an individual basis, by selecting the required target in the lower
+table and using [Assign Selected Target], or *en masse* by using the other
+buttons which process all of the peaks in the list; copying assignments if there
+is only a single matching target within the distance threshold, or
+to the  closest matching target. When using the process-all functions it is
+common to start with a very strict/short threshold radius, assign some peaks
+and then increase the threshold to consider the poorer matching ones.
+
+**Copying Assignments Between Molecular Chains**
+
+The second tab is used to move resonances' atomic assignments to a different
+molecule/chain, while maintaining assignments to peaks. When copying
+assignments between molecular chains, i.e. the entities  with residues and
+atoms that you assign, the general principle is that you choose one chain as a
+source, to get assignments from, and another as a target, to transfer
+assignments to. Chains may have identical sequences, for example when copying
+assignments within a homodimer, or reasonably different sequences. In the
+latter case a pairwise sequence alignment is used to determine the initial
+mapping between source and target residues.
+
+With the chain selection setup, the next task is usually to consider how
+moving assignments will affect the peaks that the source chain resonances are
+assigned to. In this regard there are three options and they are all specified
+on a per-experiment basis (and thus affect that experiment's spectra and
+peaks). The first option is to leave an experiment alone ("don't move") so
+that its peaks are not affected at all. The second option is to move to the
+target, whereby all resonance assignments on the peaks are moved to the other
+chain. The third option is to duplicate assignments on the peaks so that they
+are assigned to both the source and the target chains; this makes each peak
+assigned to double the number of resonances. If a resonance is moved entirely
+to the target chain (no peaks left at source) then the resonance's atomic
+assignment is simply pointed to the different chain. If a resonance remains
+partly assigned to the original chain, then a new resonance is made and this
+is the one assigned to the target chain; the old resonance remains on the
+source chain.
+
+Where residues don't match exactly between the two chains, any resonances
+assigned to atoms with no direct equivalent (nothing of the same name) will
+still be copied across; their spin system will become the target residue, they
+retain their original atom types, but they will not have full atomic
+assignments. If the destination residue does not appear correctly in the lower
+table, the user may change the residue-residue mapping by double clicking in
+the "Destination" column.
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Between Peak Lists
+==================
+
+*Documentation missing*
+
+Options
+~~~~~~~
+
+
+|pulldown| **Source Peak List**: Selects the peak list to copy assignments from
+
+|pulldown| **Target Peak List**: Selects the peak list which will be assigned
+
+|check| **Show Already Copied?**: Whether to show source peaks in the table whose assignments are already copied
+
+|check| **Overwrite Assignments?**: Whether to overwrite any existing assignments in the target peak list
+
+|check| **Follow Peaks?**: Whether to follow the location of peaks in the spectrum window when clicking on a peak row
+
+|check| **Only Good Matches?**: When selected only source peaks with at least one good target match will be shown, otherwise all source peaks are shown
+
+|check| **Consider Aliased?**: Whether target peaks could be aliased; position matching can add whole numbers of sweep widths
+
+|pulldown| **Follow Window**: Selects which spectrum window will be used to navigate to source & target peak positions
+
+|float| **0.08**: The ppm search radius to match peak positions. Note spectrum dimensions will be weighted by the isotope scale factors
+
+Scale Factors
+~~~~~~~~~~~~~
+
+
+|float| **1.0**: The scaling factor used to weight ppm distances in 1H dimensions; used in position radius search
+
+|float| **5.0**: The scaling factor used to weight ppm distances in 15N dimensions; used in position radius search
+
+|float| **10.0**: The scaling factor used to weight ppm distances in 13C dimensions; used in position radius search
+
+Source Peaks
+~~~~~~~~~~~~
+
+
+===================  ==========================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------------------
+                *#*  Serial number of the source peak 
+       *Assignment*  Assignment of source peak; which will be copied 
+     *Num. Matches*  The number of target peaks that match the source peak within the ppm distance 
+*Closest Distance.*  The smallest, isotope weighted, ppm distance to a target peak 
+       *Best Match*  Assignment annotation of closest matching target peak 
+===================  ==========================================================================================
+
+
+
+Target Peaks
+~~~~~~~~~~~~
+
+
+============  ====================================================================================================
+**Table 2**
+------------------------------------------------------------------------------------------------------------------
+         *#*  Serial number of target peak possibility 
+*Assignment*  Assignment of the target peak, which may be overwritten 
+  *Distance*  Isotope weighted (by scale factor per dimension) ppm distance between source and target 
+============  ====================================================================================================
+
+
+
+|button| **Assign Selected Target**: Copy assignments from the selected source peak to the selected target
+
+|button| **Assign All Singly Matched**: Process all source peaks and copy assignments to those that match a single target within the search radius
+
+|button| **Assign All To Closest**: Process all source peaks and copy assignments to the closest matching target peak (if there is one in the search radius)
+
+Between Molecule Chains
+=======================
+
+*Documentation missing*
+
+Options
+~~~~~~~
+
+
+|pulldown| **Source Chain**: Selects the molecular chain from which atom assignments will be copied
+
+|pulldown| **Target Chain**: Selects the molecular chain which will receive new atom assignments
+
+Peak Assignment Transfers
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+============  ======================================================================================================================================
+**Table 3**
+----------------------------------------------------------------------------------------------------------------------------------------------------
+         *#*  Serial number of experiment to consider 
+*Experiment*  Name of experiment to consider 
+ *Operation*  Sets whether atom assignments for an experiment will be transferred entirely, duplicated on both chains or left unaltered  *(Editable)*
+============  ======================================================================================================================================
+
+
+
+|button| **Don't Move**: Sets the selected experiments so that their assignments will be left unaltered
+
+|button| **Move to Target**: Sets the selected experiments so that their assignments will be transferred entirely to the target chain
+
+|button| **Duplicate**: Sets the selected experiments so that their assignments will be duplicated for both source and target chains
+
+========================  ========================================================================================
+**Table 4**
+------------------------------------------------------------------------------------------------------------------
+                *Source*  The residue from which assignments may be copied 
+     *Source Resonances*  The number of resonance assignments currently on the source residue's atoms 
+           *Destination*  The residue in the target chain to which assignments may be copied  *(Editable)*
+*Destination Resonances*  The number of resonance assignments currently on the target residue's atoms 
+========================  ========================================================================================
+
+
+
+Residue Mapping
+~~~~~~~~~~~~~~~
+
+
+|button| **Copy Assignments!**: Go ahead and copy assignments between chains using the selected options
+
+|button| **Enable Selected**: Enable copying of assignments for the selected residues
+
+|button| **Disable Selected**: Disable copying of assignments for the selected residues
+

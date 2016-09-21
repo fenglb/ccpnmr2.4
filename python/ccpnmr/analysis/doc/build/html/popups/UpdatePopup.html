@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CcpNmr Software Updates &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Project" href="../menu/Project.html" />
+    <link rel="next" title="Project : Preferences : User Options" href="EditProfilesPopup.html" />
+    <link rel="prev" title="Project : Backup" href="BackupProjectPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditProfilesPopup.html" title="Project : Preferences : User Options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BackupProjectPopup.html" title="Project : Backup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" accesskey="U">Project</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ccpnmr-software-updates">
+<h1>CcpNmr Software Updates<a class="headerlink" href="#ccpnmr-software-updates" title="Permalink to this headline">¶</a></h1>
+<p><strong>Install Patches and Updates to CCPN Software</strong></p>
+<p>This popup window allows the user to view and automatically install the
+latest updates and patches to CcpNmr software. This is the normal mechanism
+of receiving incremental changes and fixes to bug reports between numbered
+CCPN releases. It should be noted that this system generally only provides
+fixes for the most recent version of the CcpNmr Software. If your version is
+older (but not as old as version 1.0) or if there has been a recent new
+release then the updating mechanism will automatically upgrade the whole CCPN
+distribution to the newest one. It should be noted that this mechanism will
+not automatically update some of the really old versions, e.g. from version
+1.0 to 2.0. Updates from 2.0 onwards ought to work seamlessly though.</p>
+<p>In normal operation the user clicks [Select All] then [Install Selected],
+whereupon the software should be restarted (not forgetting to save any data).
+Naturally, viewing and receiving updates requires that the user&#8217;s computer
+has a working connection to the Internet. Although the user may toggle
+individual file updates on or off by double-clicking in the &#8220;Install?&#8221; column,
+it is generally not a good idea to choose only a subset of file updates unless
+there is a specific reason to do so. Choosing only some file updates risks
+getting problems where two or more files rely upon the most recent versions of
+one another.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>Using [Refresh List] will cause the system to re-query the CCPN update server
+if the user is awaiting an imminent fix.</p>
+<p>When an updated file is installed the old version is not removed; it is renamed
+with the &#8220;_old&#8221; suffix.</p>
+<p>If for any reason this popup window cannot be opened the user may update the
+software using the &#8220;updateAll&#8221; script that sits alongside the main &#8220;analysis&#8221;
+program executable (usually in the $CCPN_HOME/bin/ directory).</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>File</em></td>
+<td>The name of the file for which an update is available</td>
+</tr>
+<tr><td><em>Install?</em></td>
+<td>Whether the file will be replaced when the user commits the upgrade  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Date</em></td>
+<td>The data that the new file version was posted on the CCPN server</td>
+</tr>
+<tr><td><em>Relative Path</em></td>
+<td>The path that the file will be installed at, relative to the CCPN installation</td>
+</tr>
+<tr><td><em>Priority</em></td>
+<td>The priority number of the installation; commonly not configured away from &#8220;1&#8221;</td>
+</tr>
+<tr><td><em>Comments</em></td>
+<td>Any comments added by the CCPN developers</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Refresh List</strong>: Refresh the list of file updates by querying the CCPN update server, assuming an Internet connection is present</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Select All</strong>: Select all of the file updates for installation (recommended)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Install Selected</strong>: Install newest versions of the selected files</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CcpNmr Software Updates</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BackupProjectPopup.html"
+                        title="previous chapter">Project : Backup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditProfilesPopup.html"
+                        title="next chapter">Project : Preferences : User Options</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/UpdatePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditProfilesPopup.html" title="Project : Preferences : User Options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BackupProjectPopup.html" title="Project : Backup"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Project.html" >Project</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

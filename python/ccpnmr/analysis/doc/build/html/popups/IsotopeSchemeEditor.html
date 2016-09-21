@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecule : Reference Isotope Schemes &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="next" title="Molecule : Atom Browser" href="BrowseAtomsPopup.html" />
+    <link rel="prev" title="Molecule : Molecules" href="EditMoleculesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="BrowseAtomsPopup.html" title="Molecule : Atom Browser"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" accesskey="U">Molecule</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecule-reference-isotope-schemes">
+<h1>Molecule : Reference Isotope Schemes<a class="headerlink" href="#molecule-reference-isotope-schemes" title="Permalink to this headline">¶</a></h1>
+<p><strong>Create and Edit Per-residue Reference Isotope Schemes</strong></p>
+<p>This system allows the user to create schemes that describe particular
+patterns of atomic isotope labelling in terms of combinations of isotopically
+labelled forms of residues. Once constructed, these schemes may then be
+applied to a molecule of known residue sequence to gauge the levels of
+spin-active isotope incorporation in an NMR experiment. This information is
+useful in several places withing Analysis, including giving more intelligent
+assignment options and in the generation of distance restraints by matching
+peak positions to chemical shifts. Although the schemes may be used directly
+they are typically used as reference information for configuring the <a class="reference external" href="EditMolLabellingPopup.html">Isotope
+Labelling</a> system; where isotope labelling patterns are tied to particular
+molecules and experiments.</p>
+<p>Because all of the different isotope labelled versions (isotopomers) of each
+residue type are described independently, a scheme can be used to estimate the
+specific amounts of incorporation present at multiple atom sites at the same
+time. For example, although a residue type may have significant levels of 13C
+at the CA and CB positions on average, there may be no form of the residue
+where CA and CB are labelled at the same time, and thus CA-CB correlations
+would not be observed in NMR.</p>
+<p>This popup window is divided into three main tabs, the first describes the
+overall schemes that are available; that would be applied to a molecule in a
+given situation. The second tab details the residue isotopomer components
+within the selected scheme, i.e. which labelled residue forms are present. The
+last tab displays isotopomer labelling in a graphical, three-dimensional way.
+If any isotope labelling schemes have been created or edited the user may
+immediately save these to disk via the [Save Schemes] button to the right of
+the tabs, although these will naturally be saved when the main CCPN project
+is.</p>
+<p><strong>Reference Schemes</strong></p>
+<p>This table lists all of the reference isotope schemes that are available to
+the project. A number of standard schemes are included by default, as part of
+the main CCPN installation. However, the user is free to create new schemes,
+either from a completely blank description or by copying and modifying one of
+the existing schemes. By selecting on a isttope scheme row in the table the
+scheme is selected to be active for the whole popup and the user can see the
+contents of the scheme via the other two tabs.</p>
+<p>It should be noted that the user cannot edit the standard schemes provided by
+CCPN, given that these are stored with the software. Any new or copied schemes
+that the user creates will be stored inside the current CCPN project. If a new
+scheme should be made available to multiple projects, its XML file can be
+copied into the main CCPN installation, if the user has appropriate write
+access.</p>
+<p><strong>Isotopomers</strong></p>
+<p>The middle tab allows the user to view, and where appropriate edit, the
+isotope labelling descriptions for the residues within the current scheme
+(selected in the pulldown menu at the top). An isotope scheme is constructed
+by specifying one or more isotopomers for each residue type. Each isotopomer
+represents a different way of incorporating spin-active atom labels into a
+given kind of residue. Often there will only be one labelled form of a
+residue, and hence one isotopomer. However, with some kinds of isotope
+enrichment, for example using glycerol 13C labelled at the C2 position,
+connected labelled and unlabelled atom sites can be incorporated in
+alternative ways, resulting in distinct forms of labelling patterns that are
+not the result of a pure random mix. Knowing which labels are present at the
+same time, in the same isotopomer form, can be very important for determining
+which NMR correlations are possible.</p>
+<p>In general use when looking through the default, immutable reference schemes
+that come with CCPN the user can scroll through the isotopomer versions of
+each residue in the upper table. By clicking on one of these rows the lower
+table is filled with details of the amount of each kind of isotope (on
+average) at each atom site. For the lower &#8220;Atom Labels&#8221; table only one kind of
+chemical element is shown at a time, but the user may switch to  a different
+one via the &#8220;Chemical Element&#8221; pulldown.</p>
+<p><strong>Editing Isotopomers</strong></p>
+<p>When dealing with copied or new isotope schemes the user is allowed to
+edit all aspects of the scheme. With a completely new scheme there will be no
+isotopomer records to start with and it is common practice to fill in a
+standard set of isotopomers, one for each residue type, made with a base level
+of isotope incorporation. To set this base level the user can use [Set Default
+Abundances] to manually specify values, although the default is to use natural
+abundance levels, which is appropriate in most circumstances. With the base
+levels set the [Add Default Abundance Set] will automatically fill-in a
+starting set of isotopomers for the scheme. Extra isotopomers can be added for
+a specific type of residue via the [Add New:] function and adjacent pulldown
+menu or by copying existing ones; whichever is easier. Each isotopomer has an
+editable weight to enable the user to indicate the relative abundance within a
+given residue type.</p>
+<p>Once a new isotopomer specification is created clicking on its row allows the
+user to specify the isotope labelling pattern in the lower &#8220;Atom Labels&#8221;
+table. Here the user selects which kind of chemical element to consider and
+then  double-clicks to edit the &#8220;Weighting&#8221; columns in the table. The
+weightings represent the relative abundance of a given nuclear isotope at a
+given atom site. The weightings could be set as ratios, fractions, or
+percentages; it is only the relative proportion that is important. For example
+if a carbon atom site was known to have 5% Carbon-12 and 95% Carbon-13
+isotopes then the respective weights could be entered as 1 &amp; 19 or  0.05 &amp;
+0.95; whatever is most convenient. For efficient setup of schemes the
+[Propagate Abundances] function can be used to spread the same levels of
+incorporation over several atom sites (from the last selected row).</p>
+<p><strong>Isotopomer Structure</strong></p>
+<p>The last tab is an alternative way of presenting the isotope patterns present
+within the residues of the current scheme (selected in either of the first two
+tabs). Here the user selects a residue type in the upper left pulldown menu
+and then a numbered isotopomer, or an average of all isotopomers, in the right
+hand pulldown menu. The structural display will show a moveable picture of the
+residue (in a standard conformation) where unlabelled atom sites are
+represented with grey spheres, labelled sites with yellow spheres and
+intermediate incorporation with shades in between.</p>
+<p>It should be noted that this kind of 3D display is only possible if there is
+an idealised structure available for a residue type. This data will be
+present for all of the regular biopolymer residues, but may be missing for
+more unusual compounds; although a lack of coordinates does not impact upon
+the isotopomer setup.</p>
+<p>To move and rotate the three-dimensional residue display the following
+keyboard controls may be used:</p>
+<ul class="simple">
+<li>Rotate: Arrow keys</li>
+<li>Zoom: Page Up &amp; Page Down keys</li>
+<li>Translate: Arrow keys + Control key</li>
+</ul>
+<p>Or alternatively the following mouse controls:</p>
+<ul class="simple">
+<li>Rotate: Middle button click &amp; drag</li>
+<li>Zoom: Mouse wheel or middle button click + Shift key &amp; drag up/down</li>
+<li>Translate: Middle button click &amp; drag + Control key</li>
+</ul>
+<p>Also an options menu appears when the right mouse button is clicked.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Save Schemes</strong>: Save all changes to the reference isotope scheme to disk; the saves ALL changes to the CCPN installation for all projects to use</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="reference-schemes">
+<h2>Reference Schemes<a class="headerlink" href="#reference-schemes" title="Permalink to this headline">¶</a></h2>
+<p>A table of all of the reference isotope scheme definitions available to the project</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Code</em></td>
+<td>A short textual code that identifies the reference isotope scheme in graphical displays</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The full name for the isotope scheme  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Description</em></td>
+<td>A detailed description of the isotope scheme including user comments  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Save Location</em></td>
+<td>The name of the CCPN data repository in which the isotope scheme is saved; &#8220;refData&#8221; is in the CCPn installation</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy</strong>: Make a new reference isotope scheme definition based on a copy of the scheme currently selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected isotope scheme</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New</strong>: Make a new, blank isotope scheme</p>
+</div>
+<div class="section" id="isotopomers">
+<h2>Isotopomers<a class="headerlink" href="#isotopomers" title="Permalink to this headline">¶</a></h2>
+<p>A list of the residue isotopomers that comprise the selected isotope labelling scheme</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Reference Scheme</strong>: Selects which of the available isotope schemes to view/edit</p>
+<div class="section" id="id1">
+<h3>Isotopomers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Default Abundances</strong>: Opens a panel that allows you to set the basis/default abundances for C, H &amp; N isotopes; used as the starting point for new isotopomer definitions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Natural Abundance Default</strong>: Sets the basis/default abundances for C, H &amp; N isotopes to their natural abundance proportions</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule Type</strong>: Selects which type of bio-polymer to define residue isotopomer labelling for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Ccp Code</em></td>
+<td>The CCPN code that identifies the kind of residue the isotopomer relates to</td>
+</tr>
+<tr><td><em>Variant</em></td>
+<td>The number of the particular isotopomer (isotope pattern) within its residue type</td>
+</tr>
+<tr><td><em>Weight</em></td>
+<td>The fraction of the total residues, of its kind, that the isotopomer make up  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Selected</strong>: Delete the selected residue isotopomers from the current isotope scheme</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Copy Selected</strong>: Make a new residue isotopomer definition by copying the details of the last selected isotopomer</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Default Abundance Set</strong>: Add a complete set of isotopomers to the isotope scheme, one for each residue type, based on the states default isotope abundances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Atom Type To Default</strong>: For all residue isotopomers in the scheme, set the labelling of one kind of atom (the user is prompted) to its default isotopic incorporation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add New</strong>: Add a new residue isotopomer definition that uses the default isotopic incorporation</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which kind of residue isotopomer may be added to the current isotope scheme</p>
+</div>
+<div class="section" id="atom-labels">
+<h3>Atom Labels<a class="headerlink" href="#atom-labels" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chemical Element</strong>: Selects which kind of atoms to select from the selected residue isotopomer; to display isotopic incorporation in the below table</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Water Exchangeable Atoms</strong>: Sets whether to show atoms considered as being &#8220;water exchangeable&#8221;; their isotopic labelling will rapidly equilibrate with aqueous solvent</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Atom Name</em></td>
+<td>The name of the atom within its residue, for which to set isotopic abundances, within the selected isotopomer</td>
+</tr>
+<tr><td><em>Weighting 12C</em></td>
+<td>The amount of 12C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Weighting 13C</em></td>
+<td>The amount of 13C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>%12C</em></td>
+<td>The percentage 12C isotope incorporation, calculated using stated weights</td>
+</tr>
+<tr><td><em>%13C</em></td>
+<td>The percentage 13C isotope incorporation, calculated using stated weights</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reset Selected to Default Abundance</strong>: For the selected atom sites, in the current isotopomer, set their isotopic incorporation to the default values</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Abundances</strong>: Spread the isotopic incorporation values from the last selected atom site to all selected atoms sites</p>
+</div>
+</div>
+<div class="section" id="isotopomer-structure">
+<h2>Isotopomer Structure<a class="headerlink" href="#isotopomer-structure" title="Permalink to this headline">¶</a></h2>
+<p>A three-dimensional representation of residues and their isotopomer labelling</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue Type</strong>: Selects which kind of residue, within the current isotope scheme, to show isotopomer structures for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotopomer</strong>: Selects which kind of isotopomer (labelling pattern) to display, from the selected residue type.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecule : Reference Isotope Schemes</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#reference-schemes">Reference Schemes</a></li>
+<li><a class="reference internal" href="#isotopomers">Isotopomers</a><ul>
+<li><a class="reference internal" href="#id1">Isotopomers</a></li>
+<li><a class="reference internal" href="#atom-labels">Atom Labels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#isotopomer-structure">Isotopomer Structure</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMoleculesPopup.html"
+                        title="previous chapter">Molecule : Molecules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="BrowseAtomsPopup.html"
+                        title="next chapter">Molecule : Atom Browser</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/IsotopeSchemeEditor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="BrowseAtomsPopup.html" title="Molecule : Atom Browser"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" >Molecule</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

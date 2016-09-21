@@ -1,0 +1,148 @@
+=======================
+Experiment : NMR Series
+=======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Setup Experiment Series for Chemical Shift and Intensity Changes**
+
+The purpose of this popup is to setup ordered groups of experiments that are
+related by the variation in some condition or parameter, but otherwise the
+kind of experiment being run is the same. For example the user could setup
+experiments for a temperature series, ligand binding titration or relaxation
+rate measurement.
+
+The layout is divided into two tables. The upper table shows all of the series
+that are known to the current project and the lower table shows all of the
+experiments or planes that comprise the selected series. These series relate
+to both groups of separate experiments (and hence spectra) and also single
+experiment where one dimension is not for NMR frequency but rather a "sampled"
+dimension and thus effectively combines many experiments (e.g. for different
+T1 values) as different planes. A stack of effectively 2D experiments combined
+in this manner is typically referred to as pseudo-3D. - The experiment is 3D
+but there are only two NMR dimensions.
+
+Series which are stacks of planes in a single experiment entity are
+automatically detected and entered into the table once they are loaded. Series
+that are constructed from multiple, separate experiments however must be setup
+by the user. To setup a new series of this kind [Add Series] makes a new,
+empty NMR series. Next the user should change the "Parameter varied" column to
+specify what type of thing is varied between the different experiments. The
+user then adds experiments into this series with the [Add Series Point]
+function at the bottom. Once the points have been added to the series the name
+of the experiment for each point may be changed. Initially, arbitrary
+experiments appear for the series points, so these almost always have to be
+adjusted.
+
+Once a stacked-plane experiment or series of experiments is setup, the user
+next sets (or checks) the value of the parameter associated with each point in
+the lower table. When loading stacked-plane experiments these values may come
+though automatically, if they are present in the spectrum header or parameter
+file. Given a completed NMR series specification the user may then extract the
+relevant data from the series using one of the analysis tools like `Follow
+Intensity Changes`_ or `Follow Shift Changes`_.
+
+**Caveats & Tips**
+
+Make sure the "Parameter Varied" for a given NMR series is appropriate to the
+type of analysis being performed. Many tools that extract T1 or Kd
+measurements for example look for specific types of series.
+
+The "Set/Unset Ref Plane" function is only used in certain kinds of series
+such as those that use trains of CPMG pulses.
+
+.. _`Follow Intensity Changes`: CalcRatesPopup.html
+.. _`Follow Shift Changes`: FollowShiftChangesPopup.html
+
+
+
+Main Panel
+==========
+
+Current Series
+~~~~~~~~~~~~~~
+
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+==================  =============================================================================================================================================================
+**Table 1**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               *#*  The serial number of the experiment series, but left blank if the series as actually a pseudo-nD experiment (with a sampled non-frequency axis) 
+            *Name*  The name of the experiment series, which may be a single pseudo-nD experiment  *(Editable)*
+     *Experiments*  The number of separate experiments (and hence spectra) present in the series 
+*Parameter Varied*  The kind of quantity that varies for different experiments/planes within the NMR series, e.g. delay time, temperature, ligand concentration etc.  *(Editable)*
+      *Num Points*  The number of separate points, each with a separate experiment/plane and parameter value, in the series 
+==================  =============================================================================================================================================================
+
+
+
+|button| **Add Series**: Make a new, blank NMR series specification in the CCPN project
+
+|button| **Delete Series**: Delete the selected NMR series from the project, although any component experiments remain. Note you cannot delete pseudo-nD series; delete the actual experiment instead
+
+|button| **Auto Colour Spectra**: Colour the spectrum contours for each experiment in the selected series (not pseudo-nD) using a specified scheme
+
+|pulldown| **Scheme**: Selects which colour scheme to apply to the contours of (separate) experiments within an NMR series
+
+Experimental Parameters & Conditions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+============  =================================================================================================================================
+**Table 2**
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ *Parameter*  The kind of experimental parameter that is being used to define the NMR series 
+*Experiment*  The experiment that corresponds to the specified parameter value; can be edited from an arbitrary initial experiment  *(Editable)*
+     *Value*  The numeric value of the parameter (condition) that relates to the experiment or point in the NMR series  *(Editable)*
+     *Error*  The estimated error in value of the condition  *(Editable)*
+      *Unit*  The measurement unit in which the value of the condition is represented  *(Editable)*
+============  =================================================================================================================================
+
+
+
+|button| **Add Series Point**: Add a new point to the NMR series with an associated parameter value and experiment
+
+|button| **Delete Series Point**: Remove the selected point from the series, including any associated parameter value
+
+|button| **Set/Unset Ref Plane**: For appropriate kinds of NMR series, set or unset a point as representing the plane to use as a reference
+

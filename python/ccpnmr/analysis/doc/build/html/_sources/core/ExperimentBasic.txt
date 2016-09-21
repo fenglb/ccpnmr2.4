@@ -1,0 +1,7 @@
+===============
+ExperimentBasic
+===============
+
+.. automodule:: ccpnmr.analysis.core.ExperimentBasic
+   :members:
+

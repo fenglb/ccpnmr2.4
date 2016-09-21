@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : NOE Contributions &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Chart : Assignment Graph" href="ViewAssignmentPopup.html" />
+    <link rel="prev" title="Assignment : Automated Seq. Assignment" href="AutoBackbonePopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewAssignmentPopup.html" title="Chart : Assignment Graph"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="AutoBackbonePopup.html" title="Assignment : Automated Seq. Assignment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-noe-contributions">
+<h1>Assignment : NOE Contributions<a class="headerlink" href="#assignment-noe-contributions" title="Permalink to this headline">¶</a></h1>
+<p><strong>Assign Contributions to NOE Peaks Using Structures and Chemical Shifts</strong></p>
+<p>This popup window is designed to assist in the latter stages of assigning NOE
+and other through-space spectra that are used in the generation of
+macromolecular structures. The system uses the matching of chemical shifts to
+peak positions, and a structure if available, to suggest assignments for peaks.
+Guiding structures are used to eliminate assignment possibilities where the
+resonances would be too far apart in space to give a contribution to the
+signal. Such structures may include comparative (homology) models or
+unfinalised structures from part way though the structure generation process,
+for example as produced by ARIA or CYANA programs.</p>
+<p><strong>User Operation</strong></p>
+<p>To operate this tool the user selects a NOESY or other though-space peak list
+that will be assigned. Various options may be chosen, including how assignment
+possibilities are displayed on a graphical structure view and what the
+tolerances are for considering an assignment possibility. The distance
+tolerance is the maximum allowable separation between potential peak dimension
+assignments (connected by a through-space transfer) if a guide structure is
+present. The F1, F2 etc. dimensional isotope tolerances are the maximum
+allowed chemical shift differences for matching a peak position to a resonance
+of known chemical shift. The &#8220;Navigation Windows&#8221; table allows the user to
+specify which spectrum windows will be used for navigation; to show a selected
+peak&#8217;s location. This table displays all windows that the peak list may be
+viewed in, and the &#8220;Use?&#8221; column may be toggled to activate a window for
+navigation.</p>
+<p><strong>Reciprocal Return Peaks</strong></p>
+<p>The active windows can not only display the location of a selected peak, but
+also a series of strips (window sub-divisions) that relate to any reciprocal,
+symmetry related (return) peaks. This is useful for the resolution of
+assignment ambiguity. If a peak is thought to be due to an NOE from resonance
+A to resonance B a reciprocal NOE (from B to A) will usually be present to
+confirm the assignment possibility, assuming the return peak would be visible
+in the spectrum. If strips for return peaks are required the user should
+select the &#8220;Strip Return Peaks&#8221; option at the top of the settings tab.</p>
+<p><strong>Peak Assignments</strong></p>
+<p>In the &#8220;Peak Assignments&#8221; tab the top table lists all of the peaks that are
+present in the selected peak list. Clicking on a peak row in this table will
+cause the lower table to be filled with the assignment possibilities for the
+peak. If navigation windows and a guide structure display is active selecting
+a peak in this way will also navigate to the appropriate spot in the spectrum
+and show structural connections.</p>
+<p>Peak assignment possibilities in the lower table are, by default, displayed in
+a ranked order according to how close the peak position is to the chemical
+shifts and how distant in space the relevant atoms are in any guide structure.
+The chemical shift differences are weighted by the per-dimension tolerances so
+that values from dissimilar isotopes may be combined. A peak assignment is
+made by selecting the specific row for the resonances you wish to assign to
+the selected peak and clicking [Assign Selected]. An individual dimension
+assignment may be removed by clicking on the appropriate cell in the &#8220;Possible
+Assignments&#8221; table and clicking [Delete Assignment], or all assignments for
+the peak may be cleared with [Delete All Assignments].</p>
+<p>The [Predict Peaks] function is designed to show you where the listed
+assignment possibilities would make peaks in the spectrum, given their
+recorded chemical shifts. This option makes synthetic peak crosses to show
+where on the spectrum the resonance intersections would be, and if possible
+what structural distance they represent. From these the user may be able to
+make a better judgement of which possibilities are likely to cause a peak.
+Such synthetic peaks are made in an entirely separate peak list to the main
+one, and their list may be deleted at any time without adverse effect.</p>
+<p><strong>Caveats and Tips</strong></p>
+<p>The &#8220;Strip Return Peaks&#8221; option will override any existing strips within the
+selected spectrum windows. If the windows should not be affected in this way
+the option should be switched off.</p>
+<p>The &#8220;Tol. Weighted Combined Delta&#8221; value in the lower table is a weighted
+chemical shift distance (structure distance is not included) that can be used
+an assignment criterion, as long as your shift tolerances are set
+appropriately. The actual calculation is to take the shift difference for each
+dimension and divide by the tolerance for that dimension (normalise to be &lt;=
+1.0). All dimensions are then combined by taking the square root of the sum of
+squares, i.e. to give a &#8220;shift distance&#8221;. The maximum value will be the square
+root of the number of dimensions.</p>
+<p>It should be noted that the [Assign Whole Peak List] will assign all of the
+possibilities, as listed in the lower table, for all the peaks in the entire
+peak list. Hence, when using this function it is recommended that suitably
+narrow distance and chemical shift tolerances are set.</p>
+<p>The chemical shift list that is used for matching resonances to peak positions
+is the one set on the experiment record for the selected peak list.</p>
+<p>The experiment record of a peak list must be set as a through-space type (e.g.
+NOESY) for it to be considered.</p>
+<p>This system will work with non-NOESY though-space experiments such as spin
+diffusion types used for solid-state samples. However, at present assignment
+contribution fractions are only calculated using the Intensity^(1/6) summation
+appropriate for NOE experiments.</p>
+<p>This system takes no account of missing assignments; resonances that may cause
+a peak but do not have a known chemical shift.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="peak-list-display-settings">
+<h2>Peak List &amp; Display Settings<a class="headerlink" href="#peak-list-display-settings" title="Permalink to this headline">¶</a></h2>
+<p>Sets the parameters required for matching peaks to NOE assignments, including which peak list and structure to use</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>NOE Peak List</strong>: Selects which NOE peak list will be considered for the matching of close resonances; in terms of both shift and distance)</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Structure Display</strong>: Selects which kind of assignment possibilities, for a peak, to display on a graphical structure display</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Structure</strong>: Selects which structure ensemble will be used for calculating atomic distances within the graphical structure display</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Aliased Possible</strong>: Sets whether the peaks could be caused by aliased resonances; not at their real ppm value, but a whole number of sweep widths away</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Focus Structure</strong>: Sets whether to rotate the graphical structure display to focus on the current assignment possibilities</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Peak</strong>: Sets whether to mark the selected peak position, as displayed in the selected navigation windows</p>
+<div class="section" id="tolerances">
+<h3>Tolerances<a class="headerlink" href="#tolerances" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>8.0</strong>: Sets the upper limit for structural distance, below which pairs of close atom sites may be considered for assignment</p>
+</div>
+<div class="section" id="navigation-windows">
+<h3>Navigation Windows<a class="headerlink" href="#navigation-windows" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the spectrum window, which may be used to navigate to NOE peak locations</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the spectrum window, which may be used to navigate to NOE peak locations</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Sets whether to use the spectrum window for navigation, if so its view will be moved to display the selected peak location  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="peak-assignments">
+<h2>Peak Assignments<a class="headerlink" href="#peak-assignments" title="Permalink to this headline">¶</a></h2>
+<p>A table of the peaks that NOE assignments are considered for, and their structure &amp; shift filtered assignment possibilities</p>
+<div class="section" id="noe-peaks">
+<h3>NOE Peaks<a class="headerlink" href="#noe-peaks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the peak in its peak list</td>
+</tr>
+<tr><td><em>Position</em></td>
+<td>The position of the peak in all of its dimensions</td>
+</tr>
+<tr><td><em>Assignment</em></td>
+<td>The current resonance assignment annotation of the peak</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A textual description of the peak; can be set from the main peak tables, e.g. to mark violated peaks</td>
+</tr>
+<tr><td><em>Height</em></td>
+<td>The height intensity of the peak; usually from the spectrum data matrix,but possibly set manually</td>
+</tr>
+<tr><td><em>Volume</em></td>
+<td>The volume integral of the peak; calculated using the method stated in the peak list table</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Previous Peak</strong>: Selects the previous peak in the table and display NOE assignment possibilities; causes navigation within spectrum windows if this is set</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Selected Peak</strong>: Selects a peak in the table based upon the peak currently selected in spectrum windows; uses the first if many are selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Next Peak</strong>: Selects the next peak in the table and display NOE assignment possibilities; causes navigation within spectrum windows if this is set</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Find Reciprocal Peaks</strong>: Display strips for possible (symmetry related) NOE reciprocating return peaks, e.g. for an A-B peak look for possible B-A peaks.</p>
+</div>
+<div class="section" id="possible-assignments">
+<h3>Possible Assignments<a class="headerlink" href="#possible-assignments" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Reson F1</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Reson F2</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Reson F3</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Reson F4</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Dist.</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Tol. Weighted Combined Δ</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>ΔF1</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>ΔF2</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>ΔF3</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>ΔF4</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Contrib Frac.Shift F1</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Shift F2</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Shift F3</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>Shift F4</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Selected</strong>: Assign the peak to the individual resonance+dimension possibility selected in the above table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Assignment</strong>: Remove the assignment of the individual resonance+dimension possibility selected in the above table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete All Assignments</strong>: Delete all resonance assignment for all dimensions of the selected peak</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Predict Peaks</strong>: Make simulated peaks (in a separate, temporary peak list) at the locations of the displayed resonance intersections</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Whole Peak List</strong>: Assign all the peaks in the selected peak list to all of their NOE assignment possibilities; only useful if strict tolerances are set</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : NOE Contributions</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#peak-list-display-settings">Peak List &amp; Display Settings</a><ul>
+<li><a class="reference internal" href="#tolerances">Tolerances</a></li>
+<li><a class="reference internal" href="#navigation-windows">Navigation Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peak-assignments">Peak Assignments</a><ul>
+<li><a class="reference internal" href="#noe-peaks">NOE Peaks</a></li>
+<li><a class="reference internal" href="#possible-assignments">Possible Assignments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="AutoBackbonePopup.html"
+                        title="previous chapter">Assignment : Automated Seq. Assignment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewAssignmentPopup.html"
+                        title="next chapter">Chart : Assignment Graph</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/LinkNoeResonancesPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewAssignmentPopup.html" title="Chart : Assignment Graph"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="AutoBackbonePopup.html" title="Assignment : Automated Seq. Assignment"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

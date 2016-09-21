@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Assignment Panel &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Copy Assignments" href="CopyAssignmentsPopup.html" />
+    <link rel="prev" title="Assignment" href="../menu/Assignment.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CopyAssignmentsPopup.html" title="Assignment : Copy Assignments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Assignment.html" title="Assignment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-assignment-panel">
+<h1>Assignment : Assignment Panel<a class="headerlink" href="#assignment-assignment-panel" title="Permalink to this headline">¶</a></h1>
+<p><strong>Assign Resonances To Peak Dimensions</strong></p>
+<p>The purpose of this popup window is to control the assignment of resonances to
+a specific, picked, peak in a spectrum. Such resonances might already be
+associated with a specific atom or they could be anonymous, and only
+represented by a resonance number e.g. &#8220;[123]&#8221;.</p>
+<p>The general layout of the window is such that you have two tables for each
+dimension of the cross peak, i.e. the dimensions are represented as separate
+rows. The first column of tables on the left indicate the resonances which
+<em>are</em> currently assigned to the peak dimensions. The second column of tables
+on the right indicate the resonances that <em>might be</em> assigned to the peak
+dimensions; these are usually ordered according to chemical shift closeness
+to the peak position in that dimension.</p>
+<p>In normal operation to assign the dimension of a peak to a specific resonance
+by clicking on one of the resonance row from the right hand table for the
+specific peak dimension. If the resonance is not already assigned, it will
+appear in the left hand table to indicate that is now assigned. More than one
+resonance may be assigned to a peak dimension (e.g. for overlapping or
+ambiguous signals) by clicking on another resonance for the same dimension.
+Totally new, never seen before, resonances are added to a dimension with the
+[&lt;New&gt;] option; the new resonance then gains a chemical shift based on this
+peak dimension position.</p>
+<p>Clicking on a resonance row in the left hand tables allows you to remove it as
+a peak assignment [Clear Dim Contrib] or change the way that the specific
+resonance is linked to atoms or residue spin systems. The light blue buttons
+toward the bottom will allow you to add specific atomic assignments, atom type
+information or tentative assignments. The light orange buttons allow you to
+remove atomic and residue/spin system assignments. Double clicking on a
+resonance row will open a pulldown menu with some of these options available.</p>
+<p>Various options are given to control which resonance assignment possibilities
+appear in the right hand tables. Some options show more possibilities, i.e. by
+considering wider position-to-shift tolerances or including matches outside of
+the current sweep with. Other options restrict the possibilities, usually to
+make the selection more relevant to the current situation; you may want only
+assignments within a given molecular system (group of chains), within a single
+residue, appropriate for an isotope labelling scheme or those that obey
+covalent bond relationships of the recorded experiment.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>To change the peak that is being assigned in the window move the mouse over
+the desired peak in a spectrum window and press the &#8220;a&#8221; key (lower case).
+The experiment:spectrum identity of the peak is indicated at the top left.</p>
+<p>Only resonances that are within the chemical shift tolerances (set per
+spectrum dimension) will be shown as assignment possibilities. The chemical
+shift value used for each resonance is taken from the shift list for the
+peak&#8217;s experiment.</p>
+<p>Resonance and spin system names can be set by double clicking on an assigned
+resonance row and selecting the appropriate option from the pulldown menu.
+Resonance and spin system names will be annotated in brackets with serial
+numbers, e.g. &#8220;{123:contamination}[456:aliphatic]&#8221;. Names will not be
+displayed if there is any atom, residue or type information. Accordingly names
+cannot be set here under such circumstances. These names are free text notes
+and have absolutely no formal meaning with regards to assignment or molecules.</p>
+<p>Distances only appear in the tables if you have an appropriate structure set
+at the top and then only if there are through-space transfers in particular
+dimensions of the peak&#8217;s experiment.</p>
+<p>&#8220;Assignment Groups&#8221; are only used when you wish to specify mutually exclusive
+assignment possibilities, e.g. when you have an NOE peak caused by two signals
+and only certain assignments go together. Resonances with the same group
+number go together and those with different numbers do not mix; so you would
+not get an inappropriate distance restraint for example.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Structure</strong>: Selects a structure ensemble from which interatomic distances are calculated</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<div class="section" id="assignment-possibilities">
+<h3>Assignment possibilities<a class="headerlink" href="#assignment-possibilities" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>F1</em></td>
+<td>The peak dimension number and position  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Resonance name</td>
+</tr>
+<tr><td><em>Delta</em></td>
+<td>Difference between peak dimension position and chemical shift</td>
+</tr>
+<tr><td><em>Shift</em></td>
+<td>Chemical shift value of assignment</td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>Standard deviation of chemical shift</td>
+</tr>
+<tr><td><em>Dist</em></td>
+<td>Resonance-resonance distance in structure</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>&lt;New&gt;</strong>: Make a new resonance object and link to this peak dimension</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>F2</em></td>
+<td>The peak dimension number and position  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Row number</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>Resonance name</td>
+</tr>
+<tr><td><em>Delta</em></td>
+<td>Difference between peak dimension position and chemical shift</td>
+</tr>
+<tr><td><em>Shift</em></td>
+<td>Chemical shift value of assignment</td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>Standard deviation of chemical shift</td>
+</tr>
+<tr><td><em>Dist</em></td>
+<td>Resonance-resonance distance in structure</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>&lt;New&gt;</strong>: Make a new resonance object and link to this peak dimension</p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Aliased Possible</strong>: Whether to the peak dimension position may be aliased; matching chemical shifts +/- a whole number of sweep widths</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Restrict Mol System</strong>: Whether to restrict assignment possibilities to only those within a single molecular system (complex)</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Intra-residue</strong>: Whether to restrict assignment possibilities to only assignments within the same residue</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Correlated Dims</strong>: Whether to filter the number of assignment possibilities by enforcing that for directly bound dimensions only directly bound resonances are shown</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Double Tolerances</strong>: Whether to double the normal assignment tolerances for matching peak dim positions to resonance chemical shifts</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Assignment Groups</strong>: Whether to display information to specify mutually exclusive assignment groups for superimposed/ambiguous assignments</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotope Labelling</strong>: Selects an isotope labelling scheme, if required, to filter the assignment possibilities</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.1</strong>: The lower limit for spin active isotope incorporation at an atom site for a resonance to be considered</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Resonance</strong>: Assign the resonance selected in a peak dimension table to atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Type</strong>: Set the atom type of a resonance selected in a peak dimension table</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Tentative Assign</strong>: Assign the selected resonance to atoms in a fuzzy or putative manner</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Resonance</strong>: Remove atomic assignments from the selected resonance</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign Spin System</strong>: Remove residue or spin system assignments from the selected resonance</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear Dim Contrib</strong>: Disconnect the selected resonance from the peak dimension it its currently linked to</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Same Spin System</strong>: Set all resonances assigned to the peak dimensions to be in the same spin system</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show On Structure</strong>: Show any atomic connectivities on a graphical structure display. If the peak is assigned the assigned connections are used, otherwise potential possibilities are displayed</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of all the peaks currently assigned to the selected resonance</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge Resonances</strong>: Merge the selected resonance with the others assigned to the same peak dimension</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Resonance Info</strong>: Show a table of information for the selected resonance, including the shifts of all the peaks it is linked to</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Assignment Panel</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#assignment-possibilities">Assignment possibilities</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Assignment.html"
+                        title="previous chapter">Assignment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CopyAssignmentsPopup.html"
+                        title="next chapter">Assignment : Copy Assignments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditAssignmentPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CopyAssignmentsPopup.html" title="Assignment : Copy Assignments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Assignment.html" title="Assignment"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

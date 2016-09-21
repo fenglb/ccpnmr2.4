@@ -1,0 +1,347 @@
+=====
+PyRPF
+=====
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Recall, Precision & F-Score; validating structures with peak lists**
+
+The purpose of this popup is to asses the quality of structures and structure
+generating peak lists by calculating recall, precision, and F-measure (RPF)
+scores, according to the method of Huang, Powers and Montelione (see reference
+below). Put simply, the calculation uses short distances from a structure to
+find peak locations which would be expected but which don't appear in the
+peak list; "missing peaks" and also to find peaks which do not correspond to a
+short distance in the  structure; "unexplained peaks". These results are then
+combined to form the overall RPF metrics, which gives a convenient and
+informative quality measure to say how well peak list and structure match. If
+there are good, real peaks that don't match the structure then something may
+be wrong with the structure calculation/restraints. If there are short
+distances with with no corresponding peak then the spectra should be
+investigated to find out why, which often is actually legitimate, but worth
+checking all the same. For full details read the paper!
+
+To perform the analysis the user simply selects the required peak lists in the
+project, the required structure and clicks *[Run RPF]*.
+
+**Peak Lists**
+
+The main peak lists table is where the user selects which peak lists in the
+current project to consider, by setting the "Use?" column to "Yes" or "No".
+Naturally these will be those peak lists that represent through-space (NOESY)
+connectivities which actually relate to the structure being analysed. Also,
+there are a some options that control how peak lists are investigated.
+Specifically, the user can exclude diagonal peaks and redundant prochrials
+(e.g. methylene protons that are too close in chemical shift to give separate
+peaks are not really missing) by setting PPM thresholds.
+
+**Ensembles**
+
+In the Ensembles table the user selects which structures (albeit ensembles of
+structure models) to consider, setting the "Use?" column to "Yes" or "No".
+Above the table there is an entry where the user can set the maximum distance
+threshold. Within this limit atom pairs are deemed to be potentially
+observable (but also considering the type of experiment etc.)
+
+**Results**
+
+This table shows the outcome of the calculation (after pressing [Run RPF]), in
+terms of the overall recall, precision and F-score when comparing each of the
+selected peak lists with each of the structure ensembles. Also listed for each
+combination are the total numbers of missing and unexplained peaks. These can
+be investigated further by selecting a table row and clicking on the buttons
+to the bottom right to get to lists of missing peak locations and bogus peaks;
+so that the spectra at the relevant points can be investigated.
+
+**Unexplained Peaks**
+
+The table of unexplained peaks is a regular Analysis table giving details of
+all the peaks and allowing the user to find and edit the peaks. This kind
+of table is documented for the `Peak Lists`_ section.
+
+**Missing Peaks**
+
+This is a table of synthetic peaks (in a separate list to the input one) that
+represent the locations of potentially missing short-distance peaks. It is a
+regular Analysis table giving details of all the locations and allowing the
+user to find the peaks. This kind of table is documented for the `Peak Lists`_
+section.
+
+**Graph**
+
+This graph shows the recall, precision and F-score metrics on a per-residue
+basis for the structure analysed in the selected result set. Note that this
+kind of measure is subject to more noise than the overall, published RPF
+metric, but should nonetheless be useful to find where in a sequence the most
+significant problems occur.
+
+**Reference**
+
+*Huang, Y. J.; Powers, R. & Montelione, G. T. Protein NMR recall, precision,
+and F-measure scores (RPF scores): structure quality assessment measures based
+on information retrieval statistics. J Am Chem Soc 127, 1665-74 (2005)*
+
+.. _`Peak Lists`: EditPeakListsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Run RPF**: Actually run the RPF calculation using the selected peak lists and structure ensembles
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Peak Lists
+==========
+
+A table to select which through-space peak lists are compared with structures.
+
+|float| **0.3**: How far from the homonuclear diagonal to exclude peaks and positions in the analysis
+
+|check| **Consider Aliased Positions?**: Whether the peak locations could be aliased, when considering which resonances they might be assigned to
+
+|float| **0.04**: The threshold within which prochiral atom pairs are considered too close to give separate peaks
+
+===========  =============================================================================
+**Table 1**
+------------------------------------------------------------------------------------------
+ *Spectrum*  The experiment:spectrum record that the peak list corresponds to 
+*Peak List*  The number of the through-space peak list for its spectrum 
+     *Use?*  Sets whether to use the peak list in the RPF calculation  *(Editable)*
+*Num Peaks*  The number of peaks the peak list contains 
+===========  =============================================================================
+
+
+
+Ensembles
+=========
+
+A table to select which structure ensembles should be analysed, and to set the distance threshold.
+
+|float| **4.8**: The distance threshold in the structure, below which resonance pairs are expected to result in a peak
+
+============  ==============================================================================
+**Table 2**
+--------------------------------------------------------------------------------------------
+*Mol System*  The molecular system that the structure describes 
+  *Ensemble*  The id number of the structure ensemble, for its molecular system 
+      *Use?*  Sets whether to consider the sructure in the RPF calculation  *(Editable)*
+*Num Models*  The number of models in the structure ensemble 
+============  ==============================================================================
+
+
+
+|button| **Enable Selected**: Acticate the structures selected in the table, so that they will be considered.
+
+|button| **Disable Selected**: Inactivate the structures selected in the table, so that they will not be considered.
+
+Results Table
+=============
+
+A table listing the overall PRF results for each peak list and structure
+
+===================  =============================================================================================================================
+**Table 3**
+--------------------------------------------------------------------------------------------------------------------------------------------------
+         *Ensemble*  The identity of the structure ensemble analysed 
+      *PeakList(s)*  The identity of the peak list analysed 
+           *Recall*  The fraction of peaks that are consistent with the structure; measure of unexplained peaks 
+        *Precision*  The fraction of short distances that are represented; measure of missing peaks 
+        *F-measure*  F-measure score: a combination of recall and precision 
+         *DP Score*  The discrimination potential; the amount of information imparted by peaks that surpasses random coil expectation 
+*Unexplained Peaks*  The number of peaks which do not correspond to short distances 
+    *Missing Peaks*  The number of short distance pairs that would be expected to result in peaks, but do not 
+===================  =============================================================================================================================
+
+
+
+|button| **Show Unexplained Peaks**: Open the table listing all the unexplained peaks, for the selected result row.
+
+|button| **Show Missing Peaks**: Open the table listing all the missing peak locations, for the selected result row.
+
+|button| **Show Residue Graph**: Open the graph of per-residue RPF quality scores
+
+|button| **Delete Results**: Delete the selected RPF results (does not affect the original peaks or structure)
+
+Unexplained Peaks
+=================
+
+A table of unexplained peaks; which do not match a short distance
+
+|pulldown| **Result Set**: Sets which high-level grouping of stored calulation results to show peaks for.
+
+|button| **Next Location**: Select the next unexplained peak in the table
+
+|button| **Prev Location**: Select the previous unexplained peak in the table
+
+|button| **Strip Selected**: Use the positions of the selected peaks to specify strip locations in the selected window
+
+|button| **Find Peak**: Locate the currently selected peak in the specified window
+
+|pulldown| **Window**: Choose the spectrum window for locating peaks or strips
+
+|check| **Mark Found**: Whether to put a cross-mark though peaks found in a given window
+
+|button| **Mark Selected**: Put multidimensional cross-marks through selected peaks
+
+===========  ===================================================================================================
+**Table 4**
+----------------------------------------------------------------------------------------------------------------
+ *Spectrum*  Experiment:spectrum of peak 
+     *List*  Peak list number 
+     *Peak*  Peak serial number 
+    *Dist.*  Structure distance between hydrogens 
+   *Height*  Magnitude of spectrum intensity at peak center (interpolated), unless user edited  *(Editable)*
+   *Volume*  Integral of spectrum intensity around peak location, according to chosen volume method  *(Editable)*
+    *Merit*  Figure of merit value for peak; zero: "bad" one: "good"  *(Editable)*
+  *Details*  User editable textual comment for peak  *(Editable)*
+===========  ===================================================================================================
+
+
+
+|button| **Add**: Add a new peak, specifying its position
+
+|button| **Edit**: Edit the position of the currently selected peak
+
+|button| **Unalias**: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position
+
+|button| **Delete**: Delete the currently selected peaks
+
+|button| **Assign**: Assign the dimensions of the currently selected peak
+
+|button| **Deassign**: Remove all assignments from the currently selected peaks
+
+|button| **Set Details**: Set the details field of the currently selected peaks
+
+|button| **Resonances**: Show a table of resonances assigned to the selected peaks
+
+|button| **Deassign Dim**: Deassign a specified dimension of the selected peaks
+
+|button| **Recalc Intensities**: Recalculate the height and volume of the selected peaks given the spectrum data
+
+|button| **Recalc Line width**: Recalculate the linewidth measurements of the selected peaks
+
+|button| **Show On Structure**: Show the assignment connections of the selected peaks on the selected structure
+
+|button| **Propagate Assign**: Spread the resonance assignments of the peak last selected to all selected peaks
+
+|button| **Propagate Merit**: Copy the merit value of the last selected peak to all selected peaks
+
+Missing Peaks
+=============
+
+A table of synthetic missing peaks; which correspond to a short distance
+
+|pulldown| **Result Set**: Sets which high-level grouping of stored results to show peak locations for.
+
+|button| **Next Location**: Select the next synthetic, missing peak in the table
+
+|button| **Prev Location**: Select the previous synthetic, missing peak in the table
+
+|button| **Strip Selected**: Use the positions of the selected peaks to specify strip locations in the selected window
+
+|button| **Find Peak**: Locate the currently selected peak in the specified window
+
+|pulldown| **Window**: Choose the spectrum window for locating peaks or strips
+
+|check| **Mark Found**: Whether to put a cross-mark though peaks found in a given window
+
+|button| **Mark Selected**: Put multidimensional cross-marks through selected peaks
+
+===========  ===================================================================================================
+**Table 5**
+----------------------------------------------------------------------------------------------------------------
+ *Spectrum*  Experiment:spectrum of peak 
+     *List*  Peak list number 
+     *Peak*  Peak serial number 
+    *Dist.*  Structure distance between hydrogens 
+   *Height*  Magnitude of spectrum intensity at peak center (interpolated), unless user edited  *(Editable)*
+   *Volume*  Integral of spectrum intensity around peak location, according to chosen volume method  *(Editable)*
+    *Merit*  Figure of merit value for peak; zero: "bad" one: "good"  *(Editable)*
+  *Details*  User editable textual comment for peak  *(Editable)*
+===========  ===================================================================================================
+
+
+
+|button| **Add**: Add a new peak, specifying its position
+
+|button| **Edit**: Edit the position of the currently selected peak
+
+|button| **Unalias**: Move the ppm position of a peak a number of sweep withs to its correct aliased/folded position
+
+|button| **Delete**: Delete the currently selected peaks
+
+|button| **Assign**: Assign the dimensions of the currently selected peak
+
+|button| **Deassign**: Remove all assignments from the currently selected peaks
+
+|button| **Set Details**: Set the details field of the currently selected peaks
+
+|button| **Resonances**: Show a table of resonances assigned to the selected peaks
+
+|button| **Deassign Dim**: Deassign a specified dimension of the selected peaks
+
+|button| **Recalc Intensities**: Recalculate the height and volume of the selected peaks given the spectrum data
+
+|button| **Recalc Line width**: Recalculate the linewidth measurements of the selected peaks
+
+|button| **Show On Structure**: Show the assignment connections of the selected peaks on the selected structure
+
+|button| **Propagate Assign**: Spread the resonance assignments of the peak last selected to all selected peaks
+
+|button| **Propagate Merit**: Copy the merit value of the last selected peak to all selected peaks
+
+Graph
+=====
+
+A graph of the per-residue recall, precision, F-measure and DP scores
+
+|pulldown| **Result Set**: Sets which high-level grouping of stored results to show scores for.
+
+
+
+
+Scrollbar: : 
+
+Scrollbar: : 
+

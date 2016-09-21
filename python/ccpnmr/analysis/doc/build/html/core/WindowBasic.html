@@ -1,0 +1,1194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>WindowBasic &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Library Documentation" href="../codingLibrary.html" />
+    <link rel="prev" title="ValidationBasic" href="ValidationBasic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ValidationBasic.html" title="ValidationBasic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" accesskey="U">Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ccpnmr.analysis.core.WindowBasic">
+<span id="windowbasic"></span><h1>WindowBasic<a class="headerlink" href="#module-ccpnmr.analysis.core.WindowBasic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.assignPeak">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">assignPeak</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.assignPeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign peak at location (if any nearby).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, Tk.Event</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.autoPeakLabelPos">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">autoPeakLabelPos</tt><big>(</big><em>argServer</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.autoPeakLabelPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically tidy the annotation labels of selected peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.calculateNoise">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">calculateNoise</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.calculateNoise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate noise of spectra visible in window</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.centerAxisRegion">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">centerAxisRegion</tt><big>(</big><em>axisRegion</em>, <em>center</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.centerAxisRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move and axis region so that it is centred on the input value</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.AsisRegion, Float</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.centerWindow">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">centerWindow</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.centerWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Center window at location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.cloneSpectrumWindow">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">cloneSpectrumWindow</tt><big>(</big><em>window</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.cloneSpectrumWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone an existing spectrum window to make a new one</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow</p>
+<p>Analysis.SpectrumWindow</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.contourLevelsDown">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">contourLevelsDown</tt><big>(</big><em>argServer=None</em>, <em>windowPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.contourLevelsDown" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.contourLevelsUp">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">contourLevelsUp</tt><big>(</big><em>argServer=None</em>, <em>windowPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.contourLevelsUp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.copySpectrumWindowRegions">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">copySpectrumWindowRegions</tt><big>(</big><em>oldWindow</em>, <em>newWindow</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.copySpectrumWindowRegions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy regions from one window to another (pane and region numbers must match or else)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow, Analysis.SpectrumWindow</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.copySpectrumWindowViewProperties">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">copySpectrumWindowViewProperties</tt><big>(</big><em>oldWindow</em>, <em>newWindow</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.copySpectrumWindowViewProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy view visibility properties from one window to another</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow, Analysis.SpectrumWindow</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createHorizontalRuler">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createHorizontalRuler</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createHorizontalRuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create horizontal ruler at location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createMark">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createMark</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createMark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create mark at location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createSidebandHorizontalRulers">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createSidebandHorizontalRulers</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createSidebandHorizontalRulers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create horizontal ruler at location and sideband copies.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createSidebandMarks">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createSidebandMarks</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createSidebandMarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create mark at location and sideband copies.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createSidebandVerticalRulers">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createSidebandVerticalRulers</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createSidebandVerticalRulers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create vertical ruler at location and sideband copies.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createSpectrumWindow">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createSpectrumWindow</tt><big>(</big><em>project</em>, <em>name</em>, <em>axisTypes</em>, <em>spectrum=None</em>, <em>sizes=None</em>, <em>ncols=1</em>, <em>nrows=1</em>, <em>regions=None</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createSpectrumWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new spectrum window</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project, String,List of List of Analysis.AxisTypes,
+Nmr.DataSource, RgbColor, List of 2-List of List of Floats, Int, Int,
+List of List of List of Floats</p>
+<p>Analysis.SpectrumWindow</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.createVerticalRuler">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">createVerticalRuler</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.createVerticalRuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create vertical ruler at location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.defaultWindowName">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">defaultWindowName</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.defaultWindowName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine a default window name.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Project</p>
+<p>Window name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.deleteSelected">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">deleteSelected</tt><big>(</big><em>argServer=None</em>, <em>analysisPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.deleteSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected objects.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, AnalysisPopup</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.displayPeakStrips">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">displayPeakStrips</tt><big>(</big><em>analysis</em>, <em>peaks</em>, <em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.displayPeakStrips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a number of strips at peak locations along a given strip axis.
+The ortho value of the strips will be the mean peak position for
+the orthogonal axis. A new window may be created if needed.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis (Tkinter top level), List of Nmr.Peaks, Analysis.SpectrumWindow</p>
+<p>Analysis.SpectrumWindow</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.displaySpinSystemStrips">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">displaySpinSystemStrips</tt><big>(</big><em>analysis</em>, <em>spinSystems</em>, <em>windowPane</em>, <em>shiftList=None</em>, <em>splitIntoCells=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.displaySpinSystemStrips" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given window pane, display the strips appropriate for a
+given spin system. Option to further divide the strips
+along the y axis according to spin system shifts.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis (Tkinter top level), Nmr.ResonanceGroup,
+Analysis.SpectrumWindowPane, Nmr.ShiftList, Boolean</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.displayStrips">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">displayStrips</tt><big>(</big><em>analysis</em>, <em>positions</em>, <em>orthoPositions=None</em>, <em>spectrum=None</em>, <em>windowPane=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.displayStrips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a number of strips at specified positions in a new or
+existing spectrum window panel. bPositions are specified in
+dictionary form. e.g. {&#8216;x&#8217;: 7.43, &#8216;y&#8217;: 4.21, &#8216;z1&#8217;: 121.96}
+Orthogonal positions may be specified to further divide strips 
+nto cells. A spectrum is specified so that the appropriate
+type of window can be made if needed.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis (Tkinter top level), List of Dicts (axis:location),
+List of Floats, Nmr,DataSource, Analysis.SpectrumWindowPanel</p>
+<p>Analysis.SpectrumWindow</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.endPositionDelta">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">endPositionDelta</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.endPositionDelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop using marker to display delta for x, y positions.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.findDataDimAxisMapping">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">findDataDimAxisMapping</tt><big>(</big><em>spectrumWindowView</em>, <em>dataDim</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.findDataDimAxisMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the AxisMapping object for a given dataDim in a given spectrumWindowView.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowView, Nmr.AbstractDataDim</p>
+<p>Analysis.AxisMapping</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.findOrthogonalWindows">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">findOrthogonalWindows</tt><big>(</big><em>queryWindowPane</em>, <em>positions</em>, <em>excludeQuery=True</em>, <em>minDims=3</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.findOrthogonalWindows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given positions in the input query window, find all equivalent
+points in all spectrum windows which have either a) a Z dimension
+that matches any one of the dimensions of the query window or b)
+two dimemsions that match the query window. Returns a list of
+mappings for each target window, comprising a mapping name (e.g.
+for GUIs) the target spectrum window and the target position.
+There is boolean option, to say whether the query window mapping
+is to be excluded form the output, this is usually true for
+searches originating from windows, but may not be so  if the query
+comes from a table. The minDims optional argument determines the
+minimum number of dimensions that a target window must have to be
+considered.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane, List of List of Floats (position),
+Boolean, Int</p>
+<p>List of Lists [String (Mapping Name), Analysis.SpectrumWindow,
+List of Floats (position)]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.findWindowTransposes">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">findWindowTransposes</tt><big>(</big><em>queryWindowPane</em>, <em>xyz</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.findWindowTransposes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a position in the input query window, find all equivalent
+points in the window which represent a swapping of coordinates for
+similarly types axes. Returns a list of mappings for each target
+window, comprising a mapping name (e.g. for GUIs) the target
+spectrum window and the target position.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane, List of Floats (position)</p>
+<p>List of Lists [String (Mapping Name), Analysis.SpectrumWindow,
+List of Floats (position)]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getActiveWindows">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getActiveWindows</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getActiveWindows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently active windows in a project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.Project</p>
+<p>List of Analysis.SpectrumWindows</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getAxisRegionRegion">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getAxisRegionRegion</tt><big>(</big><em>axisRegion</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getAxisRegionRegion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getDataDimAxisMapping">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getDataDimAxisMapping</tt><big>(</big><em>spectrum</em>, <em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getDataDimAxisMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a mapping between axes in a spectrum window pane and the data
+dimensions of a spectrum: Works initially with dataDim matches.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource, Analysis.SpectrumWindow</p>
+<p>Dictionary of Nmr.DataDims keyed by &#8216;x&#8217;,&#8217;y&#8217;,&#8217;z1&#8217; etc</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getEquivalentWindows">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getEquivalentWindows</tt><big>(</big><em>queryWindow</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getEquivalentWindows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of windows with the same axis types as the query window</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow</p>
+<p>List of Analysis.SpectrumWindows</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getPeakDimAxisMapping">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getPeakDimAxisMapping</tt><big>(</big><em>peak</em>, <em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getPeakDimAxisMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a mapping between axes in a spectrum window pane
+and the dimensions of a peak:
+Works initially with dataDim matches.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Analysis.SpectrumWindowPane</p>
+<p>Dictionary of Nmr.PeakDims keyed by &#8216;x&#8217;,&#8217;y&#8217;,&#8217;z1&#8217; etc</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getPeakWindowPosition">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getPeakWindowPosition</tt><big>(</big><em>peak</em>, <em>windowPane</em>, <em>default=None</em>, <em>useDefault=True</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getPeakWindowPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the position of a peak in a given window&#8217;s coordinates
+Copes with peakDims ordering being different to window axis order.
+If peaks do not match a window axis a default position may be used otherwise
+the default position is the current window location. If useDefault is False
+None will be entered instead of a default location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.Peak, Analysis.SpectrumWindowPane</p>
+<p>List of Floats</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getRepeatingAxes">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getRepeatingAxes</tt><big>(</big><em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getRepeatingAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a spectrum window pane, gets a list of pairs of axis panels
+that are of the same type.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane</p>
+<p>List of Tuple of Analysis.AxisPanels (pairs of same type)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getSpectrumViews">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getSpectrumViews</tt><big>(</big><em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getSpectrumViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all the window views of a spectrum.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Nmr.DataSource</p>
+<p>List of Analysis.SpectrumWindowViews</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getSpectrumWindowView">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getSpectrumWindowView</tt><big>(</big><em>windowPane</em>, <em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getSpectrumWindowView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the SpectrumWindowView object for a given spectrum in a
+given window pane.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane, Nmr.DataSource</p>
+<p>Analysis.SpectrumWindowView</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getSpinSystemWindowShifts">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getSpinSystemWindowShifts</tt><big>(</big><em>spinSystems</em>, <em>windowPane</em>, <em>shiftList=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getSpinSystemWindowShifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shifts (linked to primary/z axes) visible in a given
+window pane that are represented by the resonances of a spin
+system. Also returns a list of orthogonal axis shifts.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.ResonanceGroups, Analysis.SpectrumWindowPane,
+Nmr.ShiftList</p>
+<p>List of Dict of Word:Nmr.Shift (dimName:position eg &#8216;z1&#8217;:Shift),
+List of Nmr.Shifts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getViewMinMaxValues">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getViewMinMaxValues</tt><big>(</big><em>view</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getViewMinMaxValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the minimum and maximum spectrum data values in this view.
+Returns (None, None) if there is no data file for this spectrum.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>SpectrumWindowView</p>
+<p>(minValue, maxValue)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getWindowAxisTypes">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getWindowAxisTypes</tt><big>(</big><em>window</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getWindowAxisTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of names representing the axis types of a window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow</p>
+<p>List of Strings (Analysis.AxisType.name)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getWindowFrameCanvas">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getWindowFrameCanvas</tt><big>(</big><em>argServer</em>, <em>canvas=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getWindowFrameCanvas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the popup, and canvas if None passed in, for this argServer.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas</p>
+<p>(WindowFrame, WindowCanvas)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getWindowFrameCanvasLocation">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getWindowFrameCanvasLocation</tt><big>(</big><em>argServer</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getWindowFrameCanvasLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the popup, canvas and event location, for this argServer.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, &#8216;e&#8217;vent</p>
+<p>(WindowFrame, WindowCanvas)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.getWindowPaneName">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">getWindowPaneName</tt><big>(</big><em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.getWindowPaneName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a name which identifies a window pane and
+its parent spectrum window</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane</p>
+<p>Word</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.gotoResonancePosition">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">gotoResonancePosition</tt><big>(</big><em>analysis</em>, <em>resonance</em>, <em>windowPane</em>, <em>shiftList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.gotoResonancePosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Go to the position of a given resonance (according to the input
+shiftlist) in a given window. Note currently only goes to first
+available axis not all.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis (Tkinter top level), Nmr.Resonance,
+Analysis.SpectrumWindowPane, Nmr.ShiftList</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.initWindowMacros">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">initWindowMacros</tt><big>(</big><em>project</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.initWindowMacros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise window macros, adding default ones that not already included</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.Project (the project)</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.isActiveWindow">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">isActiveWindow</tt><big>(</big><em>window</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.isActiveWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a window is active within its project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow</p>
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.isSpectrumInWindowPane">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">isSpectrumInWindowPane</tt><big>(</big><em>spectrumWindowPane</em>, <em>spectrum</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.isSpectrumInWindowPane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a spectrum is displayable in a given window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindowPane, Nmr.DataSource</p>
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.movePeak">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">movePeak</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.movePeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move peak to location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.movePeakAnnotation">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">movePeakAnnotation</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.movePeakAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move peak to location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.ncontoursDecr">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">ncontoursDecr</tt><big>(</big><em>argServer=None</em>, <em>windowPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.ncontoursDecr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.ncontoursIncr">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">ncontoursIncr</tt><big>(</big><em>argServer=None</em>, <em>windowPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.ncontoursIncr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.orthogScrollLeft">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">orthogScrollLeft</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.orthogScrollLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll to left in orthogonal (z1) dimension in window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.orthogScrollRight">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">orthogScrollRight</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.orthogScrollRight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll to right in orthogonal (z1) dimension in window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.popupMenu">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">popupMenu</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.popupMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Popup right mouse menu</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.refinePeakLabelPositions">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">refinePeakLabelPositions</tt><big>(</big><em>peaks</em>, <em>windowPane</em>, <em>analysis</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.refinePeakLabelPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically tidy the peak annotation labels in the x-y plane
+of a window for a given list of peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of nmr.Nmr,peaks, Analysis.SpectrumWindow, Analysis GUI</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.resetPeakLabelPositions">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">resetPeakLabelPositions</tt><big>(</big><em>peaks</em>, <em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.resetPeakLabelPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the peak annotation labels in the x-y plane
+of a window for a given list of peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of nmr.Nmr,peaks, Analysis.SpectrumWindow</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.resetPeakLabelsPos">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">resetPeakLabelsPos</tt><big>(</big><em>argServer</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.resetPeakLabelsPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically tidy the annotation labels of selected peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.resetWindowSliceRange">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">resetWindowSliceRange</tt><big>(</big><em>argServer=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.resetWindowSliceRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the window sliceRange based on the spectra data values</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.saveProjectShortcut">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">saveProjectShortcut</tt><big>(</big><em>argServer</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.saveProjectShortcut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the modified parts of the current project</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Implementation.Project</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.setWindowPeakListState">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">setWindowPeakListState</tt><big>(</big><em>winPeakList</em>, <em>state</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.setWindowPeakListState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the view state for a peak list in a window.
+This will set the drawing state of the annotation
+and the crosspeak symbol.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.WindowPeakList, Boolean</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.showSelectedPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">showSelectedPeaks</tt><big>(</big><em>argServer=None</em>, <em>analysisPopup=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.showSelectedPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show selected peaks.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, AnalysisPopup</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.snapPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">snapPeaks</tt><big>(</big><em>argServer=None</em>, <em>windowPane=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.snapPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move peak to location.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.startPositionDelta">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">startPositionDelta</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.startPositionDelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create marker at location and start to display delta for x, y positions.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, TkEvent</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.swapStripAxis">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">swapStripAxis</tt><big>(</big><em>analysis</em>, <em>window</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.swapStripAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap vertical strips for horizontal ones and vice versa. Preserves number
+active index and z positions</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis (Tkinter top level), Analysis.SpectrumWindow</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.togglePeakList">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">togglePeakList</tt><big>(</big><em>window</em>, <em>peakList</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.togglePeakList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle whether the picked peaks of a peak list are
+displayed in a spectrum window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow, Nmr.PeakList</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.toggleSpectrum">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">toggleSpectrum</tt><big>(</big><em>window</em>, <em>shortcut=None</em>, <em>spectrum=None</em>, <em>isGlobal=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.toggleSpectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle whether a spectrum is diaplayed in a spectrum window.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow, Int, Nmr.DataSource, Boolean</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.translateWindowDown">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">translateWindowDown</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>fraction=0.25</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.translateWindowDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate window down by fraction (default 0.25)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, fraction</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.translateWindowLeft">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">translateWindowLeft</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>fraction=0.25</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.translateWindowLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate window left by fraction (default 0.25)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, fraction</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.translateWindowRight">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">translateWindowRight</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>fraction=0.25</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.translateWindowRight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate window right by fraction (default 0.25)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, fraction</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.translateWindowUp">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">translateWindowUp</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>fraction=0.25</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.translateWindowUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate window up by fraction (default 0.25)</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, fraction</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.translationFraction">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">translationFraction</tt><big>(</big><em>argServer</em>, <em>fraction</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.translationFraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate window by fraction, with up/down choice determined by pan mode</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, fraction</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.unitePeakPositions">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">unitePeakPositions</tt><big>(</big><em>argServer=None</em>, <em>event=None</em>, <em>allowMultiplePeaks=False</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.unitePeakPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move peak to current cursor location and coordinate positions
+of other peaks in same peak list assigned to same resonances.
+If allowMultiplePeaks then allow multiple peaks to be moved.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, Nmr.Peaks, Bool</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.unitePeakPositionsMulti">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">unitePeakPositionsMulti</tt><big>(</big><em>argServer=None</em>, <em>event=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.unitePeakPositionsMulti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move peak to current cursor location and coordinate positions
+of other peaks in same peak list assigned to same resonances.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, Nmr.Peaks</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.updateWindowPaneSliceRange">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">updateWindowPaneSliceRange</tt><big>(</big><em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.updateWindowPaneSliceRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the windowPane sliceRange based on the window spectrum values</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>SpectrumWindowPane</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.updateWindowPaneSliceRangeByView">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">updateWindowPaneSliceRangeByView</tt><big>(</big><em>view</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.updateWindowPaneSliceRangeByView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the view.windowPane sliceRange based on the spectrum values</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>SpectrumWindowView</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.windowPaneHasValueAxis">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">windowPaneHasValueAxis</tt><big>(</big><em>windowPane</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.windowPaneHasValueAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a window has a value axis</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>Analysis.SpectrumWindow</p>
+<p>Boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomSliceRangeDown">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomSliceRangeDown</tt><big>(</big><em>argServer=None</em>, <em>windowPane=None</em>, <em>factor=2.0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomSliceRangeDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom slice range by factor (default 2).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, Analysis.WindowPane, float</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomSliceRangeUp">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomSliceRangeUp</tt><big>(</big><em>argServer=None</em>, <em>windowPane=None</em>, <em>factor=2.0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomSliceRangeUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom slice range by factor (default 2).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, Analysis.WindowPane, float</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomToShowPeaks">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomToShowPeaks</tt><big>(</big><em>peaks</em>, <em>windowPane</em>, <em>row=None</em>, <em>col=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomToShowPeaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom in a given row and column a given window so that all of the
+input peaks are visible.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>List of Nmr.Peaks, Analysis.SpectrumWindowPane,
+Int (AxisPanel.axisRegion index)</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomWindowIn">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomWindowIn</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>factor=2.0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomWindowIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom in window by factor (default 2).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, factor</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomWindowOut">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomWindowOut</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em>, <em>factor=2.0</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomWindowOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom out window by factor (default 2).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas, factor</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ccpnmr.analysis.core.WindowBasic.zoomWindowToSpectra">
+<tt class="descclassname">ccpnmr.analysis.core.WindowBasic.</tt><tt class="descname">zoomWindowToSpectra</tt><big>(</big><em>argServer=None</em>, <em>canvas=None</em><big>)</big><a class="headerlink" href="#ccpnmr.analysis.core.WindowBasic.zoomWindowToSpectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom window to just contain the visible spectra regions.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">Input</tt></dt>
+<dd></dd></dl>
+
+<p>ArgumentServer, WindowCanvas</p>
+<p>None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ValidationBasic.html"
+                        title="previous chapter">ValidationBasic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/core/WindowBasic.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ValidationBasic.html" title="ValidationBasic"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../codingLibrary.html" >Python Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

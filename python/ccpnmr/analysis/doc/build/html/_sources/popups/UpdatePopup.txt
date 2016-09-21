@@ -1,0 +1,104 @@
+=======================
+CcpNmr Software Updates
+=======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Install Patches and Updates to CCPN Software**
+
+This popup window allows the user to view and automatically install the
+latest updates and patches to CcpNmr software. This is the normal mechanism
+of receiving incremental changes and fixes to bug reports between numbered
+CCPN releases. It should be noted that this system generally only provides
+fixes for the most recent version of the CcpNmr Software. If your version is
+older (but not as old as version 1.0) or if there has been a recent new
+release then the updating mechanism will automatically upgrade the whole CCPN
+distribution to the newest one. It should be noted that this mechanism will
+not automatically update some of the really old versions, e.g. from version
+1.0 to 2.0. Updates from 2.0 onwards ought to work seamlessly though.
+
+In normal operation the user clicks [Select All] then [Install Selected],
+whereupon the software should be restarted (not forgetting to save any data).
+Naturally, viewing and receiving updates requires that the user's computer
+has a working connection to the Internet. Although the user may toggle
+individual file updates on or off by double-clicking in the "Install?" column,
+it is generally not a good idea to choose only a subset of file updates unless
+there is a specific reason to do so. Choosing only some file updates risks
+getting problems where two or more files rely upon the most recent versions of
+one another.
+
+**Caveats & Tips**
+
+Using [Refresh List] will cause the system to re-query the CCPN update server
+if the user is awaiting an imminent fix.
+
+When an updated file is installed the old version is not removed; it is renamed
+with the "_old" suffix.
+
+If for any reason this popup window cannot be opened the user may update the
+software using the "updateAll" script that sits alongside the main "analysis"
+program executable (usually in the $CCPN_HOME/bin/ directory).
+
+
+
+Main Panel
+==========
+
+===============  ===========================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------
+         *File*  The name of the file for which an update is available 
+     *Install?*  Whether the file will be replaced when the user commits the upgrade  *(Editable)*
+         *Date*  The data that the new file version was posted on the CCPN server 
+*Relative Path*  The path that the file will be installed at, relative to the CCPN installation 
+     *Priority*  The priority number of the installation; commonly not configured away from "1" 
+     *Comments*  Any comments added by the CCPN developers 
+===============  ===========================================================================================
+
+
+
+|button| **Refresh List**: Refresh the list of file updates by querying the CCPN update server, assuming an Internet connection is present
+
+|button| **Select All**: Select all of the file updates for installation (recommended)
+
+|button| **Install Selected**: Install newest versions of the selected files
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

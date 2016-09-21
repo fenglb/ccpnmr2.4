@@ -1,0 +1,151 @@
+===============================
+Assignment : Spin System Typing
+===============================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Predict Which Types of Residue Spin Systems Represent**
+
+This popup window uses chemical shift information, obtained from the
+resonances of a spin system group, to predict which kind of residue a spin
+system could be. Naturally, the more resonances/shifts there are in a spin
+system the better the prediction will be. Predictions are either made for a
+single spin system in isolation, or for a whole chain; by shuffling the
+residue to spin system mapping to give the optimum arrangement. Prediction for
+individual spin systems, as accessed by [Show Individual Classification], is
+covered in the `Spin System Type Scores`_ popup and will not be discussed
+here.
+
+.. _`Spin System Type Scores`: ../popups/SpinSystemTypeScoresPopup.html
+
+**Finding the Optimal Arrangement of Residue Types**
+
+This system attempts to find the best match of spin system to residue type by
+performing a Monte Carlo search to arrange each group of chemical shifts
+amongst the residue types found in the chain. The main principle is that the
+chain's residues dictate how many spin systems of a given type may be found,
+such that for example if there is only one Threonine residue then only one
+spin system may be predicted to be of Threonine type. This result comes
+naturally from shuffling the spin systems, with their chemical shifts, amongst
+the residue slots (disregarding sequence position).
+
+The prediction is made my selecting the chain and shift list to use, then
+which kinds of isotope to consider, by toggling the relevant buttons, choosing
+various Monte Carlo search options and finally selecting [Run Typing]. The
+prediction may take some time to run, depending upon the number of residues
+and spin systems that are being matched, but gives a graphical output of the
+progress. If the final prediction looks good the "Highest Scoring Mappings"
+display may be closed and [Assign Types] may be used to set the residue types
+for all of the spin systems in the main table that match only a single type
+and have a score above the assignment threshold value. Spin systems that
+already have a type or full residue assignment will not be affected.
+
+The default Monte Carlo search options ought to be appropriate for a small
+protein (100 residues) with 1H and 13C chemical shift information. Increasing
+the number of search steps may help if the search does not converge; still
+swaps between optimal assignments toward the end of the search. Increasing the
+ensemble size (how many test mappings are optimised at the same time) may help
+if the prediction gets stuck in local minima; different runs predict different
+arrangement, but larger ensembles require more search steps to converge. Where
+a spin system has multiple residue types predicted these are the types that
+come out of the final ensemble for that set of shifts, i.e. at this point the
+ensemble of solutions differ.
+
+Overall, it should be noted that if a human being cannot readily predict the
+probably types of a spin system from its shifts alone, then this search tool
+cannot be expected to do a good job; it is merely an optimiser to address the
+problem of shuffling spin systems within a chain.
+
+The scores are currently unnormalised log-odds values and are not especially
+meaningful in the human sense, other than higher is better (closer to zero
+for negative values). This issue will be addressed in the future.
+Spin systems without a unique type prediction will not get a final score.
+
+
+Main Panel
+==========
+
+|pulldown| **Chain**: Selects which molecular chain the spin system residue types will be predicted for; determines which range of types are available
+
+|pulldown| **Shift List**: Selects which shift list will be used as the source of chemical shift information to make the residue type predictions
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Options
+~~~~~~~
+
+
+|check| **Keep existing types?**: Whether any existing residue type information should be preserved, when predicting the type of others
+
+|float| **-20.0**: The lower limit for the predicted residue type to be set with "Assign Types"; needs to be adjusted according to result statistics and amount of shift data
+
+|int| **20**: The number of best scoring residue type mappings, from the Monte Carlo search, to use un the prediction
+
+|int| **100000**: The number of iterative steps that will be used in the Monte Carlo search of best spin system to residue type mappings
+
+|selector| ***None***: Selects which kinds of resonances, in terms of isotope, the residue type predictions will be made with
+
+Spin Systems
+~~~~~~~~~~~~
+
+
+===========  ===========================================================================================================
+**Table 1**
+------------------------------------------------------------------------------------------------------------------------
+        *#*  The spin system serial number 
+  *Residue*  The residue to which the spin system may currently be assigned 
+     *Use?*  Set whether to include a particular spin system in the type predictions  *(Editable)*
+    *Score*  The spin system to residue type match score for a prediction; higher (less negative) is better 
+    *Types*  The predicted types of residue that the spin system may be 
+   *Shifts*  The chemical shifts in the spin system that will be used in the analysis 
+===========  ===========================================================================================================
+
+
+
+|button| **Run Typing**: Execute the Monte Carlo search that will make the residue type predictions for the spin systems
+
+|button| **Assign Types**: Assign the residue type of spin systems with a unique type prediction and prediction score above the stated threshold
+
+|button| **Show Individual Classification**: Show a residue type prediction for the selected spin system alone; only considers that spin system of shifts, not how all spin systems fit to the sequence
+
+|button| **Show Peaks**: Show a table of peaks that are assigned to the resonances of the selected spin system
+

@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experiment: Experiment Prototypes &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Experiment" href="../menu/Experiment.html" />
+    <link rel="next" title="Spectrum Contour Levels" href="EditContourLevelsPopup.html" />
+    <link rel="prev" title="Experiment : NMR Series" href="EditExperimentSeriesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditContourLevelsPopup.html" title="Spectrum Contour Levels"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" accesskey="U">Experiment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="experiment-experiment-prototypes">
+<h1>Experiment: Experiment Prototypes<a class="headerlink" href="#experiment-experiment-prototypes" title="Permalink to this headline">¶</a></h1>
+<p><strong>View and Edit NMR Experiment Prototypes</strong></p>
+<p>NmrExpPrototypes describe NMR experiments: The magnetisation transfer flow,
+what is being measured, and how the nuclei on the different axes are connected.
+The NmrExpPrototype groups a series of RefExperiments that share a
+magnetisation transfer pathway but can have different dimension and axis
+selection.</p>
+<p><strong>Finding an experiment description</strong></p>
+<p>NmrExpPrototypes and RefExperiments names are complex, but follow a
+systematic  nomenclature; understanding what they mean and what your target
+experiment should be called is a great help. A detailed explanation can be
+found on the documentation Wiki under &#8216;Core Concepts -&gt; NMR Experiment
+Nomenclature&#8217;, or  (somewhat out of date) at
+<a class="reference external" href="http://www.springerlink.com/content/h57q76k245r14558/">http://www.springerlink.com/content/h57q76k245r14558/</a></p>
+<p>The best approach is to zoom in on a limited set of candidates and check the
+names and the detailed descriptions. Sorting on the &#8216;Name&#8217;, &#8216;Synonym&#8217;, or
+&#8216;Max Dim&#8217; can be a help. The &#8216;Category&#8217;, &#8216;Synonym&#8217; and &#8216;Keywords&#8217; columns serve
+to classify experiments, but can be incompletely filled in, or misleading.
+The Right Mouse -&gt; Filter command is a good way to select sets of experiments;
+you might try filtering on &#8216;NOESY&#8217;, &#8216;TOCSY&#8217;, &#8216;CA&#8217;, &#8216;CO&#8217;, &#8216;H[N]&#8217; or &#8216;H[C]
+(respectively 15N and 13C one-bond, out-and-back transfer), etc.</p>
+<p>The following examples should get you started on the nomenclature:</p>
+<dl class="docutils">
+<dt><strong>HNCAHA</strong>: 4D HNCAHA prototype, starting on HN and ending on HA. The prototype</dt>
+<dd>includes HNcaHA (3D), HACAnH (3D, note reversed direction), HncaHA (2D) etc.</dd>
+</dl>
+<p><strong>H[N[CA[HA]]]</strong>: 4D HNCAHA prototype with out-and-back magnetisation transfer.</p>
+<p><strong>H[N]_H.NOESY</strong>: 3D HSQC-NOESY. Prototype includes NOESY-HSQC (H_H[N])</p>
+<p><strong>H{CA|Cca}NH</strong>: 4D HCBCANNH</p>
+<p><strong>C[h(0)]</strong>: 1D carbon, selecting quaternary carbons only.</p>
+<p><strong>Viewing experiment prototypes</strong></p>
+<p>You need to look at all the tabs to understand the experiment in detail. The
+Atom &amp; Measurement tab shows which atoms are on the magnetisation transfer
+pathway, and which shifts etc. are being observed; the Exp Graphs tab show
+the  magnetisation transfers and the flow of magnetisation in the experiment;
+and the RefExperiments tab shows the individual reference experiments and what
+is on the axes.</p>
+<p><strong>Editing experiment prototypes</strong></p>
+<p>Editing existing experiment prototypes is discouraged, as these are reference
+information and should be edited only centrally. For this reason existing
+prototypes are normally not editable (see below for instructions). Adding new
+prototypes and new RefExperiments is more likely to be useful. Ultimately it
+is the responsibility of anyone adding reference information to understand
+what he is doing, so the explanation here is focused on the simplest way to
+proceed.</p>
+<p>You must always start in the Prototypes tab. If there is a closely similar
+experiment prototype, it makes sense to use it  as a starting point. It is
+simple to change atom names, parameters etc., and to remove atom sites. If
+this will do you, select your template experiment and press [Create Copy].
+Then edit the copy, starting with the columns Name, Category, Synonym, and
+Keywords in the Prototypes tab, and continuing on the other tabs. The
+numerical columns in the ExpPrototypes table can be left alone, as the values
+will adjust to changes in the other tabs.  Remember to rename and remove or
+add RefExperiments to fit.</p>
+<p>If you need more complex operations, you are better off creating a new
+prototype. It is still helpful to use an existing one as inspiration.</p>
+<p>Start on the Prototypes tab and click [Create New]. Then set the Name,
+Category, Synonym, and Keywords, ignoring the rest of the columns on this tab.
+Try to make sure you have got the nomenclature right, preferably using another
+prototype as a template, and that the name does not duplicate that of an
+existing prototype.</p>
+<p>Now go to the Atoms &amp; Measurements tab, and add Atom Sites and Exp
+Measurements. For clarity go through the Atom Sites in the order of the
+magnetisation flow of the experiment. Select the atom type in the pulldown
+menu besides the [Create new type] button and press the button to create the
+atom site. If you are measuring the shift (or another parameter) of this atom
+site, press the [Create New] button under the Exp Measurements table while the
+newly created atom site is still selected. This approach will minimise the
+number of mouse clicks. Finally edit the table contents if needed.</p>
+<p>Now go to the Exp Graphs tab. Create a new Exp Graph in the top left table -
+you only need more than one if you have several distinct magnetisation transfer
+flows in your experiment (essentially if you have curly braces in the systematic
+name). Now add as many magnetisation transfer steps as you need by clicking
+[Create New] under the bottom table, and edit the fields in the table to get the
+contents right. Finally add as many ExpSteps as you need, and edit the contents.
+Note that this table must follow the magnetisation step by step - an HSQC
+experiment would have steps, in order, &#8216;1 Shift(H); 2 Shift (N); 1 Shift (H)&#8217;.</p>
+<p>Finally go to the Ref Experiments tab and add the Ref Experiments. It is
+easiest if you start by making the RefExperiment with the highest
+dimensionality. There should always be a RefExperiment with the maximum
+dimensionality of the prototype, and with the same name as the prototype.
+Now add a [New ExpRefDim] in the bottom table for every dimension in your
+RefExperiment, and edit the bottom table. For clarity you should add the
+dimensions in the order of the magnetisation flow; the mapping to actual
+dimensions is done elsewhere. In most cases the only column you may need
+to change is &#8216;expMeasurement&#8217;.</p>
+<p>Now start creating the other RefExperiments. It is good practice to have a
+RefExperiment for all combinations of axes that people might sensibly choose
+to measure, even if they are not very likely. That means taking most
+combinations, but avoiding eg. &#8216;H[N[ca]]&#8217; (useless), &#8216;hnCAHA&#8217; (useless) and
+h[N[CA]] (technically impossible). First select the highest-dimensionality
+RefExperiment in the top table and click [Create Copy]. Change the name so
+that one or more atom sites are in lower rather than upper case, as a sign
+that these are not measured. Now select the corresponding dimensions in the
+lower table and press [Delete RefExpDim]. This will give you a correct
+RefExperiment with lower dimensionality, provided the highest-dimensionality
+RefExperiment was already correct. Most experiments can be reversed; the
+exceptions are out-and-back experiments like H[n[CA]], or symmetric
+experiments like H[C]_H[C].NOESY. For reversible experiments you should make a
+further copy of your highest-dimensionality RefExperiment. Now change the
+name of the copy so that the atom sites are in the opposite order (e.g. from
+HNCAHA to HACANH), and set the isReversed column to Yes. Make copies of the
+highest-dimensionality reverse RefExperiment, and use them to create lower
+dimensionality reversed RefExperiments like you already did for the
+non-reversed case. Finally add any information you may have for the Synonym
+or Systematic Name columns of individual RefExperiments.</p>
+<p>For many high-dimensionality experiments it will be useful to add a 2D
+Projection RefExperiment (and possibly a reversed version as well). For this,
+create a new RefExperiment (not a copy) in the top table, and give it a name
+of the form H[N[CO[CA]]].2D.{N;CO;CA} (for H[N[CO[CA]]]). Now go into the
+bottom table and add two RefExpDim, corresponding to the acquisition dimension
+(here H) and another dimension. At this point select the non-acquisition
+dimension in the bottom table, and click [Add RefExpDimRef] once for each
+dimension in the full prototype that is not already in the table. Finally
+edit the tables as desired.</p>
+<p>NOTE: Experiment Prototypes and RefExperiments are editable when created, but
+become frozen when the project has been closed and they are reloaded from
+disk. If you <em>really need</em> to edit these data after the initial creation
+(remember, this is reference information, and changing data that is used
+in actual projects may introduce errors) this is how to make things editable:
+Go to the command line, and get hold of the MemopsRoot object (you can get
+it as top.project). Then select the NmrExpPrototype you want to edit, and
+set myNmrExpPrototype.isEditable = True. Do the same for existing
+RefExperiments you want to modify. If you wanted to edit the H[n[CA]]
+RefExperiment, for instance (hint: you do not!), you would type something
+like:
+nmrExpPrototype = top.project.findFirstNmrExpPrototype(serial=20)
+nmrExpPrototype.isEditable = True
+refExperiment = nmrExpPrototype.findFirstRefExperiment(name=&#8217;H[n[CA]]&#8217;)
+refExperiment.isEditable = True</p>
+<p><strong>References</strong></p>
+<p><em>A nomenclature and data model to describe NMR experiments.
+Fogh RH, Vranken WF, Boucher W, Stevens TJ, Laue ED.
+J Biomol NMR. 2006 Nov;36(3):147-55</em> (<a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/17031528">link</a>)</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Selected Prototype</strong>: Select the experiment prototype to operate on</p>
+</div>
+<div class="section" id="prototypes">
+<h2>Prototypes<a class="headerlink" href="#prototypes" title="Permalink to this headline">¶</a></h2>
+<p>A table of all NMR experiment prototypes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the experiment prototype</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>CCPN systematic name for the experiment prototype. Reflects the magnetisation transfer network  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Atom Sites</em></td>
+<td>Number of atom sites in the magnetisation transfer flow(s)</td>
+</tr>
+<tr><td><em>Graphs</em></td>
+<td>Number of distinct magnetisation transfer flows</td>
+</tr>
+<tr><td><em>Ref Expts</em></td>
+<td>Number of associated reference experiments</td>
+</tr>
+<tr><td><em>Max Dim</em></td>
+<td>Maximum reference experiment dimension</td>
+</tr>
+<tr><td><em>Category</em></td>
+<td>Experiment prototype category. Classification of experiment purpose.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Synonym</em></td>
+<td>Human-understandable experiment prototype synonym  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Keywords</em></td>
+<td>List of keywords, for search and filtering  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-editable textual comment for the experiment prototype  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>isEditable?</em></td>
+<td>Can experiment prototype be modified? True for newly created experiments</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Make a new blank experiment prototype. Information is added subsequently</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create Copy</strong>: Make a new experiment prototype that is a copy of the currently selected one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Freeze</strong>: Set selected experiment prototype to be no longer modifiable</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected experiment prototype</p>
+</div>
+<div class="section" id="atom-measurements">
+<h2>Atom &amp; Measurements<a class="headerlink" href="#atom-measurements" title="Permalink to this headline">¶</a></h2>
+<p>Atoms and NMR measurements used within selected NMR experiment prototypes</p>
+<div class="section" id="atom-sites">
+<h3>Atom Sites<a class="headerlink" href="#atom-sites" title="Permalink to this headline">¶</a></h3>
+<p>Table of atom sites</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the atom site</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The isotope of the atom site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>The name of the atom site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Min Shift</em></td>
+<td>The minimum allowed chemical shift of the atom site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Max Shift</em></td>
+<td>The maximum allowed chemical shift of the atom site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Min Number</em></td>
+<td>The minimum number of atoms in the site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Max Number</em></td>
+<td>The maximum number of atoms in the site  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Number Step</em></td>
+<td>The number step - E.g. &#8220;a non-zero, even number&#8221; would have number_step=2, min_number=2  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New - Type</strong>: Create new atom site of the selected type</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Create New - Type entry</strong>: Select atom site type to create</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete atom site</p>
+</div>
+<div class="section" id="exp-measurements">
+<h3>Exp Measurements<a class="headerlink" href="#exp-measurements" title="Permalink to this headline">¶</a></h3>
+<p>Table of Experimental NMR measurements recorded in experiment.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the experimental measurement</td>
+</tr>
+<tr><td><em>Type</em></td>
+<td>Type of NMR measurement  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Atom Sites</em></td>
+<td>Atom site(s) that the measurement relates to  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Atom Site Weights</em></td>
+<td>Relative weights for multiple atom sites. Only for special types, like multiple quantum coherence.  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Create new experimental measurement, using the currently selected atom site</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete selected experimental measurement</p>
+</div>
+</div>
+<div class="section" id="exp-graphs">
+<h2>Exp Graphs<a class="headerlink" href="#exp-graphs" title="Permalink to this headline">¶</a></h2>
+<p>Graph of magnetisation transfer types, and magnetisation flow, for selected experiment prototype</p>
+<div class="section" id="expgraphs">
+<h3>ExpGraphs<a class="headerlink" href="#expgraphs" title="Permalink to this headline">¶</a></h3>
+<p>Table of magnetisation flow graphs</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the magnetisation flow graph</td>
+</tr>
+<tr><td><em>PeakSign</em></td>
+<td>The relative sign of peaks arising from the graph  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Create new magnetisation flow graph</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete selected magnetisation flow graph</p>
+</div>
+<div class="section" id="expsteps">
+<h3>ExpSteps<a class="headerlink" href="#expsteps" title="Permalink to this headline">¶</a></h3>
+<p>Table of magnetisation flow steps for selected graph.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of the magnetisation flow step (corresponds to creation order)</td>
+</tr>
+<tr><td><em>StepNumber</em></td>
+<td>Position of step in magnetisation flow (corresponds to flow order)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Measurement</em></td>
+<td>Experimental measurement that carries the magnetisation during the step  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Create new magnetisation flow step for selected graph. By default created with next unused experimental measurement</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Re-number</strong>: Re-number steps consecutively starting from one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete selected magnetisation flow step</p>
+</div>
+<div class="section" id="exptransfers">
+<h3>ExpTransfers<a class="headerlink" href="#exptransfers" title="Permalink to this headline">¶</a></h3>
+<p>Table of magnetisation transfer connections between atom sites for selected graph</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 6</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number of the magnetisation transfer connection</td>
+</tr>
+<tr><td><em>transfer Type</em></td>
+<td>Type of magnetisation transfer  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>AtomSite1</em></td>
+<td>First atom site involved in magnetisation transfer  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>AtomSite2</em></td>
+<td>Second atom site involved in magnetisation transfer  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>transfer ToSelf</em></td>
+<td>Does the transfer allow magnetisation to remain on the starting site?  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Create new magnetisation transfer connection for selected graph</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete selected magnetisation transfer connection</p>
+</div>
+</div>
+<div class="section" id="ref-experiments">
+<h2>Ref Experiments<a class="headerlink" href="#ref-experiments" title="Permalink to this headline">¶</a></h2>
+<p>Reference experiments belonging to selected experiment prototype with description of the experiment axes.</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>NamingSystem</strong>: Naming system for reference experiment systematic name</p>
+<div class="section" id="refexperiments">
+<h3>RefExperiments<a class="headerlink" href="#refexperiments" title="Permalink to this headline">¶</a></h3>
+<p>Table of reference experiments included in experiment prototype</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 7</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the reference experiment</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>CCPN systematic name for the reference experiment. Conforms to the Experiment Prototype name.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>numDims</em></td>
+<td>Number of dimensions of reference experiment  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>isReversed</em></td>
+<td>Is magnetisation transfer flow reversed relative to the experiment prototype specification?  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Synonym</em></td>
+<td>Human-understandable reference experiment synonym  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Systematic Name</em></td>
+<td>Reference experiment systematic name in selected namnig system  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>isEditable</em></td>
+<td>Can reference experiment be modified? True for newly created experiments</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create New</strong>: Make a new blank reference experiment . Information is added subsequently</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Create Copy</strong>: Make a new reference experiment that is a copy of the currently selected one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Freeze</strong>: Set selected reference experiment to be no longer modifiable</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected reference experiment</p>
+</div>
+<div class="section" id="refexpdimrefs">
+<h3>RefExpDimRefs<a class="headerlink" href="#refexpdimrefs" title="Permalink to this headline">¶</a></h3>
+<p>Table of Reference experiment dimensions and dimension referencings</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 8</strong></td>
+</tr>
+<tr><td><em>Dim</em></td>
+<td>Dimension number for reference experiment dimension</td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Serial number for dimension referencing</td>
+</tr>
+<tr><td><em>expMeasurement</em></td>
+<td>Experimental measurement associated with dimension referencing  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>valid scaling factors</em></td>
+<td>Scaling factors allowed when converting from observed frequencies to measurement values  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>grouping number</em></td>
+<td>Number that classifies dimension referencings from a dimension into consistent groups. E.g.: Group 1: 13C shift and J(HC); group 2: 15N shift and J(HN)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Coupled Isotopes</em></td>
+<td>Isotopes to which couplings are active and observable. Alternative to specifying couplings as experimental measurements  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Constant Time</em></td>
+<td>Acquisition mode: Constant, variable or mixed time.  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>expSteps</em></td>
+<td>Experiment steps used for measuring the measurement (in cases where it matters)  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New RefExpDim</strong>: Add new reference experiment dimension</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New RefExpDimRef</strong>: Add new dimension referencing to the same dimension as the referencing currently selected</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete RefExpDim</strong>: Delete selected reference experiment dimension and all dimension referencings</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete RefExpDimRef</strong>: Delete selected dimension referencing</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Purge RefExpDims</strong>: Delete reference experiment dimensions that have no dimension referencings. Used for removing orphan dimensions after deletions elsewhere</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment: Experiment Prototypes</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#prototypes">Prototypes</a></li>
+<li><a class="reference internal" href="#atom-measurements">Atom &amp; Measurements</a><ul>
+<li><a class="reference internal" href="#atom-sites">Atom Sites</a></li>
+<li><a class="reference internal" href="#exp-measurements">Exp Measurements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exp-graphs">Exp Graphs</a><ul>
+<li><a class="reference internal" href="#expgraphs">ExpGraphs</a></li>
+<li><a class="reference internal" href="#expsteps">ExpSteps</a></li>
+<li><a class="reference internal" href="#exptransfers">ExpTransfers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ref-experiments">Ref Experiments</a><ul>
+<li><a class="reference internal" href="#refexperiments">RefExperiments</a></li>
+<li><a class="reference internal" href="#refexpdimrefs">RefExpDimRefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditExperimentSeriesPopup.html"
+                        title="previous chapter">Experiment : NMR Series</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditContourLevelsPopup.html"
+                        title="next chapter">Spectrum Contour Levels</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/NmrExpPrototypePopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditContourLevelsPopup.html" title="Spectrum Contour Levels"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditExperimentSeriesPopup.html" title="Experiment : NMR Series"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Experiment.html" >Experiment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

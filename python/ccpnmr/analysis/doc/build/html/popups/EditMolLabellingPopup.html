@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecule : Isotope Labelling &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Molecule" href="../menu/Molecule.html" />
+    <link rel="next" title="Molecule : Reference Isotope Schemes" href="IsotopeSchemeEditor.html" />
+    <link rel="prev" title="Molecule : Molecules" href="EditMoleculesPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="IsotopeSchemeEditor.html" title="Molecule : Reference Isotope Schemes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" accesskey="U">Molecule</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecule-isotope-labelling">
+<h1>Molecule : Isotope Labelling<a class="headerlink" href="#molecule-isotope-labelling" title="Permalink to this headline">¶</a></h1>
+<p><strong>Setup Molecule Isotope Labelling Patterns</strong></p>
+<p>This popup is used to specify the isotopic incorporation of molecules in
+different samples. This is typically done in the earlier stages of a project,
+before the labelling information is required for assignment etc.</p>
+<p>Although the user can employ the standard isotope labelling schemes when
+performing operations in Analysis, the setup of molecular isotope patterns
+allows a greater level of control and allows the isotopic labelling
+to be automatically set according to context. The standard labelling schemes,
+which are also used as references for molecule specific patterns, may be
+created and edited via the <a class="reference external" href="IsotopeSchemeEditor.html">Reference Isotope Schemes</a> popup.</p>
+<p>A given molecule can be represented by several different samples, each with
+distinct isotope patterns. Each sample is associated with the NMR experiments
+(and hence spectra) that were performed on that sample. When assigning a peak,
+if the peak&#8217;s experiment has been linked to a sample with labelling
+information then the isotopic proportions hat should be considered are
+automatically known.</p>
+<p><strong>Labelled Molecules</strong></p>
+<p>The first tab allows the user to setup the samples (labelled versions) of
+each molecule that are available. Each molecule version will appear as a row
+in the top table. The user should set the &#8220;Experiments&#8221; of each sample to
+specify which NMR experiments used that labelled version on the molecule.</p>
+<p>Each sample of a molecule may refer to only a single labelled version or a
+mixture of different labelled forms (of the same molecule), e.g. both fully
+labelled and unlabelled. These different forms are referred to as &#8220;Patterns&#8221;
+and can be used in any proportion, to create a sample with a mixed
+composition.</p>
+<p>The Sample Composition table allows the user to add patterns (labelled
+versions of the molecule) to the currently selected mixture. Often  the user
+will add a single pattern based on a standard labelling scheme; this is the
+simplest setup. However, any number of patterns may be added and their
+proportions in a mixed sample may be adjusted by changing the &#8220;weight&#8221; of
+each. It is possible for a given pattern to be re-used in a number of
+different samples. For example a natural abundance version of the molecule may
+appear on its own in a sample, but as a mixture together with an enriched
+pattern in another sample.</p>
+<p><strong>Labelling Patterns</strong></p>
+<p>The second tab allows the user to specify any deviations of a labelling
+pattern (version of a molecule) from a standard labelling scheme. An initial
+pattern will contain residues that are associated with an initial scheme; the
+residues isotopomers are set to be the same as in this scheme. However, the
+user may adjust any of the residues in the pattern to use a different scheme.
+Here the term &#8220;isotopomer&#8221; is used to refer to a single isotope pattern of an
+individual residue, and there may be several such patterns present for a given
+type of residue, so that a polymer molecule will generally be a random mixture
+of the different individual forms.</p>
+<p>A residue within a pattern may deviate from a standard scheme by adjusting the
+proportions of the different isotopomers; this is set via the &#8220;Weighting&#8221; value
+after selecting the required isotopomer in the pulldown menu. Adjusting these
+weightings preserves the internal correlations between atoms within
+isotopomers; only the relative abundance of separate isotopomer forms is
+affected.</p>
+<p>The individual atomic incorporations for a residue may be adjusted if
+the &#8220;Isotopomer&#8221; pulldown is set to &#8220;Override Scheme&#8221;, but this looses any
+atom pair information that was specified via an isotopomer; only average
+incorporations are set. For example there may be no single isotopomer with
+both CA and CB labelled at the same time, even though the average shows
+incorporation for both sites.</p>
+<p><strong>Examples</strong></p>
+<p>These examples illustrate how to setup various kinds of isotope labelling
+&#8220;sample&#8221;, starting from a project with molecule specifications but without
+existing labelling information. After creation each sample should be
+associated with the required NMR experiments (which were run on that sample),
+by double clicking in the &#8220;Experiments&#8221; column  of the Labelled Samples table
+and checking the required options.</p>
+<p><em>Simple Single Scheme Labelling</em></p>
+<p>As an example of specifying a molecule with a single pattern from the standard
+&#8220;1,3 13C Glycerol&#8221; scheme, the user would first select the required molecule
+(to the right of &#8220;For molecule&#8221;) and press [New Sample].  In the lower right
+pulldown menu the user then selects &#8220;13Glycerol&#8221; and then presses [New Pattern
+From Scheme]. The molecule in this sample will have the labelling specified by
+one pattern made according to the selected scheme.</p>
+<p><em>Mixture of Labelled and Unlabelled</em></p>
+<p>As an example of a mixture, say that a sample of a molecule was composed of a
+1:3 ratio of fully labelled and unlabelled molecules (two different patterns
+in a mixture). The user would make one sample for the molecule using [New
+Sample], then setup the Sample Composition to have two patterns, one based on a
+uniform labelling scheme (e.g. &#8220;uni_15N13C2H&#8221;) and one for the &#8220;NatAbun&#8221;
+scheme; select each scheme in the lower right pulldown menu and for each make
+[New Pattern From Scheme]. Labelling patterns &#8220;A&#8221; and &#8220;B&#8221; will be created. For
+the pattern that corresponds to the &#8220;NatAbun&#8221; basis scheme set the  weight to
+3 (the weight for the other pattern will remain at 1.0). This labelled sample
+specification is nor ready to used because the individual residues do not need
+any further adjustment.</p>
+<p><em>Labelling a Specific Residue</em></p>
+<p>As an example of a molecule that is unlabelled except at one specific sequence
+position, where the residue has 15N, the user would first make a New Sample
+for the required molecule and add a New Pattern from the &#8220;NatAbun&#8221; scheme;
+this will make Pattern &#8220;A&#8221;.</p>
+<p>The user should then go to the second &#8220;Labelling Patterns&#8221; tab (at the top) and
+ensure that the correct molecule and Pattern &#8220;A&#8221; are selected in the upper
+pulldown menus. The sequence of the molecule will be displayed in the upper
+table. To set the labelling for the only labelled residue, the user scrolls
+down until the residue is visible, then selects the row for the residue in the
+table (highlighting the row). Next, in the pulldown menu to the bottom right
+of the residue table, the user selects the scheme &#8220;uni_15N&#8221; and then presses
+the adjacent [Set Residue Composition From Scheme:]. The residue will now be listed in
+the table as using the &#8220;uni_15N&#8221;, and not &#8220;NatAbun&#8221; like all the others.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="labelled-molecules">
+<h2>Labelled Molecules<a class="headerlink" href="#labelled-molecules" title="Permalink to this headline">¶</a></h2>
+<p>Setup isotope labelling at the molecule level; the versions of a present molecule in different samples</p>
+<div class="section" id="labelled-samples">
+<h3>Labelled Samples<a class="headerlink" href="#labelled-samples" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>Molecule</em></td>
+<td>The name of the molecule (sequence template) that the isotope labelled sample refers to</td>
+</tr>
+<tr><td><em>Sample</em></td>
+<td>The serial number of the sample (mixture of labelling patterns) in the CCPN project</td>
+</tr>
+<tr><td><em>Sample Name</em></td>
+<td>A user editable name for the isotope labelled sample  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Experiments</em></td>
+<td>The NMR experiments that are asscociated with the isotope labelling sample; can be set at any time by the user  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Labelling Patterns</em></td>
+<td>One or more labelling patterns (versions of a molecyle), in diifferent proportions, constiture the sample</td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>The molecular system chains (assignable entities in a complex) that are associated with the labelled molecule</td>
+</tr>
+<tr><td><em>Sequence</em></td>
+<td>Part of the residue sequence of the labelled molecule</td>
+</tr>
+<tr><td><em>Mol Mass</em></td>
+<td>The estimated average molecular mass of the molecule (albeit a mixture of different patterns)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Sample</strong>: Delete the selected isotope labelling molecule specification</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Sample</strong>: Make a new, intially bank, isotope labelled sample, to which molecule labelling patterns may be added</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>For molecule</strong>: Selects which molecular sequence template to use when making a new specifcation of an isotope labelled sample</p>
+</div>
+<div class="section" id="sample-composition">
+<h3>Sample Composition<a class="headerlink" href="#sample-composition" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Labelling Pattern</em></td>
+<td>A code letter for a specific labelling pattern version of the molecule sample</td>
+</tr>
+<tr><td><em>Basis Scheme</em></td>
+<td>The standard isotope labelling scheme on which the labelling pattern is primarily based (for mosed residue)</td>
+</tr>
+<tr><td><em>Weight</em></td>
+<td>The relative weighting of this labelling patterns compated to other patterns in the sample sample; for a mixture of molecule versions  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>% Composition</em></td>
+<td>The relative composition of this pattern compated to others in the sample</td>
+</tr>
+<tr><td><em>Mol Mass</em></td>
+<td>The estimated molecular masss of the version of the isotopic molecule represented by the pattern</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove Pattern</strong>: Remove the selected molecule labelling pattern from the sample/mixture; the pattern is deleted if it is no longer used in any sample</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Edit Pattern</strong>: Edit the selected molecule labelling pattern (isotopic version), in terms of residue and atom incorporations</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Existing Pattern</strong>: Add a molecule labelling pattern to the current sample specification, using a pre-constructed pattern</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which extsing molecule labelling pattern to add to the selecte sample</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Pattern From Scheme</strong>: make a complete new isotope labelling pattern for the molecule using the selected isitope labelling scheme</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which standard isotope labelling scheme to use as a template to make a new molecule specific labelling pattern</p>
+</div>
+</div>
+<div class="section" id="labelling-patterns">
+<h2>Labelling Patterns<a class="headerlink" href="#labelling-patterns" title="Permalink to this headline">¶</a></h2>
+<p>Setup the specific residue and atom labelling patterns in a given molecule version</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecule</strong>: Selects which molecule to view the residue labelling patterns for</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Pattern</strong>: Selects which residue labelling to view from those available for the selected molecule</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>New Pattern From Scheme</strong>: make a new labelling pattern (isotope version of the molecule) using the selected standard labelling scheme</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which standardised isotope labelling scheme to use as a template for creating a to make a new molecule specific labelling pattern</p>
+<div class="section" id="residue-pattern">
+<h3>Residue Pattern<a class="headerlink" href="#residue-pattern" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Seq Id</em></td>
+<td>The sequence ID number of the labelled residue in the molecule; a separate numbering system to the numbering in chains</td>
+</tr>
+<tr><td><em>Residue Code</em></td>
+<td>The code of the residue identifying which type it is</td>
+</tr>
+<tr><td><em>Schemes</em></td>
+<td>The names of the standard isotope labelling schemes on which the residues labelling is based within this specific pattern</td>
+</tr>
+<tr><td><em>Isotopomers</em></td>
+<td>Tne numbers of the isotopomer versions of this residue that specify labelling; from the standard scheme</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Natural Abundance</strong>: Set the selected residue labelling to have natural abundance isotopic incorporation labels.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Residue Composition From Scheme</strong>: Set the selected residue to have labelling based upon isotopomers from the selected standard scheme</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Selects which standardised isotope labelling scheme to base the residues isotopomer labelling upon</p>
+</div>
+<div class="section" id="residue-composition">
+<h3>Residue Composition<a class="headerlink" href="#residue-composition" title="Permalink to this headline">¶</a></h3>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chem Element</strong>: Selects which chemical element to display atomic isotope incorporation levels for</p>
+<p><img alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Show Exchangeable</strong>: Sets whether to display water exchangeable atoms in the atom isotope table</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotopomer</strong>: Selects which isotopomer version, from those set for the residue to show atom istopes for; can be set to override the schem istopomers</p>
+<p><img alt="float" class="align-bottom" src="../_images/float.png" /> <strong>1.0</strong>: Specifies what relative weighing the selected residue isotopomer has compared to others for the same residue</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>Atom</em></td>
+<td>The name of the atom within its residue, for which to set isotopic abundances, within the selected labelling pattern</td>
+</tr>
+<tr><td><em>Weighting ¹²C</em></td>
+<td>The amount of ¹²C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Weighting ¹³C</em></td>
+<td>The amount of ¹³C isotope incorporation; can be a ratio, percentage or fraction (the value used is relative to the sum of all weights)  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>% ¹²C</em></td>
+<td>The percentage ¹²C isotope incorporation for this atom, calculated using stated weights</td>
+</tr>
+<tr><td><em>% ¹³C</em></td>
+<td>The percentage ¹³C isotope incorporation for this atom, calculated using stated weights</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Reset Residue To Orig Scheme</strong>: Resets the selected residue to use atom isotope incorporation levels from the isotopomers of the set scheme; removes any atom level edits</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Propagate Abundances</strong>: Spread the istotope incorporation levels from the last selected atom (in the table) to all selected atomes; overrides isotopomer levels</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Natural Abundance</strong>: Set the selected atoms to have natural abundance isotope incorporation levels</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecule : Isotope Labelling</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#labelled-molecules">Labelled Molecules</a><ul>
+<li><a class="reference internal" href="#labelled-samples">Labelled Samples</a></li>
+<li><a class="reference internal" href="#sample-composition">Sample Composition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#labelling-patterns">Labelling Patterns</a><ul>
+<li><a class="reference internal" href="#residue-pattern">Residue Pattern</a></li>
+<li><a class="reference internal" href="#residue-composition">Residue Composition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="EditMoleculesPopup.html"
+                        title="previous chapter">Molecule : Molecules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="IsotopeSchemeEditor.html"
+                        title="next chapter">Molecule : Reference Isotope Schemes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditMolLabellingPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="IsotopeSchemeEditor.html" title="Molecule : Reference Isotope Schemes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="EditMoleculesPopup.html" title="Molecule : Molecules"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Molecule.html" >Molecule</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

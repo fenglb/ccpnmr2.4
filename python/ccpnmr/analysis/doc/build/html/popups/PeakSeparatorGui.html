@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Peak Separator &mdash; CcpNmr Analysis v2.2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.2.0 documentation" href="../index.html" />
+    <link rel="up" title="Peak" href="../menu/Peak.html" />
+    <link rel="next" title="Peak : Peak Finding" href="EditPeakFindParamsPopup.html" />
+    <link rel="prev" title="Peak : Selected Peaks" href="SelectedPeaksPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SelectedPeaksPopup.html" title="Peak : Selected Peaks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" accesskey="U">Peak</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="peak-separator">
+<h1>Peak Separator<a class="headerlink" href="#peak-separator" title="Permalink to this headline">¶</a></h1>
+<p><strong>Separate Merged Peaks Using Peak Models</strong></p>
+<p>The Peak Separator code uses a Markov Chain Monte Carlo search which, using
+idealised peak shapes, attempts to deconvolve overlapped peak regions into
+their separate constituent peaks.</p>
+<p>This routine is also suitable for accurately fitting model shapes to single
+peaks in order to calculate precise intensities.</p>
+<p><strong>Options Peak Separator Parameters</strong>
+<em>Min. Number of peaks</em> is by default set to one, it is not possible to set
+this to a value less than one.
+<em>Max. Number of peaks</em> is by default set to one, increasing this value allows
+the search routine to fit more models. The best fit may be found with fewer than
+the maximum number models. Higher numbers slow the routine, and setting this
+value to 0 allows the routine to (effectively) fit unlimited peaks.
+<em>Only pick positive peaks</em>. If you are not interested in negative peaks, removing
+the possibility of fitting negative peaks can reduce search time.
+<em>Peak Model</em> fits the spectra with either a Gaussian peak model or a Lorentzian
+peak model.</p>
+<p><strong>Options Region</strong>
+<em>Peak List</em> choose which peak list newly picked peaks should be added to. Peaks
+picked using this method will have their details appended with &#8216;PeakSepartor&#8217;
+so you know where they came from.
+<em>Region Table</em> shows which area of the current spectrum is about to be searched.
+<em>Add Region</em>. Once an area of spectra has been highlighted clicking this button
+will pass it&#8217;s details on to the Peak Separator.
+<em>Reset All</em> will reset all search parameters.
+<em>Separate Peaks</em> will run the Peak Separator code with your current settings. This
+may take a few minutes to run, depending on the size of the spectral region being
+searched, the number of peaks being fitted and the speed of your machine. Please
+wait while this completes.</p>
+<p>After a successful Peak Separation run, the found peaks will be added to the
+selected peak list. These peaks intensties (volume) have been found using the
+peak model selected.</p>
+<p><strong>Advanced Settings Tab</strong>
+<em>Rate</em> affects the speed of the Markov Chain Monte Carlo routine. A smaller value
+results in longer execution, but possibly higher quality results. The default
+setting is deemed sensible for the majority of runs.
+<em>Line Width</em> offers a finer degree of control over maximum and minimum peak widths
+for each dimension. The default values are <em>very</em> stupid and could do with
+re-checking for each experiment.
+<em>Re-Pick Entire Peak List</em> if you would like to use the Peak Separator to repick
+<em>every</em> peak in your peak list, try this option - but note that this may take
+a very long time!</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="id1">
+<h2>Peak Separator<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="peak-separator-parameters">
+<h3>Peak Separator Parameters<a class="headerlink" href="#peak-separator-parameters" title="Permalink to this headline">¶</a></h3>
+<p><img alt="int" class="align-bottom" src="../_images/int.png" /> <strong>Min. number of peaks</strong>: Minimum number of peaks to find (must be &gt; 0)</p>
+<p><img alt="int" class="align-bottom" src="../_images/int.png" /> <strong>Max. number of peaks</strong>: Maximum number of peaks to find (0 is unlimited - not recommended)</p>
+<p><img alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>False</strong>: Search for both positive and negative intensity peaks</p>
+<p><img alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>True</strong>: Limit search to only positive peaks</p>
+<p><img alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Gaussian</strong>: Choose a Gaussian model peak shape to fit to peaks</p>
+<p><img alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Lorentzian</strong>: Choose a Lorentzian model peak shape to fit to peaks</p>
+</div>
+<div class="section" id="region">
+<h3>Region<a class="headerlink" href="#region" title="Permalink to this headline">¶</a></h3>
+<p>Region that search will limit itself to</p>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: Select which peak list new peaks are to be added to</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>dim.</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>start (ppm)</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>end (ppm)</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+<tr><td><em>actual size</em></td>
+<td><em>Documentation missing</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add Region</strong>: Add selected specrtral region</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Separate Peaks</strong>: Run peak search now</p>
+</div>
+</div>
+<div class="section" id="advanced-settings">
+<h2>Advanced Settings<a class="headerlink" href="#advanced-settings" title="Permalink to this headline">¶</a></h2>
+<p><em>Documentation missing</em></p>
+<div class="section" id="rate">
+<h3>Rate:<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h3>
+<p><img alt="float" class="align-bottom" src="../_images/float.png" /> <strong>Rate of MCMC step size change</strong>: Rate effects speed of run, smaller values take longer but may produce better results</p>
+</div>
+<div class="section" id="line-width-hz">
+<h3>Line Width (Hz):<a class="headerlink" href="#line-width-hz" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="optional-repick-entire-peak-list">
+<h3>(optional - repick entire peak list)<a class="headerlink" href="#optional-repick-entire-peak-list" title="Permalink to this headline">¶</a></h3>
+<p><img alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>*None*</strong>: Select which peak list to repick (new peaks will be put into a new peak list)</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Repick Peak List</strong>: Repick selected peak list into a new peak list.</p>
+<p><img alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Separate Peaks</strong>: Run peak search now</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Peak Separator</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#id1">Peak Separator</a><ul>
+<li><a class="reference internal" href="#peak-separator-parameters">Peak Separator Parameters</a></li>
+<li><a class="reference internal" href="#region">Region</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-settings">Advanced Settings</a><ul>
+<li><a class="reference internal" href="#rate">Rate:</a></li>
+<li><a class="reference internal" href="#line-width-hz">Line Width (Hz):</a></li>
+<li><a class="reference internal" href="#optional-repick-entire-peak-list">(optional - repick entire peak list)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SelectedPeaksPopup.html"
+                        title="previous chapter">Peak : Selected Peaks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditPeakFindParamsPopup.html"
+                        title="next chapter">Peak : Peak Finding</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/PeakSeparatorGui.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditPeakFindParamsPopup.html" title="Peak : Peak Finding"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SelectedPeaksPopup.html" title="Peak : Selected Peaks"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.2.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Peak.html" >Peak</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

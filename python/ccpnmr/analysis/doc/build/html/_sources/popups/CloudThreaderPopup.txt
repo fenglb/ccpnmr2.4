@@ -1,0 +1,69 @@
+==============
+Cloud Threader
+==============
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+cumentation Missing*
+
+Main Panel
+==========
+
+|pulldown| **Molecular system**: *Documentation missing*
+
+|entry| **nexus15.pdb_\d+**: *Documentation missing*
+
+|pulldown| **Chain**: *Documentation missing*
+
+|int| **5000**: *Documentation missing*
+
+|check| **Keep existing assignments?**: *Documentation missing*
+
+|float| **-4.9**: *Documentation missing*
+
+
+
+
+|button| **Run**: *Documentation missing*
+
+|button| **Assign!**: *Documentation missing*
+
+|button| **Score Current**: *Documentation missing*
+
+|button| **Fit Side Chains**: *Documentation missing*
+
+

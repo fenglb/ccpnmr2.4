@@ -1,0 +1,85 @@
+================
+Project : Backup
+================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Create Automatic Project Backup**
+
+The purpose of this dialog is to allow the user to create backups
+of their project automatically.  The XML files for the backup go
+into a separate directory from the project itself.  If the project
+directory is called PROJECTDIR then the default for the backup
+directory is PROJECTDIR_backup, although that can be changed to
+something else in this dialog.
+
+Other than the backup directory, the user can specify the frequency
+of the backup, in minutes.
+
+The "Apply Auto Settings" does not have to be applied if the user
+has changed the on/off setting or if the user has changed the
+Auto-backup frequency and entered a carriage return.
+
+The "Do Immediate Backup" is in case the user wants to do a backup
+then and there.
+
+There is no backup for the backup.
+
+
+Main Panel
+==========
+
+|button| **Directory**: Browse for the directory into which project backups will be made
+
+|entry| **/Users/wb104/svnint/branches/stable/ccpn/python/ccpnmr/analysis/doc/DocExtract_backup**: Enter the name of the directory into which project backups will be made
+
+
+|radio| **on**: Toggle the timed automatic backup on
+
+|radio| **off**: Toggle the timed automatic backup off
+
+|int| **30**: The number of minutes to wait before automatic project backups
+
+|button| **Apply Auto Settings**: Commit the specified settings and commence automated CCPN project backup
+
+|button| **Do Immediate Backup**: Backup the CCPN project now, into the specified backup directory
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

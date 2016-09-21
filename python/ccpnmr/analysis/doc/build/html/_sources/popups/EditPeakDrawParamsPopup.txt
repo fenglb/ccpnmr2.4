@@ -1,0 +1,164 @@
+======================
+Peak : Draw Parameters
+======================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Control How Peak Symbols and Annotations Are Drawn**
+
+This popup window controls the display of picked peak positions within
+spectrum windows and also how their annotations are displayed in
+many of the tables throughout the rest of Analysis.
+
+**Peak Annotations**
+
+The "Annotation Style" tab, as the name suggests, controls which bits of
+information go to form the assignment annotation that is used to label peaks
+in spectra and when listing their identities in tables. The user can toggle
+various options on or off to dictate what should be included. With no options
+selected at all peaks will show only resonance number information like
+"[123],[45]", irrespective of any atomic assignments. Switching the atom
+assignments on will substitute the atom and residue name for  the resonance
+names. The spin system toggle is used to control the display of spin system
+numbers like the curly bracketed numbers of "{89}[123],[45]" or a residue name
+if the spin system is assigned, although the atom assignment option will also
+give any residue name. The chain and molecular system toggles are used when
+there are several sequences in the assignment that need to be distinguished, so
+that you can identify "A25LsyH,N" separately to "B25LysH,N" or even
+"MS2:A25LysH,N". The details toggle allows the user to contribute to peak
+annotations; such details are set in the relevant column of the peak tables
+(e.g. `Selected Peaks`_)or the "Peak::Set details" option of the right-click
+window menu. The last "Minimal Annotations" option is special because it gives
+a quick replacement for spectrum annotations that overrides all other settings,
+for example "25LysH,N" becomes "25K", which is useful to reduce clutter when
+printing out an HSQC.
+
+It should be noted that, with the exception of the "Minimal Annotations"
+option, any changes to the annotation options for existing peak assignments
+will not be visible until [Update Full Annotations] is pressed, which can take
+a while to update if the number of peaks in the project is large. Any new
+assignments will observe the current settings.
+
+**Draw Size**
+
+The second tab controls how the peak cross symbols, which indicate the pick
+position, are drawn in the spectrum display. Here, the user has four choices:
+the default is to use a fixed number of screen pixels, so that all symbols are
+the same size, irrespective of zoom level; uniform size in ppm (with the
+appropriate values for each isotope set in the lower table that appears)
+allows the peak symbol maintain a constant size relative to the contours, and
+thus differ in on-screen size according to the contour zoom level; and two
+choices for a "scaled" size where the peak symbol is larger or smaller
+depending on the intensity of the peak, either relative to its peak list or an
+absolute globally applied value.
+
+**Figure of Merit**
+
+The last "Merit Symbols" tab allows the user to add textual markers to a peak
+depending on the figure-of-merit value, which is an indication of reliability
+(although the precise context is at the discretion of the user). The merit
+value for a peak is set via the peak tables or the "Peak::Set merit" option of
+the right-click window menu. Aside from display purposes the merit value is
+used at a few points throughout Analysis to optionally exclude peaks. Typically
+a peak with a merit value of 0.0 may be ignored during certain analyses, e.g.
+for making NOE derived distance restraints.
+
+**Caveats & Tips**
+
+When assigning peaks via the `Assignment Panel`_ the resonance annotation will
+always display spin system information, given that this grouping is critical
+to assignment, but the chain and atom assignment will reflect the peak
+display, and thus these details may be missing if unset in this Draw
+Parameters popup.
+
+
+.. _`Assignment Panel`: EditAssignmentPopup.html
+.. _`Selected Peaks`: SelectedPeaksPopup.html
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Annotation Style
+================
+
+Options specifying how peak annotations are drawn in spectrum windows and in tables etc.
+
+|check| **Spin System Info**: Whether to show unassigned spin system numbers like "{123}" in peak annotations; does not affect the display of full residue assignments
+
+|check| **Atom Assignment**: Whether to show assigned atom names in peak annotations rather than resonance numbers, e.g. "21LeuH,N" or "21Leu[55],[56]"
+
+|check| **Chain Assignment**: Whether to show the molecular chain code letter in peak annotations, e.g. "21LeuH,N" or "A21LeuH,N"
+
+|check| **Molecular System**: Whether to show the molecular system code name in peak annotations, e.g. "MS1:21LeuH,N" or "21LeuH,N"
+
+|check| **Merit Symbol**: Whether to show a symbol indicating the quality of a peak; these symbols must be set in the "Merit Symbols" tab
+
+|check| **Details**: Whether to show the details text for a peak in spectrum windows (set in the peak tables)
+
+|check| **Minimal Annotations (overriding option)**: Whether to ignore above settings, and use a short peak annotation using only residue numbers and one-letter codes, e.g. "21L"
+
+|button| **Update Full Annotations**: Manually cause an update of all peak annotations; may take some time but recommended to see the immediate effect of changes
+
+drawFrame
+=========
+
+Options to specify how large the peak crosses/symbols are drawn in spectrum windows
+
+|pulldown| ***None***: Selects which mode to use for determining peak cross/symbol sizes; a fixed pixel/ppm value or scaled by intensity for all peaks or just one peak list
+
+
+Merit Symbols
+=============
+
+Enables the user to specify special symbols to annotate peaks according to quality
+
+|entry| **Good merit (>0.66)**: Although typically blank, sets a symbol to display for good quality peaks (merit value > 0.66), if the relevant option is selected in the "Annotation Style" tab
+
+|entry| **Medium merit**: Sets a symbol to display for mediocre quality peaks (merit value between 0.34 & 0.66), if the relevant option is selected in the "Annotation Style" tab
+
+|entry| **Poor merit (<0.34)**: Sets a symbol to display for poor quality peaks (merit value < 0.34), if the relevant option is selected in the "Annotation Style" tab
+
+|button| **Set symbols**: Commit the changes to the merit symbols; this will not automatically update the display - see the "Annotation Style" tab
+

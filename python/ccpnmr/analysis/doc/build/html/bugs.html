@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Making Bug Reports &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="index.html" />
+    <link rel="next" title="Python API Programming Guide" href="apiGuide.html" />
+    <link rel="prev" title="Resonance Clouds Analysis" href="popups/CloudsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="apiGuide.html" title="Python API Programming Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="popups/CloudsPopup.html" title="Resonance Clouds Analysis"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="making-bug-reports">
+<h1>Making Bug Reports<a class="headerlink" href="#making-bug-reports" title="Permalink to this headline">¶</a></h1>
+<p>Only the latest software version is actively supported, but old CCPN data files
+are supported.</p>
+<p>Consider updating Analysis to the latest version before reporting an issue that
+may have been fixed. Remember to include any recent updates or patches: Analysis
+is sometimes updated on a daily basis.</p>
+<p>Bugs will often be fixed promptly, but if the resolution is more involved they
+may be put on the to-do list.</p>
+<p>If a bug seems important, but seems to be neglected at the expense of other
+issues then it has probably slipped though the cracks and the developers should
+asked what the status is.</p>
+<p>In essence, state what you did, with enough information for the developers to
+understand and reproduce the problem. The better the information the more
+likely the problem is quick to fix.</p>
+<div class="section" id="information-to-include">
+<h2>Information to Include<a class="headerlink" href="#information-to-include" title="Permalink to this headline">¶</a></h2>
+<p>Give the name of the popup window that shows any inconsistencies or was being
+used when the error occurred.</p>
+<p>Report any errors that appear on the command line, even if they occurred some
+time before you noticed anything was wrong. If you are not sure whether
+something is a bug, you can always ask.</p>
+<p>Be precise, don&#8217;t say:</p>
+<blockquote>
+<em>&#8220;The shift list doesn&#8217;t show my molecule assignments properly&#8221;</em></blockquote>
+<p>when you really mean:</p>
+<blockquote>
+<em>&#8220;The Chart:Chemical Shifts Table, alone, doesn&#8217;t show backbone 15N assignments
+for some residues in chain B.&#8221;</em></blockquote>
+<p>For NMR concepts, try to report using the same sort of language that appears
+in the program, e.g. distinguish between &#8220;experiment&#8221; and &#8220;spectrum&#8221; or
+&#8220;molecule&#8221; and &#8220;chain&#8221; when Analysis does.</p>
+<p>If it helps, illustrate the problem by including screen shots as attachments,
+and consider selecting the relevant rows in any tables.</p>
+<p>Broken or illustrative CCPN projects should be sent as a tar-gzipped archive,
+without spectrum data files.</p>
+</div>
+<div class="section" id="reporting-style">
+<h2>Reporting Style<a class="headerlink" href="#reporting-style" title="Permalink to this headline">¶</a></h2>
+<p>Try not to make assumptions about whether something is a bug or design decision.
+Sometimes a design decision can appear like a bug from some points of view, and
+some bugs look like features. Often it is best to simply ask what was intended.</p>
+<p>Try not to prescribe <em>how</em> something should be fixed unless you are proposing to
+fix something yourself. Most problems are best described in terms of the
+functional requirements.</p>
+<p>Suggestions for functionality and changes may be made at any time, but repeating
+yourself should the developers or the user community disagree with the
+suggestions is mostly futile.</p>
+<p>Dwelling on the hardship a problem has caused may delay the response rather than
+hasten it.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Making Bug Reports</a><ul>
+<li><a class="reference internal" href="#information-to-include">Information to Include</a></li>
+<li><a class="reference internal" href="#reporting-style">Reporting Style</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="popups/CloudsPopup.html"
+                        title="previous chapter">Resonance Clouds Analysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="apiGuide.html"
+                        title="next chapter">Python API Programming Guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/bugs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="apiGuide.html" title="Python API Programming Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="popups/CloudsPopup.html" title="Resonance Clouds Analysis"
+             >previous</a> |</li>
+        <li><a href="index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

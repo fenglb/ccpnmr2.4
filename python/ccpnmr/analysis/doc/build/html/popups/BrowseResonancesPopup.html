@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Resonance : Resonances &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Resonance" href="../menu/Resonance.html" />
+    <link rel="next" title="Resonance : Spin Systems" href="EditSpinSystemPopup.html" />
+    <link rel="prev" title="Resonance" href="../menu/Resonance.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditSpinSystemPopup.html" title="Resonance : Spin Systems"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Resonance.html" title="Resonance"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" accesskey="U">Resonance</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="resonance-resonances">
+<h1>Resonance : Resonances<a class="headerlink" href="#resonance-resonances" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Table of Resonances Organised by Chemical Shift List</strong></p>
+<p>This popup window is basically a table of all the resonances that have
+chemical shifts contained within a selected shift list. This data, in-keeping
+with the CCPN Resonance entities it represents, serves as the central record
+that ties atom assignments to peak assignments. An individual resonance many
+be anonymous and not (yet) carry an atomic assignment but still exists as an
+entity that carries a chemical shift record and connections to peaks in
+spectra. Each resonance row in the table may be considered as a &#8220;phenomenon
+number&#8221; that may be used to connect various things together when assignments
+are made. Within a given shift list each resonance will one have only one
+chemical shift value, but a resonance may have different chemical shift values
+in separate shift lists, for example corresponding to different conditions;
+where the resonance phenomenon is the same (from the same atom) but its
+position in spectra changes.</p>
+<p>The resonance table serves both as a source of information in its own right
+and a means of finding information related to a given set of assignments. For
+example the user may wish to sort the resonances according to residue sequence
+(click on the &#8220;Residue&#8221; heading), scroll to and select the desired residue and
+then [Show All Peaks] that are associated with the residue assignment. In
+normal operation the user selects the appropriate shift list (e.g. for the set
+of conditions) and any isotope, status or molecular subset to fill the table
+with a series of resonance records. Each resonance is shown with its chemical
+shift value, any atomic or residue assignment, isotope type and various other
+useful information. From the table, operations may be performed on a selected
+subset of resonances by selecting the relevant row; left click +/-
+&lt;Ctrl&gt;/&lt;Shift&gt;, and then clicking on the buttons.</p>
+<p><strong>Navigation</strong></p>
+<p>The upper &#8220;Navigation &amp; Marks&#8221; section allows the user to display resonance
+positions in the spectrum windows. The user can build strips (sub-divisions)
+with the selected resonance positions (e.g. selecting H &amp; N amide resonances),
+center the contour display and create marker lines at the locations. Although
+similar functionality is also available from the peak table, the user cam get
+more flexible control by selecting resonances, for example to navigate to a
+location in a spectrum where a peak is <em>expected</em>, but has not been picked. It
+should be noted that the [Strip Selected] and [Go To position] functions
+operate on the spectrum window selected in the &#8220;Window&#8221; pulldown menu.</p>
+<p><strong>Atom Assignment</strong></p>
+<p>The penultimate row of buttons represent functions that change the atomic
+assignment if the selected resonance (or resonances, depending on the
+operation). Accordingly, a resonance may be disconnected from atoms, linked to
+atoms, given an atom type (e.g. a general &#8220;HA&#8221;) and added to or removed from a
+spin system; a group of resonances belonging to a residue. The last two options
+relate only to resonances that are deemed to be prochiral, for example like
+Ser HB2/HB3, which often cannot be distinguished until the latter stages of 3D
+structure calculation.</p>
+<p><strong>General &amp; Information</strong></p>
+<p>The lower row of buttons relate to functions that do not involve atom
+assignment. For example resonances may be deleted; either those that are
+selected or those that are considered to be &#8220;orphans&#8221; - without any current
+assignments to spectrum peaks. The two &#8220;Show Peaks&#8221; buttons display tables  of
+the spectrum peaks that are currently linked to the selected resonances,
+optionally considering only spectra that use the selected shift list. The last
+[Info] button opens the <a class="reference external" href="ResonanceInfoPopup.html">Resonance Info</a> table for the last selected
+resonance to display the positions of all the peak dimensions to which it is
+assigned and all its chemical shift values, from multiple shift lists.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>The [Delete Orphans] function is commonly used to tidy up projects where there
+are large numbers of resonances that are no longer assigned to any peaks. This
+may occur for example resonances have been automatically added to newly picked
+peaks but once assignment is complete many of the resonances turned out to  be
+duplicate, e.g. separate resonances were initially added to HNCA and HNcoCA
+peaks even though the resonances should be shared.</p>
+<p>If a resonance has a large standard deviation in its chemical shift use the
+[Info] button to show the peak dimension positions that formed the chemical
+shift average.</p>
+<p>If the list of resonances in the table is too large to easily find a
+particular resonance, consider using the filtering selections at the top or
+click the &#8221;?&#8221; in the table headings to filter directly on table content.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selection">
+<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which chemical shift list to display resonances for, and hence which
+shift value to use for a resonance. Includes an option to show resonances without any shifts</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Isotope</strong>: Selects subsets of resonances to list, according to their isotope type</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Status</strong>: Selects subsets of resonances to list, according to their assignment status</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Allows restriction of the resonance list to only those assigned to a given molecular chain</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Residue Code</strong>: Allows restriction of the resonance list to only those assigned toa particular kind of residue</p>
+</div>
+<div class="section" id="navigation-marks">
+<h3>Navigation &amp; Marks<a class="headerlink" href="#navigation-marks" title="Permalink to this headline">¶</a></h3>
+<p>Options to locate resonance positions in spectrum windows</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Strip Selected</strong>: Make strips in the specified window using the positions of the selected resonances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Go To Position</strong>: Navigate to the selected resonance positions in the specified window</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Selects the spectrum window to use for resonance based navigation</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Mark Selected</strong>: Put multi-dimensional cross marks at the selected resonance positions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clear Marks</strong>: Remove the resonance-located cross marks</p>
+</div>
+<div class="section" id="resonance-table">
+<h3>Resonance Table<a class="headerlink" href="#resonance-table" title="Permalink to this headline">¶</a></h3>
+<p>The main table displaying the resonance records in the selected shift list, and considering filtering options</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The serial number of the resonance in the NMR project</td>
+</tr>
+<tr><td><em>Shift</em></td>
+<td>The chemical shift value of the resonance in the selected shift list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>SD</em></td>
+<td>The standard deviation in the chemical shift value for the resonance</td>
+</tr>
+<tr><td><em>Assign Name</em></td>
+<td>The name bestowed upon the resonance by virtue of its atomic assignments</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The residue to which the resonance may be assigned</td>
+</tr>
+<tr><td><em>Isotope</em></td>
+<td>The type of isotope responsible for the resonance</td>
+</tr>
+<tr><td><em>Other Name</em></td>
+<td>A user-editable name for the resonance, often displayed if atom assignments are absent  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>All Peaks</em></td>
+<td>The total number of peaks assigned (via their dimensions) to a resonance  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Shift List Peaks</em></td>
+<td>The number of peaks assigned to a resonance, considering only the selected shift list  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Spin System #</em></td>
+<td>The serial number of the spin system in which the resonance resides</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="atom-assignment">
+<h3>Atom Assignment<a class="headerlink" href="#atom-assignment" title="Permalink to this headline">¶</a></h3>
+<p>Functions to change how the selected resonances are assigned to atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Deassign</strong>: Remove any atomic assignments from the selected resonances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign</strong>: Assign or re-assign the last selected resonance to atoms (opens the atom browser)</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Set Atom Type</strong>: Set the assignment type of a resonance by selecting a representative atom</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Add to Spin System</strong>: Add the last selected resonance to a spin system grouping, if not already in one</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Remove from Spin System</strong>: Remove the selected resonances form any spin system grouping</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Swap Prochirals</strong>: If the last selected resonance is a prochiral, swap its atom assignment for the other stereochemical option</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Ambiguate Prochirals</strong>: For the last selected resonance, make any unambiguous prochiral assignment ambiguous, i.e HB2 -&gt; HBa/HBb</p>
+</div>
+<div class="section" id="general-information">
+<h3>General &amp; Information<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h3>
+<p>General functions to administer resonances and get connected peak information</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected resonances form the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Orphans</strong>: Delete all resonances that have no assignments to peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge or Split</strong>: Merge multiple resonances &amp; any peak assignments into one. For a single resonance split into two duplicate resonances</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show All Peaks</strong>: Show a table of all the peaks to which the selected resonances are assigned</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Shift List Peaks</strong>: Considering only the selected shift list, show a table of peaks to which selected resonances are assigned</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Info</strong>: Show a table of information for the last selected resonance, including a list of all peak dimension positions</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Resonance : Resonances</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#selection">Selection</a></li>
+<li><a class="reference internal" href="#navigation-marks">Navigation &amp; Marks</a></li>
+<li><a class="reference internal" href="#resonance-table">Resonance Table</a></li>
+<li><a class="reference internal" href="#atom-assignment">Atom Assignment</a></li>
+<li><a class="reference internal" href="#general-information">General &amp; Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../menu/Resonance.html"
+                        title="previous chapter">Resonance</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="EditSpinSystemPopup.html"
+                        title="next chapter">Resonance : Spin Systems</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/BrowseResonancesPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="EditSpinSystemPopup.html" title="Resonance : Spin Systems"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../menu/Resonance.html" title="Resonance"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Resonance.html" >Resonance</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

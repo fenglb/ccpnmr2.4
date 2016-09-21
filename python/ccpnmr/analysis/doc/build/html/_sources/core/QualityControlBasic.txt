@@ -1,0 +1,7 @@
+===================
+QualityControlBasic
+===================
+
+.. automodule:: ccpnmr.analysis.core.QualityControlBasic
+   :members:
+

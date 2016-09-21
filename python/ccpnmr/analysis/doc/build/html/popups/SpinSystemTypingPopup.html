@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Spin System Typing &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Initialise Root Resonances" href="InitRootAssignmentsPopup.html" />
+    <link rel="prev" title="Assignment : Copy Assignments" href="CopyAssignmentsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="InitRootAssignmentsPopup.html" title="Assignment : Initialise Root Resonances"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CopyAssignmentsPopup.html" title="Assignment : Copy Assignments"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-spin-system-typing">
+<h1>Assignment : Spin System Typing<a class="headerlink" href="#assignment-spin-system-typing" title="Permalink to this headline">¶</a></h1>
+<p><strong>Predict Which Types of Residue Spin Systems Represent</strong></p>
+<p>This popup window uses chemical shift information, obtained from the
+resonances of a spin system group, to predict which kind of residue a spin
+system could be. Naturally, the more resonances/shifts there are in a spin
+system the better the prediction will be. Predictions are either made for a
+single spin system in isolation, or for a whole chain; by shuffling the
+residue to spin system mapping to give the optimum arrangement. Prediction for
+individual spin systems, as accessed by [Show Individual Classification], is
+covered in the <a class="reference external" href="../popups/SpinSystemTypeScoresPopup.html">Spin System Type Scores</a> popup and will not be discussed
+here.</p>
+<p><strong>Finding the Optimal Arrangement of Residue Types</strong></p>
+<p>This system attempts to find the best match of spin system to residue type by
+performing a Monte Carlo search to arrange each group of chemical shifts
+amongst the residue types found in the chain. The main principle is that the
+chain&#8217;s residues dictate how many spin systems of a given type may be found,
+such that for example if there is only one Threonine residue then only one
+spin system may be predicted to be of Threonine type. This result comes
+naturally from shuffling the spin systems, with their chemical shifts, amongst
+the residue slots (disregarding sequence position).</p>
+<p>The prediction is made my selecting the chain and shift list to use, then
+which kinds of isotope to consider, by toggling the relevant buttons, choosing
+various Monte Carlo search options and finally selecting [Run Typing]. The
+prediction may take some time to run, depending upon the number of residues
+and spin systems that are being matched, but gives a graphical output of the
+progress. If the final prediction looks good the &#8220;Highest Scoring Mappings&#8221;
+display may be closed and [Assign Types] may be used to set the residue types
+for all of the spin systems in the main table that match only a single type
+and have a score above the assignment threshold value. Spin systems that
+already have a type or full residue assignment will not be affected.</p>
+<p>The default Monte Carlo search options ought to be appropriate for a small
+protein (100 residues) with 1H and 13C chemical shift information. Increasing
+the number of search steps may help if the search does not converge; still
+swaps between optimal assignments toward the end of the search. Increasing the
+ensemble size (how many test mappings are optimised at the same time) may help
+if the prediction gets stuck in local minima; different runs predict different
+arrangement, but larger ensembles require more search steps to converge. Where
+a spin system has multiple residue types predicted these are the types that
+come out of the final ensemble for that set of shifts, i.e. at this point the
+ensemble of solutions differ.</p>
+<p>Overall, it should be noted that if a human being cannot readily predict the
+probably types of a spin system from its shifts alone, then this search tool
+cannot be expected to do a good job; it is merely an optimiser to address the
+problem of shuffling spin systems within a chain.</p>
+<p>The scores are currently unnormalised log-odds values and are not especially
+meaningful in the human sense, other than higher is better (closer to zero
+for negative values). This issue will be addressed in the future.
+Spin systems without a unique type prediction will not get a final score.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Chain</strong>: Selects which molecular chain the spin system residue types will be predicted for; determines which range of types are available</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Shift List</strong>: Selects which shift list will be used as the source of chemical shift information to make the residue type predictions</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Keep existing types?</strong>: Whether any existing residue type information should be preserved, when predicting the type of others</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>-20.0</strong>: The lower limit for the predicted residue type to be set with &#8220;Assign Types&#8221;; needs to be adjusted according to result statistics and amount of shift data</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>20</strong>: The number of best scoring residue type mappings, from the Monte Carlo search, to use un the prediction</p>
+<p><img align="bottom" alt="int" class="align-bottom" src="../_images/int.png" /> <strong>100000</strong>: The number of iterative steps that will be used in the Monte Carlo search of best spin system to residue type mappings</p>
+<p><img align="bottom" alt="selector" class="align-bottom" src="../_images/selector.png" /> <strong>*None*</strong>: Selects which kinds of resonances, in terms of isotope, the residue type predictions will be made with</p>
+</div>
+<div class="section" id="spin-systems">
+<h3>Spin Systems<a class="headerlink" href="#spin-systems" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The spin system serial number</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The residue to which the spin system may currently be assigned</td>
+</tr>
+<tr><td><em>Use?</em></td>
+<td>Set whether to include a particular spin system in the type predictions  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>Score</em></td>
+<td>The spin system to residue type match score for a prediction; higher (less negative) is better</td>
+</tr>
+<tr><td><em>Types</em></td>
+<td>The predicted types of residue that the spin system may be</td>
+</tr>
+<tr><td><em>Shifts</em></td>
+<td>The chemical shifts in the spin system that will be used in the analysis</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Run Typing</strong>: Execute the Monte Carlo search that will make the residue type predictions for the spin systems</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Assign Types</strong>: Assign the residue type of spin systems with a unique type prediction and prediction score above the stated threshold</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Individual Classification</strong>: Show a residue type prediction for the selected spin system alone; only considers that spin system of shifts, not how all spin systems fit to the sequence</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Peaks</strong>: Show a table of peaks that are assigned to the resonances of the selected spin system</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Spin System Typing</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#spin-systems">Spin Systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CopyAssignmentsPopup.html"
+                        title="previous chapter">Assignment : Copy Assignments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="InitRootAssignmentsPopup.html"
+                        title="next chapter">Assignment : Initialise Root Resonances</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/SpinSystemTypingPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="InitRootAssignmentsPopup.html" title="Assignment : Initialise Root Resonances"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CopyAssignmentsPopup.html" title="Assignment : Copy Assignments"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

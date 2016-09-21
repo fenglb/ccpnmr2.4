@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure : Structures &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Structure" href="../menu/Structure.html" />
+    <link rel="next" title="Structure : Structure Viewer" href="ViewStructurePopup.html" />
+    <link rel="prev" title="Structure : Restraints and Violations" href="BrowseConstraintsPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewStructurePopup.html" title="Structure : Structure Viewer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BrowseConstraintsPopup.html" title="Structure : Restraints and Violations"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" accesskey="U">Structure</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="structure-structures">
+<h1>Structure : Structures<a class="headerlink" href="#structure-structures" title="Permalink to this headline">¶</a></h1>
+<p><strong>Manage Coordinate Structure Ensembles and Models</strong></p>
+<p>This system is used to list all of the three-dimensional coordinate
+information in the CCPN project. This data is organised as structure ensembles
+that may contain several models, each of which represents a different
+three-dimensional conformation (albeit only slightly so). All structures in
+CCPN are describes as ensembles, even if there is only one conformation
+present. A structure ensemble can be thought of as being equivalent to the
+ATOM records in a PDB file.</p>
+<p>The various tabs list structure ensemble data in tabular form, if a graphical
+representation of the coordinates is required the user can click on [Viewer] at
+the upper right of the popup window, after selecting an ensemble in any of the
+panels.</p>
+<p><strong>Ensembles</strong></p>
+<p>The first tab contains a table that lists the structure ensembles in the
+current CCPN project. All structures are associated with a specific molecular
+system; a group of molecular chains that go together in the same complex or
+NMR sample. Hence, the &#8220;Molecular System&#8221; pulldown menu allows the user to
+switch between structures that correspond to different molecular groupings,
+although often there will be only one molecular system present.</p>
+<p>Structure ensembles may be imported from PDB and PDB-like files via the
+[Import] function. The associated [Export] will write the selected ensemble to
+disk in a PDB format; albeit only the ATOM records and using IUPAC atom
+nomenclature. For a more formal PDB file export the <a class="reference external" href="FormatConverter.html">FormatConverter</a> should be
+used.</p>
+<p>The conformational models of a structure ensemble may be split apart into
+separate entities via [Split Models]; making structures with one model each.
+Likewise several structure, or ensembles, can be combined into a larger
+ensemble with [Merge Into Ensemble], assuming that all the structures
+represent the same set of atoms.</p>
+<p>The [Superpose Coords] function will move and rotate the relative relative
+orientations of the models within an ensemble so that they superpose (spatially
+align) in an optimal way. This allows for ensemble analyses of structural
+variation, including the calculation of root mean square deviation (RMSD)
+values, which gives a measure of coordinate spread. Once the models of an
+ensemble are superposed the RMSD values will appear in the relevant tables.</p>
+<p><strong>Structure Models</strong></p>
+<p>The second tab lists all of the conformational models that are present within
+a structure ensemble (identified by molecular system code and ensemble number)
+selected in the &#8220;Ensemble&#8221; pulldown menu. The table lists all of the models
+with various textual annotations (that can be changes by the user) and RMSD
+values of each model from the overall ensemble. It should be noted that RMSD
+values will only be displayed if the models of the ensemble have been
+superposed, which can be achieved in this tab using [Superpose &amp; Calculate
+RMSDs].</p>
+<p>The lower graph represents the heavy atom backbone and all atom RMSD values
+for residues across the whole ensemble. Thus the user is able to see any areas
+of regional variation as far as the molecular sequence is concerned.</p>
+<p><strong>Residues</strong></p>
+<p>The &#8220;Residues&#8221; tab lists per-residue information for a structure ensemble
+selected in the upper left pulldown menu. Additionally the user can choose to
+display only certain kinds of residue by changing the &#8220;Ccp Code&#8221; pulldown
+menu. The main table lists the residues with any RMSD values (if they are
+calculated during model superposition), backbone dihedral angles and various
+other structural parameters. Many of the tables columns can be added or
+removed by checking the various options above the table.</p>
+<p>The &#8220;Validation Parameter&#8221; selection at the bottom right of the panel relates
+to structure-derived values that may be used to asses the quality of a
+structure. As standard these will represent various kinds of RMSD value,
+although other validation parameters may appear from time to time. The chosen
+set of parameters may be deleted at any time, causing any corresponding column
+of the table to disappear. The [Display Params] function will use the
+per-residue values to colour a three-dimensional display of the structure,
+thus helping to visualise the location of any structural problems.</p>
+<p><strong>Coords</strong></p>
+<p>The last tab lists all of the coordinate records for a selected
+conformational model in a selected structure ensemble. These are equivalent
+to the ATOM records on a MODEL of a PDB file. The table is for display only
+and cannot currently be edited.</p>
+<p><strong>Model Superposition &amp; RMSD Calculation</strong></p>
+<p>The way that coordinate superposition is done in Analysis aims to eliminate
+any need to make any residue or atom selections. The superposition from the
+inbuilt method should be very good indeed, and aims to give a solution fairly
+close to global more probabilistic methods. It is however not appropriate for
+aligning more minor regions of structure that may be connected via a flexible
+linker to a major globular part; the superposition will converge on the major
+structured region.</p>
+<p>The underlying basis of the method is singular value decomposition to
+calculate an optimum rotation for two coordinate sets with co-located
+centroids. Each atom is weighted, both for the SVD and centroid calculation.
+There are multiple rounds of superimposition to get the ensemble from pairwise
+model comparison and to better refine the weights.</p>
+<p>Initially the weights come from the atomic masses, but in the later stages of
+the superposition the weights come from the atomic RMSDs calculated in the
+earlier round. Accordingly, the dissimilar parts have proportionately little
+influence on the final ensemble (and thus you don&#8217;t need to choose the
+&#8216;structured&#8217; residues). Precisely, the weights are adjusted to be one over the
+mean squared deviation (so for an atom RMSD of 0.1 A its weight is 100, but
+for an RMSD of 3.0 A its weight is 0.111.) and then in the last stage the
+wighting is  exp(-(RMSD/k)^2), which is even more strict (with k=0.8, 0.1 A
+gives weight=0.98, 3.0 A gives weight=0.00000078),</p>
+<p>The superimposition procedure used in Analysis is as follows:</p>
+<blockquote>
+<ul class="simple">
+<li>Translate coordinates to co-locate (weighted) centroids</li>
+<li>SVD superimpose all models to first model; rotation</li>
+<li>Calculate mean and closest model to mean</li>
+<li>Re-calculate weights based upon RMSD</li>
+<li>SVD superimpose again with new weights to closest to mean</li>
+<li>Repeat once again using RMSD-based weights rather than atomic weights</li>
+</ul>
+</blockquote>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Viewer</strong>: Open a graphical display of the current structure</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+</div>
+<div class="section" id="ensembles">
+<h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this headline">¶</a></h2>
+<p>A table of the structure ensembles, according to the molecular system they represent</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecular System</strong>: Selects which molecular system (grouping of chains) to show structure ensembles for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>The identification number of the structure ensemble for the molecular system it represents</td>
+</tr>
+<tr><td><em>Chains</em></td>
+<td>Indicates which chain codes the coordinates of the structure cover</td>
+</tr>
+<tr><td><em>Residues</em></td>
+<td>The number of residues the coordinates of the structure cover</td>
+</tr>
+<tr><td><em>Models</em></td>
+<td>The number of conformational models in the structure ensemble</td>
+</tr>
+<tr><td><em>RMSD</em></td>
+<td>The calculated all-atom root mean square deviation of the whole ensemble, in units of Angstroms</td>
+</tr>
+<tr><td><em>Generation Run</em></td>
+<td>The name of any structure generation run/job that generated the structure ensemble</td>
+</tr>
+<tr><td><em>Violation Lists</em></td>
+<td>The number of violation lists that have been calculated for the structure ensemble</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Show Coords</strong>: Show a table of atom coordinates for a model from the selected ensemble</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Import</strong>: Import a structure from file into the CCPN project</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Export</strong>: Export the selected structure ensemble as a pseudo-PDB format file; no header, ATOM coordinate records only with IUPAC naming</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete</strong>: Delete the selected structure ensemble from the project; any source PDB file remains</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Merge Into Ensemble</strong>: Merge the selected structures into a single milti-model ensemble; only possible of atom records are identical</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Split Models</strong>: Split the selected structure ensemble into separate structure records, each containing only one conformational model</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Superpose Coords</strong>: Perform a two-stage RMSD-weighted superposition of the conformational models in an ensemble; generates RMSD values</p>
+</div>
+<div class="section" id="structure-models">
+<h2>Structure Models<a class="headerlink" href="#structure-models" title="Permalink to this headline">¶</a></h2>
+<p>A table representing the conformational models in an ensemble and a graph of per-residue RMSDs</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: Selects which structure ensemble to show the conformational models and RMSD graph for</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Superpose &amp; Calculate RMSDs</strong>: Calculate all-atom and backbone atom coordinate root mean square deviations for the selected ensemble; fills the graph</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Model</strong>: Delete the currently selected structural model from the ensemble</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 2</strong></td>
+</tr>
+<tr><td><em>Model #</em></td>
+<td>The number of the conformational model within the structure ensemble</td>
+</tr>
+<tr><td><em>Name</em></td>
+<td>A short name for the conformational model, if needed  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>RMSD</em></td>
+<td>The calculated all-atom root mean square deviation of the model coordinates relative to the whole ensemble</td>
+</tr>
+<tr><td><em>Details</em></td>
+<td>A user-provided verbose textual comment about the conformational model  <em>(Editable)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="residues">
+<h2>Residues<a class="headerlink" href="#residues" title="Permalink to this headline">¶</a></h2>
+<p>A table of residues found in a structure and several per-residue parameters</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: Selects which structure ensemble to show residue records for</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ccp Code</strong>: Allows the residue display to be restricted to only a specific kind of residue, if required</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Angles</strong>: Whether to show backbone dihedral angles in the table</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>RMSDs</strong>: Whether to show per-residue coordinate RMSD values in the table; calculated within the ensemble</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Rama. params</strong>: Whether to show the Ramachandran plot regional classification using backbone angles</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Validation results</strong>: Whether to show per-residue structure validation results (of various types where calculated) in the table</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 3</strong></td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain to which the residue belongs</td>
+</tr>
+<tr><td><em>Seq Code</em></td>
+<td>The sequence number of the residue in its chain</td>
+</tr>
+<tr><td><em>Ccp Code</em></td>
+<td>The CCPN code for identifying the kind of residue</td>
+</tr>
+<tr><td><em>Backbone RMSD</em></td>
+<td>The coordinate root mean square deviation for the residue within the ensemble, considering only backbone atoms</td>
+</tr>
+<tr><td><em>All atom RMSD</em></td>
+<td>The coordinate root mean square deviation for the residue within the ensemble, considering all atoms</td>
+</tr>
+<tr><td><em>Φ Angle</em></td>
+<td>The phi protein backbone dihedral angle of the residue (C-N-CA-C)</td>
+</tr>
+<tr><td><em>Ψ Angle</em></td>
+<td>The psi protein backbone dihedral angle of the residue (N-CA-C-N)</td>
+</tr>
+<tr><td><em>Rama. Region</em></td>
+<td>The region of a Ramachandran plot protein backbone dihedral angles lie in</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Calculate RMSDs</strong>: Superpose the conformational models of the selected structure and calculate per-residue and overall RMSD values</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>View Residue</strong>: Open a graphical structure display and label/highlight the selected residue</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Display Params</strong>: Show the selected set of validation parameters as colors on a graphical structure display</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Delete Params</strong>: Delete the selected set of structure validation parameters</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Validation Parameter</strong>: Selects a structure validation parameter to consider; on a graphical structure display of for deletion</p>
+</div>
+<div class="section" id="coords">
+<h2>Coords<a class="headerlink" href="#coords" title="Permalink to this headline">¶</a></h2>
+<p>A table of the coordinate locations of atoms within a conformational model</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Ensemble</strong>: Selects which structure ensemble to select a conformational model from</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Model</strong>: Selects which conformational model within the selected ensemble to display coordinates for</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 4</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Number of atom within the structure</td>
+</tr>
+<tr><td><em>Atom</em></td>
+<td>Name of the atom with coordinates</td>
+</tr>
+<tr><td><em>Residue</em></td>
+<td>The CCPN code of the residue the atom is in</td>
+</tr>
+<tr><td><em>Chain</em></td>
+<td>The code of the molecular chain the atom is in</td>
+</tr>
+<tr><td><em>SeqId</em></td>
+<td>The number of the residue in the sequence; may differ from the molecular system numbering</td>
+</tr>
+<tr><td><em>x</em></td>
+<td>The atom location along the X-axis, in units of Angstroms</td>
+</tr>
+<tr><td><em>y</em></td>
+<td>The atom location along the Y-axis, in units of Angstroms</td>
+</tr>
+<tr><td><em>z</em></td>
+<td>The atom location along the Z-axis, in units of Angstroms</td>
+</tr>
+<tr><td><em>Occupancy</em></td>
+<td>The fractional occupancy of this coordinate position by the atom</td>
+</tr>
+<tr><td><em>B Factor</em></td>
+<td>The X-ray crystallographic B-factor</td>
+</tr>
+<tr><td><em>Locn Code</em></td>
+<td>An alternative location code for coordinate record</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compare-ensembles">
+<h2>Compare Ensembles<a class="headerlink" href="#compare-ensembles" title="Permalink to this headline">¶</a></h2>
+<p>A table and graph of the comparison of structure ensembles</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Molecular System</strong>: Selects which molecular system (grouping of chains) to compare structure ensembles for</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>All atoms</strong>: Compare all atoms</p>
+<p><img align="bottom" alt="radio" class="align-bottom" src="../_images/radio.png" /> <strong>Backbone only</strong>: Compare only backbone atoms</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Compare Ensembles</strong>: Compare the ensembles; fills the table and graph with RMSD values</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 5</strong></td>
+</tr>
+<tr><td><em>Ensembles</em></td>
+<td>The ensembles</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure : Structures</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a></li>
+<li><a class="reference internal" href="#ensembles">Ensembles</a></li>
+<li><a class="reference internal" href="#structure-models">Structure Models</a></li>
+<li><a class="reference internal" href="#residues">Residues</a></li>
+<li><a class="reference internal" href="#coords">Coords</a></li>
+<li><a class="reference internal" href="#compare-ensembles">Compare Ensembles</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BrowseConstraintsPopup.html"
+                        title="previous chapter">Structure : Restraints and Violations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewStructurePopup.html"
+                        title="next chapter">Structure : Structure Viewer</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/EditStructuresPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewStructurePopup.html" title="Structure : Structure Viewer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BrowseConstraintsPopup.html" title="Structure : Restraints and Violations"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Structure.html" >Structure</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

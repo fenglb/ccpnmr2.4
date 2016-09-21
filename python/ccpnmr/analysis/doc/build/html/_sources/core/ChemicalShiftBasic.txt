@@ -1,0 +1,7 @@
+==================
+ChemicalShiftBasic
+==================
+
+.. automodule:: ccpnmr.analysis.core.ChemicalShiftBasic
+   :members:
+

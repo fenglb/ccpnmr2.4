@@ -1,0 +1,196 @@
+=========================
+Experiment : Open Spectra
+=========================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Locate Spectrum Data for Use in CCPN Project**
+
+This popup window enables the user to locate spectrum data within a file
+system and associate the files (typically binary) with an experiment and
+spectrum name so that it may be visualised and accessed within the current
+CCPN project. Spectra of many different origins and file formats may be
+loaded, which currently includes Bruker, Varian, Felix, NMRPipe, NmrView,
+SPARKY/UCSF, Azara and the factorised shape format "USF3". Depending upon the
+file format of the spectrum, data loaded the user may be required to either
+select a parameter file which then refers to the actual spectrum intensity
+data; this is true for Bruker "procs" and AZARA ".par" files, or alternatively
+a spectrum data file itself that contains referencing information; this is
+the case for SPARKY/UCSF, NmrView and NMRPipe spectra.
+
+The layout of the popup involved two sections; the upper of which is for
+navigating to and selecting the spectrum or parameter files within the
+file-system, and the lower is for specifying how each spectrum is loaded into
+the CCPN project. It should be noted that when spectrum parameters are read
+the first time, the relevant information is copied into the CCPN project,
+where it may be adjusted independently of the original file information. No
+copies of the spectrum intensity data are made, the CCPN project merely refers
+to the spectrum data on disk, although the data file for a loaded spectrum may
+subsequently be moved or replaced.
+
+In normal operation the user first selects the kind of spectrum file format
+that will be loaded via the upper "File format" pulldown menu and then checks
+that the "File type" pulldown (toward the bottom of the file browser) is set
+to detect the appropriate kinds of filename; if a helpful file name filter is
+not available the user can add one via the "Manual Select" field, taking care
+to add any wild-card symbols, like the asterisk in "\*.ft3". Next the spectrum
+data or parameter files, appropriate to the selected format, are located by
+navigating within the file-system browser. When the required spectrum files are
+visible the user selects one *or more* to load. Multiple file selections may
+be made using left-click with <Ctrl> (toggle selection) or <Shift> (select
+range). It should be noted that when selecting Bruker files, when using the
+standard Bruker directory structure, the user only needs to navigate to the
+numbered spectrum directory; by default the "procs" file two levels down is
+searched for, e.g. "123/pdata/1/procs" is shown in the directory containing
+the "123" directory.
+
+When spectrum or parameter files are selected in the file table, the lower
+"Spectra To Open" table is filled to reflect the selection. The user should
+then be mindful of the settings within this table and may choose to edit
+various things by double-clicking on the appropriate cell. Typically the user
+just adjusts the name of the independent "Experiment" and "Spectrum" records.
+These names are usually concatenated like "expName:specName" in CCPN graphical
+displays so there is no need to repeat a name in both fields; this only takes
+up more space. The Experiment, which is a record of *what was done
+experimentally*, commonly has a short name like "HNCA" or "HSQC_298K" so the
+user readily knows how to interpret the experimental data. The Spectrum, which
+is a record of *the data that was collected*, commonly has a short name to
+identify the spectrum number or file name. An Experiment record may contain
+several Spectrum records, so the spectrum's name need minimally only identify
+it amongst others from the same experiment. The Shift List value may be
+changed if the user knows that the experiment represents a distinct set of
+conditions, with different spectrum peak/resonance positions, to existing or
+other experiments being entered. Each shift list will be curated separately,
+to give separate chemical shift values for assignments made under different
+conditions (even when relating to the same atoms). The shift list that an
+experiment uses may also be changed at any time after loading.
+
+When all spectra and options are specified the [Open Spectrum] button will
+load the relevant data into the CCPN project. If the "Skip verification
+dialogs" option is set it is assumed that all of the spectrum point to
+frequency referencing information, and any data file references, are correct.
+Otherwise, the user will be prompted to confirm the file details and
+referencing information for each spectrum in turn. Finally, after loading the
+user is asked to set the type of NMR experiment, in terms of general
+magnetisation transfer pathway, that was performed.
+
+**Caveats & Tips**
+
+If the name of an Experiment that is *already within the CCPN project* is
+used, then the loaded spectrum will (assuming it is compatible) be entered
+under that existing experiment record; no new experiment entity will be
+defined. The user may legitimately use this feature to load several spectra
+that relate to the same experiment; typically where spectra are different
+projections. To facilitate this the "Use shared experiment" option can be
+selected.
+
+Although experiments and spectra may be renamed after loading, a spectrum
+record may not be placed under a different experiment once created; deletion
+and re-loading is the only mans of achieving this, and care must be taken in
+transferring any assignments.
+
+
+
+Main Panel
+==========
+
+File Selection
+~~~~~~~~~~~~~~
+
+
+|pulldown| **File format**: Selects which kind of spectrum file is being loaded; what its data matrix format is
+
+===========  ============================================
+**Table 1**
+---------------------------------------------------------
+     *Name*  Name of file, directory or link 
+     *Size*  Size of file in bytes 
+     *Date*  Date of last modification 
+===========  ============================================
+
+
+
+|button| **Back**: Go to previous location in history
+
+|button| **Forward**: Go forward in location history
+
+|button| **Up**: Go up one directory level
+
+|button| **Top**: Go to root directory
+
+|button| **Home**: Go to home directory
+
+|button| **New**: Make a new directory
+
+|button| **Refresh**: Refresh directory listing
+
+
+
+|pulldown| **File type**: Restrict listed files to selected suffix
+
+|check| **Show hidden**: Show hidden files beginning with "." etc.
+
+|pulldown| **Dir path**: Directory navigation to current location
+
+
+Spectra To Open
+~~~~~~~~~~~~~~~
+
+
+|check| **Skip verification dialogs**: Whether to allow the user to check file interpretation and referencing information before the spectrum is loaded
+
+|check| **Use shared experiment**: When selecting multiple spectrum files, whether the loaded spectra will all belong to (derive from) the same experiment; useful for projection spectra etc.
+
+============  ============================================================================================================================================================================
+**Table 2**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*Experiment*  A short textual name for the experiment record that the loaded spectrum will belong to; may be a new experiment or the name of an existing one  *(Editable)*
+  *Spectrum*  A short textual name to identify the spectrum within its experiment; typically a few characters or spectrum number, rather than a repeat of the experiment name  *(Editable)*
+      *File*  The location of the file, relative to the current directory, that the spectrum data will be loaded from 
+   *Windows*  Sets which window or windows the spectrum will initially appear within once loaded  *(Editable)*
+*Shift List*  Sets which shift list the experiment (and hence loaded spectrum) will use to curate chemical shift information; can be changed after load time  *(Editable)*
+============  ============================================================================================================================================================================
+
+
+
+|button| **Open Spectrum**: Load spectrum or spectra into the CCPN project using the selected file(s)
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+

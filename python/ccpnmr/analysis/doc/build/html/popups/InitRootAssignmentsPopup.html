@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Assignment : Initialise Root Resonances &mdash; CcpNmr Analysis v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/ccpn.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CcpNmr Analysis v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Assignment" href="../menu/Assignment.html" />
+    <link rel="next" title="Assignment : Pick &amp; Assign From Roots" href="LinkPeakListsPopup.html" />
+    <link rel="prev" title="Assignment : Spin System Typing" href="SpinSystemTypingPopup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LinkPeakListsPopup.html" title="Assignment : Pick &amp; Assign From Roots"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypingPopup.html" title="Assignment : Spin System Typing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" accesskey="U">Assignment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-initialise-root-resonances">
+<h1>Assignment : Initialise Root Resonances<a class="headerlink" href="#assignment-initialise-root-resonances" title="Permalink to this headline">¶</a></h1>
+<p><strong>Add Starting Resonances and Spin Systems to Root Spectra</strong></p>
+<p>The purpose of this popup window is to setup certain kinds of spectra at the very
+start of the assignment process. This initialisation involves adding new, anonymous
+resonances and spin system (residue) assignments to picked, but unassigned peaks. The
+kinds of spectra that have their peak lists processed in this way are normally those
+that, on the whole, have one peak for each residue in the molecular system. This
+typically involves 15N HSQC and HNCO spectra where you get one peak for each NH
+group. In these instances two resonance are added for each peak; one for the 15N
+dimension and one for the 1H dimension, both resonances for the peak are then added
+to the same spin system (a resonance grouping that stands-in for a residue).</p>
+<p>The initial resonances and spin system groups that have been added to an initialised
+&#8220;root&#8221; spectrum then serve as the basis for assigning related spectra, often with
+higher dimensionality. The general principle is that the positions of the peaks, and
+hence the chemical shifts of their assigned resonances, serve as guides to pick,
+locate and assign peaks in other spectra that share the same resonances in some of
+their dimensions. For example peaks in a 15N HSQC spectrum can be used to link
+equivalent peaks in a 3D HNCA spectrum or 3D 15N HSQC-NOSEY spectrum of the same
+sample because peaks in the 3D spectra derive from the same amide groups. Once
+related spectra have been linked via assignments to a common set of resonances and
+sequential assignment has been performed the resonances and spin systems will no
+longer be anonymous; the resonances will be assigned to specific atoms, and the spin
+systems will be assigned to residues.</p>
+<p>One complication of the initialisation process is that not all peaks in the root
+spectra relate to unique residues or spin systems. The most common such examples are
+peaks that derive from NH2 (amide) side chain groups of Glutamine and Asparagine
+residues. In an 15N HSQC spectrum an NH2 group will give rise to two peaks one for
+each hydrogen, but these peaks share the same nitrogen and thus appear at the same
+15N frequency. When a root spectrum is initialised such peaks must be taken care of
+in the appropriate way; the two peaks of an NH2 group share the same nitrogen
+resonance <em>and</em> the same spin system number.</p>
+<p>The &#8220;Amide Side Chain Peaks&#8221; table in the popup window lists all of the pairs of
+peaks that have similar 15N resonance positions, and which lie in the chemical shift
+regions for NH2 groups. The purpose of the table is for the user to confirm or deny
+that the pairs of peak really are NH2 groups, and not coincidental matches. The user
+can locate a potential NH2 peak pair by selecting an appropriate spectrum window and,
+assuming &#8220;Follow Amides&#8221; is set, clicking on the row for the peak pair. If the peaks
+look like a genuine NH2 pair (similar intensity, deuterium sub-peak etc) then the
+peaks are may be confirmed by double clicking in the &#8220;Confirmed?&#8221; column.</p>
+<p>With any NH2 groups confirmed, the peak list is initialised via [Initialise Peak
+List!] at the top; all peaks will have new resonances and spin systems added, and
+peaks from NH2 groups will be linked appropriately.</p>
+<p><strong>Caveats &amp; Tips</strong></p>
+<p>This initialisation tool is currently limited to the following types of experiment:
+15N HSQC, HNCO, HNcoCA, 13C HSQC.</p>
+<p>Only potential NH2 peak pairs with 15N positions that are within the stated tolerance
+are shown. This tolerance can be reduced to make the amide search more specific,
+although this may be at the expense of detecting NH2 pairs that are distorted due to
+peak overlap.</p>
+<div class="section" id="main-panel">
+<h2>Main Panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Peak List</strong>: For spectra with (mostly) one peak per residue, selects which peak list to initialise; by adding anonymous resonance and spin system numbers</p>
+<p><img align="bottom" alt="float" class="align-bottom" src="../_images/float.png" /> <strong>0.02</strong>: The upper limit in the difference between 15N ppm positions for two peaks to be considered as a potential amide</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Follow Amides</strong>: Sets whether to follow the H-N locations of potential amide peaks when clicking in rows of the table</p>
+<p><img align="bottom" alt="pulldown" class="align-bottom" src="../_images/pulldown.png" /> <strong>Window</strong>: Selects the spectrum window in which to show positions of potential amide peaks</p>
+<p><img align="bottom" alt="check" class="align-bottom" src="../_images/check.png" /> <strong>Mark Amides</strong>: Whether to put a multi-dimensional cross mark though the H-N positions of the selected peak pair</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Clone</strong>: Clone popup window</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Help</strong>: Show popup help document</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Close</strong>: Close popup</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Initialise Peak List!</strong>: For the stated peak list, considering confirmed amide side chain peaks, add spin system and resonance numbers to all peaks</p>
+<div class="section" id="amide-side-chain-peaks">
+<h3>Amide Side Chain Peaks<a class="headerlink" href="#amide-side-chain-peaks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr><td colspan="2"><strong>Table 1</strong></td>
+</tr>
+<tr><td><em>#</em></td>
+<td>Number of the peak pair for the table</td>
+</tr>
+<tr><td><em>Confirmed?</em></td>
+<td>Whether the peak pair is confirmed as being from an amide side chain; a common nitrogen by different hydrogens  <em>(Editable)</em></td>
+</tr>
+<tr><td><em>15N Δppm</em></td>
+<td>The difference in 15N ppm position between the two peaks of the pair</td>
+</tr>
+<tr><td><em>Peak 1</em></td>
+<td>The assignment annotation of the first peak in the pair</td>
+</tr>
+<tr><td><em>Peak 2</em></td>
+<td>The assignment annotation of the second peak in the pair</td>
+</tr>
+<tr><td><em>Shift N</em></td>
+<td>The average 15N position of the peaks in the pair</td>
+</tr>
+<tr><td><em>Shift H1</em></td>
+<td>The 1H chemical shift of the first peak in the pair</td>
+</tr>
+<tr><td><em>Shift H2</em></td>
+<td>The 1H chemical shift of the second peak in the pair</td>
+</tr>
+</tbody>
+</table>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Confirm Selected</strong>: Confirm the selected peak pairs as being amide side chain peaks; a common nitrogen by different hydrogens</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Unconfirm Selected</strong>: remove any conformation for the selected peak pairs being amide side chain peaks</p>
+<p><img align="bottom" alt="button" class="align-bottom" src="../_images/button.png" /> <strong>Update Table</strong>: Manually force an update the table of potential pairs of amide side chain peaks</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment : Initialise Root Resonances</a><ul>
+<li><a class="reference internal" href="#main-panel">Main Panel</a><ul>
+<li><a class="reference internal" href="#amide-side-chain-peaks">Amide Side Chain Peaks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SpinSystemTypingPopup.html"
+                        title="previous chapter">Assignment : Spin System Typing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="LinkPeakListsPopup.html"
+                        title="next chapter">Assignment : Pick &amp; Assign From Roots</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/popups/InitRootAssignmentsPopup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LinkPeakListsPopup.html" title="Assignment : Pick &amp; Assign From Roots"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SpinSystemTypingPopup.html" title="Assignment : Spin System Typing"
+             >previous</a> |</li>
+        <li><a href="../index.html">CcpNmr Analysis v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="../analysisDoc.html" >Program Documentation</a> &raquo;</li>
+          <li><a href="../menu/Assignment.html" >Assignment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Tim Stevens, Wayne Boucher CCPN/Univeristy of Cambridge.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

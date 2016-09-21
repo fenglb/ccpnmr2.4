@@ -1,0 +1,259 @@
+=====================================
+Assignment : Pick & Assign From Roots
+=====================================
+
+
+.. |pulldown| image:: ../images/pulldown.png
+   :align: bottom
+
+
+.. |check| image:: ../images/check.png
+   :align: bottom
+
+
+.. |radio| image:: ../images/radio.png
+   :align: bottom
+
+
+.. |float| image:: ../images/float.png
+   :align: bottom
+
+
+.. |int| image:: ../images/int.png
+   :align: bottom
+
+
+.. |entry| image:: ../images/entry.png
+   :align: bottom
+
+
+.. |button| image:: ../images/button.png
+   :align: bottom
+
+
+.. |ramp| image:: ../images/ramp.png
+   :align: bottom
+
+
+.. |selector| image:: ../images/selector.png
+   :align: bottom
+
+
+**Pick and Assign Peaks Based on Locations in Root Spectra**
+
+This popup window is designed to help in the early stages of peak picking and
+resonance assignment. The main idea is that certain "root" spectra, typically
+an HNCO or 15N HSQC, with initialised peak lists are used as a basis for
+locating and assigning peaks in other spectra that overlap in the relevant
+dimensions. For example you may use the amide peak positions in a 15N HSQC
+spectrum to pick peaks in restricted regions of a 3D HNCACB spectrum and copy
+amide resonance assignments to the amide dimensions of the 3D spectrum where
+they overlap with the HSQC peaks.
+
+Often the root spectrum, that is the source of peak position and assignment
+information, will only be assigned in an anonymous way; the peaks will have
+spin system and resonance numbers (e.g. "{7}[4][5]") and not link to any
+particular residues or atoms. For this tool it doesn't matter whether the root
+peaks carry full assignments or not, all that is important is that there are
+some peaks to specify locations and some form of assignment to copy. The
+easiest way to setup initial assignments on a root spectrum, after picking
+some peaks, is to use the `Initialise Root Resonances`_ option.
+
+In normal operation the user chooses a peak list to act as the the source of
+the root assignments and positions, and maybe a spectrum window to view those
+peaks in. Next the assignable spectra that are to be the target for peak
+picking and/or assignment are chosen. Firstly, the user adds and removes
+spectrum windows to the "Target Windows" list, the spectra to be operated on
+are then selected from those that are visible in these windows. By selecting
+different kinds of window different kinds of spectra may be operated on, so
+for example the user could both work with HCN spectra and HHN spectra with the
+same HSQC root. This tool is largely visual and it is important to be able to
+see the locations that are bing considered (e.g. amide), hence the user is
+only presented with assignable spectra that can potentially be seen. The
+"Assignable Spectra" section is filled with the spectra for the target
+windows that may be assigned, and the user double-clicks in the "Active?"
+to set whether the individual spectra should be operated on or not (for
+peak picking and assignment).
+
+One windows and spectra are setup is is advisable to consider the "Tolerances"
+tab that controls how wide a search region is used to pick and assign peaks
+relative to the positions of the reference, root peaks. The user can also
+setup exclusions to avoid picking peaks near the water signal (e.g. in 15N
+HSQC-NOESY) or homonuclear diagonal.
+
+The last "Link Peaks" tab is the one that remains active while the user is
+actually running the the peak picking and assignment functions. Here, the main
+table lists all of the peaks in the root peak list that are used for position
+and assignment references. Clicking on a row in this table, assuming the
+relevant navigations are checked above, will cause the location of any root
+and target spectrum windows to move in order to show the root (e.g. amide)
+location for the selected row. Even if peaks are not peaked or assigned this
+tool may be used for efficient coordination in window. Typically clicking  on
+an HSQC peak will present an amide position in 3D target windows, locating the
+X and Z axes, so that the user can see the column of peaks that may be
+picked/assigned.
+
+For a single selected root location, the user may transfer assignments or pick
+peaks *and* transfer assignments, by clicking the appropriate buttons in the
+"Pick & Assign Functions" section. This is one-by-one way of working is the
+safest because the user is presented will the spectra for each location and
+will be able to view the result of the peak picking and assignment. The
+equivalent "Process-all Functions" will work though all root locations in the
+table picking and assigning peaks en masse, according to the set tolerances,
+in a quick but less controlled manner.
+
+The "Assign Non-root Resonances" options are present so that you can give a
+starting assignment to the assigned spectra in the dimension that does not
+match the root location. For example, you could add 13C resonances to an
+HNcoCA spectrum or 1H resonances to the indirect dimension 1H dimension of a
+15N HSQC-TOCSY. These "non-root" resonance numbers will all be new and unique,
+thus this operation should only be used for types of experiment where the is
+one peak for each non-root resonance. For example HNcoCA has one peak per CA
+resonance by HNCA usually has two, so the function is only recommended for the
+former.
+
+**Caveats & Tips**
+
+This tool can be operated in two slightly different ways, according to the
+preference of the user and the quality of the spectra. The "Process-all"
+functions can be used to start with, given fairly strict tolerances, but the
+user should then go through each root position checking for and tidying up
+mistakes (picking noise & artefacts for example). Alternatively the root
+locations could be picked and assigned one-by-one so the user can spot
+problems as they occur.
+
+Although the same tolerances, set via the "Tolerances" tab, are used for both
+peak picking and for resonance assignment some peaks that can be picked may
+not be assigned with the same settings. Whereas the peak picking is done
+relative to the root location the assignment, in common with the rest if
+Analysis, is relative to the current chemical shift average and thus may
+differ from the root location. Widening the tolarances a little, or increasing
+the chemical shift weighting of the root spectrum can allow assignments to be
+made if they were previously out of bounds.
+
+.. _`Initialise Root Resonances`: InitRootAssignmentsPopup.html
+
+
+
+Main Panel
+==========
+
+|button| **Clone**: Clone popup window
+
+|button| **Help**: Show popup help document
+
+|button| **Close**: Close popup
+
+Windows & Spectra
+=================
+
+Selection of source or "root" for assignments, the target spectra and which spectrum windows to navigate within
+
+|pulldown| **Root Peak List**: Selects which peak list is considered as the "root"; the positions and assignments that will be used to pick/assign related spectra
+
+|pulldown| **Root Window**: Selects which spectrum window is used to navigate to the location of root peak selected in the "Link Peaks" table
+
+Target Windows
+~~~~~~~~~~~~~~
+
+
+|button| **Remove Target Window**: Remove the selected target window from consideration, so that it is no longer used for navigation and assignment
+
+|button| **Add Target Window**: Add the window selected in the adjacent pulldown list as a source of assignable spectra and a target for navigation
+
+|pulldown| ***None***: Selects a spectrum window, from those not already selected, that may be used for assignment/navigation
+
+==================  =============================================================================================================================================
+**Table 1**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+               *#*  The serial number of the spectrum window 
+            *Name*  The name of the  spectrum window used for navigation and providing assignable spectra 
+*Selected Mapping*  When there are multiple options, states which axes of the window (X, Y, Z...) correspond to the directly bound "root" dimensions  *(Editable)*
+==================  =============================================================================================================================================
+
+
+
+Assignable Spectra
+~~~~~~~~~~~~~~~~~~
+
+
+======================  ==================================================================================================================================================
+**Table 2**
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            *Spectrum*  The "experiment:spectrum" name for the spectrum which may be used for peak picking & assignment; must be present in the above windows 
+             *Active?*  Whether the spectrum is considered active for the processes of peak picking and/or assignment; inactive ones will not be affected  *(Editable)*
+*Assign Non-root dim?*  Whether spectrum dimensions that do not map to the root (typically non-amide) may be assigned; common for HNCO, HNH-TOCSY etc.  *(Editable)*
+     *Experiment Type*  The full CCPN experiment type of the spectrum; should be something with an obvious relation to the root peak list 
+          *Dimensions*  The kinds of isotope (or otherwise) present on the dimensions of the spectrum 
+======================  ==================================================================================================================================================
+
+
+
+Tolerances
+==========
+
+Settings that relate to assignment and peak picking tolerances when going from "root" positions to related spectra
+
+|float| **Root Dim 1**: Sets the upper limit to the dimension 1 assignment tolerance, within which peaks may be picked and assignments made, relative to the root location
+
+|float| **Root Dim 2**: Sets the upper limit to the dimension 2 assignment tolerance, within which peaks may be picked and assignments made, relative to the root location
+
+|float| **4.95**: Sets the lower bound to the 1H ppm exclusion zone, usually representing a water signal, within which no peaks will be picked or assigned
+
+|float| **4.95**: Sets the upper bound to the 1H ppm exclusion zone, usually representing a water signal, within which no peaks will be picked or assigned
+
+|int| **1**: When using multi-dimensional cross marks to indicate peak positions, sets how many marks persist from subsequent peak navigations
+
+|float| **0.25**: Sets the width of the exclusion zone around the 1H-1H homonuclear diagonal, within which no peaks will be picked or assigned 
+
+Link Peaks
+==========
+
+The main assignment & peak picking functions; using a table of the "root" peak that are the source of peak (e.g. amide) positions and assignments.
+
+Root Peaks
+~~~~~~~~~~
+
+
+|check| **Navigate to root**: Sets whether clicking in the root peak table will cause the selected root spectrum window to display the selected peak
+
+|check| **Navigate to targets**: Sets whether clicking in the root peak table will cause the selected navigation window views to move to the selected root position
+
+|check| **Set Non-root Atom Types**: Sets whether for appropriate experiments like HNCO, HNCA, HNHA etc., whether non-root assignment set resonance atom type
+
+===========  ================================================================================================================================================
+**Table 3**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+        *#*  The serial number of the peak in the root peak list 
+*Assign F1*  The assignment of the root peak in the first root dimension, that maps to the (typically) higher dimensionality assignment spectra 
+*Assign F2*  The assignment of the root peak in the second root dimension, that maps to the (typically) higher dimensionality assignment spectra 
+ *Shift F1*  The location of the root peak in the first root dimension; the basis for peak picking and assignment zones 
+ *Shift F2*  The location of the root peak in the second root dimension; the basis for peak picking and assignment zones 
+===========  ================================================================================================================================================
+
+
+
+|button| **Next Root**: If a peak is selected, select the next peak in the table and navigate to that peaks root location
+
+|button| **Previous Root**: If a peak is selected, select the previous peak in the table and navigate to that peaks root location
+
+Pick & Assign Functions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Assign Root Resonances**: Using the selected root peak as the source of assignment, spread assignments to the active spectra, within stated tolerances
+
+|button| **Pick & Assign Root Resonances**: Using the selected root peak as the source of assignment and centre of peak pick zone, pick and assign peaks in the active spectra
+
+|button| **Assign Non-root Resonances**: For the spectrum positions that match the selected root peak, add new (separate) non-root resonances to peaks (where missing)
+
+Process-all Functions
+~~~~~~~~~~~~~~~~~~~~~
+
+
+|button| **Assign All Root Resonances**: Using all peaks in the root peak list as an assignment source, spread assignments to the active spectra, within stated tolerances
+
+|button| **Pick All & Assign Root Resonances**: Using all peaks in the root peak list as assignment sources and peak pick locations, pick and assign peaks in the active spectra
+
+|button| **Assign All Non-root  Resonances**: For the spectrum positions that match the all root peaks, add new (separate) non-root resonances to peaks (where missing)
+
